@@ -371,9 +371,10 @@ class _Atasate extends StatelessWidget {
             const Padding(
               padding: EdgeInsets.only(top: 6),
               child: Text(
-                'RCP-ul de la EMA este un document lung (toate concentrațiile și '
-                'prospectul): prima întrebare costă de câteva ori mai mult.',
-                style: TextStyle(color: AppColors.red, fontSize: 12.5),
+                'La medicamentele autorizate de EMA se trimit secțiunile clinice '
+                'extrase în aplicație (4.1–4.9), nu PDF-ul întreg. Dacă extrasul '
+                'lipsește, se trimite documentul, de câteva ori mai scump.',
+                style: TextStyle(color: AppColors.muted, fontSize: 12.5),
               ),
             ),
           if (asistent.atasate.isNotEmpty)

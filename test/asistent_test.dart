@@ -7,6 +7,7 @@ import 'package:medro/providers/asistent_provider.dart';
 import 'package:medro/providers/interactiuni_provider.dart';
 import 'package:medro/providers/medicamente_provider.dart';
 import 'package:medro/services/claude_client.dart';
+import 'package:medro/services/data_store.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 http.Response jsonRaspuns(Object corp, [int cod = 200]) {
@@ -287,6 +288,45 @@ void main() {
         expect(p.asteapta, isFalse);
       },
     );
+
+    test('RCP-ul EMA se trimite ca extras de text, nu ca PDF', () async {
+      final cereri = <http.Request>[];
+      final p = cuRaspunsuri([
+        (_) => jsonRaspuns(raspunsText('Raspuns')),
+      ], cereri);
+      final index =
+          (await DataStore.instance.jsonGz('rcp/index.json.gz')) as Map;
+      final ema = med
+          .cauta('', FiltruMedicamente.toate, atcPrefix: 'N05A')
+          .firstWhere((m) => m.centralizat && index.containsKey(m.rcpUrl));
+      p.ataseaza(ema);
+
+      await p.trimite('Care este doza maximă?', med, inter);
+
+      final continut =
+          (mesajeDin(cereri.single).single as Map)['content'] as List;
+      final document = continut.singleWhere((b) => b['type'] == 'document');
+      expect(document['title'], 'RCP ${ema.denumire} (extras)');
+      expect(document['citations'], {'enabled': true});
+      expect(document['cache_control'], {'type': 'ephemeral'});
+      final sursa = document['source'] as Map;
+      expect(sursa['type'], 'text');
+      expect(sursa['media_type'], 'text/plain');
+      final text = sursa['data'] as String;
+      expect(text, contains('4.2 Doze și mod de administrare'));
+      expect(text.length, lessThan(80000));
+      if (med.contraindicatii(ema) != null) {
+        expect(text, contains('4.3 Contraindicații'));
+      }
+      // sectiunile apar in ordinea din RCP
+      expect(
+        AsistentProvider.textExtras(const {'4.4': 'b', '4.1': 'a'}, 'c'),
+        endsWith(
+          '4.1 Indicații terapeutice\na\n\n4.3 Contraindicații\nc\n\n'
+          '4.4 Atenționări și precauții\nb',
+        ),
+      );
+    });
 
     test('a doua intrebare retrimite istoricul neschimbat, cu blocurile de gandire', () async {
       final cereri = <http.Request>[];

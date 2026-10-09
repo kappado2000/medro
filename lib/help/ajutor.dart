@@ -585,8 +585,9 @@ const ajutorAsistent = Ajutor(
         (
           'Fiecare întrebare costă',
           'prima întrebare cu un RCP atașat este cea mai scumpă; următoarele din aceeași '
-              'conversație costă mult mai puțin. RCP-urile de la EMA sunt lungi și costă de '
-              'câteva ori mai mult; aplicația te avertizează.',
+              'conversație costă mult mai puțin. La medicamentele autorizate de EMA, al căror '
+              'RCP are sute de pagini, se trimit doar secțiunile clinice 4.1–4.9 extrase în '
+              'aplicație, ca să nu plătești tot documentul.',
         ),
         (
           'Poate greși',

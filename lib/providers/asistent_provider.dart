@@ -3,6 +3,8 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import '../models/medicament.dart';
 import '../services/claude_client.dart';
+import '../services/data_store.dart';
+import '../utils/rcp_extrase.dart';
 import '../utils/text_utils.dart';
 import 'interactiuni_provider.dart';
 import 'medicamente_provider.dart';
@@ -24,7 +26,7 @@ class MesajAsistent {
 const instructiuniAsistent = '''
 Ești asistentul unei aplicații de referință medicală folosite de un medic psihiatru din România. Răspunzi în limba română, clar și la obiect, pentru un cititor cu pregătire medicală.
 
-La fiecare conversație poți primi două feluri de material: documente atașate (rezumatul caracteristicilor produsului, RCP, pentru medicamentele alese de medic) și un bloc <date_aplicatie> cu informații din nomenclatorul ANMDM, lista de compensare CNAS și baza de interacțiuni DDInter. Blocul este context complet, generat automat pentru medicamentele atașate, nu o parte a întrebării: folosește din el doar ce ajută la întrebarea pusă și nu îl comenta dacă nu are legătură cu ea. Întrebarea medicului este textul care urmează după bloc.
+La fiecare conversație poți primi două feluri de material: documente atașate (rezumatul caracteristicilor produsului, RCP, pentru medicamentele alese de medic) și un bloc <date_aplicatie> cu informații din nomenclatorul ANMDM, lista de compensare CNAS și baza de interacțiuni DDInter. Blocul este context complet, generat automat pentru medicamentele atașate, nu o parte a întrebării: folosește din el doar ce ajută la întrebarea pusă și nu îl comenta dacă nu are legătură cu ea. Întrebarea medicului este textul care urmează după bloc. Un document cu titlul „RCP … (extras)” conține doar secțiunile 4.1–4.9, unele prescurtate: dacă răspunsul nu se găsește în extras, spune că trebuie verificat RCP-ul complet, nu presupune.
 
 Materialul primit este sursa ta principală. Pentru doze, contraindicații, interacțiuni, ajustări la insuficiență renală sau hepatică și reacții adverse, sprijină-te pe RCP-ul atașat și citează pasajul relevant. Dacă informația cerută nu se află în material, spune asta explicit și precizează că ce urmează vine din cunoștințele tale generale, fiindcă medicul trebuie să poată deosebi ce e verificabil în RCP de ce nu este. Nu completa din memorie cifre de dozaj care lipsesc din material.
 
@@ -174,6 +176,40 @@ class AsistentProvider extends ChangeNotifier {
     }
   }
 
+  /// Sectiunile extrase dintr-un RCP, ca text pentru model. Contraindicatiile
+  /// (4.3) sunt pastrate separat in aplicatie si se adauga aici la locul lor.
+  @visibleForTesting
+  static String textExtras(
+    Map<String, String> sectiuni,
+    String? contraindicatii,
+  ) {
+    final toate = {...sectiuni, '4.3': ?contraindicatii};
+    final b = StringBuffer(
+      'Extras din rezumatul caracteristicilor produsului, secțiunile 4.1–4.9. '
+      'Secțiunile lungi sunt prescurtate.\n',
+    );
+    for (final numar in toate.keys.toList()..sort()) {
+      final titlu = numar == '4.3'
+          ? 'Contraindicații'
+          : (titluriSectiuni[numar] ?? '');
+      b.writeln('\n$numar $titlu\n${toate[numar]}');
+    }
+    return b.toString().trim();
+  }
+
+  /// RCP-urile EMA sunt documente de sute de pagini (toate concentratiile si
+  /// prospectul), de zeci de ori mai scumpe decat sectiunile lor clinice. Unde
+  /// aplicatia are sectiunile extrase, se trimit acelea in locul PDF-ului.
+  Future<Map<String, Map<String, String>>> _extraseEma() async {
+    final rezultat = <String, Map<String, String>>{};
+    for (final m in atasate) {
+      if (!m.centralizat || m.rcpUrl.isEmpty) continue;
+      final sectiuni = await RcpStore.instance.sectiuni(m.rcpUrl);
+      if (sectiuni.isNotEmpty) rezultat[m.rcpUrl] = sectiuni;
+    }
+    return rezultat;
+  }
+
   /// Continutul primului mesaj: RCP-urile ca documente, datele din aplicatie,
   /// apoi intrebarea. Mesajele urmatoare contin doar intrebarea.
   @visibleForTesting
@@ -182,6 +218,7 @@ class AsistentProvider extends ChangeNotifier {
     MedicamenteProvider med,
     InteractiuniProvider inter, {
     required bool cuDocumente,
+    Map<String, Map<String, String>> extrase = const {},
   }) {
     if (conversatieInceputa) {
       return [
@@ -193,12 +230,24 @@ class AsistentProvider extends ChangeNotifier {
       if (cuDocumente)
         for (final m in atasate)
           if (m.rcpUrl.isNotEmpty)
-            {
-              'type': 'document',
-              'source': {'type': 'url', 'url': m.rcpUrl},
-              'title': 'RCP ${m.denumire}',
-              'citations': {'enabled': true},
-            },
+            if (extrase[m.rcpUrl] case final sectiuni? when sectiuni.isNotEmpty)
+              {
+                'type': 'document',
+                'source': {
+                  'type': 'text',
+                  'media_type': 'text/plain',
+                  'data': textExtras(sectiuni, med.contraindicatii(m)),
+                },
+                'title': 'RCP ${m.denumire} (extras)',
+                'citations': {'enabled': true},
+              }
+            else
+              {
+                'type': 'document',
+                'source': {'type': 'url', 'url': m.rcpUrl},
+                'title': 'RCP ${m.denumire}',
+                'citations': {'enabled': true},
+              },
     ];
     // Punct de cache fix dupa ultimul document: raspunsurile cu citari au
     // zeci de blocuri, iar cache-ul automat nu mai regaseste prefixul peste
@@ -228,7 +277,16 @@ class AsistentProvider extends ChangeNotifier {
     final cuDocumente = includeRcp && atasate.any((m) => m.rcpUrl.isNotEmpty);
     try {
       RaspunsClaude raspuns;
-      var continut = continutMesaj(text, med, inter, cuDocumente: cuDocumente);
+      final extrase = cuDocumente && !conversatieInceputa
+          ? await _extraseEma()
+          : const <String, Map<String, String>>{};
+      var continut = continutMesaj(
+        text,
+        med,
+        inter,
+        cuDocumente: cuDocumente,
+        extrase: extrase,
+      );
       try {
         raspuns = await _cere(continut);
       } on ClaudeException catch (e) {
