@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 
 import '../providers/icd_provider.dart';
+import '../help/ajutor.dart';
 import '../theme/app_theme.dart';
 
 class IcdScreen extends StatefulWidget {
@@ -40,14 +41,21 @@ class _IcdScreenState extends State<IcdScreen> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Text(
-                    'ICD-10',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 26,
-                      fontWeight: FontWeight.w800,
-                      letterSpacing: -0.5,
-                    ),
+                  Row(
+                    children: [
+                      Expanded(
+                        child: const Text(
+                          'ICD-10',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 26,
+                            fontWeight: FontWeight.w800,
+                            letterSpacing: -0.5,
+                          ),
+                        ),
+                      ),
+                      const ButonAjutor(ajutorIcd),
+                    ],
                   ),
                   const SizedBox(height: 6),
                   Text(

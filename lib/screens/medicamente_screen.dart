@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../providers/medicamente_provider.dart';
+import '../help/ajutor.dart';
 import '../theme/app_theme.dart';
 import '../utils/clase_psihotrope.dart';
 import '../widgets/medicament_widgets.dart';
@@ -249,6 +250,8 @@ class _Header extends StatelessWidget {
                       letterSpacing: -0.5,
                     ),
                   ),
+                  const Spacer(),
+                  const ButonAjutor(ajutorMedicamente),
                 ],
               ),
               const SizedBox(height: 6),

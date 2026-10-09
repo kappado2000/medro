@@ -6,6 +6,7 @@ import '../providers/asistent_provider.dart';
 import '../providers/interactiuni_provider.dart';
 import '../providers/medicamente_provider.dart';
 import '../services/claude_client.dart';
+import '../help/ajutor.dart';
 import '../theme/app_theme.dart';
 
 class AsistentScreen extends StatefulWidget {
@@ -134,6 +135,7 @@ class _AsistentScreenState extends State<AsistentScreen> {
                       ],
                     ),
                   ),
+                  const ButonAjutor(ajutorAsistent),
                   if (asistent.disponibil) ...[
                     IconButton(
                       tooltip: 'Conversație nouă',

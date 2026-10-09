@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import '../calculators/calculator.dart';
+import '../help/ajutor.dart';
 import '../theme/app_theme.dart';
 
 class CalculatorScreen extends StatefulWidget {
@@ -74,6 +75,7 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
       appBar: AppBar(
         title: Text(calc.titlu),
         actions: [
+          const ButonAjutor(ajutorCalculatoare),
           IconButton(
             tooltip: 'Resetează',
             icon: const Icon(Icons.refresh),

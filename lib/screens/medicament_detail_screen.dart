@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+import '../help/ajutor.dart';
 import '../models/medicament.dart';
 import '../providers/asistent_provider.dart';
 import '../providers/interactiuni_provider.dart';
@@ -59,6 +60,7 @@ class MedicamentDetailScreen extends StatelessWidget {
               overflow: TextOverflow.ellipsis,
             ),
             actions: [
+              const ButonAjutor(ajutorPaginaMedicament),
               IconButton(
                 tooltip: favorit ? 'Scoate din favorite' : 'Adaugă la favorite',
                 icon: Icon(

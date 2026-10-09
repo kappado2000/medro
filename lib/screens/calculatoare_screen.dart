@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../calculators/calculator.dart';
 import '../calculators/lista_calculatoare.dart';
+import '../help/ajutor.dart';
 import '../theme/app_theme.dart';
 import '../utils/text_utils.dart';
 import 'calculator_screen.dart';
@@ -53,14 +54,21 @@ class _CalculatoareScreenState extends State<CalculatoareScreen> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Text(
-                    'Calculatoare',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 26,
-                      fontWeight: FontWeight.w800,
-                      letterSpacing: -0.5,
-                    ),
+                  Row(
+                    children: [
+                      Expanded(
+                        child: const Text(
+                          'Calculatoare',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 26,
+                            fontWeight: FontWeight.w800,
+                            letterSpacing: -0.5,
+                          ),
+                        ),
+                      ),
+                      const ButonAjutor(ajutorCalculatoare),
+                    ],
                   ),
                   const SizedBox(height: 6),
                   Text(

@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 import '../models/medicament.dart';
 import '../providers/interactiuni_provider.dart';
 import '../providers/medicamente_provider.dart';
+import '../help/ajutor.dart';
 import '../theme/app_theme.dart';
 
 String etichetaSeveritate(Severitate s) {
@@ -77,14 +78,21 @@ class _InteractiuniScreenState extends State<InteractiuniScreen> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Text(
-                    'Interacțiuni',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 26,
-                      fontWeight: FontWeight.w800,
-                      letterSpacing: -0.5,
-                    ),
+                  Row(
+                    children: [
+                      Expanded(
+                        child: const Text(
+                          'Interacțiuni',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 26,
+                            fontWeight: FontWeight.w800,
+                            letterSpacing: -0.5,
+                          ),
+                        ),
+                      ),
+                      const ButonAjutor(ajutorInteractiuni),
+                    ],
                   ),
                   const SizedBox(height: 6),
                   Text(
