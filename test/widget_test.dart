@@ -148,6 +148,45 @@ void main() {
     expect(toate.map((m) => m.id).toSet().length, toate.length);
   });
 
+  test(
+    'compensarea se regaseste si dupa denumire, cand codul ambalajului difera',
+    () {
+      final dupaNume = [
+        for (final litera in 'ABCDGHJLMNPRSV'.split(''))
+          ...provider.cauta(
+            '',
+            FiltruMedicamente.compensate,
+            atcPrefix: litera,
+          ),
+      ].where((m) => provider.compensareDupaNume(m).isNotEmpty).toList();
+      expect(dupaNume.length, greaterThan(200));
+      for (final m in dupaNume.take(30)) {
+        // potrivirea dupa denumire se foloseste doar in lipsa codurilor
+        expect(
+          m.ambalaje.every((a) => provider.compensareAmbalaj(a.cim).isEmpty),
+          isTrue,
+        );
+        final c = provider.compensareDupaNume(m);
+        expect(
+          c.every((x) => x.ambalajCnas != null && x.ambalajCnas!.isNotEmpty),
+          isTrue,
+        );
+        expect(m.liste.toSet(), c.map((x) => x.lista).toSet());
+      }
+      expect(
+        cheieCompensareNume('TINIZOL (R) 500 mg (J01XD02)', 'Tinidazolum'),
+        'TINIZOL500MG|TINIDAZOLUM',
+      );
+    },
+  );
+
+  test('vechimea datelor se calculeaza din data nomenclatorului', () {
+    final zile = provider.zileVechime(DateTime(2027, 1, 16));
+    expect(zile, isNotNull);
+    expect(zile, greaterThan(0));
+    expect(provider.zileVechime(), isNotNull);
+  });
+
   test('filtrele separa OTC de reteta', () {
     final otc = provider.cauta('', FiltruMedicamente.faraReteta);
     final rx = provider.cauta('', FiltruMedicamente.cuReteta);

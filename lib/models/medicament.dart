@@ -22,12 +22,17 @@ class Compensare {
   /// Contributia pentru pensionarii cu venituri mici; exista doar la sublista B.
   final double? contributiePensionari;
 
+  /// Ambalajul asa cum apare in lista CNAS; completat doar cand potrivirea
+  /// s-a facut dupa denumire, nu dupa codul ambalajului.
+  final String? ambalajCnas;
+
   const Compensare(
     this.lista,
     this.pret,
     this.contributie,
-    this.contributiePensionari,
-  );
+    this.contributiePensionari, [
+    this.ambalajCnas,
+  ]);
 
   factory Compensare.fromJson(List<dynamic> j) {
     return Compensare(
@@ -35,8 +40,20 @@ class Compensare {
       (j[1] as num).toDouble(),
       (j[2] as num).toDouble(),
       (j[3] as num?)?.toDouble(),
+      j.length > 4 ? j[4] as String : null,
     );
   }
+}
+
+/// Cheia de potrivire dupa denumire si substanta; aceeasi regula ca in
+/// tool/build_compensare.py.
+String cheieCompensareNume(String denumire, String dci) {
+  final fara = denumire
+      .toUpperCase()
+      .replaceAll(RegExp(r'\([^)]*\)'), '')
+      .replaceAll('®', '')
+      .replaceAll(RegExp(r'[^A-Z0-9,./%]'), '');
+  return '$fara|${dci.toUpperCase().trim()}';
 }
 
 /// Procentul de compensare al fiecarei subliste, conform legendei CNAS.

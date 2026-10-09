@@ -23,6 +23,7 @@ class MedicamenteProvider extends ChangeNotifier {
   Set<String> _favorite = {};
   Map<String, List<Compensare>> _compensare = const {};
   Map<String, List<String>> _listeDci = const {};
+  Map<String, List<Compensare>> _compensareNume = const {};
 
   /// Sectiunea 4.3 din RCP, dupa adresa documentului.
   Map<String, String> _contraindicatii = const {};
@@ -34,6 +35,22 @@ class MedicamenteProvider extends ChangeNotifier {
   String? eroare;
 
   int get total => _toate.length;
+
+  /// Cate zile au trecut de la data nomenclatorului inclus in aplicatie
+  /// ("08.10.26"); null daca data nu poate fi citita.
+  int? zileVechime([DateTime? azi]) {
+    final m = RegExp(r'^(\d{2})\.(\d{2})\.(\d{2})$').firstMatch(actualizat);
+    if (m == null) return null;
+    final data = DateTime(
+      2000 + int.parse(m.group(3)!),
+      int.parse(m.group(2)!),
+      int.parse(m.group(1)!),
+    );
+    return (azi ?? DateTime.now()).difference(data).inDays;
+  }
+
+  /// Peste acest prag, antetul avertizeaza ca datele trebuie actualizate.
+  static const pragVechimeZile = 90;
   int get totalSubstante => _dupaDci.length;
 
   Future<void> incarca() async {
@@ -91,12 +108,24 @@ class MedicamenteProvider extends ChangeNotifier {
       for (final e in (data['dci'] as Map<String, dynamic>).entries)
         e.key: (e.value as List).cast<String>(),
     };
+    _compensareNume = {
+      for (final e
+          in ((data['nume'] as Map<String, dynamic>?) ?? const {}).entries)
+        e.key: [
+          for (final c in e.value as List) Compensare.fromJson(c as List),
+        ],
+    };
     dataCompensare = data['data'] as String;
     for (final m in _toate) {
       final liste = <String>{
         for (final a in m.ambalaje)
           for (final c in _compensare[a.cim] ?? const <Compensare>[]) c.lista,
       };
+      // codul ambalajului se schimba la reautorizare; atunci produsul se
+      // regaseste in lista CNAS doar dupa denumire
+      if (liste.isEmpty) {
+        liste.addAll(compensareDupaNume(m).map((c) => c.lista));
+      }
       if (liste.isNotEmpty) m.liste = liste.toList()..sort();
     }
   }
@@ -104,6 +133,13 @@ class MedicamenteProvider extends ChangeNotifier {
   /// Incadrarile CNAS ale unui ambalaj, dupa codul CIM.
   List<Compensare> compensareAmbalaj(String cim) =>
       _compensare[cim] ?? const [];
+
+  /// Incadrarile gasite dupa denumire, cand niciun cod de ambalaj al
+  /// produsului nu apare in lista CNAS.
+  List<Compensare> compensareDupaNume(Medicament m) {
+    if (m.ambalaje.any((a) => _compensare.containsKey(a.cim))) return const [];
+    return _compensareNume[cheieCompensareNume(m.denumire, m.dci)] ?? const [];
+  }
 
   /// Sublistele in care figureaza substanta activa, indiferent de ambalaj.
   List<String> listeSubstanta(String dci) => _listeDci[dci] ?? const [];

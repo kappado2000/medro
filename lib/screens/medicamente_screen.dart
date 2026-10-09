@@ -230,6 +230,7 @@ class _Header extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final vechime = provider.incarcat ? provider.zileVechime() : null;
     final subtitlu = provider.incarcat && provider.eroare == null
         ? '${provider.total} medicamente · ${provider.totalSubstante} substanțe · '
               'ANMDM ${provider.actualizat}'
@@ -256,7 +257,8 @@ class _Header extends StatelessWidget {
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(11),
                     ),
-                    child: const _CruceRosie(),
+                    padding: const EdgeInsets.all(3),
+                    child: Image.asset('assets/images/capsula.png'),
                   ),
                   const SizedBox(width: 12),
                   const Text(
@@ -288,6 +290,31 @@ class _Header extends StatelessWidget {
                   ),
                 ),
               ),
+              if (vechime != null &&
+                  vechime > MedicamenteProvider.pragVechimeZile)
+                Padding(
+                  padding: const EdgeInsets.only(top: 6),
+                  child: Row(
+                    children: [
+                      const Icon(
+                        Icons.warning_amber_rounded,
+                        color: Colors.white,
+                        size: 16,
+                      ),
+                      const SizedBox(width: 6),
+                      Expanded(
+                        child: Text(
+                          'Date vechi de $vechime zile – aplicația trebuie actualizată.',
+                          style: const TextStyle(
+                            color: Colors.white,
+                            fontSize: 12.5,
+                            fontWeight: FontWeight.w700,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
               const SizedBox(height: 16),
               TextField(
                 controller: controller,
@@ -361,31 +388,6 @@ class _Mesaj extends StatelessWidget {
           ],
         ),
       ),
-    );
-  }
-}
-
-/// Crucea rosie din emblema, desenata din doua bare groase (iconita standard
-/// "plus" este prea subtire).
-class _CruceRosie extends StatelessWidget {
-  const _CruceRosie();
-
-  static const _lungime = 24.0;
-  static const _grosime = 9.0;
-
-  @override
-  Widget build(BuildContext context) {
-    Widget bara(double latime, double inaltime) => Container(
-      width: latime,
-      height: inaltime,
-      decoration: BoxDecoration(
-        color: AppColors.red,
-        borderRadius: BorderRadius.circular(2),
-      ),
-    );
-    return Stack(
-      alignment: Alignment.center,
-      children: [bara(_lungime, _grosime), bara(_grosime, _lungime)],
     );
   }
 }

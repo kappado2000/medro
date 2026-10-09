@@ -288,9 +288,6 @@ class _CompensareCnas extends StatelessWidget {
   final MedicamenteProvider provider;
   const _CompensareCnas({required this.medicament, required this.provider});
 
-  static String _lei(double v) =>
-      '${v.toStringAsFixed(2).replaceAll('.', ',')} lei';
-
   @override
   Widget build(BuildContext context) {
     final m = medicament;
@@ -304,6 +301,25 @@ class _CompensareCnas extends StatelessWidget {
     }
     final sursa =
         'Lista CNAS din ${provider.dataCompensare}, prețuri pentru farmacii comunitare.';
+    final dupaNume = provider.compensareDupaNume(m);
+    if (dupaNume.isNotEmpty) {
+      return Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          for (final c in dupaNume) ...[
+            Text(c.ambalajCnas ?? '', style: text),
+            const SizedBox(height: 6),
+            _RandCompensare(c),
+            const SizedBox(height: 6),
+          ],
+          Text(
+            '$sursa Ambalajele sunt cele din lista CNAS; codurile lor diferă de '
+            'cele din nomenclatorul actual.',
+            style: nota,
+          ),
+        ],
+      );
+    }
     if (m.liste.isEmpty) {
       final substanta = provider.listeSubstanta(m.dci);
       return Column(
@@ -329,57 +345,7 @@ class _CompensareCnas extends StatelessWidget {
             Text(a.descriere, style: text),
             const SizedBox(height: 6),
             for (final c in provider.compensareAmbalaj(a.cim))
-              Padding(
-                padding: const EdgeInsets.only(bottom: 6),
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Container(
-                      width: 38,
-                      padding: const EdgeInsets.symmetric(vertical: 4),
-                      alignment: Alignment.center,
-                      decoration: BoxDecoration(
-                        color: AppColors.blueSoft,
-                        borderRadius: BorderRadius.circular(8),
-                      ),
-                      child: Text(
-                        c.lista,
-                        style: const TextStyle(
-                          color: AppColors.blue,
-                          fontWeight: FontWeight.w800,
-                          fontSize: 12.5,
-                        ),
-                      ),
-                    ),
-                    const SizedBox(width: 10),
-                    Expanded(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            'Compensare ${procentCompensare(c.lista)}',
-                            style: const TextStyle(
-                              color: AppColors.ink,
-                              fontSize: 14,
-                              fontWeight: FontWeight.w700,
-                            ),
-                          ),
-                          Text(
-                            'Preț maximal ${_lei(c.pret)} · contribuție maximă '
-                            '${_lei(c.contributie)}',
-                            style: nota,
-                          ),
-                          if (c.contributiePensionari != null)
-                            Text(
-                              'Pensionari cu venituri mici: ${_lei(c.contributiePensionari!)}',
-                              style: nota,
-                            ),
-                        ],
-                      ),
-                    ),
-                  ],
-                ),
-              ),
+              _RandCompensare(c),
             const SizedBox(height: 6),
           ],
         Text(sursa, style: nota),
@@ -480,6 +446,71 @@ class _ContraindicatiiState extends State<_Contraindicatii> {
           const Text(
             'Text extras automat din RCP, secțiunea 4.3. Verifică documentul.',
             style: TextStyle(color: AppColors.muted, fontSize: 12),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+/// O incadrare CNAS: sublista, procentul, pretul maximal si contributia.
+class _RandCompensare extends StatelessWidget {
+  final Compensare c;
+  const _RandCompensare(this.c);
+
+  static String _lei(double v) =>
+      '${v.toStringAsFixed(2).replaceAll('.', ',')} lei';
+
+  @override
+  Widget build(BuildContext context) {
+    const nota = TextStyle(color: AppColors.muted, fontSize: 12.5, height: 1.4);
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 6),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Container(
+            width: 38,
+            padding: const EdgeInsets.symmetric(vertical: 4),
+            alignment: Alignment.center,
+            decoration: BoxDecoration(
+              color: AppColors.blueSoft,
+              borderRadius: BorderRadius.circular(8),
+            ),
+            child: Text(
+              c.lista,
+              style: const TextStyle(
+                color: AppColors.blue,
+                fontWeight: FontWeight.w800,
+                fontSize: 12.5,
+              ),
+            ),
+          ),
+          const SizedBox(width: 10),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  'Compensare ${procentCompensare(c.lista)}',
+                  style: const TextStyle(
+                    color: AppColors.ink,
+                    fontSize: 14,
+                    fontWeight: FontWeight.w700,
+                  ),
+                ),
+                Text(
+                  'Preț maximal ${_lei(c.pret)} · contribuție maximă '
+                  '${_lei(c.contributie)}',
+                  style: nota,
+                ),
+                if (c.contributiePensionari != null)
+                  Text(
+                    'Pensionari cu venituri mici: ${_lei(c.contributiePensionari!)}',
+                    style: nota,
+                  ),
+              ],
+            ),
           ),
         ],
       ),

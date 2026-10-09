@@ -9,7 +9,7 @@ import io
 import json
 import re
 import sys
-import urllib.request
+import subprocess
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -22,12 +22,21 @@ UA = {
 }
 # coloanele tabelului CNAS
 DENUMIRE, DCI, LISTA, CIM = 0, 1, 2, 3
+AMBALAJ = 8
 CANTITATE, PRET_AMBALAJ, PRET_UT = 11, 12, 13
 CONTRIB_100, CONTRIB_LISTA, CONTRIB_PENSIONARI = 14, 15, 16
 
 
 def numar(text: str) -> float:
     return float(text.replace(".", "").replace(",", ".")) if text else 0.0
+
+
+def cheie_nume(denumire: str, dci: str) -> str:
+    """Cheie de potrivire dupa denumire comerciala si substanta, pentru
+    ambalajele al caror cod din lista CNAS nu mai exista in nomenclator
+    (codul se schimba la reautorizare). Aceeasi regula e in aplicatie."""
+    n = re.sub(r"\([^)]*\)", "", denumire.upper()).replace("®", "")
+    return re.sub(r"[^A-Z0-9,./%]", "", n) + "|" + dci.upper().strip()
 
 
 def cells(row: str) -> list[str]:
@@ -41,9 +50,13 @@ def main() -> None:
     sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8")
     if "--refresh" in sys.argv or not CACHE.exists():
         CACHE.parent.mkdir(parents=True, exist_ok=True)
-        req = urllib.request.Request(URL, headers=UA)
-        with urllib.request.urlopen(req, timeout=180) as r:
-            CACHE.write_bytes(r.read())
+        # -k: certificatul site-ului CNAS a fost gasit expirat; pagina e publica
+        # si nu trimitem nimic, deci verificarea lui nu protejeaza nimic aici
+        subprocess.run(
+            ["curl", "-s", "-k", "-L", "--max-time", "300", "-A", UA["User-Agent"],
+             "-o", str(CACHE), URL],
+            check=True,
+        )
     page = CACHE.read_text(encoding="utf-8")
 
     table = re.search(r'<table[^>]*id="tablepress-4"[^>]*>(.*?)</table>', page, flags=re.S)
@@ -60,24 +73,31 @@ def main() -> None:
     # un ambalaj apare o data pentru fiecare sublista (si repetat pentru programe)
     by_cim: dict[str, dict[str, list]] = {}
     by_dci: dict[str, set[str]] = {}
+    by_nume: dict[str, dict[tuple, list]] = {}
     for r in rows:
         lista = r[LISTA]
         by_dci.setdefault(r[DCI].upper(), set()).add(lista)
         # la sublistele C se aplica contributia pentru compensare 100%
         contributie = r[CONTRIB_100] if lista.startswith("C") else r[CONTRIB_LISTA]
         cantitate = numar(r[CANTITATE])
-        by_cim.setdefault(r[CIM], {})[lista] = [
+        intrare = [
             lista,
             round(numar(r[PRET_AMBALAJ]), 2),
             round(numar(contributie) * cantitate, 2),
             # doar sublista B are contributie separata pentru pensionarii cu venituri mici
             round(numar(r[CONTRIB_PENSIONARI]) * cantitate, 2) if r[CONTRIB_PENSIONARI] else None,
         ]
+        by_cim.setdefault(r[CIM], {})[lista] = intrare
+        by_nume.setdefault(cheie_nume(r[DENUMIRE], r[DCI]), {})[(r[AMBALAJ], lista)] = (
+            intrare + [r[AMBALAJ]]
+        )
 
     out = {
         "data": data.group(1) if data else "",
         "cim": {c: [v[k] for k in sorted(v)] for c, v in sorted(by_cim.items())},
         "dci": {d: sorted(v) for d, v in sorted(by_dci.items())},
+        # denumire|substanta -> [lista, pret, contributie, pensionari, ambalaj CNAS]
+        "nume": {n: [v[k] for k in sorted(v)] for n, v in sorted(by_nume.items())},
     }
     raw = json.dumps(out, ensure_ascii=False, separators=(",", ":")).encode("utf-8")
     OUT.write_bytes(gzip.compress(raw, 9))
