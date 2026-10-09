@@ -143,7 +143,11 @@ export const medroAsistent = onRequest(
           fallbacks: "default",
           cache_control: { type: "ephemeral" },
           output_config: { effort: "medium" },
-          system: parsed.system,
+          // The system prompt carries the app guide and glossary (~17k
+          // tokens) and is identical for every conversation, so it gets its
+          // own cache breakpoint: a new conversation started within the
+          // cache lifetime reads it instead of paying for it again.
+          system: [{ type: "text", text: parsed.system, cache_control: { type: "ephemeral" } }],
           messages: parsed.messages,
         },
       });

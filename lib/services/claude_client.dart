@@ -100,7 +100,15 @@ class ClaudeClient {
     // prefixul (instructiuni + RCP atasat) se refoloseste la intrebarile urmatoare
     'cache_control': {'type': 'ephemeral'},
     'output_config': {'effort': 'medium'},
-    'system': system,
+    // instructiunile (cu ghidul aplicatiei) sunt aceleasi in orice conversatie:
+    // punctul lor de cache le face refolosibile si intre conversatii
+    'system': [
+      {
+        'type': 'text',
+        'text': system,
+        'cache_control': {'type': 'ephemeral'},
+      },
+    ],
     'messages': mesaje,
   };
 

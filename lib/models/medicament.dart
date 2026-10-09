@@ -147,6 +147,9 @@ const _explicatiiPrescriptie = {
   'OTC': 'Se eliberează fără prescripție medicală',
   'P6L': 'Prescripție care nu se reține în farmacie; valabilă 6 luni, se poate reînnoi',
   'PRF': 'Prescripție care se reține în farmacie; nu se reînnoiește',
+  // aceleasi regimuri, scrise cu cratima in nomenclator
+  'P-6L': 'Prescripție care nu se reține în farmacie; valabilă 6 luni, se poate reînnoi',
+  'P-RF': 'Prescripție care se reține în farmacie; nu se reînnoiește',
   'PR': 'Prescripție restrictivă, pentru utilizare în domenii specializate',
   // in nomenclator, "S" este notatia alternativa pentru prescriptia restrictiva
   'S': 'Prescripție restrictivă, pentru utilizare în domenii specializate',

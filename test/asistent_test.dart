@@ -3,6 +3,8 @@ import 'dart:convert';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:http/http.dart' as http;
 import 'package:http/testing.dart';
+import 'package:medro/help/ajutor.dart';
+import 'package:medro/models/medicament.dart';
 import 'package:medro/providers/asistent_provider.dart';
 import 'package:medro/providers/interactiuni_provider.dart';
 import 'package:medro/providers/medicamente_provider.dart';
@@ -67,7 +69,13 @@ void main() {
       final corp = jsonDecode(cerere.body) as Map<String, dynamic>;
       expect(corp['model'], 'claude-sonnet-5-5');
       expect(corp['fallbacks'], 'default');
-      expect(corp['system'], 'instructiuni');
+      expect(corp['system'], [
+        {
+          'type': 'text',
+          'text': 'instructiuni',
+          'cache_control': {'type': 'ephemeral'},
+        },
+      ]);
       expect(corp['output_config'], {'effort': 'medium'});
       expect(corp['cache_control'], {'type': 'ephemeral'});
       expect(corp.containsKey('thinking'), isFalse);
@@ -326,6 +334,46 @@ void main() {
           '4.4 Atenționări și precauții\nb',
         ),
       );
+    });
+
+    test('instructiunile contin ghidul aplicatiei, din paginile de ajutor', () async {
+      final cereri = <http.Request>[];
+      final p = cuRaspunsuri([
+        (_) => jsonRaspuns(raspunsText('Raspuns')),
+      ], cereri);
+      await p.trimite('Unde văd costurile?', med, inter);
+      final system =
+          ((jsonDecode(cereri.single.body) as Map<String, dynamic>)['system']
+                      as List)
+                  .single['text']
+              as String;
+      expect(system, startsWith(instructiuniAsistent));
+      expect(system, contains('<ghid_aplicatie>'));
+      expect(system, contains('</ghid_aplicatie>'));
+      expect(system, endsWith('</glosar>'));
+      // fiecare cod de prescriptie si fiecare sublista din date are explicatie
+      for (final cod in {
+        for (final m in med.cauta('', FiltruMedicamente.toate, atcPrefix: 'N'))
+          ...m.prescriptie.split(RegExp(r'[/,]')),
+      }) {
+        if (cod.trim().isEmpty || cod.trim() == 'R') continue;
+        expect(system, contains(cod.trim()), reason: cod);
+        expect(explicatiePrescriptie(cod.trim()), isNotNull, reason: cod);
+      }
+      for (final sublista in ['A', 'B', 'C1', 'C2', 'C3', 'D']) {
+        expect(system, contains('Sublista $sublista:'));
+      }
+      for (final a in toateAjutoarele) {
+        expect(system, contains('## ${a.titlu}'), reason: a.titlu);
+        expect(
+          system,
+          contains(a.capitole.last.puncte.last.$2),
+          reason: a.titlu,
+        );
+      }
+      expect(system, contains('- Costuri: iconița cu bancnote'));
+      // ghidul ramane mic fata de un RCP
+      expect(textGhidAplicatie().length, lessThan(60000));
     });
 
     test('a doua intrebare retrimite istoricul neschimbat, cu blocurile de gandire', () async {

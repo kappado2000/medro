@@ -1,6 +1,8 @@
 import 'package:flutter/foundation.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import '../help/ajutor.dart';
+import '../help/glosar.dart';
 import '../models/medicament.dart';
 import '../services/claude_client.dart';
 import '../services/costuri.dart';
@@ -36,6 +38,23 @@ Baza DDInter oferă doar nivelul de severitate al unei interacțiuni, fără mec
 Decizia clinică aparține medicului. Nu adăuga avertismente generice la fiecare răspuns; semnalează doar riscurile concrete, relevante pentru întrebare.
 
 Răspunsul este afișat într-o aplicație de telefon care arată textul exact cum îl scrii, fără să interpreteze Markdown. Scrie deci text simplu: fără asteriscuri pentru îngroșare, fără titluri cu diez și fără tabele. Pentru enumerări folosește rânduri scurte care încep cu o liniuță.''';
+
+/// Instructiunile trimise modelului: cele medicale, urmate de ghidul
+/// aplicatiei, ca asistentul sa poata explica si cum se foloseste MedRO.
+final String instructiuniComplete =
+    '''$instructiuniAsistent
+
+Medicul te poate întreba și cum se folosește aplicația MedRO, în care rulezi: unde se găsește o funcție, ce înseamnă un element de pe ecran, de unde vin datele, cât costă o întrebare. La astfel de întrebări răspunde scurt și concret, numai pe baza ghidului dintre etichetele <ghid_aplicatie>, care este textul paginilor de ajutor din aplicație. Numește secțiunea din bara de jos și butonul sau rândul care trebuie atins. Dacă ghidul nu acoperă ce ești întrebat, spune că nu știi și trimite la semnul întrebării din secțiunea respectivă; nu inventa funcții, butoane sau meniuri. Ghidul descrie aplicația, nu este o sursă medicală.
+
+Când ești întrebat ce înseamnă o prescurtare, un cod sau un termen care apare în aplicație, folosește glosarul dintre etichetele <glosar>. Explică pe larg, nu doar desfăcând prescurtarea: ce este, cine îl emite sau îl stabilește, ce conține, la ce folosește în practica medicului și cum se folosește în aplicație (în ce secțiune apare și ce se atinge), cu un exemplu dacă ajută. Tratează doar aspectele care au sens pentru termenul întrebat. Un cod compus se explică parte cu parte. Dacă termenul nu este nici în glosar, nici în ghid, dar este un termen medical sau farmaceutic uzual, explică-l din cunoștințele tale și spune că explicația nu vine din aplicație.
+
+<ghid_aplicatie>
+${textGhidAplicatie()}
+</ghid_aplicatie>
+
+<glosar>
+${glosarAplicatie.trim()}
+</glosar>''';
 
 class AsistentProvider extends ChangeNotifier {
   static const _cheieKey = 'cheie_api_anthropic';
@@ -340,7 +359,7 @@ class AsistentProvider extends ChangeNotifier {
     return _client.trimite(
       cheie: cheie,
       model: model,
-      system: instructiuniAsistent,
+      system: instructiuniComplete,
       mesaje: [
         ..._istoric,
         {'role': 'user', 'content': continut},

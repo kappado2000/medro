@@ -589,6 +589,12 @@ const ajutorAsistent = Ajutor(
           'este singura secțiune care nu funcționează offline.',
         ),
         (
+          'Întrebări despre aplicație',
+          'poți întreba și cum se folosește MedRO: unde găsești o funcție, ce înseamnă '
+              'o etichetă, o prescurtare sau un cod (PRF, C1-G15, compr. film., CYP), de unde '
+              'vin datele. Asistentul răspunde din aceste pagini de ajutor și dintr-un glosar al aplicației.',
+        ),
+        (
           'Costuri',
           'iconița cu bancnote din antet arată câte întrebări ai pus și cât au costat: '
               'azi, luna aceasta, în total și pe fiecare întrebare.',
@@ -958,3 +964,36 @@ const ajutorCosturi = Ajutor(
     ),
   ],
 );
+
+/// Toate paginile de ajutor, in ordinea sectiunilor din aplicatie.
+const toateAjutoarele = [
+  ajutorMedicamente,
+  ajutorPaginaMedicament,
+  ajutorInteractiuni,
+  ajutorCalculatoare,
+  ajutorInstrumente,
+  ajutorIcd,
+  ajutorAsistent,
+  ajutorCosturi,
+];
+
+/// Paginile de ajutor ca text simplu. Asistentul il primeste ca sa poata
+/// raspunde la intrebari despre folosirea aplicatiei cu aceleasi informatii
+/// pe care le vede utilizatorul la semnul intrebarii.
+String textGhidAplicatie() {
+  final b = StringBuffer();
+  for (final a in toateAjutoarele) {
+    b.writeln('## ${a.titlu}');
+    b.writeln(a.rezumat);
+    for (final c in a.capitole) {
+      b.writeln();
+      b.writeln(c.titlu);
+      if (c.text != null) b.writeln(c.text);
+      for (final (termen, explicatie) in c.puncte) {
+        b.writeln('- $termen: $explicatie');
+      }
+    }
+    b.writeln();
+  }
+  return b.toString().trim();
+}
