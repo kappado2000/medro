@@ -119,6 +119,10 @@ CONT ȘI BLOCARE
 - Ieși din cont: șterge sesiunea de pe telefon; la următoarea deschidere se cer din nou e-mailul și parola. Se găsește în fereastra deschisă prin atingerea rândului de sub titlul MedRO și pe ecranul de blocare.
 - Asistentul răspunde doar unui utilizator autentificat; registrul, interacțiunile, calculatoarele și ICD-10 merg fără internet după deblocare.
 
+SETĂRI TEXT
+- Setări text: pagină deschisă din fereastra care apare la atingerea rândului de sub titlul MedRO (rândul cu numărul de medicamente și rotița). Mărimea se alege între 80% și 140% din cea stabilită în aplicație, cu butoanele sau cu glisorul. Grosimea are trei trepte: subțire, normal, îngroșat. Titlurile de ecran și numele din carduri rămân îngroșate la orice alegere.
+- Aplicația nu urmează setările de text ale telefonului („Text aldin”, „Mărime text”); scrisul se schimbă doar din Setări text.
+
 ASISTENT ȘI COSTURI
 - Model: varianta de inteligență artificială care răspunde. Sonnet 5.5 este modelul obișnuit; Opus 5.5 este mai capabil și de două ori mai scump la intrare și la răspuns.
 - Token: unitatea în care se măsoară textul, de 3–4 caractere. Se plătesc separat tokenii trimiși și cei primiți.

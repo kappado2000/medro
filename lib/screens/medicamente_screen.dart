@@ -359,7 +359,7 @@ class _Header extends StatelessWidget {
                     ),
                     const SizedBox(width: 4),
                     Icon(
-                      Icons.sync,
+                      Icons.settings_outlined,
                       size: 14,
                       color: Colors.white.withValues(alpha: 0.82),
                     ),

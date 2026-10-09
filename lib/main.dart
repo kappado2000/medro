@@ -8,6 +8,7 @@ import 'providers/auth_provider.dart';
 import 'providers/icd_provider.dart';
 import 'providers/interactiuni_provider.dart';
 import 'providers/medicamente_provider.dart';
+import 'providers/setari_text_provider.dart';
 import 'screens/acces_screen.dart';
 import 'screens/home_shell.dart';
 import 'services/claude_client.dart';
@@ -31,6 +32,7 @@ class MedRoApp extends StatelessWidget {
       providers: [
         ChangeNotifierProvider(create: (_) => AuthProvider()..incarca()),
         ChangeNotifierProvider(create: (_) => Voce()),
+        ChangeNotifierProvider(create: (_) => SetariTextProvider()..incarca()),
         ChangeNotifierProvider(create: (_) => MedicamenteProvider()..incarca()),
         ChangeNotifierProvider(create: (_) => IcdProvider()..incarca()),
         ChangeNotifierProvider(
@@ -50,28 +52,29 @@ class MedRoApp extends StatelessWidget {
           },
         ),
       ],
-      child: MaterialApp(
-        title: 'MedRO',
-        debugShowCheckedModeBanner: false,
-        theme: buildAppTheme(),
-        locale: const Locale('ro'),
-        supportedLocales: const [Locale('ro')],
-        localizationsDelegates: GlobalMaterialLocalizations.delegates,
-        // poarta sta peste tot navigatorul, deci blocheaza si ecranele deschise
-        builder: (context, child) {
-          // Aplicatia arata la fel indiferent de setarile de text ale
-          // telefonului: „Text aldin” ar ingrosa tot scrisul, iar marirea
-          // textului l-ar scoate din marimile alese. Micsorarea ramane permisa.
-          final mq = MediaQuery.of(context);
-          return MediaQuery(
-            data: mq.copyWith(
-              boldText: false,
-              textScaler: mq.textScaler.clamp(maxScaleFactor: 1),
-            ),
-            child: PoartaAcces(child: child!),
-          );
-        },
-        home: const HomeShell(),
+      child: Consumer<SetariTextProvider>(
+        builder: (context, text, _) => MaterialApp(
+          title: 'MedRO',
+          debugShowCheckedModeBanner: false,
+          theme: buildAppTheme(grosime: text.grosime.grosime),
+          locale: const Locale('ro'),
+          supportedLocales: const [Locale('ro')],
+          localizationsDelegates: GlobalMaterialLocalizations.delegates,
+          // poarta sta peste tot navigatorul, deci blocheaza si ecranele deschise
+          builder: (context, child) {
+            // Scrisul arata cum a fost ales in „Setări text”, nu dupa setarile
+            // telefonului: „Text aldin” ar ingrosa tot, iar marimea textului
+            // din telefon s-ar aduna peste cea aleasa aici.
+            return MediaQuery(
+              data: MediaQuery.of(context).copyWith(
+                boldText: false,
+                textScaler: TextScaler.linear(text.scara),
+              ),
+              child: PoartaAcces(child: child!),
+            );
+          },
+          home: const HomeShell(),
+        ),
       ),
     );
   }

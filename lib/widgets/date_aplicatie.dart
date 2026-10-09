@@ -6,6 +6,7 @@ import '../providers/auth_provider.dart';
 import '../providers/icd_provider.dart';
 import '../providers/interactiuni_provider.dart';
 import '../providers/medicamente_provider.dart';
+import '../screens/setari_text_screen.dart';
 import '../services/data_store.dart';
 import '../theme/app_theme.dart';
 
@@ -136,6 +137,21 @@ class _DateAplicatieState extends State<_DateAplicatie> {
               ),
               const Divider(height: 24),
             ],
+            ListTile(
+              contentPadding: EdgeInsets.zero,
+              leading: const Icon(Icons.text_fields, color: AppColors.blue),
+              title: const Text('Setări text'),
+              subtitle: const Text('Mărimea și grosimea scrisului'),
+              trailing: const Icon(Icons.chevron_right, color: AppColors.muted),
+              onTap: () {
+                final navigator = Navigator.of(context);
+                navigator.pop();
+                navigator.push(
+                  MaterialPageRoute(builder: (_) => const SetariTextScreen()),
+                );
+              },
+            ),
+            const Divider(height: 20),
             const Text(
               'Datele aplicației',
               style: TextStyle(

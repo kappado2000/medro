@@ -20,7 +20,7 @@ class AppColors {
   );
 }
 
-ThemeData buildAppTheme() {
+ThemeData buildAppTheme({FontWeight grosime = FontWeight.w400}) {
   final scheme = ColorScheme.fromSeed(
     seedColor: AppColors.blue,
     primary: AppColors.blue,
@@ -81,7 +81,7 @@ ThemeData buildAppTheme() {
   // dau singure stilul. Textul obisnuit, etichetele si butoanele sunt cu
   // litera normala si cu un punct mai mici decat valorile implicite Material.
   TextStyle? normal(TextStyle? stil, double marime) =>
-      stil?.copyWith(fontSize: marime, fontWeight: FontWeight.w400);
+      stil?.copyWith(fontSize: marime, fontWeight: grosime);
   final t = baza.textTheme;
   return baza.copyWith(
     textTheme: t.copyWith(
@@ -93,6 +93,8 @@ ThemeData buildAppTheme() {
       labelLarge: normal(t.labelLarge, 13),
       labelMedium: normal(t.labelMedium, 11.5),
       labelSmall: normal(t.labelSmall, 11),
+      // titlul din bara paginilor urmeaza si el grosimea aleasa
+      titleLarge: t.titleLarge?.copyWith(fontWeight: grosime),
     ),
   );
 }

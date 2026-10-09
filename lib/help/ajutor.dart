@@ -123,6 +123,14 @@ const _limiteMedicamente = CapitolAjutor(
           'document. Are propria pagină de ajutor.',
     ),
     (
+      'Setări text',
+      'atinge rândul de sub titlul MedRO (cel cu rotița) și alege „Setări text”: '
+          'poți mări sau micșora scrisul din toată aplicația, între 80% și 140%, și '
+          'îl poți face subțire, normal sau îngroșat. O previzualizare arată efectul pe '
+          'loc, iar „Revino la valorile inițiale” anulează alegerile. Aplicația nu '
+          'urmează „Text aldin” și mărimea textului din setările telefonului.',
+    ),
+    (
       'Cont și blocare',
       'aplicația se deschide cu contul tău (e-mail și parolă), creat de administrator. '
           'După prima autentificare, la fiecare deschidere și după mai mult de un minut '
@@ -134,7 +142,7 @@ const _limiteMedicamente = CapitolAjutor(
     (
       'Datele se actualizează singure',
       'aplicația caută date noi o dată pe zi, la pornire, dacă are internet. '
-          'Atinge rândul de sub titlul MedRO ca să vezi data fiecărei surse și să '
+          'Atinge rândul de sub titlul MedRO (cel cu rotița) ca să vezi data fiecărei surse și să '
           'verifici manual. Registrul funcționează și fără internet, cu ultimele date '
           'descărcate; documentele RCP și prospect se deschid online.',
     ),
