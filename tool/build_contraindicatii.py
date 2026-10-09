@@ -7,7 +7,7 @@ pastreaza in tool/cache/contraindicatii.json si scriptul reia de unde a ramas.
 Psihotropele (ATC N05, N06, N03) se proceseaza primele.
 
 Se ruleaza dupa build_medicamente.py.
-Rulare:  python tool/build_contraindicatii.py [--limita N] [--doar-asset] [--test URL]
+Rulare:  python tool/build_contraindicatii.py [--limita N] [--reia-goale] [--doar-asset] [--test URL]
 """
 import gzip
 import io
@@ -31,9 +31,15 @@ UA = (
     "Chrome/126 Safari/537.36"
 )
 MAX_CARACTERE = 4000
-# titlul sectiunii, cu sau fara diacritice, cu numarul lipit sau separat
-INCEPUT = re.compile(r"(?m)^\s*4\s*\.\s*3\.?\s*Contraindica[tţț]ii\s*$", re.I)
-SFARSIT = re.compile(r"(?m)^\s*4\s*\.\s*4\.?\s*(Aten[tţț]ion[aăã]ri|Precau[tţț]ii)", re.I)
+# Titlul sectiunii, cu sau fara diacritice. Numarul "4.3" poate fi lipit de
+# titlu, separat prin spatii sau pe alt rand (in unele PDF-uri e in alta coloana).
+INCEPUT = re.compile(r"(?m)^\s*(?:4\s*\.\s*3\.?\s*)?Contraindica[tţț]ii\s*$", re.I)
+SFARSIT = re.compile(
+    r"(?m)^\s*(?:4\s*\.\s*4\.?\s*)?"
+    r"(?:Aten[tţț]ion[aăã]ri\s+[sşș]i\s+precau[tţț]ii|Precau[tţț]ii\s+[sşș]i\s+aten[tţț]ion[aăã]ri"
+    r"|Aten[tţț]ion[aăã]ri\s+speciale|Precau[tţț]ii\s+speciale)",
+    re.I,
+)
 
 
 def descarca(url: str, destinatie: str) -> str:
@@ -60,7 +66,8 @@ def descarca(url: str, destinatie: str) -> str:
 def curata(text: str) -> str:
     randuri = [re.sub(r"[ \t]+", " ", r).strip() for r in text.split("\n")]
     # numerele de pagina raman ca randuri izolate
-    randuri = [r for r in randuri if r and not re.fullmatch(r"\d{1,3}", r)]
+    # numerele de pagina si numerele de sectiune ramase singure pe rand
+    randuri = [r for r in randuri if r and not re.fullmatch(r"\d{1,3}|\d\s*\.\s*\d\.?", r)]
     out: list[str] = []
     for r in randuri:
         # un rand nou incepe la liniuta/bulina sau dupa un rand incheiat cu punct
@@ -119,6 +126,9 @@ def main() -> None:
 
     produse = json.loads(gzip.open(MEDICAMENTE).read())["products"]
     cache = json.loads(CACHE.read_text(encoding="utf-8")) if CACHE.exists() else {}
+    if "--reia-goale" in sys.argv:
+        # documentele fara text se reincearca (de exemplu dupa imbunatatirea regulilor)
+        cache = {u: t for u, t in cache.items() if t}
     if "--doar-asset" in sys.argv:
         scrie_asset(cache)
         return

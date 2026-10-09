@@ -15,6 +15,7 @@ Datele sunt incluse în `assets/data/` și se regenerează cu scripturile din `t
 | `tool/build_compensare.py --refresh` | Lista interactivă CNAS | `compensare.json.gz` |
 | `tool/build_icd10.py` | Lista tabelară RoDRG (CIM-10-AM) | `icd10.json.gz` |
 | `tool/build_interactiuni.py` | DDInter 2.0 (CC BY-NC-SA, doar necomercial) | `interactiuni.json.gz` |
+| `tool/build_contraindicatii.py` | Secțiunea 4.3 din RCP-urile ANMDM și EMA | `contraindicatii.json.gz` |
 
 Scripturile cer Python cu `openpyxl` și `pymupdf`; descărcările se păstrează în `tool/cache/`.
 
@@ -36,3 +37,24 @@ firebase deploy --only functions:medroAsistent
 flutter test
 flutter run -d web-server --web-port 5599
 ```
+
+## Surse de date și drepturi
+
+Aplicația este un instrument de referință pentru uz propriu, nu un dispozitiv medical. Datele
+sunt preluate automat și pot conține erori sau pot fi depășite; sursa oficială rămâne documentul
+original (RCP, lista CNAS, clasificarea ICD-10).
+
+Datele din `assets/data/` aparțin surselor lor și nu sunt acoperite de vreo licență a acestui
+proiect:
+
+- **Nomenclatorul medicamentelor și RCP-urile:** ANMDM (nomenclator.anm.ro) și EMA (ema.europa.eu).
+- **Compensare și prețuri:** CNAS (cnas.ro).
+- **Interacțiuni:** DDInter 2.0 (ddinter2.scbdd.com), Xiong G. et al., *Nucleic Acids Research*,
+  licență [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/). Fișierul
+  `interactiuni.json.gz` este o prelucrare a acestor date și se distribuie sub aceeași licență,
+  exclusiv necomercial.
+- **ICD-10:** Lista tabelară a bolilor RoDRG (CIM-10-AM în română).
+- **PHQ-9 și GAD-7:** dezvoltate de R. L. Spitzer, J. B. W. Williams, K. Kroenke și colegii, cu un
+  grant educațional Pfizer Inc.; reproducerea nu necesită permisiune.
+
+Codul nu are încă o licență declarată.
