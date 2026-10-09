@@ -38,6 +38,36 @@ def emblema(marime: int, margine: float = 0.0) -> Image.Image:
     return img.resize((marime, marime), Image.LANCZOS)
 
 
+def prim_plan(marime: int) -> Image.Image:
+    """Stratul din fata al iconitei adaptive: emblema pe fond transparent."""
+    n = marime * 4
+    img = Image.new("RGBA", (n, n), (0, 0, 0, 0))
+    d = ImageDraw.Draw(img)
+    latura = n * 0.40
+    x0 = (n - latura) / 2
+    d.rounded_rectangle([x0, x0, x0 + latura, x0 + latura], radius=latura * 0.26, fill=ALB + (255,))
+    brat, grosime = latura * 0.62, latura * 0.235
+    c = n / 2
+    raza = grosime * 0.12
+    d.rounded_rectangle([c - brat / 2, c - grosime / 2, c + brat / 2, c + grosime / 2], raza, fill=ROSU + (255,))
+    d.rounded_rectangle([c - grosime / 2, c - brat / 2, c + grosime / 2, c + brat / 2], raza, fill=ROSU + (255,))
+    return img.resize((marime, marime), Image.LANCZOS)
+
+
+ADAPTIV = """<?xml version="1.0" encoding="utf-8"?>
+<adaptive-icon xmlns:android="http://schemas.android.com/apk/res/android">
+    <background android:drawable="@drawable/ic_launcher_background"/>
+    <foreground android:drawable="@mipmap/ic_launcher_foreground"/>
+</adaptive-icon>
+"""
+
+FUNDAL = """<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="rectangle">
+    <gradient android:startColor="#1558D6" android:endColor="#0B2F7A" android:angle="315"/>
+</shape>
+"""
+
+
 def main() -> None:
     master = emblema(1024)
 
@@ -49,6 +79,14 @@ def main() -> None:
     android = ROOT / "android/app/src/main/res"
     for densitate, pixeli in {"mdpi": 48, "hdpi": 72, "xhdpi": 96, "xxhdpi": 144, "xxxhdpi": 192}.items():
         master.resize((pixeli, pixeli), Image.LANCZOS).save(android / f"mipmap-{densitate}/ic_launcher.png")
+
+    # Iconita adaptiva (Android 8+): fundalul si emblema sunt straturi separate,
+    # iar sistemul decupeaza forma. Emblema sta in zona centrala sigura.
+    for densitate, pixeli in {"mdpi": 108, "hdpi": 162, "xhdpi": 216, "xxhdpi": 324, "xxxhdpi": 432}.items():
+        prim_plan(pixeli).save(android / f"mipmap-{densitate}/ic_launcher_foreground.png")
+    (android / "mipmap-anydpi-v26").mkdir(exist_ok=True)
+    (android / "mipmap-anydpi-v26/ic_launcher.xml").write_text(ADAPTIV, encoding="utf-8")
+    (android / "drawable/ic_launcher_background.xml").write_text(FUNDAL, encoding="utf-8")
 
     web = ROOT / "web"
     for pixeli in (192, 512):
