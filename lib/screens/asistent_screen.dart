@@ -8,6 +8,7 @@ import '../providers/medicamente_provider.dart';
 import '../services/claude_client.dart';
 import '../help/ajutor.dart';
 import 'costuri_screen.dart';
+import '../services/voce.dart';
 import '../theme/app_theme.dart';
 
 class AsistentScreen extends StatefulWidget {
@@ -31,6 +32,7 @@ class _AsistentScreenState extends State<AsistentScreen> {
   Future<void> _trimite() async {
     final text = _intrebare.text;
     if (text.trim().isEmpty) return;
+    context.read<Voce>().opresteDictarea();
     _intrebare.clear();
     final asistent = context.read<AsistentProvider>();
     final viitor = asistent.trimite(
@@ -265,15 +267,17 @@ class _AsistentScreenState extends State<AsistentScreen> {
                         color: AppColors.ink,
                         fontSize: 16,
                       ),
-                      decoration: const InputDecoration(
-                        hintText: 'Scrie o întrebare',
-                        hintStyle: TextStyle(
+                      decoration: InputDecoration(
+                        hintText: context.watch<Voce>().asculta
+                            ? 'Te ascult…'
+                            : 'Scrie sau dictează o întrebare',
+                        hintStyle: const TextStyle(
                           color: AppColors.muted,
                           fontSize: 16,
                           fontWeight: FontWeight.w500,
                         ),
                         filled: false,
-                        contentPadding: EdgeInsets.symmetric(
+                        contentPadding: const EdgeInsets.symmetric(
                           horizontal: 10,
                           vertical: 13,
                         ),
@@ -282,6 +286,14 @@ class _AsistentScreenState extends State<AsistentScreen> {
                         focusedBorder: InputBorder.none,
                       ),
                     ),
+                  ),
+                  _ButonMicrofon(
+                    onText: (text) {
+                      _intrebare.value = TextEditingValue(
+                        text: text,
+                        selection: TextSelection.collapsed(offset: text.length),
+                      );
+                    },
                   ),
                   IconButton.filled(
                     tooltip: 'Trimite',
@@ -556,8 +568,80 @@ class _Balon extends StatelessWidget {
               const SizedBox(height: 10),
               _Citari(m.citari),
             ],
+            if (!m.utilizator && !m.avertizare) _ButonCitire(m),
           ],
         ),
+      ),
+    );
+  }
+}
+
+/// Microfonul din campul de intrebare: porneste si opreste dictarea.
+class _ButonMicrofon extends StatelessWidget {
+  final ValueChanged<String> onText;
+  const _ButonMicrofon({required this.onText});
+
+  @override
+  Widget build(BuildContext context) {
+    final voce = context.watch<Voce>();
+    return IconButton(
+      tooltip: voce.asculta ? 'Oprește dictarea' : 'Dictează întrebarea',
+      style: voce.asculta
+          ? IconButton.styleFrom(backgroundColor: AppColors.redSoft)
+          : null,
+      icon: Icon(
+        voce.asculta ? Icons.stop_rounded : Icons.mic_none_rounded,
+        color: voce.asculta ? AppColors.red : AppColors.blue,
+      ),
+      onPressed: () async {
+        if (voce.asculta) {
+          await voce.opresteDictarea();
+          return;
+        }
+        final pornit = await voce.pornesteDictarea(onText);
+        if (!context.mounted) return;
+        final eroare = voce.eroare;
+        if (!pornit && eroare != null) {
+          ScaffoldMessenger.of(context)
+              .showSnackBar(SnackBar(content: Text(eroare)));
+        }
+      },
+    );
+  }
+}
+
+/// Difuzorul de sub un raspuns: il citeste cu voce tare, la cerere.
+class _ButonCitire extends StatelessWidget {
+  final MesajAsistent mesaj;
+  const _ButonCitire(this.mesaj);
+
+  @override
+  Widget build(BuildContext context) {
+    final voce = context.watch<Voce>();
+    final citeste = identical(voce.citit, mesaj);
+    return Align(
+      alignment: Alignment.centerLeft,
+      child: TextButton.icon(
+        style: TextButton.styleFrom(
+          padding: const EdgeInsets.symmetric(horizontal: 4),
+          minimumSize: const Size(0, 34),
+          tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+          foregroundColor: citeste ? AppColors.red : AppColors.blue,
+        ),
+        onPressed: () async {
+          await voce.comutaCitirea(mesaj, mesaj.text);
+          if (!context.mounted) return;
+          final eroare = voce.eroare;
+          if (eroare != null) {
+            ScaffoldMessenger.of(context)
+                .showSnackBar(SnackBar(content: Text(eroare)));
+          }
+        },
+        icon: Icon(
+          citeste ? Icons.stop_circle_outlined : Icons.volume_up_outlined,
+          size: 20,
+        ),
+        label: Text(citeste ? 'Oprește' : 'Ascultă'),
       ),
     );
   }

@@ -598,6 +598,15 @@ const ajutorAsistent = Ajutor(
           'este singura secțiune care nu funcționează offline.',
         ),
         (
+          'Voce',
+          'microfonul din câmpul de întrebare pornește dictarea în română: vorbești, '
+              'textul apare în câmp și îl poți corecta înainte de trimitere; se oprește '
+              'singur după o pauză sau când îl atingi din nou. „Ascultă”, de sub un '
+              'răspuns, îl citește cu voce tare, iar „Oprește” întrerupe citirea. '
+              'Recunoașterea vocii este făcută de telefon (Apple sau Google) și poate '
+              'trimite sunetul pe serverele lor: nu dicta date care pot identifica un pacient.',
+        ),
+        (
           'Întrebări despre aplicație',
           'poți întreba și cum se folosește MedRO: unde găsești o funcție, ce înseamnă '
               'o etichetă, o prescurtare sau un cod (PRF, C1-G15, compr. film., CYP), de unde '

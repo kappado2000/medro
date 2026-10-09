@@ -2,6 +2,10 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>MedRO folosește microfonul ca să dictezi întrebarea pentru asistent.</string>
+	<key>NSSpeechRecognitionUsageDescription</key>
+	<string>MedRO transformă în text întrebarea dictată pentru asistent.</string>
 	<key>NSFaceIDUsageDescription</key>
 	<string>MedRO folosește Face ID ca să deblocheze aplicația fără parolă.</string>
 	<key>CADisableMinimumFrameDurationOnPhone</key>

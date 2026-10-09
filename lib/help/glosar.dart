@@ -123,6 +123,8 @@ ASISTENT ȘI COSTURI
 - Tokeni trimiși: întrebarea, instrucțiunile aplicației, datele despre medicamente și documentul RCP. Tokeni primiți: răspunsul.
 - Document nou: RCP-ul trimis prima dată într-o conversație, plătit întreg. Document refolosit: același RCP la întrebările următoare, puse în câteva minute, plătit la o zecime.
 - Extras: secțiunile 4.1–4.9 ale RCP-ului, trimise asistentului ca text în locul PDF-ului întreg, ca întrebarea să coste mai puțin. Nu cuprinde secțiunile 5 și 6 (farmacocinetică, excipienți); pentru ele se deschide RCP-ul din pagina medicamentului.
+- Dictare: microfonul din câmpul de întrebare al asistentului transformă vorbirea în text, în română. Recunoașterea o face telefonul, prin serviciul Apple sau Google, care poate trimite sunetul pe serverele lor; de aceea nu se dictează date care pot identifica un pacient. Prima folosire cere permisiunea pentru microfon și pentru recunoașterea vocală.
+- Ascultă: butonul de sub un răspuns al asistentului îl citește cu voce tare, cu vocea românească a telefonului; se citește doar la cerere, niciodată automat.
 - USD: dolari americani; Anthropic facturează în dolari.
 - Cheie API proprie: opțiune pentru cine vrea să plătească din alt cont Anthropic; în mod obișnuit nu este necesară, asistentul merge prin serverul aplicației.
 ''';

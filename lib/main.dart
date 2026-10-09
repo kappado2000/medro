@@ -12,6 +12,7 @@ import 'screens/acces_screen.dart';
 import 'screens/home_shell.dart';
 import 'services/claude_client.dart';
 import 'services/data_store.dart';
+import 'services/voce.dart';
 import 'theme/app_theme.dart';
 
 Future<void> main() async {
@@ -29,6 +30,7 @@ class MedRoApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (_) => AuthProvider()..incarca()),
+        ChangeNotifierProvider(create: (_) => Voce()),
         ChangeNotifierProvider(create: (_) => MedicamenteProvider()..incarca()),
         ChangeNotifierProvider(create: (_) => IcdProvider()..incarca()),
         ChangeNotifierProvider(
