@@ -45,27 +45,24 @@ ThemeData buildAppTheme() {
         side: const BorderSide(color: AppColors.line),
       ),
     ),
+    // bara de jos: fond albastru, text si iconite albe; sectiunea curenta se
+    // distinge prin pastila mai deschisa si eticheta ingrosata
     navigationBarTheme: NavigationBarThemeData(
-      backgroundColor: Colors.white,
-      indicatorColor: AppColors.blueSoft,
+      backgroundColor: AppColors.blue,
+      surfaceTintColor: Colors.transparent,
+      indicatorColor: Colors.white.withValues(alpha: 0.24),
       elevation: 8,
       labelTextStyle: WidgetStateProperty.resolveWith(
         (states) => TextStyle(
           fontSize: 11.5,
           fontWeight: states.contains(WidgetState.selected)
-              ? FontWeight.w700
+              ? FontWeight.w800
               : FontWeight.w500,
-          color: states.contains(WidgetState.selected)
-              ? AppColors.blue
-              : AppColors.muted,
+          color: Colors.white,
         ),
       ),
-      iconTheme: WidgetStateProperty.resolveWith(
-        (states) => IconThemeData(
-          color: states.contains(WidgetState.selected)
-              ? AppColors.blue
-              : AppColors.muted,
-        ),
+      iconTheme: const WidgetStatePropertyAll(
+        IconThemeData(color: Colors.white),
       ),
     ),
     filledButtonTheme: FilledButtonThemeData(

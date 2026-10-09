@@ -237,11 +237,7 @@ class _Header extends StatelessWidget {
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(11),
                     ),
-                    child: const Icon(
-                      Icons.add,
-                      color: AppColors.red,
-                      size: 28,
-                    ),
+                    child: const _CruceRosie(),
                   ),
                   const SizedBox(width: 12),
                   const Text(
@@ -336,6 +332,31 @@ class _Mesaj extends StatelessWidget {
           ],
         ),
       ),
+    );
+  }
+}
+
+/// Crucea rosie din emblema, desenata din doua bare groase (iconita standard
+/// "plus" este prea subtire).
+class _CruceRosie extends StatelessWidget {
+  const _CruceRosie();
+
+  static const _lungime = 24.0;
+  static const _grosime = 9.0;
+
+  @override
+  Widget build(BuildContext context) {
+    Widget bara(double latime, double inaltime) => Container(
+      width: latime,
+      height: inaltime,
+      decoration: BoxDecoration(
+        color: AppColors.red,
+        borderRadius: BorderRadius.circular(2),
+      ),
+    );
+    return Stack(
+      alignment: Alignment.center,
+      children: [bara(_lungime, _grosime), bara(_grosime, _lungime)],
     );
   }
 }

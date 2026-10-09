@@ -1,6 +1,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Asistentul si deschiderea RCP-urilor au nevoie de retea. -->
+    <uses-permission android:name="android.permission.INTERNET"/>
     <application
-        android:label="medro"
+        android:label="MedRO"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
