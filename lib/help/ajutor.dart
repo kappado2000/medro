@@ -295,14 +295,6 @@ const ajutorInteractiuni = Ajutor(
               'CYP3A4” nu sunt găsite.',
         ),
         (
-          'Alternative din aceeași clasă',
-          'la o interacțiune majoră, atinge rândul acesta ca să vezi substanțe din '
-              'aceeași subgrupă ATC care nu au interacțiune majoră cu restul listei. '
-              'Cele pe fond albastru nu au nicio interacțiune înregistrată; la celelalte '
-              'scrie nivelul rămas. Atinge una ca să o pui în locul celei vechi. Sunt '
-              'sugestii de verificat, nu echivalențe terapeutice.',
-        ),
-        (
           'Culorile',
           'roșu – majoră; albastru – moderată; gri – minoră sau cu severitate neprecizată.',
         ),
@@ -336,8 +328,15 @@ const ajutorInteractiuni = Ajutor(
         ),
         (
           'Încadrarea este prudentă',
-          'baza marchează multe asocieri drept majore; nivelul arată că asocierea cere '
-              'atenție, nu că este interzisă.',
+          'DDInter marchează drept majore foarte multe asocieri, inclusiv unele '
+              'folosite curent (de exemplu aproape orice pereche de antidepresive). '
+              'Nivelul arată că asocierea cere atenție, nu că este interzisă.',
+        ),
+        (
+          'Aplicația nu propune înlocuitori',
+          'nu există o listă de alternative: lipsa unei perechi din DDInter este o '
+              'lipsă de date, nu o dovadă că asocierea e sigură, deci nu se poate deduce '
+              'din ea ce medicament ar fi mai potrivit.',
         ),
       ],
     ),

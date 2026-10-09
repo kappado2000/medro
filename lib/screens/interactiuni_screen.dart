@@ -12,11 +12,11 @@ import '../utils/text_utils.dart';
 String etichetaSeveritate(Severitate s) {
   switch (s) {
     case Severitate.majora:
-      return 'Majoră';
+      return 'Majoră, după DDInter';
     case Severitate.moderata:
-      return 'Moderată';
+      return 'Moderată, după DDInter';
     case Severitate.minora:
-      return 'Minoră';
+      return 'Minoră, după DDInter';
     case Severitate.neprecizata:
       return 'Severitate neprecizată';
   }
@@ -447,11 +447,14 @@ String textSumar(int interactiuni, int perechi, int majore) {
   final din = perechi == 1 ? 'la perechea verificată' : 'din $perechi perechi';
   final grave = switch (majore) {
     0 => '',
-    1 => interactiuni == 1 ? ', majoră' : ', dintre care una majoră',
+    1 =>
+      interactiuni == 1
+          ? ', încadrată ca majoră de DDInter'
+          : ', dintre care una încadrată ca majoră de DDInter',
     _ =>
       majore == interactiuni
-          ? ', toate majore'
-          : ', dintre care $majore majore',
+          ? ', toate încadrate ca majore de DDInter'
+          : ', dintre care $majore încadrate ca majore de DDInter',
   };
   return '$gasite $din$grave.';
 }
@@ -478,11 +481,8 @@ class _Sumar extends StatelessWidget {
       child: Row(
         children: [
           Icon(
-            majore > 0
-                ? Icons.warning_amber_rounded
-                : (faraInteractiuni
-                      ? Icons.info_outline
-                      : Icons.compare_arrows),
+            // fara semn de exclamare: incadrarea DDInter e prudenta, nu o alarma
+            faraInteractiuni ? Icons.info_outline : Icons.compare_arrows,
             color: Colors.white,
             size: 30,
           ),
@@ -512,8 +512,6 @@ class _InteractiuneCard extends StatefulWidget {
 }
 
 class _InteractiuneCardState extends State<_InteractiuneCard> {
-  bool _alternative = false;
-
   @override
   Widget build(BuildContext context) {
     final i = widget.interactiune;
@@ -559,52 +557,20 @@ class _InteractiuneCardState extends State<_InteractiuneCard> {
               ],
             ),
             _TextRcp(i.a, i.b),
-            if (i.severitate == Severitate.majora) ...[
-              InkWell(
-                onTap: () => setState(() => _alternative = !_alternative),
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 6),
-                  child: Row(
-                    children: [
-                      const Icon(
-                        Icons.swap_horiz,
-                        size: 18,
-                        color: AppColors.blue,
-                      ),
-                      const SizedBox(width: 6),
-                      const Expanded(
-                        child: Text(
-                          'Alternative din aceeași clasă',
-                          style: TextStyle(
-                            color: AppColors.blue,
-                            fontSize: 12.5,
-                          ),
-                        ),
-                      ),
-                      Icon(
-                        _alternative ? Icons.expand_less : Icons.expand_more,
-                        color: AppColors.blue,
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-              if (_alternative) ...[
-                _Alternative(deInlocuit: i.a),
-                _Alternative(deInlocuit: i.b),
-                const Text(
-                  'Sunt substanțe din aceeași subgrupă ATC, fără interacțiune majoră '
-                  'înregistrată cu restul listei. Nu sunt echivalente terapeutic '
-                  'verificate: indicația și dozele se aleg din RCP. Atinge una ca să '
-                  'faci înlocuirea în listă.',
+            if (i.severitate == Severitate.majora)
+              const Padding(
+                padding: EdgeInsets.only(top: 4),
+                child: Text(
+                  'Încadrarea vine din baza DDInter, care este prudentă: marchează '
+                  'ca majore și asocieri folosite curent. Arată că asocierea cere '
+                  'atenție, nu că este interzisă; judecă după RCP și după pacient.',
                   style: TextStyle(
                     color: AppColors.muted,
                     fontSize: 11.5,
                     height: 1.4,
                   ),
                 ),
-              ],
-            ],
+              ),
           ],
         ),
       ),
@@ -878,71 +844,6 @@ class _Fraza extends StatelessWidget {
               ),
             ),
           ),
-        ],
-      ),
-    );
-  }
-}
-
-/// Inlocuitori posibili pentru o substanta din lista verificata.
-class _Alternative extends StatelessWidget {
-  final Substanta deInlocuit;
-  const _Alternative({required this.deInlocuit});
-
-  @override
-  Widget build(BuildContext context) {
-    final provider = context.watch<InteractiuniProvider>();
-    final atc = context.watch<MedicamenteProvider>().atcDupaDci;
-    final ceilalti = [
-      for (final s in provider.selectie)
-        if (s.index != deInlocuit.index) s,
-    ];
-    final clasa = provider.clasaAtc(deInlocuit, atc);
-    final gasite = provider.alternative(deInlocuit, ceilalti, atc);
-    return Padding(
-      padding: const EdgeInsets.only(bottom: 10),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            clasa == null
-                ? 'În loc de ${deInlocuit.nume}'
-                : 'În loc de ${deInlocuit.nume} ($clasa)',
-            style: const TextStyle(color: AppColors.ink, fontSize: 12.5),
-          ),
-          const SizedBox(height: 6),
-          if (gasite.isEmpty)
-            const Text(
-              'Nicio alternativă fără interacțiune majoră în această subgrupă.',
-              style: TextStyle(color: AppColors.muted, fontSize: 12),
-            )
-          else
-            Wrap(
-              spacing: 8,
-              runSpacing: 8,
-              children: [
-                for (final (s, sev) in gasite.take(12))
-                  ActionChip(
-                    label: Text(
-                      sev == null
-                          ? s.nume
-                          : '${s.nume} · ${etichetaSeveritate(sev).toLowerCase()}',
-                    ),
-                    backgroundColor: sev == null
-                        ? AppColors.blueSoft
-                        : Colors.white,
-                    side: sev == null
-                        ? BorderSide.none
-                        : const BorderSide(color: AppColors.line),
-                    labelStyle: TextStyle(
-                      color: sev == null ? AppColors.blue : AppColors.ink,
-                      fontSize: 12,
-                    ),
-                    onPressed: () =>
-                        provider.inlocuiesteInSelectie(deInlocuit, s),
-                  ),
-              ],
-            ),
         ],
       ),
     );

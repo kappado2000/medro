@@ -110,18 +110,21 @@ void main() {
     );
     expect(
       textSumar(1, 1, 1),
-      'O interacțiune la perechea verificată, majoră.',
+      'O interacțiune la perechea verificată, încadrată ca majoră de DDInter.',
     );
     expect(textSumar(1, 3, 0), 'O interacțiune din 3 perechi.');
     expect(
       textSumar(3, 3, 1),
-      '3 interacțiuni din 3 perechi, dintre care una majoră.',
+      '3 interacțiuni din 3 perechi, dintre care una încadrată ca majoră de DDInter.',
     );
     expect(
       textSumar(3, 3, 2),
-      '3 interacțiuni din 3 perechi, dintre care 2 majore.',
+      '3 interacțiuni din 3 perechi, dintre care 2 încadrate ca majore de DDInter.',
     );
-    expect(textSumar(2, 3, 2), '2 interacțiuni din 3 perechi, toate majore.');
+    expect(
+      textSumar(2, 3, 2),
+      '2 interacțiuni din 3 perechi, toate încadrate ca majore de DDInter.',
+    );
   });
 
   test('combinatiile acoperite partial isi declara componentele lipsa', () {
@@ -135,50 +138,5 @@ void main() {
       'Sertraline',
     );
     expect(provider.substanteProdus('DCI INEXISTENT'), isEmpty);
-  });
-
-  test(
-    'alternativele sunt din aceeasi subgrupa si fara interactiune majora',
-    () {
-      const atc = {
-        'SERTRALINUM': 'N06AB06',
-        'CITALOPRAMUM': 'N06AB04',
-        'ESCITALOPRAMUM': 'N06AB10',
-        'FLUOXETINUM': 'N06AB03',
-        'PAROXETINUM': 'N06AB05',
-        'MIRTAZAPINUM': 'N06AX11',
-        'TRAMADOLUM': 'N02AX02',
-      };
-      final sertralina = gaseste('Sertraline');
-      final tramadol = gaseste('Tramadol');
-      expect(provider.clasaAtc(sertralina, atc), 'N06AB');
-      expect(provider.clasaAtc(sertralina, const {}), isNull);
-
-      final alt = provider.alternative(sertralina, [tramadol], atc);
-      for (final (s, sev) in alt) {
-        expect(provider.clasaAtc(s, atc), 'N06AB');
-        expect(s.index, isNot(sertralina.index));
-        expect(sev, isNot(Severitate.majora));
-        expect(provider.severitate(s, tramadol), sev);
-      }
-      // fara alte substante in lista, toata subgrupa este disponibila
-      final toate = provider.alternative(sertralina, const [], atc);
-      expect(toate.map((e) => e.$1.denumireEn), contains('Citalopram'));
-      expect(toate.every((e) => e.$2 == null), isTrue);
-      expect(toate.length, greaterThanOrEqualTo(alt.length));
-      expect(provider.alternative(sertralina, [tramadol], const {}), isEmpty);
-    },
-  );
-
-  test('inlocuirea in selectie pastreaza pozitia', () {
-    final p = InteractiuniProvider();
-    final a = gaseste('Sertraline');
-    final b = gaseste('Tramadol');
-    final c = gaseste('Citalopram');
-    p.adaugaInSelectie([a, b]);
-    p.inlocuiesteInSelectie(a, c);
-    expect(p.selectie.map((s) => s.denumireEn), ['Citalopram', 'Tramadol']);
-    p.inlocuiesteInSelectie(c, b); // deja in lista: nu se dubleaza
-    expect(p.selectie.map((s) => s.denumireEn), ['Citalopram', 'Tramadol']);
   });
 }

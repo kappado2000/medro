@@ -24,7 +24,7 @@ DOCUMENTELE UNUI MEDICAMENT
 IDENTIFICAREA MEDICAMENTULUI
 - DCI: denumirea comună internațională, adică substanța activă. În nomenclator este în latină: Sertralinum, Clozapinum, Acidum valproicum.
 - Denumire comercială: numele sub care se vinde produsul (Zoloft, Leponex).
-- ATC: clasificarea Anatomică, Terapeutică, Chimică a OMS. Codul are 7 caractere pe 5 niveluri, de exemplu N06AB06: N = sistem nervos; N06 = psihoanaleptice; N06A = antidepresive; N06AB = inhibitori selectivi ai recaptării serotoninei; N06AB06 = sertralină. Primele 5 caractere (N06AB) sunt „subgrupa ATC” folosită la alternativele din Interacțiuni.
+- ATC: clasificarea Anatomică, Terapeutică, Chimică a OMS. Codul are 7 caractere pe 5 niveluri, de exemplu N06AB06: N = sistem nervos; N06 = psihoanaleptice; N06A = antidepresive; N06AB = inhibitori selectivi ai recaptării serotoninei; N06AB06 = sertralină. Primele 5 caractere (N06AB) formează subgrupa ATC. Subgrupele care se termină în X (N06AX, „alte antidepresive”) adună substanțe fără legătură farmacologică între ele, de exemplu trazodonă, mirtazapină și esketamină, deci nu sunt o clasă.
 - Subgrupele folosite la filtrul „Clase psihotrope”: N05A antipsihotice; N05B anxiolitice; N05C hipnotice și sedative; N06A antidepresive; N06B psihostimulante și medicamente pentru ADHD; N06D medicamente antidemențiale; N03A antiepileptice (aici intră și stabilizatorii de dispoziție); N07B medicamente pentru adicții.
 - CIM: codul de identificare a medicamentului, unic pentru fiecare ambalaj (de exemplu W68786001). Leagă nomenclatorul de lista CNAS.
 - APP: autorizația de punere pe piață. „Deținător APP” este firma care deține autorizația; „Producător” este fabrica.
@@ -56,7 +56,8 @@ PROTOCOALELE TERAPEUTICE CNAS
 - Semnele din denumiri: un asterisc sau două marchează în lista CNAS medicamentele care se prescriu cu aprobare sau pe baza protocolului; Ω marchează medicamentele cu contracte cost-volum.
 
 INTERACȚIUNI
-- Majoră: asociere de evitat sau care cere măsuri speciale; sumarul devine roșu.
+- Majoră: nivelul cel mai înalt din DDInter. Baza este prudentă și încadrează așa foarte multe asocieri, inclusiv unele folosite curent (aproape orice pereche de antidepresive, de exemplu trazodonă cu duloxetină). Înseamnă că asocierea cere atenție și monitorizare, nu că este interzisă; sumarul devine roșu.
+- Aplicația nu propune medicamente de înlocuire. Dacă o pereche nu apare în DDInter, e o lipsă de date, nu o dovadă de siguranță.
 - Moderată: asociere care poate cere ajustarea dozei sau monitorizare.
 - Minoră: efect clinic limitat.
 - Severitate neprecizată: DDInter înregistrează interacțiunea, dar fără nivel.
