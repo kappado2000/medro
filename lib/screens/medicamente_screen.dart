@@ -285,7 +285,7 @@ class _Header extends StatelessWidget {
                               letterSpacing: -0.5,
                             ),
                           ),
-                          const SizedBox(width: 12),
+                          const SizedBox(width: 22),
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             mainAxisSize: MainAxisSize.min,
@@ -303,7 +303,6 @@ class _Header extends StatelessWidget {
                                 style: TextStyle(
                                   color: Colors.white,
                                   fontSize: 11.5,
-                                  fontWeight: FontWeight.w800,
                                   height: 1.25,
                                 ),
                               ),
