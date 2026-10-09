@@ -14,6 +14,7 @@ void main() {
     ajutorAsistent,
     ajutorInstrumente,
     ajutorCosturi,
+    ajutorCautareRcp,
   ];
 
   test('fiecare pagina de ajutor are continut si un capitol de limite', () {

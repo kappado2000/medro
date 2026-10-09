@@ -3,6 +3,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import '../models/medicament.dart';
 import '../services/data_store.dart';
+import '../utils/rcp_extrase.dart';
 import '../utils/text_utils.dart';
 
 enum FiltruMedicamente { toate, faraReteta, cuReteta, compensate, favorite }
@@ -86,6 +87,23 @@ class MedicamenteProvider extends ChangeNotifier {
     } catch (_) {
       _contraindicatii = const {};
     }
+    // legatura dintre textele RCP si produse, pentru cautarea in continut
+    _dupaRcp.clear();
+    _dupaText.clear();
+    for (final m in _toate) {
+      if (m.rcpUrl.isNotEmpty) _dupaRcp.putIfAbsent(m.rcpUrl, () => []).add(m);
+    }
+    try {
+      final index = await _citesteJsonGz('rcp/index.json.gz');
+      for (final e in index.entries) {
+        final produse = _dupaRcp[e.key];
+        if (produse != null) {
+          _dupaText.putIfAbsent(e.value as String, () => []).addAll(produse);
+        }
+      }
+    } catch (_) {
+      // fara index, cautarea in continut gaseste doar contraindicatiile
+    }
     // protocoalele terapeutice sunt optionale
     try {
       final data = await _citesteJsonGz('protocoale.json.gz');
@@ -108,6 +126,17 @@ class MedicamenteProvider extends ChangeNotifier {
     incarcat = true;
     notifyListeners();
   }
+
+  final Map<String, List<Medicament>> _dupaRcp = {};
+  final Map<String, List<Medicament>> _dupaText = {};
+
+  /// Contraindicatiile tuturor produselor, dupa adresa RCP-ului.
+  Map<String, String> get toateContraindicatiile => _contraindicatii;
+
+  /// Produsele care au un anumit text de RCP: [cheie] este amprenta textului
+  /// din pachetele de sectiuni sau, la contraindicatii, adresa RCP-ului.
+  List<Medicament> produseCuTextul(String cheie) =>
+      _dupaText[cheie] ?? _dupaRcp[cheie] ?? const [];
 
   List<Protocol> _protocoale = const [];
 
@@ -141,6 +170,36 @@ class MedicamenteProvider extends ChangeNotifier {
                 )))
           p,
     ];
+  }
+
+  /// Ce spune RCP-ul unui produs cu una dintre substantele [dci] despre
+  /// substanta recunoscuta dupa [radacini] si despre clasa ei, data de codul
+  /// [atcAlta]. Se foloseste primul produs ale carui sectiuni au fost extrase;
+  /// null daca niciunul nu are.
+  Future<TextRcp?> rcpDespre(
+    List<String> dci,
+    List<String> radacini, {
+    String atcAlta = '',
+  }) async {
+    final incercate = <String>{};
+    for (final d in dci) {
+      for (final m in _dupaDci[d] ?? const <Medicament>[]) {
+        if (m.rcpUrl.isEmpty || !incercate.add(m.rcpUrl)) continue;
+        // cateva incercari sunt de ajuns: concentratiile au de regula acelasi RCP
+        if (incercate.length > 8) return null;
+        final sectiuni = await RcpStore.instance.sectiuni(m.rcpUrl);
+        if (sectiuni.isEmpty) continue;
+        // contraindicatiile sunt pastrate separat de celelalte sectiuni
+        final toate = {...sectiuni, '4.3': ?contraindicatii(m)};
+        return textDespre(
+          m.denumire,
+          toate,
+          radacini,
+          clasaInteractiuni(atcAlta),
+        );
+      }
+    }
+    return null;
   }
 
   /// Contraindicatiile din RCP-ul produsului (sectiunea 4.3), daca au putut

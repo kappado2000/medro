@@ -62,7 +62,7 @@ const _paginaMedicamentului = CapitolAjutor(
     (
       'Secțiunile RCP',
       'textul secțiunilor 4.1–4.9: indicații, doze, atenționări, interacțiuni, '
-          'reacții adverse, supradozaj. Secțiunile foarte lungi sunt prescurtate și '
+          'sarcină, conducerea vehiculelor, reacții adverse, supradozaj. Secțiunile foarte lungi sunt prescurtate și '
           'trimit la document.',
     ),
     (
@@ -116,6 +116,12 @@ const _limiteMedicamente = CapitolAjutor(
   titlu: 'Ce trebuie să știi',
   avertizare: true,
   puncte: [
+    (
+      'Căutare în RCP',
+      'lupa cu linii din antet caută în textul RCP-urilor, nu în nume: găsești '
+          'medicamentele după indicație, reacție adversă sau orice alt cuvânt din '
+          'document. Are propria pagină de ajutor.',
+    ),
     (
       'Cont și blocare',
       'aplicația se deschide cu contul tău (e-mail și parolă), creat de administrator. '
@@ -270,6 +276,17 @@ const ajutorInteractiuni = Ajutor(
         ),
         ('Ordinea', 'perechile apar de la cea mai gravă la cea mai ușoară.'),
         (
+          'Ce spun RCP-urile',
+          'la fiecare pereche, atinge rândul acesta ca să vezi frazele din RCP-ul '
+              'fiecărei substanțe în care apare cealaltă, din secțiunile 4.3 '
+              '(contraindicații, etichetă roșie), 4.4 și 4.5. Aici găsești mecanismul și '
+              'conduita, pe care baza de interacțiuni nu le are. Apar și perechile fără '
+              'înregistrare în DDInter. Sub ele apar și frazele despre clasa substanței '
+              '(ISRS, IMAO, antipsihotice, opioide…), fiindcă multe RCP-uri descriu '
+              'asocierea prin clasă, nu prin nume. Formulările de tipul „inhibitori '
+              'CYP3A4” nu sunt găsite.',
+        ),
+        (
           'Alternative din aceeași clasă',
           'la o interacțiune majoră, atinge rândul acesta ca să vezi substanțe din '
               'aceeași subgrupă ATC care nu au interacțiune majoră cu restul listei. '
@@ -294,9 +311,10 @@ const ajutorInteractiuni = Ajutor(
       avertizare: true,
       puncte: [
         (
-          'Doar nivelul de severitate',
-          'datele provin din baza DDInter 2.0 și nu conțin mecanismul sau conduita. '
-              'Pentru acestea, atașează medicamentele în Asistent sau citește secțiunea 4.5 din RCP.',
+          'Severitatea vine din DDInter, explicația din RCP',
+          'baza DDInter 2.0 dă doar nivelul de severitate. Mecanismul și conduita le '
+              'găsești la „Ce spun RCP-urile”, care arată frazele din documentele celor '
+              'două medicamente; pentru o sinteză, atașează-le în Asistent.',
         ),
         (
           'Lipsa din listă nu înseamnă siguranță',
@@ -305,7 +323,8 @@ const ajutorInteractiuni = Ajutor(
         (
           'Unele substanțe lipsesc',
           'de exemplu bromazepam, sulpirid, tianeptină, flupentixol, zuclopentixol și '
-              'tiaprid nu sunt acoperite. Dacă o substanță nu apare la căutare, nu poate fi verificată.',
+              'tiaprid nu sunt în DDInter și nu pot fi adăugate aici. Pentru ele, deschide '
+              'pagina medicamentului și citește secțiunea 4.5 sau folosește „Căutare în RCP”.',
         ),
         (
           'Încadrarea este prudentă',
@@ -987,6 +1006,7 @@ const ajutorCosturi = Ajutor(
 /// Toate paginile de ajutor, in ordinea sectiunilor din aplicatie.
 const toateAjutoarele = [
   ajutorMedicamente,
+  ajutorCautareRcp,
   ajutorPaginaMedicament,
   ajutorInteractiuni,
   ajutorCalculatoare,
@@ -1016,3 +1036,86 @@ String textGhidAplicatie() {
   }
   return b.toString().trim();
 }
+
+const ajutorCautareRcp = Ajutor(
+  titlu: 'Căutare în RCP',
+  rezumat:
+      'Găsești medicamentele după ce scrie în RCP-ul lor: o indicație, o reacție '
+      'adversă, o contraindicație, o analiză de urmărit. Căutarea se face în textele '
+      'păstrate în aplicație, fără internet.',
+  capitole: [
+    CapitolAjutor(
+      icon: Icons.manage_search,
+      titlu: 'Cum cauți',
+      puncte: [
+        (
+          'Scrie cuvintele și apasă săgeata',
+          'căutarea pornește la apăsare, nu în timp ce scrii, fiindcă parcurge toate '
+              'textele și durează câteva secunde. Diacriticele și majusculele nu contează.',
+        ),
+        (
+          'Mai multe cuvinte',
+          'se găsesc RCP-urile în care apar toate, în aceeași secțiune, în orice '
+              'ordine. Cuvintele sub trei litere sunt ignorate.',
+        ),
+        (
+          'Rădăcina cuvântului',
+          'scrie „convulsi” ca să prinzi „convulsii”, „convulsive”, „convulsivant”.',
+        ),
+        (
+          'Secțiunea',
+          'etichetele de sus aleg unde se caută: indicații (4.1), doze (4.2), '
+              'contraindicații (4.3), atenționări (4.4), interacțiuni (4.5), sarcină '
+              '(4.6), reacții adverse (4.8) sau peste tot.',
+        ),
+        (
+          'Clasa',
+          'prima etichetă păstrează doar o clasă de psihotrope (antidepresive, '
+              'antipsihotice…), ca să răspunzi la întrebări de tipul „ce antidepresive '
+              'au în RCP creșterea în greutate”.',
+        ),
+      ],
+    ),
+    CapitolAjutor(
+      icon: Icons.list_alt,
+      titlu: 'Cum citești rezultatele',
+      puncte: [
+        (
+          'Un rând pe medicament',
+          'concentrațiile și produsele cu același text apar o singură dată, cu '
+              'mențiunea „același text la încă N produse”.',
+        ),
+        (
+          'Fraza găsită',
+          'sub nume vezi fraza din RCP în care apare primul cuvânt căutat, cu numărul '
+              'secțiunii; contraindicațiile au eticheta roșie.',
+        ),
+        (
+          'Atinge rezultatul',
+          'se deschide pagina medicamentului, cu secțiunea întreagă și documentul.',
+        ),
+      ],
+    ),
+    CapitolAjutor(
+      icon: Icons.warning_amber_rounded,
+      titlu: 'Limite',
+      avertizare: true,
+      puncte: [
+        (
+          'Caută cuvinte, nu înțelesuri',
+          '„nu este indicat în depresie” este găsit la fel ca „indicat în depresie”. '
+              'Citește fraza înainte să tragi o concluzie.',
+        ),
+        (
+          'Lista poate fi incompletă',
+          'circa 2% dintre RCP-uri nu au putut fi citite, iar secțiunile foarte lungi '
+              'sunt prescurtate. Lipsa unui medicament din rezultate nu dovedește nimic.',
+        ),
+        (
+          'Cel mult 300 de rezultate',
+          'la cuvinte foarte frecvente, căutarea se oprește și îți cere să o restrângi.',
+        ),
+      ],
+    ),
+  ],
+);

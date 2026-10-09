@@ -6,6 +6,7 @@ import '../providers/interactiuni_provider.dart';
 import '../providers/medicamente_provider.dart';
 import '../help/ajutor.dart';
 import '../theme/app_theme.dart';
+import '../utils/rcp_extrase.dart';
 import '../utils/text_utils.dart';
 
 String etichetaSeveritate(Severitate s) {
@@ -316,6 +317,20 @@ class _InteractiuniScreenState extends State<InteractiuniScreen> {
                 key: ValueKey('${i.a.index}-${i.b.index}'),
               ),
             ),
+          // perechile fara inregistrare in DDInter: RCP-urile pot spune totusi ceva
+          for (var x = 0; x < _selectie.length; x++)
+            for (var y = x + 1; y < _selectie.length; y++)
+              if (provider.severitate(_selectie[x], _selectie[y]) == null)
+                Padding(
+                  padding: const EdgeInsets.only(bottom: 10),
+                  child: _PerecheFaraDate(
+                    _selectie[x],
+                    _selectie[y],
+                    key: ValueKey(
+                      'f${_selectie[x].index}-${_selectie[y].index}',
+                    ),
+                  ),
+                ),
         ],
         const SizedBox(height: 8),
         _Nota(provider.sursa),
@@ -557,8 +572,8 @@ class _InteractiuneCardState extends State<_InteractiuneCard> {
                 ),
               ],
             ),
+            _TextRcp(i.a, i.b),
             if (i.severitate == Severitate.majora) ...[
-              const SizedBox(height: 6),
               InkWell(
                 onTap: () => setState(() => _alternative = !_alternative),
                 child: Padding(
@@ -607,6 +622,288 @@ class _InteractiuneCardState extends State<_InteractiuneCard> {
             ],
           ],
         ),
+      ),
+    );
+  }
+}
+
+/// O pereche pentru care DDInter nu are nicio inregistrare.
+class _PerecheFaraDate extends StatelessWidget {
+  final Substanta a;
+  final Substanta b;
+  const _PerecheFaraDate(this.a, this.b, {super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      child: Padding(
+        padding: const EdgeInsets.all(14),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Row(
+              children: [
+                Container(
+                  width: 6,
+                  height: 46,
+                  decoration: BoxDecoration(
+                    color: AppColors.line,
+                    borderRadius: BorderRadius.circular(3),
+                  ),
+                ),
+                const SizedBox(width: 12),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        '${a.nume} + ${b.nume}',
+                        style: const TextStyle(
+                          fontSize: 15,
+                          fontWeight: FontWeight.w700,
+                          color: AppColors.ink,
+                          height: 1.25,
+                        ),
+                      ),
+                      const SizedBox(height: 3),
+                      const Text(
+                        'Fără înregistrare în DDInter',
+                        style: TextStyle(
+                          fontSize: 13.5,
+                          fontWeight: FontWeight.w700,
+                          color: AppColors.muted,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+            _TextRcp(a, b),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+/// Ce spun RCP-urile celor doua substante una despre cealalta: frazele din
+/// sectiunile 4.3, 4.4 si 4.5 in care apare cealalta substanta. Se incarca la
+/// prima deschidere.
+class _TextRcp extends StatefulWidget {
+  final Substanta a;
+  final Substanta b;
+  const _TextRcp(this.a, this.b);
+
+  @override
+  State<_TextRcp> createState() => _TextRcpState();
+}
+
+class _TextRcpState extends State<_TextRcp> {
+  bool _deschis = false;
+  Future<List<(Substanta, Substanta, TextRcp?)>>? _date;
+
+  Future<List<(Substanta, Substanta, TextRcp?)>> _incarca() async {
+    final med = context.read<MedicamenteProvider>();
+    final atc = med.atcDupaDci;
+    Future<TextRcp?> despre(Substanta s, Substanta alta) {
+      return med.rcpDespre(
+        s.dci,
+        radaciniSubstanta([...alta.dci, alta.denumireEn]),
+        atcAlta:
+            alta.dci.map((d) => atc[d]).whereType<String>().firstOrNull ?? '',
+      );
+    }
+
+    return [
+      (widget.a, widget.b, await despre(widget.a, widget.b)),
+      (widget.b, widget.a, await despre(widget.b, widget.a)),
+    ];
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        const SizedBox(height: 6),
+        InkWell(
+          onTap: () => setState(() {
+            _deschis = !_deschis;
+            _date ??= _incarca();
+          }),
+          child: Padding(
+            padding: const EdgeInsets.symmetric(vertical: 6),
+            child: Row(
+              children: [
+                const Icon(
+                  Icons.description_outlined,
+                  size: 18,
+                  color: AppColors.blue,
+                ),
+                const SizedBox(width: 6),
+                const Expanded(
+                  child: Text(
+                    'Ce spun RCP-urile',
+                    style: TextStyle(
+                      color: AppColors.blue,
+                      fontWeight: FontWeight.w700,
+                      fontSize: 13.5,
+                    ),
+                  ),
+                ),
+                Icon(
+                  _deschis ? Icons.expand_less : Icons.expand_more,
+                  color: AppColors.blue,
+                ),
+              ],
+            ),
+          ),
+        ),
+        if (_deschis)
+          FutureBuilder(
+            future: _date,
+            builder: (context, snapshot) {
+              final date = snapshot.data;
+              if (date == null) {
+                return const Padding(
+                  padding: EdgeInsets.all(8),
+                  child: LinearProgressIndicator(),
+                );
+              }
+              return Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  for (final (s, alta, rezultat) in date)
+                    _DinRcp(substanta: s, alta: alta, rezultat: rezultat),
+                  const Text(
+                    'Fraze extrase automat din secțiunile 4.3, 4.4 și 4.5, găsite '
+                    'după numele substanței și după clasa ei. Asocierile descrise '
+                    'altfel (de exemplu „inhibitori CYP3A4”) nu apar: verifică RCP-ul.',
+                    style: TextStyle(
+                      color: AppColors.muted,
+                      fontSize: 12,
+                      height: 1.4,
+                    ),
+                  ),
+                ],
+              );
+            },
+          ),
+      ],
+    );
+  }
+}
+
+class _DinRcp extends StatelessWidget {
+  final Substanta substanta;
+  final Substanta alta;
+  final TextRcp? rezultat;
+
+  const _DinRcp({
+    required this.substanta,
+    required this.alta,
+    required this.rezultat,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    final r = rezultat;
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 12),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          _TitluRcp(
+            r == null
+                ? 'RCP ${substanta.nume}'
+                : 'RCP ${r.produs}, despre ${alta.nume}',
+          ),
+          if (r == null)
+            const Text(
+              'Aplicația nu are RCP-ul extras pentru această substanță.',
+              style: TextStyle(color: AppColors.muted, fontSize: 13),
+            )
+          else if (r.peNume.isEmpty)
+            Padding(
+              padding: const EdgeInsets.only(bottom: 6),
+              child: Text(
+                'Nu pomenește ${alta.nume} pe nume.',
+                style: const TextStyle(color: AppColors.muted, fontSize: 13),
+              ),
+            )
+          else
+            for (final f in r.peNume) _Fraza(f),
+          if (r != null && r.peClasa.isNotEmpty) ...[
+            _TitluRcp('…și despre clasa ei (${r.clasa})'),
+            for (final f in r.peClasa) _Fraza(f),
+          ],
+        ],
+      ),
+    );
+  }
+}
+
+class _TitluRcp extends StatelessWidget {
+  final String text;
+  const _TitluRcp(this.text);
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 6),
+      child: Text(
+        text,
+        style: const TextStyle(
+          color: AppColors.ink,
+          fontWeight: FontWeight.w700,
+          fontSize: 13.5,
+        ),
+      ),
+    );
+  }
+}
+
+/// O fraza din RCP, cu numarul sectiunii; contraindicatiile au eticheta rosie.
+class _Fraza extends StatelessWidget {
+  final FrazaRcp f;
+  const _Fraza(this.f);
+
+  @override
+  Widget build(BuildContext context) {
+    final contraindicatie = f.sectiune == '4.3';
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 8),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Container(
+            margin: const EdgeInsets.only(top: 2, right: 8),
+            padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
+            decoration: BoxDecoration(
+              color: contraindicatie ? AppColors.redSoft : AppColors.blueSoft,
+              borderRadius: BorderRadius.circular(6),
+            ),
+            child: Text(
+              f.sectiune,
+              style: TextStyle(
+                color: contraindicatie ? AppColors.red : AppColors.blue,
+                fontSize: 11.5,
+                fontWeight: FontWeight.w800,
+              ),
+            ),
+          ),
+          Expanded(
+            child: SelectableText(
+              f.text,
+              style: const TextStyle(
+                color: AppColors.ink,
+                fontSize: 14,
+                height: 1.4,
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }
@@ -689,8 +986,8 @@ class _Nota extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Text(
-      'Sursă: $sursa. Datele conțin doar nivelul de severitate, fără mecanism sau '
-      'conduită. Lipsa unei interacțiuni din listă nu înseamnă că ea nu există. '
+      'Sursă: $sursa. Baza dă doar nivelul de severitate; mecanismul și conduita sunt '
+      'în „Ce spun RCP-urile”, la fiecare pereche. Lipsa unei interacțiuni din listă nu înseamnă că ea nu există. '
       'Verifică întotdeauna RCP-ul.',
       style: const TextStyle(
         color: AppColors.muted,

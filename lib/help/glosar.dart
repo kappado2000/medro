@@ -61,6 +61,8 @@ INTERACȚIUNI
 - Minoră: efect clinic limitat.
 - Severitate neprecizată: DDInter înregistrează interacțiunea, dar fără nivel.
 - Lipsa unei perechi din listă nu înseamnă că interacțiunea nu există.
+- Ce spun RCP-urile: rând care se deschide la fiecare pereche și arată frazele din RCP-ul fiecărei substanțe în care apare cealaltă (secțiunile 4.3, 4.4 și 4.5). Completează severitatea din DDInter cu mecanismul și conduita. Căutarea se face după numele substanței și după clasa ei (ISRS, IRSN, triciclice, IMAO, antipsihotice, benzodiazepine, opioide, antiepileptice, psihostimulante, litiu, AINS, anticoagulante, diuretice, inhibitori ai ECA); frazele despre clasă apar separat. O asociere descrisă prin enzimă („inhibitori CYP3A4”) nu este găsită.
+- Fără înregistrare în DDInter: perechea nu există în baza de interacțiuni; nu înseamnă că asocierea e sigură. Și aici se poate deschide „Ce spun RCP-urile”.
 - „fără date pentru: …” la un medicament combinat: componenta respectivă nu se găsește în DDInter și nu poate fi verificată.
 
 RĂSPUNSURILE RAPIDE DIN RCP

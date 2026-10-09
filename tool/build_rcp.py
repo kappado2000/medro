@@ -67,7 +67,7 @@ TITLURI = [
     ("4.3", titlu("4.3", rf"Contraindica{T}ii")),
     ("4.4", titlu("4.4", rf"Aten{T}ion{A}ri {S}i precau{T}ii|Precau{T}ii {S}i aten{T}ion{A}ri"
                          rf"|Aten{T}ion{A}ri speciale|Precau{T}ii speciale", False)),
-    ("4.5", titlu("4.5", rf"Interac{T}iuni cu alte medicamente", False)),
+    ("4.5", titlu("4.5", rf"Interac{T}iuni cu alte (?:medicamente|produse medicamentoase)", False)),
     ("4.6", titlu("4.6", rf"Fertilitatea?, sarcina|Sarcina {S}i al{A}ptarea|Sarcina, al{A}ptarea"
                          rf"|Fertilitate, sarcin{A}", False)),
     ("4.7", titlu("4.7", rf"Efecte asupra capacit{A}{T}ii de a conduce", False)),
@@ -82,7 +82,14 @@ REST_TITLU = re.compile(
     rf"|^{S}i al{A}ptarea$|^vehicule {S}i de a folosi utilaje$|^de a folosi utilaje$",
     re.I,
 )
-PASTRATE = ("4.1", "4.2", "4.3", "4.4", "4.5", "4.6", "4.8", "4.9")
+PASTRATE = ("4.1", "4.2", "4.3", "4.4", "4.5", "4.6", "4.7", "4.8", "4.9")
+
+
+def titlu_dupa_numar(numar: str) -> re.Pattern:
+    """Titlul recunoscut doar dupa numar ("4.4 Atentionari..."), pentru documentele
+    care il formuleaza altfel decat de obicei. Tot randul este titlul."""
+    cap, coada = numar.split(".")
+    return re.compile(rf"(?m)^\s*{cap}{N}{coada}\.?[ \t]+[A-ZĂÂÎȘŞȚŢ][^\n]*$")
 
 
 def cheie(url: str) -> str:
@@ -150,15 +157,26 @@ def extrage(cale_pdf: Path) -> dict[str, str]:
     pozitie = 0
     for numar, tipar in TITLURI:
         m = tipar.search(text, pozitie)
+        # acelasi titlu, recunoscut doar dupa numar: prinde formularile neobisnuite
+        # si, daca apare mai devreme, arata ca tiparul a nimerit o trimitere din text
+        n = titlu_dupa_numar(numar).search(text, pozitie) if "." in numar else None
+        if n and (m is None or n.start() < m.start()):
+            m = n
         if m:
             gasite.append((numar, m.start(), m.end()))
             pozitie = m.end()
+    ordine = [numar for numar, _ in TITLURI]
     sectiuni = {}
     for (numar, _, sfarsit_titlu), urmator in zip(gasite, gasite[1:]):
-        if numar in PASTRATE:
-            continut = curata(text[sfarsit_titlu : urmator[1]])
-            if continut:
-                sectiuni[numar] = continut
+        if numar not in PASTRATE:
+            continue
+        # daca titlul urmator din document nu a fost gasit, textul de aici ar
+        # cuprinde si sectiunea lui; mai bine lipsa decat un text amestecat
+        if ordine.index(urmator[0]) != ordine.index(numar) + 1:
+            continue
+        continut = curata(text[sfarsit_titlu : urmator[1]])
+        if continut:
+            sectiuni[numar] = continut
     return sectiuni
 
 
@@ -247,7 +265,8 @@ def main() -> None:
     for i, url in enumerate(de_facut, 1):
         pdf = PDF / f"{cheie(url)}.pdf"
         era_local = pdf.exists()
-        stare = descarca(url, pdf)
+        # la reextragere se lucreaza doar cu documentele deja descarcate
+        stare = "ok" if era_local else ("lipsa" if reextrage else descarca(url, pdf))
         sectiuni = extrage(pdf) if stare == "ok" else {}
         cu_sectiuni += bool(sectiuni)
         (SECTIUNI / f"{cheie(url)}.json").write_text(

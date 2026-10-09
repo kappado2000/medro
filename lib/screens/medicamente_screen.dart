@@ -7,6 +7,7 @@ import '../theme/app_theme.dart';
 import '../utils/clase_psihotrope.dart';
 import '../widgets/date_aplicatie.dart';
 import '../widgets/medicament_widgets.dart';
+import 'cautare_rcp_screen.dart';
 import 'medicament_detail_screen.dart';
 
 class MedicamenteScreen extends StatefulWidget {
@@ -266,16 +267,32 @@ class _Header extends StatelessWidget {
                 children: [
                   const EmblemaCapsula(dimensiune: 40),
                   const SizedBox(width: 12),
-                  const Text(
-                    'MedRO',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 26,
-                      fontWeight: FontWeight.w800,
-                      letterSpacing: -0.5,
+                  // pe ecrane inguste cu text mare, titlul se micsoreaza usor in
+                  // loc sa impinga butoanele in afara
+                  const Expanded(
+                    child: FittedBox(
+                      fit: BoxFit.scaleDown,
+                      alignment: Alignment.centerLeft,
+                      child: Text(
+                        'MedRO',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 26,
+                          fontWeight: FontWeight.w800,
+                          letterSpacing: -0.5,
+                        ),
+                      ),
                     ),
                   ),
-                  const Spacer(),
+                  IconButton(
+                    tooltip: 'Căutare în RCP',
+                    icon: const Icon(Icons.manage_search, color: Colors.white),
+                    onPressed: () => Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (_) => const CautareRcpScreen(),
+                      ),
+                    ),
+                  ),
                   const ButonAjutor(ajutorMedicamente),
                 ],
               ),
