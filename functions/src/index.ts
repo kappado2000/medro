@@ -1,0 +1,1 @@
+export { medroAsistent } from "./medroAsistent";

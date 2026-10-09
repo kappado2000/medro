@@ -1,0 +1,166 @@
+import 'dart:convert';
+
+import 'package:archive/archive.dart';
+import 'package:flutter/foundation.dart';
+import 'package:flutter/services.dart';
+
+import '../utils/text_utils.dart';
+
+/// Nivelul de severitate din DDInter, de la cel mai grav.
+enum Severitate { majora, moderata, minora, neprecizata }
+
+class Substanta {
+  final int index;
+
+  /// Denumirea din DDInter (engleza).
+  final String denumireEn;
+
+  /// Denumirile DCI din nomenclator carora le corespunde.
+  final List<String> dci;
+
+  final String cautare;
+
+  Substanta(this.index, this.denumireEn, this.dci)
+    : cautare = normalizeForSearch('${dci.join(' ')} $denumireEn');
+
+  String get nume => titleCase(dci.first);
+}
+
+class Interactiune {
+  final Substanta a;
+  final Substanta b;
+  final Severitate severitate;
+  const Interactiune(this.a, this.b, this.severitate);
+}
+
+class InteractiuniProvider extends ChangeNotifier {
+  static const _assetPath = 'assets/data/interactiuni.json.gz';
+  static const maxSugestii = 30;
+
+  List<Substanta> _substante = const [];
+  Map<String, List<int>> _dupaDci = const {};
+
+  /// Pentru fiecare substanta, vecinii cu index mai mare, pe niveluri.
+  Map<int, List<List<int>>> _perechi = const {};
+
+  String sursa = '';
+  bool incarcat = false;
+  String? eroare;
+
+  int get totalSubstante => _substante.length;
+
+  /// Substantele alese pentru verificare in ecranul de interactiuni.
+  final List<Substanta> selectie = [];
+
+  void adaugaInSelectie(Iterable<Substanta> substante) {
+    for (final s in substante) {
+      if (!selectie.any((x) => x.index == s.index)) selectie.add(s);
+    }
+    notifyListeners();
+  }
+
+  void scoateDinSelectie(Substanta s) {
+    selectie.removeWhere((x) => x.index == s.index);
+    notifyListeners();
+  }
+
+  void golesteSelectia() {
+    selectie.clear();
+    notifyListeners();
+  }
+
+  Future<void> incarca() async {
+    try {
+      final bytes = (await rootBundle.load(_assetPath)).buffer.asUint8List();
+      final json = utf8.decode(GZipDecoder().decodeBytes(bytes));
+      final data = jsonDecode(json) as Map<String, dynamic>;
+      sursa = data['sursa'] as String;
+      _substante = [
+        for (final (i, s) in (data['substante'] as List).indexed)
+          Substanta(i, s[0] as String, (s[1] as List).cast<String>()),
+      ];
+      _dupaDci = {
+        for (final e in (data['dci'] as Map<String, dynamic>).entries)
+          e.key: (e.value as List).cast<int>(),
+      };
+      _perechi = {
+        for (final e in (data['perechi'] as Map<String, dynamic>).entries)
+          int.parse(e.key): [
+            for (final nivel in e.value as List) (nivel as List).cast<int>(),
+          ],
+      };
+    } catch (e) {
+      eroare = e.toString();
+    }
+    incarcat = true;
+    notifyListeners();
+  }
+
+  /// Substantele unui produs, dupa DCI-ul din nomenclator (mai multe la combinatii).
+  List<Substanta> substanteProdus(String dci) {
+    return [for (final i in _dupaDci[dci] ?? const <int>[]) _substante[i]];
+  }
+
+  /// Cauta dupa denumirea DCI sau dupa cea englezeasca.
+  List<Substanta> cauta(String interogare) {
+    final q = normalizeForSearch(interogare);
+    if (q.isEmpty) return const [];
+    final inceput = <Substanta>[];
+    final restul = <Substanta>[];
+    for (final s in _substante) {
+      if (s.cautare.startsWith(q) || s.cautare.contains(' $q')) {
+        inceput.add(s);
+      } else if (s.cautare.contains(q)) {
+        restul.add(s);
+      }
+    }
+    if (inceput.isEmpty && restul.isEmpty) {
+      // denumirea romaneasca a substantei: "clozapina" pentru CLOZAPINUM
+      final radacina = radacinaSubstanta(q);
+      if (radacina != null) return cauta(radacina);
+    }
+    return [...inceput, ...restul].take(maxSugestii).toList();
+  }
+
+  Severitate? severitate(Substanta a, Substanta b) {
+    if (a.index == b.index) return null;
+    final (i, j) = a.index < b.index ? (a.index, b.index) : (b.index, a.index);
+    final niveluri = _perechi[i];
+    if (niveluri == null) return null;
+    for (final (n, vecini) in niveluri.indexed) {
+      if (vecini.contains(j)) return Severitate.values[n];
+    }
+    return null;
+  }
+
+  /// Interactiunile dintre toate perechile din lista, cele mai grave primele.
+  List<Interactiune> verifica(List<Substanta> selectie) {
+    final rezultate = <Interactiune>[];
+    for (var i = 0; i < selectie.length; i++) {
+      for (var j = i + 1; j < selectie.length; j++) {
+        final s = severitate(selectie[i], selectie[j]);
+        if (s != null) rezultate.add(Interactiune(selectie[i], selectie[j], s));
+      }
+    }
+    mergeSort(
+      rezultate,
+      compare: (a, b) => a.severitate.index.compareTo(b.severitate.index),
+    );
+    return rezultate;
+  }
+
+  /// Toate substantele cu care o substanta are interactiune de nivelul dat.
+  List<Substanta> partenere(Substanta s, Severitate nivel) {
+    final rezultat = <Substanta>[
+      for (final j in _perechi[s.index]?[nivel.index] ?? const <int>[])
+        _substante[j],
+    ];
+    for (final e in _perechi.entries) {
+      if (e.key < s.index && e.value[nivel.index].contains(s.index)) {
+        rezultat.add(_substante[e.key]);
+      }
+    }
+    rezultat.sort((a, b) => a.nume.compareTo(b.nume));
+    return rezultat;
+  }
+}
