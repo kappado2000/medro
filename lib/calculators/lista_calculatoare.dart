@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'calculator.dart';
 import 'formule.dart';
+import 'instrumente.dart';
 import 'psihiatrie.dart';
 
 const _sex = CampAlegere('sex', 'Sex', ['Bărbat', 'Femeie']);
@@ -40,6 +41,7 @@ Rezultat _stadiuRenal(double valoare, String unitate) {
 
 final List<Calculator> calculatoare = [
   ...calculatoarePsihiatrie,
+  ...instrumente,
   Calculator(
     id: 'egfr',
     titlu: 'eGFR (CKD-EPI 2021)',

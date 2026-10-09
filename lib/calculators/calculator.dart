@@ -83,6 +83,10 @@ class Calculator {
   /// Intoarce null cat timp lipsesc valori obligatorii.
   final Rezultat? Function(Map<String, Object> valori) calculeaza;
 
+  /// Instrumentele cu ecran propriu (planuri, calendare) il construiesc aici;
+  /// atunci campurile si formula nu se folosesc.
+  final Widget Function()? ecran;
+
   const Calculator({
     required this.id,
     required this.titlu,
@@ -92,6 +96,7 @@ class Calculator {
     required this.campuri,
     required this.sursa,
     required this.calculeaza,
+    this.ecran,
   });
 }
 

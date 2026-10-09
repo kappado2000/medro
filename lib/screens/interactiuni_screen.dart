@@ -296,7 +296,10 @@ class _InteractiuniScreenState extends State<InteractiuniScreen> {
           for (final i in interactiuni)
             Padding(
               padding: const EdgeInsets.only(bottom: 10),
-              child: _InteractiuneCard(i),
+              child: _InteractiuneCard(
+                i,
+                key: ValueKey('${i.a.index}-${i.b.index}'),
+              ),
             ),
         ],
         const SizedBox(height: 8),
@@ -480,55 +483,185 @@ class _Sumar extends StatelessWidget {
   }
 }
 
-class _InteractiuneCard extends StatelessWidget {
+class _InteractiuneCard extends StatefulWidget {
   final Interactiune interactiune;
-  const _InteractiuneCard(this.interactiune);
+  const _InteractiuneCard(this.interactiune, {super.key});
+
+  @override
+  State<_InteractiuneCard> createState() => _InteractiuneCardState();
+}
+
+class _InteractiuneCardState extends State<_InteractiuneCard> {
+  bool _alternative = false;
 
   @override
   Widget build(BuildContext context) {
-    final i = interactiune;
+    final i = widget.interactiune;
     final culoare = culoareSeveritate(i.severitate);
     return Card(
       child: Padding(
         padding: const EdgeInsets.all(14),
-        child: Row(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Container(
-              width: 6,
-              height: 46,
-              decoration: BoxDecoration(
-                color: culoare,
-                borderRadius: BorderRadius.circular(3),
-              ),
-            ),
-            const SizedBox(width: 12),
-            Expanded(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    '${i.a.nume} + ${i.b.nume}',
-                    style: const TextStyle(
-                      fontSize: 15,
-                      fontWeight: FontWeight.w700,
-                      color: AppColors.ink,
-                      height: 1.25,
-                    ),
+            Row(
+              children: [
+                Container(
+                  width: 6,
+                  height: 46,
+                  decoration: BoxDecoration(
+                    color: culoare,
+                    borderRadius: BorderRadius.circular(3),
                   ),
-                  const SizedBox(height: 3),
-                  Text(
-                    etichetaSeveritate(i.severitate),
-                    style: TextStyle(
-                      fontSize: 13.5,
-                      fontWeight: FontWeight.w700,
-                      color: culoare,
-                    ),
+                ),
+                const SizedBox(width: 12),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        '${i.a.nume} + ${i.b.nume}',
+                        style: const TextStyle(
+                          fontSize: 15,
+                          fontWeight: FontWeight.w700,
+                          color: AppColors.ink,
+                          height: 1.25,
+                        ),
+                      ),
+                      const SizedBox(height: 3),
+                      Text(
+                        etichetaSeveritate(i.severitate),
+                        style: TextStyle(
+                          fontSize: 13.5,
+                          fontWeight: FontWeight.w700,
+                          color: culoare,
+                        ),
+                      ),
+                    ],
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
+            if (i.severitate == Severitate.majora) ...[
+              const SizedBox(height: 6),
+              InkWell(
+                onTap: () => setState(() => _alternative = !_alternative),
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 6),
+                  child: Row(
+                    children: [
+                      const Icon(
+                        Icons.swap_horiz,
+                        size: 18,
+                        color: AppColors.blue,
+                      ),
+                      const SizedBox(width: 6),
+                      const Expanded(
+                        child: Text(
+                          'Alternative din aceeași clasă',
+                          style: TextStyle(
+                            color: AppColors.blue,
+                            fontWeight: FontWeight.w700,
+                            fontSize: 13.5,
+                          ),
+                        ),
+                      ),
+                      Icon(
+                        _alternative ? Icons.expand_less : Icons.expand_more,
+                        color: AppColors.blue,
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              if (_alternative) ...[
+                _Alternative(deInlocuit: i.a),
+                _Alternative(deInlocuit: i.b),
+                const Text(
+                  'Sunt substanțe din aceeași subgrupă ATC, fără interacțiune majoră '
+                  'înregistrată cu restul listei. Nu sunt echivalente terapeutic '
+                  'verificate: indicația și dozele se aleg din RCP. Atinge una ca să '
+                  'faci înlocuirea în listă.',
+                  style: TextStyle(
+                    color: AppColors.muted,
+                    fontSize: 12,
+                    height: 1.4,
+                  ),
+                ),
+              ],
+            ],
           ],
         ),
+      ),
+    );
+  }
+}
+
+/// Inlocuitori posibili pentru o substanta din lista verificata.
+class _Alternative extends StatelessWidget {
+  final Substanta deInlocuit;
+  const _Alternative({required this.deInlocuit});
+
+  @override
+  Widget build(BuildContext context) {
+    final provider = context.watch<InteractiuniProvider>();
+    final atc = context.watch<MedicamenteProvider>().atcDupaDci;
+    final ceilalti = [
+      for (final s in provider.selectie)
+        if (s.index != deInlocuit.index) s,
+    ];
+    final clasa = provider.clasaAtc(deInlocuit, atc);
+    final gasite = provider.alternative(deInlocuit, ceilalti, atc);
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 10),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            clasa == null
+                ? 'În loc de ${deInlocuit.nume}'
+                : 'În loc de ${deInlocuit.nume} ($clasa)',
+            style: const TextStyle(
+              color: AppColors.ink,
+              fontWeight: FontWeight.w700,
+              fontSize: 13.5,
+            ),
+          ),
+          const SizedBox(height: 6),
+          if (gasite.isEmpty)
+            const Text(
+              'Nicio alternativă fără interacțiune majoră în această subgrupă.',
+              style: TextStyle(color: AppColors.muted, fontSize: 13),
+            )
+          else
+            Wrap(
+              spacing: 8,
+              runSpacing: 8,
+              children: [
+                for (final (s, sev) in gasite.take(12))
+                  ActionChip(
+                    label: Text(
+                      sev == null
+                          ? s.nume
+                          : '${s.nume} · ${etichetaSeveritate(sev).toLowerCase()}',
+                    ),
+                    backgroundColor: sev == null
+                        ? AppColors.blueSoft
+                        : Colors.white,
+                    side: sev == null
+                        ? BorderSide.none
+                        : const BorderSide(color: AppColors.line),
+                    labelStyle: TextStyle(
+                      color: sev == null ? AppColors.blue : AppColors.ink,
+                      fontWeight: FontWeight.w600,
+                      fontSize: 13,
+                    ),
+                    onPressed: () =>
+                        provider.inlocuiesteInSelectie(deInlocuit, s),
+                  ),
+              ],
+            ),
+        ],
       ),
     );
   }

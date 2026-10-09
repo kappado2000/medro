@@ -12,6 +12,7 @@ void main() {
     ajutorCalculatoare,
     ajutorIcd,
     ajutorAsistent,
+    ajutorInstrumente,
   ];
 
   test('fiecare pagina de ajutor are continut si un capitol de limite', () {
@@ -81,7 +82,8 @@ void main() {
       await tester.tap(find.byIcon(Icons.help_outline).hitTestable());
       await tester.pumpAndSettle();
       expect(find.text(e.value), findsOneWidget, reason: e.key);
-      await tester.pageBack();
+      // butonul are eticheta in romana, deci nu se poate folosi pageBack()
+      await tester.tap(find.byType(BackButton));
       await tester.pumpAndSettle();
     }
   });

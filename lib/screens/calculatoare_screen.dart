@@ -72,7 +72,7 @@ class _CalculatoareScreenState extends State<CalculatoareScreen> {
                   ),
                   const SizedBox(height: 6),
                   Text(
-                    '${calculatoare.length} formule și scoruri clinice',
+                    '${calculatoare.length} scale, formule și instrumente',
                     style: TextStyle(
                       color: Colors.white.withValues(alpha: 0.82),
                       fontSize: 13,
@@ -155,7 +155,9 @@ class _CalculatorTile extends StatelessWidget {
       clipBehavior: Clip.antiAlias,
       child: InkWell(
         onTap: () => Navigator.of(context).push(
-          MaterialPageRoute(builder: (_) => CalculatorScreen(calculator: c)),
+          MaterialPageRoute(
+            builder: (_) => c.ecran?.call() ?? CalculatorScreen(calculator: c),
+          ),
         ),
         child: Padding(
           padding: const EdgeInsets.all(14),

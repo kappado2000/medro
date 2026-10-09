@@ -1,4 +1,4 @@
-import { parseMedroRequest, tokenMatches } from "./medroAsistent";
+import { DailyLimiter, parseMedroRequest, tokenMatches } from "./medroAsistent";
 
 jest.mock("firebase-functions/v2/https", () => ({ onRequest: () => jest.fn() }));
 
@@ -45,5 +45,17 @@ describe("tokenMatches", () => {
     expect(tokenMatches("", "abc123")).toBe(false);
     expect(tokenMatches(undefined, "abc123")).toBe(false);
     expect(tokenMatches(["abc123"], "abc123")).toBe(false);
+  });
+});
+
+describe("DailyLimiter", () => {
+  it("refuses requests past the day's limit and starts over the next UTC day", () => {
+    const limiter = new DailyLimiter(2);
+    const day1 = new Date("2026-10-09T10:00:00Z");
+    expect(limiter.allow(day1)).toBe(true);
+    expect(limiter.allow(day1)).toBe(true);
+    expect(limiter.allow(day1)).toBe(false);
+    expect(limiter.allow(new Date("2026-10-09T23:59:59Z"))).toBe(false);
+    expect(limiter.allow(new Date("2026-10-10T00:00:01Z"))).toBe(true);
   });
 });

@@ -31,6 +31,16 @@ class TemaRcp {
 
 final temeRcp = [
   TemaRcp._(
+    'doza_maxima',
+    'Doza maximă',
+    RegExp(
+      r'doz[aăe](i)? (zilnic[aăe] )?maxim|maxim(um)? (de )?\d|nu trebuie (s[aă] )?dep[aă][sș]|'
+      r'nu (se|trebuie) (va )?dep[aă][sș]|p[aâ]n[aă] la (o doz[aă] (maxim[aă] )?de )?\d+([.,]\d+)? ?mg',
+      caseSensitive: false,
+    ),
+    const ['4.2'],
+  ),
+  TemaRcp._(
     'renal',
     'Insuficiență renală',
     RegExp(

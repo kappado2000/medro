@@ -54,7 +54,7 @@ const _paginaMedicamentului = CapitolAjutor(
     ),
     (
       'Răspunsuri rapide din RCP',
-      'frazele din document despre sarcină și alăptare, insuficiența renală și '
+      'frazele din document despre doza maximă, sarcină și alăptare, insuficiența renală și '
           'hepatică, vârstnici, monitorizare, enzimele hepatice (CYP) și intervalul QT. '
           'Fiecare frază are în față numărul secțiunii din care provine. Sunt '
           'disponibile fără internet.',
@@ -255,6 +255,14 @@ const ajutorInteractiuni = Ajutor(
         ),
         ('Ordinea', 'perechile apar de la cea mai gravă la cea mai ușoară.'),
         (
+          'Alternative din aceeași clasă',
+          'la o interacțiune majoră, atinge rândul acesta ca să vezi substanțe din '
+              'aceeași subgrupă ATC care nu au interacțiune majoră cu restul listei. '
+              'Cele pe fond albastru nu au nicio interacțiune înregistrată; la celelalte '
+              'scrie nivelul rămas. Atinge una ca să o pui în locul celei vechi. Sunt '
+              'sugestii de verificat, nu echivalențe terapeutice.',
+        ),
+        (
           'Culorile',
           'roșu – majoră; albastru – moderată; gri – minoră sau cu severitate neprecizată.',
         ),
@@ -304,6 +312,11 @@ const ajutorCalculatoare = Ajutor(
       icon: Icons.psychology_outlined,
       titlu: 'Ce găsești',
       puncte: [
+        (
+          'Instrumente de prescriere',
+          'plan de reducere sau titrare a dozei, calendarul injecțiilor depot și '
+              'monitorizarea cerută de RCP. Fiecare are propria pagină de ajutor.',
+        ),
         (
           'Psihiatrie',
           'PHQ-9 (depresie), GAD-7 (anxietate), AUDIT (consum de alcool), CIWA-Ar '
@@ -744,3 +757,112 @@ class AjutorScreen extends StatelessWidget {
     );
   }
 }
+
+const ajutorInstrumente = Ajutor(
+  titlu: 'Instrumente de prescriere',
+  rezumat:
+      'Trei unelte pentru practica de zi cu zi: calendarul unei reduceri sau '
+      'titrări de doză, datele următoarelor injecții depot și ce cere RCP-ul să '
+      'monitorizezi la psihotropele cu risc.',
+  capitole: [
+    CapitolAjutor(
+      icon: Icons.trending_down,
+      titlu: 'Plan de reducere sau titrare',
+      puncte: [
+        (
+          'Dozele',
+          'scrie doza actuală pe zi și doza țintă. Ținta 0 înseamnă oprire; o țintă '
+              'mai mare decât doza actuală produce un plan de creștere.',
+        ),
+        (
+          '% din doza curentă',
+          'fiecare pas scade doza cu același procent din doza de la acel moment, '
+              'deci pașii devin tot mai mici spre final.',
+        ),
+        ('mg la fiecare pas', 'fiecare pas schimbă doza cu aceeași cantitate.'),
+        (
+          'Fracțiune minimă',
+          'cea mai mică fracțiune de comprimat disponibilă; dacă o completezi (de exemplu 0,25 mg), dozele sunt rotunjite la multipli '
+              'ai ei, ca planul să poată fi urmat cu comprimatele existente.',
+        ),
+        (
+          'Rezultatul',
+          'data de la care se ia fiecare doză, data la care se atinge ținta și '
+              'durata totală. „Copiază” pune planul ca text, pentru fișa pacientului.',
+        ),
+      ],
+    ),
+    CapitolAjutor(
+      icon: Icons.vaccines_outlined,
+      titlu: 'Injecții depot',
+      puncte: [
+        (
+          'Alege preparatul',
+          'intervalul uzual se completează singur și poate fi modificat, în zile '
+              'sau în luni, după schema pacientului.',
+        ),
+        (
+          'Ultima administrare',
+          'atinge data ca să o schimbi; aplicația calculează următoarele șase '
+              'administrări și peste câte zile este fiecare.',
+        ),
+        (
+          'Fereastra',
+          'la preparatele la care RCP-ul o precizează (paliperidonă lunară, la 3 și '
+              'la 6 luni), vezi între ce date se poate face injecția. Dispare dacă '
+              'modifici intervalul standard.',
+        ),
+        (
+          'Nota preparatului',
+          'reamintește ce e specific: schema de inițiere, acoperirea orală, '
+              'observația de 3 ore după olanzapină pamoat.',
+        ),
+      ],
+    ),
+    CapitolAjutor(
+      icon: Icons.monitor_heart_outlined,
+      titlu: 'Monitorizare din RCP',
+      puncte: [
+        (
+          'Lista',
+          'psihotropele la care se cer analize sau controale: clozapină, valproat, '
+              'carbamazepină, antipsihotice atipice, metilfenidat și altele.',
+        ),
+        (
+          'Ce vezi',
+          'frazele despre monitorizare din secțiunile 4.2 și 4.4 ale RCP-ului unui '
+              'produs cu acea substanță, fiecare cu numărul secțiunii. De acolo poți '
+              'deschide pagina medicamentului.',
+        ),
+        (
+          'Alte medicamente',
+          'aceleași fraze apar în pagina oricărui medicament, la „Răspunsuri rapide '
+              'din RCP”.',
+        ),
+      ],
+    ),
+    CapitolAjutor(
+      icon: Icons.warning_amber_rounded,
+      titlu: 'Limite',
+      avertizare: true,
+      puncte: [
+        (
+          'Planul de doze este un calcul',
+          'nu ține cont de medicament, de timpul de înjumătățire sau de pacient. '
+              'Ritmul îl stabilești tu.',
+        ),
+        (
+          'Datele depot sunt orientative',
+          'la inițiere, doze omise sau schimbarea preparatului se aplică schemele '
+              'din RCP, care nu sunt calculate aici.',
+        ),
+        (
+          'Monitorizarea este extrasă automat',
+          'lista de fraze poate fi incompletă și nu înlocuiește ghidurile sau '
+              'protocoalele în vigoare. Litiul nu apare dacă nu are produse în '
+              'nomenclator.',
+        ),
+      ],
+    ),
+  ],
+);

@@ -52,6 +52,8 @@ void main() {
     test('id-urile sunt unice si fiecare are campuri', () {
       expect(calculatoare.map((c) => c.id).toSet().length, calculatoare.length);
       for (final c in calculatoare) {
+        // instrumentele cu ecran propriu nu au campuri
+        if (c.ecran != null) continue;
         expect(c.campuri, isNotEmpty, reason: c.id);
         expect(
           c.campuri.map((x) => x.id).toSet().length,

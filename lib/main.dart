@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:provider/provider.dart';
 
 import 'providers/asistent_provider.dart';
@@ -34,6 +35,9 @@ class MedRoApp extends StatelessWidget {
         title: 'MedRO',
         debugShowCheckedModeBanner: false,
         theme: buildAppTheme(),
+        locale: const Locale('ro'),
+        supportedLocales: const [Locale('ro')],
+        localizationsDelegates: GlobalMaterialLocalizations.delegates,
         home: const HomeShell(),
       ),
     );

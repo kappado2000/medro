@@ -23,6 +23,38 @@ const FALLBACK_BETA = "server-side-fallback-2026-07-01";
  * base64, so a legitimate request stays far below this. */
 const MAX_BODY_CHARS = 2_000_000;
 
+/** Requests accepted per UTC day. One doctor asks a few dozen questions on a
+ * busy day; a leaked token or a client stuck in a retry loop hits this
+ * instead of the Anthropic bill. */
+const MAX_REQUESTS_PER_DAY = 150;
+
+/**
+ * Counts requests per UTC day, in memory. With `maxInstances: 1` there is a
+ * single counter; it restarts from zero when the instance is recycled, so
+ * this is a brake on runaway use, not an exact budget — the hard ceiling is
+ * the spend limit set in the Anthropic Console.
+ */
+export class DailyLimiter {
+  private day = "";
+  private count = 0;
+
+  constructor(private readonly limit: number) {}
+
+  /** Records one request; false once the day's limit is used up. */
+  allow(now: Date = new Date()): boolean {
+    const day = now.toISOString().slice(0, 10);
+    if (day !== this.day) {
+      this.day = day;
+      this.count = 0;
+    }
+    if (this.count >= this.limit) return false;
+    this.count++;
+    return true;
+  }
+}
+
+const limiter = new DailyLimiter(MAX_REQUESTS_PER_DAY);
+
 export interface MedroRequest {
   model: string;
   system: string;
@@ -66,6 +98,8 @@ export const medroAsistent = onRequest(
     memory: "256MiB",
     // A question over a long RCP with thinking on can take a few minutes.
     timeoutSeconds: 300,
+    // One instance, so DailyLimiter sees every request.
+    maxInstances: 1,
     cors: true,
   },
   async (req, res) => {
@@ -84,6 +118,11 @@ export const medroAsistent = onRequest(
     const parsed = parseMedroRequest(req.body);
     if (typeof parsed === "string") {
       fail(400, "invalid_request_error", parsed);
+      return;
+    }
+
+    if (!limiter.allow()) {
+      fail(429, "rate_limit_error", "daily request limit reached");
       return;
     }
 

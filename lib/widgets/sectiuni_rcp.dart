@@ -110,6 +110,7 @@ class _SectiuniRcpState extends State<SectiuniRcp> {
   }
 
   static const _iconite = {
+    'doza_maxima': Icons.speed,
     'renal': Icons.water_drop_outlined,
     'hepatic': Icons.science_outlined,
     'varstnici': Icons.elderly,

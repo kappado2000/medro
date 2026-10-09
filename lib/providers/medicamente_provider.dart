@@ -49,6 +49,12 @@ class MedicamenteProvider extends ChangeNotifier {
   static const pragVechimeZile = 90;
   int get totalSubstante => _dupaDci.length;
 
+  /// Codul ATC al fiecarei substante (DCI), luat de la primul ei produs.
+  Map<String, String> get atcDupaDci => {
+    for (final e in _dupaDci.entries)
+      if (e.value.first.atc.isNotEmpty) e.key: e.value.first.atc,
+  };
+
   Future<void> incarca() async {
     eroare = null;
     _dupaDci.clear();

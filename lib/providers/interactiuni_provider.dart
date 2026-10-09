@@ -62,6 +62,13 @@ class InteractiuniProvider extends ChangeNotifier {
     notifyListeners();
   }
 
+  void inlocuiesteInSelectie(Substanta veche, Substanta noua) {
+    final i = selectie.indexWhere((x) => x.index == veche.index);
+    if (i < 0 || selectie.any((x) => x.index == noua.index)) return;
+    selectie[i] = noua;
+    notifyListeners();
+  }
+
   void golesteSelectia() {
     selectie.clear();
     notifyListeners();
@@ -154,6 +161,59 @@ class InteractiuniProvider extends ChangeNotifier {
       compare: (a, b) => a.severitate.index.compareTo(b.severitate.index),
     );
     return rezultate;
+  }
+
+  /// Subgrupa ATC (primele 5 caractere, ex. N06AB) a unei substante.
+  String? clasaAtc(Substanta s, Map<String, String> atcDupaDci) {
+    for (final d in s.dci) {
+      final atc = atcDupaDci[d];
+      if (atc != null && atc.length >= 5) return atc.substring(0, 5);
+    }
+    return null;
+  }
+
+  /// Substante din aceeasi subgrupa ATC cu [s] care nu au nicio interactiune
+  /// majora cu [ceilalti]. Fiecare vine cu cea mai grava interactiune ramasa
+  /// (null = niciuna inregistrata); cele fara interactiuni sunt primele.
+  List<(Substanta, Severitate?)> alternative(
+    Substanta s,
+    List<Substanta> ceilalti,
+    Map<String, String> atcDupaDci,
+  ) {
+    final clasa = clasaAtc(s, atcDupaDci);
+    if (clasa == null) return const [];
+    final exclusi = {s.index, for (final c in ceilalti) c.index};
+    final rezultat = <(Substanta, Severitate?)>[];
+    for (final e in atcDupaDci.entries) {
+      if (!e.value.startsWith(clasa)) continue;
+      final componente = _dupaDci[e.key] ?? const <int>[];
+      // combinatiile nu sunt alternative la o substanta singura
+      if (componente.length != 1 || !exclusi.add(componente.single)) continue;
+      final candidat = _substante[componente.single];
+      Severitate? ceaMaiGrava;
+      for (final c in ceilalti) {
+        final sev = severitate(candidat, c);
+        if (sev != null &&
+            (ceaMaiGrava == null || sev.index < ceaMaiGrava.index)) {
+          ceaMaiGrava = sev;
+        }
+      }
+      if (ceaMaiGrava != Severitate.majora) {
+        rezultat.add((candidat, ceaMaiGrava));
+      }
+    }
+    int rang(Severitate? x) => switch (x) {
+      null => 0,
+      Severitate.minora => 1,
+      Severitate.neprecizata => 2,
+      Severitate.moderata => 3,
+      Severitate.majora => 4,
+    };
+    rezultat.sort((a, b) {
+      final r = rang(a.$2).compareTo(rang(b.$2));
+      return r != 0 ? r : a.$1.nume.compareTo(b.$1.nume);
+    });
+    return rezultat;
   }
 
   /// Toate substantele cu care o substanta are interactiune de nivelul dat.
