@@ -267,20 +267,49 @@ class _Header extends StatelessWidget {
                 children: [
                   const EmblemaCapsula(dimensiune: 40),
                   const SizedBox(width: 12),
-                  // pe ecrane inguste cu text mare, titlul se micsoreaza usor in
-                  // loc sa impinga butoanele in afara
-                  const Expanded(
+                  // titlul si semnatura stau pe acelasi rand; pe ecrane inguste sau
+                  // cu text mare se micsoreaza impreuna, fara sa impinga butoanele
+                  Expanded(
                     child: FittedBox(
                       fit: BoxFit.scaleDown,
                       alignment: Alignment.centerLeft,
-                      child: Text(
-                        'MedRO',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 26,
-                          fontWeight: FontWeight.w800,
-                          letterSpacing: -0.5,
-                        ),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          const Text(
+                            'MedRO',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 26,
+                              fontWeight: FontWeight.w800,
+                              letterSpacing: -0.5,
+                            ),
+                          ),
+                          const SizedBox(width: 12),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              Text(
+                                titularGrad,
+                                style: TextStyle(
+                                  color: Colors.white.withValues(alpha: 0.85),
+                                  fontSize: 11.5,
+                                  height: 1.25,
+                                ),
+                              ),
+                              const Text(
+                                titularNume,
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 11.5,
+                                  fontWeight: FontWeight.w800,
+                                  height: 1.25,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
                       ),
                     ),
                   ),
@@ -429,6 +458,10 @@ class _Mesaj extends StatelessWidget {
     );
   }
 }
+
+/// Semnatura din antet, langa titlu: gradul si numele medicului.
+const titularGrad = 'Medic primar psihiatru';
+const titularNume = 'Dr. Pop V.Maria';
 
 /// Emblema din antet: capsula din iconita aplicatiei, pe un patrat alb.
 class EmblemaCapsula extends StatelessWidget {
