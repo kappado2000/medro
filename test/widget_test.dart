@@ -109,6 +109,21 @@ void main() {
     expect(radacinaSubstanta('litiu'), isNull);
   });
 
+  test('contraindicatiile extrase din RCP se leaga de produs', () {
+    // extragerea se face treptat, deci testul cauta orice produs deja acoperit
+    final acoperite = provider
+        .cauta('', FiltruMedicamente.toate, atcPrefix: 'N0')
+        .where((m) => provider.contraindicatii(m) != null)
+        .toList();
+    expect(acoperite, isNotEmpty);
+    for (final m in acoperite.take(20)) {
+      final text = provider.contraindicatii(m)!;
+      expect(text.trim(), isNotEmpty, reason: m.denumire);
+      expect(text.length, lessThanOrEqualTo(4000), reason: m.denumire);
+      expect(m.rcpUrl, isNotEmpty, reason: m.denumire);
+    }
+  });
+
   test('filtrele separa OTC de reteta', () {
     final otc = provider.cauta('', FiltruMedicamente.faraReteta);
     final rx = provider.cauta('', FiltruMedicamente.cuReteta);

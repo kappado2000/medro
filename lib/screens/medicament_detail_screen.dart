@@ -42,6 +42,7 @@ class MedicamentDetailScreen extends StatelessWidget {
     final favorit = provider.esteFavorit(m);
     final echivalente = provider.echivalente(m);
     final explicatie = explicatiePrescriptie(m.prescriptie);
+    final contraindicatii = provider.contraindicatii(m);
     final substante = context.read<InteractiuniProvider>().substanteProdus(
       m.dci,
     );
@@ -122,6 +123,10 @@ class MedicamentDetailScreen extends StatelessWidget {
             padding: const EdgeInsets.fromLTRB(16, 16, 16, 32),
             sliver: SliverList.list(
               children: [
+                if (contraindicatii != null) ...[
+                  _Contraindicatii(contraindicatii),
+                  const SizedBox(height: 14),
+                ],
                 _Documente(
                   medicament: m,
                   onRcp: () => _deschide(context, m.rcpUrl),
@@ -377,6 +382,97 @@ class _CompensareCnas extends StatelessWidget {
           ],
         Text(sursa, style: nota),
       ],
+    );
+  }
+}
+
+/// Contraindicatiile din RCP, intr-o caseta rosie de avertizare. Textele lungi
+/// apar prescurtat, cu posibilitatea de a fi extinse.
+class _Contraindicatii extends StatefulWidget {
+  final String text;
+  const _Contraindicatii(this.text);
+
+  @override
+  State<_Contraindicatii> createState() => _ContraindicatiiState();
+}
+
+class _ContraindicatiiState extends State<_Contraindicatii> {
+  static const _randuriRestranse = 7;
+  bool _extins = false;
+
+  @override
+  Widget build(BuildContext context) {
+    const stil = TextStyle(color: AppColors.ink, fontSize: 14.5, height: 1.4);
+    return Container(
+      width: double.infinity,
+      padding: const EdgeInsets.fromLTRB(14, 12, 14, 12),
+      decoration: BoxDecoration(
+        color: AppColors.redSoft,
+        borderRadius: BorderRadius.circular(16),
+        border: Border.all(color: AppColors.red, width: 1.6),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const Row(
+            children: [
+              Icon(Icons.warning_amber_rounded, color: AppColors.red, size: 22),
+              SizedBox(width: 8),
+              Text(
+                'CONTRAINDICAȚII',
+                style: TextStyle(
+                  color: AppColors.red,
+                  fontSize: 13,
+                  fontWeight: FontWeight.w800,
+                  letterSpacing: 0.8,
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(height: 8),
+          LayoutBuilder(
+            builder: (context, limite) {
+              final masurare = TextPainter(
+                text: TextSpan(text: widget.text, style: stil),
+                maxLines: _randuriRestranse,
+                textDirection: TextDirection.ltr,
+                textScaler: MediaQuery.textScalerOf(context),
+              )..layout(maxWidth: limite.maxWidth);
+              final lung = masurare.didExceedMaxLines;
+              return Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    widget.text,
+                    style: stil,
+                    maxLines: _extins ? null : _randuriRestranse,
+                    overflow: _extins ? null : TextOverflow.ellipsis,
+                  ),
+                  if (lung)
+                    TextButton(
+                      onPressed: () => setState(() => _extins = !_extins),
+                      style: TextButton.styleFrom(
+                        foregroundColor: AppColors.red,
+                        padding: EdgeInsets.zero,
+                        minimumSize: const Size(0, 32),
+                        tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                      ),
+                      child: Text(
+                        _extins ? 'Arată mai puțin' : 'Arată tot',
+                        style: const TextStyle(fontWeight: FontWeight.w700),
+                      ),
+                    ),
+                ],
+              );
+            },
+          ),
+          const SizedBox(height: 6),
+          const Text(
+            'Text extras automat din RCP, secțiunea 4.3. Verifică documentul.',
+            style: TextStyle(color: AppColors.muted, fontSize: 12),
+          ),
+        ],
+      ),
     );
   }
 }

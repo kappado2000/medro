@@ -13,6 +13,8 @@ enum FiltruMedicamente { toate, faraReteta, cuReteta, compensate, favorite }
 class MedicamenteProvider extends ChangeNotifier {
   static const _assetPath = 'assets/data/medicamente.json.gz';
   static const _compensareAssetPath = 'assets/data/compensare.json.gz';
+  static const _contraindicatiiAssetPath =
+      'assets/data/contraindicatii.json.gz';
   static const _favoriteKey = 'favorite';
   static const maxRezultate = 200;
 
@@ -21,6 +23,9 @@ class MedicamenteProvider extends ChangeNotifier {
   Set<String> _favorite = {};
   Map<String, List<Compensare>> _compensare = const {};
   Map<String, List<String>> _listeDci = const {};
+
+  /// Sectiunea 4.3 din RCP, dupa adresa documentului.
+  Map<String, String> _contraindicatii = const {};
 
   /// Data listei CNAS din care provin incadrarile si preturile.
   String dataCompensare = '';
@@ -53,9 +58,20 @@ class MedicamenteProvider extends ChangeNotifier {
     } catch (_) {
       dataCompensare = '';
     }
+    // extragerea contraindicatiilor e partiala si optionala
+    try {
+      final data = await _citesteJsonGz(_contraindicatiiAssetPath);
+      _contraindicatii = data.cast<String, String>();
+    } catch (_) {
+      _contraindicatii = const {};
+    }
     incarcat = true;
     notifyListeners();
   }
+
+  /// Contraindicatiile din RCP-ul produsului (sectiunea 4.3), daca au putut
+  /// fi extrase; textul e cel din document.
+  String? contraindicatii(Medicament m) => _contraindicatii[m.rcpUrl];
 
   Future<Map<String, dynamic>> _citesteJsonGz(String asset) async {
     final bytes = (await rootBundle.load(asset)).buffer.asUint8List();
