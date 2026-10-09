@@ -255,11 +255,19 @@ class _Header extends StatelessWidget {
                 ],
               ),
               const SizedBox(height: 6),
-              Text(
-                subtitlu,
-                style: TextStyle(
-                  color: Colors.white.withValues(alpha: 0.82),
-                  fontSize: 13,
+              // pe un singur rand: pe ecrane inguste textul se micsoreaza
+              // usor in loc sa treaca pe al doilea rand
+              FittedBox(
+                fit: BoxFit.scaleDown,
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  subtitlu,
+                  maxLines: 1,
+                  softWrap: false,
+                  style: TextStyle(
+                    color: Colors.white.withValues(alpha: 0.82),
+                    fontSize: 13,
+                  ),
                 ),
               ),
               const SizedBox(height: 16),
