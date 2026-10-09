@@ -78,6 +78,10 @@ class AuthProvider extends ChangeNotifier {
     await deblocheaza();
   }
 
+  /// false pe un telefon fara amprenta, Face ID sau cod de blocare: acolo
+  /// ecranul de blocare arata direct parola contului.
+  Future<bool> poateDebloca() => _biometrie.disponibila();
+
   /// Cere amprenta, Face ID sau codul telefonului. Merge si fara internet.
   Future<bool> deblocheaza() async {
     if (stare != StareAcces.blocat || _confirmareInCurs) return false;

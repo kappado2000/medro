@@ -126,6 +126,17 @@ class _FormularState extends State<_Formular> {
   bool _eroare = false;
 
   @override
+  void initState() {
+    super.initState();
+    if (widget.blocat) {
+      // fara nicio metoda de blocare pe telefon, butonul nu ar avea ce cere
+      context.read<AuthProvider>().poateDebloca().then((poate) {
+        if (!poate && mounted) setState(() => _cuParola = true);
+      });
+    }
+  }
+
+  @override
   void dispose() {
     _email.dispose();
     _parola.dispose();

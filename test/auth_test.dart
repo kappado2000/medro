@@ -443,6 +443,20 @@ void main() {
       expect(find.text('Deblochează'), findsNothing);
     });
 
+    testWidgets('telefon fara metoda de blocare: apare direct parola', (
+      tester,
+    ) async {
+      await porneste(
+        tester,
+        depozit: DepozitMemorie(('doctor@exemplu.ro', 'refresh-0')),
+        biometrie: BiometrieFalsa(exista: false),
+      );
+      await tester.pump();
+      expect(find.text('Deblochează'), findsNothing);
+      expect(find.byType(TextField), findsNWidgets(2));
+      expect(find.text('Ieși din cont'), findsOneWidget);
+    });
+
     testWidgets('ecranul se schimba odata cu starea', (tester) async {
       final (s, _) = serviciu();
       final p = AuthProvider(
