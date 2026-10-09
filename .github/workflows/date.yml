@@ -1,0 +1,61 @@
+name: Actualizare date (nomenclator ANMDM, lista CNAS)
+
+# Reface listele din sursele oficiale, le salveaza in repo si le publica pe
+# Firebase Hosting, de unde aplicatia le descarca singura. Ruleaza pe Linux,
+# deci nu consuma minutele de macOS ale build-ului de iOS.
+on:
+  schedule:
+    - cron: '0 3 * * 1' # lunea, 03:00 UTC
+  workflow_dispatch: {}
+
+concurrency: date
+
+jobs:
+  date:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - run: pip install openpyxl
+
+      - name: Reface nomenclatorul si lista de compensate
+        run: |
+          python tool/build_medicamente.py
+          python tool/build_compensare.py --refresh
+          python tool/build_manifest.py
+
+      # daca o sursa a raspuns incomplet, fluxul se opreste aici si raman
+      # datele vechi, atat in repo, cat si pe server
+      - name: Verifica datele si pregateste publicarea
+        run: python tool/publica_date.py
+
+      - name: Salveaza datele in repo
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/data
+          if git diff --cached --quiet; then
+            echo "Datele nu s-au schimbat."
+          else
+            git commit -m "Date actualizate automat din ANMDM si CNAS"
+            git push
+          fi
+
+      - name: Publica pe Firebase Hosting
+        env:
+          CONT: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_MEDRO_ASISTENT_2026 }}
+        run: |
+          if [ -z "$CONT" ]; then
+            echo "::warning::Secretul FIREBASE_SERVICE_ACCOUNT_MEDRO_ASISTENT_2026 lipseste; datele nu au fost publicate."
+            exit 0
+          fi
+          echo "$CONT" > "$RUNNER_TEMP/cont.json"
+          export GOOGLE_APPLICATION_CREDENTIALS="$RUNNER_TEMP/cont.json"
+          npx --yes firebase-tools@latest deploy --only hosting --project medro-asistent-2026 --non-interactive
+          rm -f "$RUNNER_TEMP/cont.json"

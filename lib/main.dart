@@ -6,10 +6,13 @@ import 'providers/icd_provider.dart';
 import 'providers/interactiuni_provider.dart';
 import 'providers/medicamente_provider.dart';
 import 'screens/home_shell.dart';
+import 'services/data_store.dart';
 import 'theme/app_theme.dart';
 
-void main() {
+Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  // afla daca exista date descarcate mai noi decat cele din pachet
+  await DataStore.instance.init();
   runApp(const MedRoApp());
 }
 

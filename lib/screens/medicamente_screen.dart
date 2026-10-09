@@ -5,6 +5,7 @@ import '../providers/medicamente_provider.dart';
 import '../help/ajutor.dart';
 import '../theme/app_theme.dart';
 import '../utils/clase_psihotrope.dart';
+import '../widgets/date_aplicatie.dart';
 import '../widgets/medicament_widgets.dart';
 import 'medicament_detail_screen.dart';
 
@@ -28,6 +29,14 @@ class _MedicamenteScreenState extends State<MedicamenteScreen> {
     FiltruMedicamente.compensate: 'Compensate',
     FiltruMedicamente.favorite: 'Favorite',
   };
+
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (mounted) verificaActualizariZilnic(context);
+    });
+  }
 
   @override
   void dispose() {
@@ -250,16 +259,7 @@ class _Header extends StatelessWidget {
             children: [
               Row(
                 children: [
-                  Container(
-                    width: 38,
-                    height: 38,
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(11),
-                    ),
-                    padding: const EdgeInsets.all(3),
-                    child: Image.asset('assets/images/capsula.png'),
-                  ),
+                  const EmblemaFlacon(dimensiune: 40),
                   const SizedBox(width: 12),
                   const Text(
                     'MedRO',
@@ -277,17 +277,33 @@ class _Header extends StatelessWidget {
               const SizedBox(height: 6),
               // pe un singur rand: pe ecrane inguste textul se micsoreaza
               // usor in loc sa treaca pe al doilea rand
-              FittedBox(
-                fit: BoxFit.scaleDown,
-                alignment: Alignment.centerLeft,
-                child: Text(
-                  subtitlu,
-                  maxLines: 1,
-                  softWrap: false,
-                  style: TextStyle(
-                    color: Colors.white.withValues(alpha: 0.82),
-                    fontSize: 13,
-                  ),
+              // atingerea subtitlului arata versiunea datelor si actualizarile
+              InkWell(
+                onTap: () => arataDateleAplicatiei(context),
+                child: Row(
+                  children: [
+                    Flexible(
+                      child: FittedBox(
+                        fit: BoxFit.scaleDown,
+                        alignment: Alignment.centerLeft,
+                        child: Text(
+                          subtitlu,
+                          maxLines: 1,
+                          softWrap: false,
+                          style: TextStyle(
+                            color: Colors.white.withValues(alpha: 0.82),
+                            fontSize: 13,
+                          ),
+                        ),
+                      ),
+                    ),
+                    const SizedBox(width: 4),
+                    Icon(
+                      Icons.sync,
+                      size: 14,
+                      color: Colors.white.withValues(alpha: 0.82),
+                    ),
+                  ],
                 ),
               ),
               if (vechime != null &&
@@ -390,4 +406,70 @@ class _Mesaj extends StatelessWidget {
       ),
     );
   }
+}
+
+/// Emblema din antet: flacon alb cu capac rosu si cruce albastra.
+class EmblemaFlacon extends StatelessWidget {
+  final double dimensiune;
+  const EmblemaFlacon({super.key, required this.dimensiune});
+
+  @override
+  Widget build(BuildContext context) {
+    return CustomPaint(
+      size: Size.square(dimensiune),
+      painter: const _FlaconPainter(),
+    );
+  }
+}
+
+class _FlaconPainter extends CustomPainter {
+  const _FlaconPainter();
+
+  @override
+  void paint(Canvas canvas, Size size) {
+    final w = size.width;
+    final h = size.height;
+    RRect rotunjit(double l, double t, double r, double b, double raza) {
+      return RRect.fromRectAndRadius(
+        Rect.fromLTRB(w * l, h * t, w * r, h * b),
+        Radius.circular(w * raza),
+      );
+    }
+
+    canvas
+      // capacul
+      ..drawRRect(
+        rotunjit(0.28, 0.02, 0.72, 0.20, 0.05),
+        Paint()..color = AppColors.red,
+      )
+      // corpul flaconului
+      ..drawRRect(
+        rotunjit(0.17, 0.24, 0.83, 0.98, 0.13),
+        Paint()..color = Colors.white,
+      );
+    // crucea de pe eticheta
+    final cruce = Paint()..color = AppColors.blue;
+    final c = Offset(w * 0.5, h * 0.61);
+    final brat = w * 0.38;
+    final grosime = w * 0.135;
+    final raza = Radius.circular(w * 0.022);
+    canvas
+      ..drawRRect(
+        RRect.fromRectAndRadius(
+          Rect.fromCenter(center: c, width: brat, height: grosime),
+          raza,
+        ),
+        cruce,
+      )
+      ..drawRRect(
+        RRect.fromRectAndRadius(
+          Rect.fromCenter(center: c, width: grosime, height: brat),
+          raza,
+        ),
+        cruce,
+      );
+  }
+
+  @override
+  bool shouldRepaint(_FlaconPainter veche) => false;
 }

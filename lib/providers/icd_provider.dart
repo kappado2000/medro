@@ -1,9 +1,6 @@
-import 'dart:convert';
-
-import 'package:archive/archive.dart';
 import 'package:flutter/foundation.dart';
-import 'package:flutter/services.dart';
 
+import '../services/data_store.dart';
 import '../utils/text_utils.dart';
 
 class IcdCapitol {
@@ -34,7 +31,7 @@ class IcdCod {
 }
 
 class IcdProvider extends ChangeNotifier {
-  static const _assetPath = 'assets/data/icd10.json.gz';
+  static const _fisier = 'icd10.json.gz';
   static const maxRezultate = 200;
 
   /// Capitolul V (tulburari mentale), afisat primul.
@@ -50,9 +47,8 @@ class IcdProvider extends ChangeNotifier {
 
   Future<void> incarca() async {
     try {
-      final bytes = (await rootBundle.load(_assetPath)).buffer.asUint8List();
-      final json = utf8.decode(GZipDecoder().decodeBytes(bytes));
-      final data = jsonDecode(json) as Map<String, dynamic>;
+      final data =
+          await DataStore.instance.jsonGz(_fisier) as Map<String, dynamic>;
       sursa = data['sursa'] as String;
       final brute = data['capitole'] as List;
       final toate = [

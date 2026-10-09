@@ -1,20 +1,16 @@
-import 'dart:convert';
-
-import 'package:archive/archive.dart';
 import 'package:flutter/foundation.dart';
-import 'package:flutter/services.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../models/medicament.dart';
+import '../services/data_store.dart';
 import '../utils/text_utils.dart';
 
 enum FiltruMedicamente { toate, faraReteta, cuReteta, compensate, favorite }
 
 class MedicamenteProvider extends ChangeNotifier {
-  static const _assetPath = 'assets/data/medicamente.json.gz';
-  static const _compensareAssetPath = 'assets/data/compensare.json.gz';
-  static const _contraindicatiiAssetPath =
-      'assets/data/contraindicatii.json.gz';
+  static const _assetPath = 'medicamente.json.gz';
+  static const _compensareAssetPath = 'compensare.json.gz';
+  static const _contraindicatiiAssetPath = 'contraindicatii.json.gz';
   static const _favoriteKey = 'favorite';
   static const maxRezultate = 200;
 
@@ -54,6 +50,8 @@ class MedicamenteProvider extends ChangeNotifier {
   int get totalSubstante => _dupaDci.length;
 
   Future<void> incarca() async {
+    eroare = null;
+    _dupaDci.clear();
     try {
       final data = await _citesteJsonGz(_assetPath);
       actualizat = data['updated'] as String;
@@ -91,9 +89,7 @@ class MedicamenteProvider extends ChangeNotifier {
   String? contraindicatii(Medicament m) => _contraindicatii[m.rcpUrl];
 
   Future<Map<String, dynamic>> _citesteJsonGz(String asset) async {
-    final bytes = (await rootBundle.load(asset)).buffer.asUint8List();
-    final json = utf8.decode(GZipDecoder().decodeBytes(bytes));
-    return jsonDecode(json) as Map<String, dynamic>;
+    return await DataStore.instance.jsonGz(asset) as Map<String, dynamic>;
   }
 
   Future<void> _incarcaCompensare() async {

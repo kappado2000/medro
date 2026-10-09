@@ -53,6 +53,19 @@ const _paginaMedicamentului = CapitolAjutor(
           'conține pe amândouă.',
     ),
     (
+      'Răspunsuri rapide din RCP',
+      'frazele din document despre sarcină și alăptare, insuficiența renală și '
+          'hepatică, vârstnici, monitorizare, enzimele hepatice (CYP) și intervalul QT. '
+          'Fiecare frază are în față numărul secțiunii din care provine. Sunt '
+          'disponibile fără internet.',
+    ),
+    (
+      'Secțiunile RCP',
+      'textul secțiunilor 4.1–4.9: indicații, doze, atenționări, interacțiuni, '
+          'reacții adverse, supradozaj. Secțiunile foarte lungi sunt prescurtate și '
+          'trimit la document.',
+    ),
+    (
       'Întreabă asistentul',
       'atașează medicamentul în secțiunea Asistent, unde poți pune întrebări pe baza RCP-ului.',
     ),
@@ -98,9 +111,16 @@ const _limiteMedicamente = CapitolAjutor(
   avertizare: true,
   puncte: [
     (
-      'Datele sunt incluse în aplicație',
-      'registrul funcționează fără internet, dar reflectă nomenclatorul de la data '
-          'afișată în antet. Documentele RCP și prospect se deschid online.',
+      'Datele se actualizează singure',
+      'aplicația caută date noi o dată pe zi, la pornire, dacă are internet. '
+          'Atinge rândul de sub titlul MedRO ca să vezi data fiecărei surse și să '
+          'verifici manual. Registrul funcționează și fără internet, cu ultimele date '
+          'descărcate; documentele RCP și prospect se deschid online.',
+    ),
+    (
+      'Textele din RCP sunt extrase automat',
+      'extragerea poate rata sau tăia o secțiune. Dacă secțiunile nu apar, '
+          'documentul nu a putut fi citit; folosește butonul RCP.',
     ),
     (
       'Compensarea poate fi depășită',

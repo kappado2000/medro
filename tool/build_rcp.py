@@ -41,7 +41,7 @@ UA = (
 )
 MAX_PAGINI = 70
 # limita de caractere pe sectiune in aplicatie; restul ramane in RCP
-LIMITA = {"4.3": 4000}
+LIMITA = {"4.3": 4000, "4.2": 12000, "4.4": 16000, "4.5": 12000}
 LIMITA_IMPLICITA = 6000
 
 N = r"\s*\.\s*"  # punctul din numarul sectiunii, cu spatii optionale
@@ -182,7 +182,7 @@ def scrie_asset(urluri: list[str]) -> None:
             s = json.loads(f.read_text(encoding="utf-8"))
             if s.get("4.3"):
                 contraindicatii[url] = taie(s["4.3"], LIMITA["4.3"])
-            rest = {k: taie(v, LIMITA_IMPLICITA) for k, v in s.items() if k != "4.3"}
+            rest = {k: taie(v, LIMITA.get(k, LIMITA_IMPLICITA)) for k, v in s.items() if k != "4.3"}
             if rest:
                 # multe concentratii au acelasi text; continutul identic se pastreaza o data
                 amprenta = hashlib.md5(json.dumps(rest, sort_keys=True).encode()).hexdigest()

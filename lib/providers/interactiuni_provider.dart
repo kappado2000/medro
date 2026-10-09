@@ -1,9 +1,6 @@
-import 'dart:convert';
-
-import 'package:archive/archive.dart';
 import 'package:flutter/foundation.dart';
-import 'package:flutter/services.dart';
 
+import '../services/data_store.dart';
 import '../utils/text_utils.dart';
 
 /// Nivelul de severitate din DDInter, de la cel mai grav.
@@ -34,7 +31,7 @@ class Interactiune {
 }
 
 class InteractiuniProvider extends ChangeNotifier {
-  static const _assetPath = 'assets/data/interactiuni.json.gz';
+  static const _fisier = 'interactiuni.json.gz';
   static const maxSugestii = 30;
 
   List<Substanta> _substante = const [];
@@ -72,9 +69,8 @@ class InteractiuniProvider extends ChangeNotifier {
 
   Future<void> incarca() async {
     try {
-      final bytes = (await rootBundle.load(_assetPath)).buffer.asUint8List();
-      final json = utf8.decode(GZipDecoder().decodeBytes(bytes));
-      final data = jsonDecode(json) as Map<String, dynamic>;
+      final data =
+          await DataStore.instance.jsonGz(_fisier) as Map<String, dynamic>;
       sursa = data['sursa'] as String;
       _substante = [
         for (final (i, s) in (data['substante'] as List).indexed)

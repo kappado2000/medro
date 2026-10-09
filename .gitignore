@@ -55,3 +55,6 @@ lib/config/asistent_server.dart
 firebase-debug.log
 firebase-debug.*.log
 .playwright-mcp/
+
+# copia datelor pregatita pentru publicare (tool/publica_date.py)
+hosting/date/

@@ -10,6 +10,7 @@ import '../providers/medicamente_provider.dart';
 import '../theme/app_theme.dart';
 import '../utils/text_utils.dart';
 import '../widgets/medicament_widgets.dart';
+import '../widgets/sectiuni_rcp.dart';
 import 'home_shell.dart';
 
 class MedicamentDetailScreen extends StatelessWidget {
@@ -187,6 +188,7 @@ class MedicamentDetailScreen extends StatelessWidget {
                     ),
                   ),
                 ],
+                SectiuniRcp(medicament: m),
                 const SizedBox(height: 14),
                 _Sectiune(
                   titlu: 'Eliberare',
