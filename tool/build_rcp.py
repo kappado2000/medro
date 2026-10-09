@@ -163,6 +163,9 @@ def extrage(cale_pdf: Path) -> dict[str, str]:
 
 
 def taie(text: str, limita: int) -> str:
+    # buline din fonturi de simboluri (Symbol, Wingdings): in aplicatie ar aparea
+    # ca patrate goale, deci devin buline obisnuite
+    text = re.sub(r"[-▪□☐]", "•", text)
     if len(text) <= limita:
         return text
     # taiere la sfarsit de propozitie, cu semn ca textul continua in RCP

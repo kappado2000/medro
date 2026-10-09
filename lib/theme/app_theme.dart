@@ -6,10 +6,12 @@ class AppColors {
   static const blueSoft = Color(0xFFE8F0FE);
   static const red = Color(0xFFE02B3C);
   static const redSoft = Color(0xFFFDE9EB);
-  static const background = Color(0xFFF4F7FC);
+  // fondul e vizibil mai inchis decat cardurile albe, ca sectiunile sa se
+  // desprinda clar de el
+  static const background = Color(0xFFD9E3F2);
   static const ink = Color(0xFF14213D);
   static const muted = Color(0xFF6B7890);
-  static const line = Color(0xFFE1E7F2);
+  static const line = Color(0xFFC6D2E6);
 
   static const headerGradient = LinearGradient(
     begin: Alignment.topLeft,
@@ -38,7 +40,10 @@ ThemeData buildAppTheme() {
     ),
     cardTheme: CardThemeData(
       color: Colors.white,
-      elevation: 0,
+      surfaceTintColor: Colors.transparent,
+      // umbra usoara ridica cardul de pe fond
+      elevation: 2,
+      shadowColor: AppColors.blueDark.withValues(alpha: 0.35),
       margin: EdgeInsets.zero,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(16),
