@@ -1,0 +1,57 @@
+name: iOS unsigned build (for Sideloadly)
+
+on:
+  workflow_dispatch: {}
+
+jobs:
+  build:
+    runs-on: macos-latest
+    # Needed to create a release and upload an asset to it (see the last
+    # step) — the default GITHUB_TOKEN is read-only on contents otherwise.
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.47.0'
+          channel: 'stable'
+
+      # lib/config/asistent_server.dart holds the assistant server's access
+      # token and is gitignored, so it is recreated here from repo secrets.
+      - name: Write the assistant server config
+        env:
+          MEDRO_ASISTENT_URL: ${{ secrets.MEDRO_ASISTENT_URL }}
+          MEDRO_ASISTENT_TOKEN: ${{ secrets.MEDRO_ASISTENT_TOKEN }}
+        run: |
+          test -n "$MEDRO_ASISTENT_URL" && test -n "$MEDRO_ASISTENT_TOKEN"
+          cat > lib/config/asistent_server.dart <<EOF
+          const asistentServerUrl = '$MEDRO_ASISTENT_URL';
+          const asistentServerToken = '$MEDRO_ASISTENT_TOKEN';
+          EOF
+
+      - name: Install dependencies
+        run: flutter pub get
+
+      - name: Build unsigned iOS app
+        # --build-number must change on every install or Sideloadly/iOS treats
+        # the IPA as "already installed" and skips replacing the binary on
+        # the device, so the workflow's own run number is used.
+        run: flutter build ios --release --no-codesign --build-number=${{ github.run_number }}
+
+      - name: Package as unsigned IPA
+        run: |
+          mkdir -p Payload
+          cp -r build/ios/iphoneos/Runner.app Payload/
+          zip -r MedRO-unsigned.ipa Payload
+
+      # A GitHub Release asset, not an Actions artifact: artifact storage on
+      # a private repo is capped, while release assets live in a separate,
+      # much larger allowance. Each run makes its own release, tagged by run
+      # number; old ones can be deleted from the Releases page.
+      - name: Publish the IPA as a release asset
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release create "ios-build-${{ github.run_number }}"             MedRO-unsigned.ipa             --title "iOS unsigned build #${{ github.run_number }}"             --notes "Unsigned IPA for Sideloadly, built from ${{ github.sha }}."
