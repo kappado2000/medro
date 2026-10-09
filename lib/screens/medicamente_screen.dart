@@ -285,7 +285,10 @@ class _Header extends StatelessWidget {
                           Container(
                             decoration: const BoxDecoration(
                               border: Border(
-                                left: BorderSide(color: Colors.white, width: 1),
+                                left: BorderSide(
+                                  color: Colors.white,
+                                  width: 0.6,
+                                ),
                               ),
                             ),
                             padding: const EdgeInsets.only(left: 8),
