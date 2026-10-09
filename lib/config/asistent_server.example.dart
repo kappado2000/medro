@@ -8,3 +8,8 @@ const asistentServerUrl =
 
 /// Aceeasi valoare ca secretul MEDRO_ACCESS_TOKEN de pe server.
 const asistentServerToken = '';
+
+/// Cheia web a proiectului Firebase (Project settings > General > Web API
+/// Key), folosita la autentificarea cu e-mail si parola. Este un
+/// identificator public, nu un secret. Goala = aplicatia nu cere cont.
+const firebaseApiKey = '';

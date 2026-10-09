@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import '../providers/auth_provider.dart';
 import '../providers/icd_provider.dart';
 import '../providers/interactiuni_provider.dart';
 import '../providers/medicamente_provider.dart';
@@ -82,6 +83,7 @@ class _DateAplicatieState extends State<_DateAplicatie> {
     final date = DataStore.instance;
     final med = context.watch<MedicamenteProvider>();
     final vechime = med.zileVechime();
+    final auth = context.watch<AuthProvider>();
     return SafeArea(
       child: Padding(
         padding: const EdgeInsets.fromLTRB(20, 0, 20, 20),
@@ -89,6 +91,52 @@ class _DateAplicatieState extends State<_DateAplicatie> {
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            if (auth.activ && auth.email.isNotEmpty) ...[
+              Row(
+                children: [
+                  const Icon(
+                    Icons.account_circle_outlined,
+                    color: AppColors.blue,
+                  ),
+                  const SizedBox(width: 10),
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const Text(
+                          'Cont',
+                          style: TextStyle(
+                            color: AppColors.muted,
+                            fontSize: 12.5,
+                          ),
+                        ),
+                        Text(
+                          auth.email,
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                          style: const TextStyle(
+                            color: AppColors.ink,
+                            fontSize: 15,
+                            fontWeight: FontWeight.w700,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  TextButton(
+                    onPressed: () {
+                      Navigator.of(context).pop();
+                      auth.iesi();
+                    },
+                    child: const Text(
+                      'Ieși din cont',
+                      style: TextStyle(color: AppColors.red),
+                    ),
+                  ),
+                ],
+              ),
+              const Divider(height: 24),
+            ],
             const Text(
               'Datele aplicației',
               style: TextStyle(

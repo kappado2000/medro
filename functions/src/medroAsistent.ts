@@ -2,6 +2,8 @@ import { timingSafeEqual } from "crypto";
 import { onRequest } from "firebase-functions/v2/https";
 import { defineSecret } from "firebase-functions/params";
 import Anthropic from "@anthropic-ai/sdk";
+import { getApps, initializeApp } from "firebase-admin/app";
+import { getAuth } from "firebase-admin/auth";
 
 const ANTHROPIC_API_KEY = defineSecret("ANTHROPIC_API_KEY");
 
@@ -72,6 +74,31 @@ export function parseMedroRequest(body: unknown): MedroRequest | string {
   return { model, system, messages };
 }
 
+/** The ID token from an `Authorization: Bearer <token>` header, if any. */
+export function bearerToken(header: unknown): string | null {
+  if (typeof header !== "string") return null;
+  const match = /^Bearer\s+(\S+)$/i.exec(header.trim());
+  return match ? match[1] : null;
+}
+
+/**
+ * The signed-in user's uid, or null when the header carries no valid Firebase
+ * ID token for this project. Accounts are created only in the Firebase
+ * console (sign-up is disabled there), so a valid token means a user the
+ * owner added; `checkRevoked` makes disabling or deleting an account take
+ * effect immediately rather than when its current token expires.
+ */
+async function signedInUid(header: unknown): Promise<string | null> {
+  const token = bearerToken(header);
+  if (!token) return null;
+  if (getApps().length === 0) initializeApp();
+  try {
+    return (await getAuth().verifyIdToken(token, true)).uid;
+  } catch {
+    return null;
+  }
+}
+
 export function tokenMatches(given: unknown, expected: string): boolean {
   if (typeof given !== "string") return false;
   const a = Buffer.from(given);
@@ -83,7 +110,8 @@ export function tokenMatches(given: unknown, expected: string): boolean {
  * Proxy between the MedRO app and the Messages API, so the Anthropic key
  * stays in Secret Manager instead of inside the app.
  *
- * POST with header `x-medro-token` and JSON `{model, system, messages}`;
+ * POST with headers `x-medro-token` and `Authorization: Bearer <Firebase ID
+ * token>`, and JSON `{model, system, messages}`;
  * the request-shaping parameters (max_tokens, effort, caching, fallbacks)
  * are fixed here rather than taken from the client. Responds with the
  * Messages API response unchanged, since MedRO replays `content` (thinking
@@ -113,6 +141,11 @@ export const medroAsistent = onRequest(
     }
     if (!tokenMatches(req.get("x-medro-token"), MEDRO_ACCESS_TOKEN.value())) {
       fail(403, "permission_error", "forbidden");
+      return;
+    }
+    const uid = await signedInUid(req.get("authorization"));
+    if (!uid) {
+      fail(401, "authentication_error", "sign-in required");
       return;
     }
     const parsed = parseMedroRequest(req.body);

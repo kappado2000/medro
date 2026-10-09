@@ -1,6 +1,11 @@
-import { DailyLimiter, parseMedroRequest, tokenMatches } from "./medroAsistent";
+import { bearerToken, DailyLimiter, parseMedroRequest, tokenMatches } from "./medroAsistent";
 
 jest.mock("firebase-functions/v2/https", () => ({ onRequest: () => jest.fn() }));
+
+// firebase-admin's token verifier pulls in ESM-only dependencies that Jest
+// cannot load; the tests here never verify a real token.
+jest.mock("firebase-admin/app", () => ({ getApps: () => [], initializeApp: jest.fn() }));
+jest.mock("firebase-admin/auth", () => ({ getAuth: () => ({ verifyIdToken: jest.fn() }) }));
 
 jest.mock("firebase-functions/params", () => ({
   defineSecret: () => ({ value: () => "test-secret" }),
@@ -57,5 +62,16 @@ describe("DailyLimiter", () => {
     expect(limiter.allow(day1)).toBe(false);
     expect(limiter.allow(new Date("2026-10-09T23:59:59Z"))).toBe(false);
     expect(limiter.allow(new Date("2026-10-10T00:00:01Z"))).toBe(true);
+  });
+});
+
+describe("bearerToken", () => {
+  it("reads the token from a Bearer header and nothing else", () => {
+    expect(bearerToken("Bearer abc.def.ghi")).toBe("abc.def.ghi");
+    expect(bearerToken("bearer   abc")).toBe("abc");
+    expect(bearerToken("Basic abc")).toBeNull();
+    expect(bearerToken("Bearer")).toBeNull();
+    expect(bearerToken("Bearer a b")).toBeNull();
+    expect(bearerToken(undefined)).toBeNull();
   });
 });

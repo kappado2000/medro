@@ -68,7 +68,12 @@ class ClaudeClient {
     http.Client? client,
     this.serverUrl = asistentServerUrl,
     this.serverToken = asistentServerToken,
+    this.tokenUtilizator,
   ]) : _http = client ?? http.Client();
+
+  /// Dovada de identitate a utilizatorului autentificat, ceruta de server.
+  /// Null cand aplicatia nu foloseste conturi.
+  final Future<String?> Function()? tokenUtilizator;
 
   /// Serverul propriu (functia Firebase) tine cheia Anthropic; cu el
   /// aplicatia nu are nevoie de nicio cheie.
@@ -124,12 +129,25 @@ class ClaudeClient {
     if (prinServer && !areServer) {
       throw const ClaudeException('Asistentul nu este configurat.');
     }
+    final anteteCont = <String, String>{};
+    if (prinServer && tokenUtilizator != null) {
+      final token = await tokenUtilizator!();
+      if (token == null) {
+        throw const ClaudeException(
+          'Nu am putut confirma contul: verifică conexiunea la internet sau '
+          'autentifică-te din nou.',
+        );
+      }
+      anteteCont['authorization'] = 'Bearer $token';
+    }
     final http.Response raspuns;
     try {
       raspuns = await _http
           .post(
             Uri.parse(prinServer ? serverUrl : _url),
-            headers: prinServer ? anteteServer : antete(cheie),
+            headers: prinServer
+                ? {...anteteServer, ...anteteCont}
+                : antete(cheie),
             // serverul fixeaza singur restul parametrilor cererii
             body: jsonEncode(
               prinServer
@@ -175,7 +193,10 @@ class ClaudeClient {
     }
     if (raspuns.statusCode != 200) {
       throw ClaudeException(
-        _mesajEroare(raspuns.statusCode, json),
+        // prin server, 401 inseamna ca nu a fost recunoscut contul, nu cheia
+        prinServer && raspuns.statusCode == 401
+            ? 'Serverul nu a recunoscut contul. Ieși din cont și autentifică-te din nou.'
+            : _mesajEroare(raspuns.statusCode, json),
         raspuns.statusCode,
       );
     }

@@ -109,6 +109,14 @@ INSTRUMENTE DE PRESCRIERE
 - Depot sau LAI (long-acting injectable): antipsihotic injectabil cu eliberare prelungită, administrat la 2 săptămâni până la 6 luni.
 - Fereastră de administrare: intervalul din jurul datei programate în care RCP-ul permite injecția (de exemplu ± 7 zile la paliperidona lunară).
 
+CONT ȘI BLOCARE
+- Cont: adresa de e-mail și parola cu care se deschide aplicația. Conturile nu se pot crea din aplicație; le creează administratorul în Firebase. Același cont merge pe orice telefon.
+- Deblocare biometrică: după prima autentificare, aplicația cere la fiecare deschidere, și când revii după mai mult de un minut, amprenta sau Face ID; dacă telefonul nu le are, cere codul telefonului. Funcționează și fără internet. Datele biometrice rămân în telefon, aplicația primește doar răspunsul da sau nu.
+- Folosește parola: alternativa la biometrie, cu parola contului; are nevoie de internet.
+- Am uitat parola: trimite pe adresa contului un e-mail cu o legătură de resetare.
+- Ieși din cont: șterge sesiunea de pe telefon; la următoarea deschidere se cer din nou e-mailul și parola. Se găsește în fereastra deschisă prin atingerea rândului de sub titlul MedRO și pe ecranul de blocare.
+- Asistentul răspunde doar unui utilizator autentificat; registrul, interacțiunile, calculatoarele și ICD-10 merg fără internet după deblocare.
+
 ASISTENT ȘI COSTURI
 - Model: varianta de inteligență artificială care răspunde. Sonnet 5.5 este modelul obișnuit; Opus 5.5 este mai capabil și de două ori mai scump la intrare și la răspuns.
 - Token: unitatea în care se măsoară textul, de 3–4 caractere. Se plătesc separat tokenii trimiși și cei primiți.

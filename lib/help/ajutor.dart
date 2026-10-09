@@ -117,6 +117,15 @@ const _limiteMedicamente = CapitolAjutor(
   avertizare: true,
   puncte: [
     (
+      'Cont și blocare',
+      'aplicația se deschide cu contul tău (e-mail și parolă), creat de administrator. '
+          'După prima autentificare, la fiecare deschidere și după mai mult de un minut '
+          'în fundal cere amprenta, Face ID sau codul telefonului; „Folosește parola” e '
+          'alternativa. „Am uitat parola” trimite un e-mail de resetare. Contul și '
+          '„Ieși din cont” sunt în fereastra care se deschide atingând rândul de sub '
+          'titlul MedRO.',
+    ),
+    (
       'Datele se actualizează singure',
       'aplicația caută date noi o dată pe zi, la pornire, dacă are internet. '
           'Atinge rândul de sub titlul MedRO ca să vezi data fiecărei surse și să '
