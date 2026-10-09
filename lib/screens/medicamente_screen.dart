@@ -460,7 +460,7 @@ class _Mesaj extends StatelessWidget {
 }
 
 /// Semnatura din antet, langa titlu: gradul si numele medicului.
-const titularGrad = 'Medic primar psihiatru';
+const titularGrad = 'Medic pr. psihiatru';
 const titularNume = 'Dr. Pop V.Maria';
 
 /// Emblema din antet: capsula din iconita aplicatiei, pe un patrat alb.
