@@ -265,7 +265,7 @@ class _Header extends StatelessWidget {
                 onChanged: onChanged,
                 textInputAction: TextInputAction.search,
                 decoration: InputDecoration(
-                  hintText: 'Denumire, substanță activă sau cod ATC',
+                  hintText: 'Denumire, substanță sau cod ATC',
                   hintStyle: const TextStyle(color: AppColors.muted),
                   prefixIcon: const Icon(Icons.search, color: AppColors.blue),
                   suffixIcon: controller.text.isEmpty
