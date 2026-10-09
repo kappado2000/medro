@@ -286,27 +286,36 @@ class _Header extends StatelessWidget {
                             ),
                           ),
                           const SizedBox(width: 22),
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            mainAxisSize: MainAxisSize.min,
-                            children: [
-                              Text(
-                                titularGrad,
-                                style: TextStyle(
-                                  color: Colors.white.withValues(alpha: 0.85),
-                                  fontSize: 9.5,
-                                  height: 1.25,
-                                ),
+                          // dunga alba din fata semnaturii, inalta cat cele doua randuri
+                          Container(
+                            decoration: const BoxDecoration(
+                              border: Border(
+                                left: BorderSide(color: Colors.white, width: 1),
                               ),
-                              const Text(
-                                titularNume,
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 11.5,
-                                  height: 1.25,
+                            ),
+                            padding: const EdgeInsets.only(left: 8),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                Text(
+                                  titularGrad,
+                                  style: TextStyle(
+                                    color: Colors.white.withValues(alpha: 0.85),
+                                    fontSize: 9.5,
+                                    height: 1.25,
+                                  ),
                                 ),
-                              ),
-                            ],
+                                const Text(
+                                  titularNume,
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 11.5,
+                                    height: 1.25,
+                                  ),
+                                ),
+                              ],
+                            ),
                           ),
                         ],
                       ),
