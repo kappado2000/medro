@@ -259,7 +259,7 @@ class _Header extends StatelessWidget {
             children: [
               Row(
                 children: [
-                  const EmblemaFlacon(dimensiune: 40),
+                  const EmblemaCapsula(dimensiune: 40),
                   const SizedBox(width: 12),
                   const Text(
                     'MedRO',
@@ -408,68 +408,22 @@ class _Mesaj extends StatelessWidget {
   }
 }
 
-/// Emblema din antet: flacon alb cu capac rosu si cruce albastra.
-class EmblemaFlacon extends StatelessWidget {
+/// Emblema din antet: capsula din iconita aplicatiei, pe un patrat alb.
+class EmblemaCapsula extends StatelessWidget {
   final double dimensiune;
-  const EmblemaFlacon({super.key, required this.dimensiune});
+  const EmblemaCapsula({super.key, required this.dimensiune});
 
   @override
   Widget build(BuildContext context) {
-    return CustomPaint(
-      size: Size.square(dimensiune),
-      painter: const _FlaconPainter(),
+    return Container(
+      width: dimensiune,
+      height: dimensiune,
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(dimensiune * 0.28),
+      ),
+      padding: EdgeInsets.all(dimensiune * 0.08),
+      child: Image.asset('assets/images/capsula.png'),
     );
   }
-}
-
-class _FlaconPainter extends CustomPainter {
-  const _FlaconPainter();
-
-  @override
-  void paint(Canvas canvas, Size size) {
-    final w = size.width;
-    final h = size.height;
-    RRect rotunjit(double l, double t, double r, double b, double raza) {
-      return RRect.fromRectAndRadius(
-        Rect.fromLTRB(w * l, h * t, w * r, h * b),
-        Radius.circular(w * raza),
-      );
-    }
-
-    canvas
-      // capacul
-      ..drawRRect(
-        rotunjit(0.28, 0.02, 0.72, 0.20, 0.05),
-        Paint()..color = AppColors.red,
-      )
-      // corpul flaconului
-      ..drawRRect(
-        rotunjit(0.17, 0.24, 0.83, 0.98, 0.13),
-        Paint()..color = Colors.white,
-      );
-    // crucea de pe eticheta
-    final cruce = Paint()..color = AppColors.blue;
-    final c = Offset(w * 0.5, h * 0.61);
-    final brat = w * 0.38;
-    final grosime = w * 0.135;
-    final raza = Radius.circular(w * 0.022);
-    canvas
-      ..drawRRect(
-        RRect.fromRectAndRadius(
-          Rect.fromCenter(center: c, width: brat, height: grosime),
-          raza,
-        ),
-        cruce,
-      )
-      ..drawRRect(
-        RRect.fromRectAndRadius(
-          Rect.fromCenter(center: c, width: grosime, height: brat),
-          raza,
-        ),
-        cruce,
-      );
-  }
-
-  @override
-  bool shouldRepaint(_FlaconPainter veche) => false;
 }
