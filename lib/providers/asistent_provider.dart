@@ -3,6 +3,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import '../models/medicament.dart';
 import '../services/claude_client.dart';
+import '../services/costuri.dart';
 import '../services/data_store.dart';
 import '../utils/rcp_extrase.dart';
 import '../utils/text_utils.dart';
@@ -58,6 +59,14 @@ class AsistentProvider extends ChangeNotifier {
 
   bool get areCheie => cheie.isNotEmpty;
 
+  /// Jurnalul intrebarilor si al costului lor, pastrat pe telefon.
+  final JurnalCosturi costuri = JurnalCosturi();
+
+  Future<void> golesteCosturi() async {
+    await costuri.goleste();
+    notifyListeners();
+  }
+
   /// Asistentul merge fie prin serverul propriu, fie cu o cheie introdusa aici.
   bool get disponibil => _client.areServer || areCheie;
   bool get conversatieInceputa => _istoric.isNotEmpty;
@@ -67,6 +76,7 @@ class AsistentProvider extends ChangeNotifier {
     cheie = prefs.getString(_cheieKey) ?? '';
     final salvat = prefs.getString(_modelKey);
     if (ClaudeClient.modele.containsKey(salvat)) model = salvat!;
+    await costuri.incarca();
     incarcat = true;
     notifyListeners();
   }
@@ -302,6 +312,14 @@ class AsistentProvider extends ChangeNotifier {
             avertizare: true,
             text: 'RCP-ul nu a putut fi atașat; răspunsul se bazează doar pe datele din aplicație.',
           ),
+        );
+      }
+      // doar raspunsurile primite se factureaza, deci doar ele intra in jurnal
+      final consum = raspuns.consum;
+      if (consum != null) {
+        await costuri.adauga(
+          consum,
+          documente: continut.where((b) => b['type'] == 'document').length,
         );
       }
       _istoric

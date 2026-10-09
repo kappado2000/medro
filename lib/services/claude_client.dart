@@ -1,3 +1,5 @@
+import 'costuri.dart';
+
 import 'dart:async';
 import 'dart:convert';
 
@@ -22,12 +24,16 @@ class RaspunsClaude {
   final List<Citare> citari;
   final String? motivOprire;
 
+  /// Tokenii facturati, daca serverul i-a raportat.
+  final Consum? consum;
+
   const RaspunsClaude(
     this.continutBrut,
     this.text,
     this.citari,
-    this.motivOprire,
-  );
+    this.motivOprire, [
+    this.consum,
+  ]);
 
   bool get refuzat => motivOprire == 'refusal';
   bool get trunchiat => motivOprire == 'max_tokens';
@@ -165,7 +171,7 @@ class ClaudeClient {
         raspuns.statusCode,
       );
     }
-    return interpreteaza(json);
+    return interpreteaza(json, model);
   }
 
   static String _mesajEroare(int cod, Map<String, dynamic> json) {
@@ -190,7 +196,10 @@ class ClaudeClient {
   }
 
   @visibleForTesting
-  static RaspunsClaude interpreteaza(Map<String, dynamic> json) {
+  static RaspunsClaude interpreteaza(
+    Map<String, dynamic> json, [
+    String modelCerut = modelImplicit,
+  ]) {
     final continut = (json['content'] as List?) ?? const [];
     final text = StringBuffer();
     final citari = <Citare>[];
@@ -212,6 +221,7 @@ class ClaudeClient {
       text.toString().trim(),
       citari,
       json['stop_reason'] as String?,
+      Consum.dinRaspuns(json, modelCerut),
     );
   }
 }

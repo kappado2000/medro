@@ -13,6 +13,7 @@ void main() {
     ajutorIcd,
     ajutorAsistent,
     ajutorInstrumente,
+    ajutorCosturi,
   ];
 
   test('fiecare pagina de ajutor are continut si un capitol de limite', () {

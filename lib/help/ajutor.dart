@@ -589,6 +589,11 @@ const ajutorAsistent = Ajutor(
           'este singura secțiune care nu funcționează offline.',
         ),
         (
+          'Costuri',
+          'iconița cu bancnote din antet arată câte întrebări ai pus și cât au costat: '
+              'azi, luna aceasta, în total și pe fiecare întrebare.',
+        ),
+        (
           'Fiecare întrebare costă',
           'prima întrebare cu un RCP atașat este cea mai scumpă; următoarele din aceeași '
               'conversație costă mult mai puțin. La medicamentele autorizate de EMA, al căror '
@@ -868,6 +873,86 @@ const ajutorInstrumente = Ajutor(
           'lista de fraze poate fi incompletă și nu înlocuiește ghidurile sau '
               'protocoalele în vigoare. Litiul nu apare dacă nu are produse în '
               'nomenclator.',
+        ),
+      ],
+    ),
+  ],
+);
+
+const ajutorCosturi = Ajutor(
+  titlu: 'Costuri',
+  rezumat:
+      'Evidența întrebărilor puse asistentului de pe acest telefon și a costului '
+      'lor estimat. Restul aplicației (medicamente, interacțiuni, calculatoare, '
+      'ICD-10) nu costă nimic.',
+  capitole: [
+    CapitolAjutor(
+      icon: Icons.payments_outlined,
+      titlu: 'Ce vezi',
+      puncte: [
+        (
+          'Azi, luna aceasta, total',
+          'numărul de întrebări și suma în dolari pentru fiecare perioadă.',
+        ),
+        (
+          'Pe luni',
+          'câte întrebări ai pus în fiecare lună și cât au costat împreună.',
+        ),
+        (
+          'Întrebări',
+          'ultimele 50, cu data și ora, modelul folosit, tokenii trimiși și primiți, '
+              'câte documente RCP au fost atașate și costul fiecăreia.',
+        ),
+        (
+          'Coșul de gunoi',
+          'șterge jurnalul de pe telefon. Nu schimbă nimic din ce ai de plătit.',
+        ),
+      ],
+    ),
+    CapitolAjutor(
+      icon: Icons.calculate_outlined,
+      titlu: 'Cum se calculează',
+      puncte: [
+        (
+          'Tokeni',
+          'textul se măsoară în tokeni, bucăți de 3–4 caractere. Se plătește separat '
+              'ce trimiți (întrebarea, datele, documentul RCP) și ce primești (răspunsul).',
+        ),
+        (
+          'Documentul este aproape tot costul',
+          'un RCP întreg are zeci de mii de tokeni; întrebarea și răspunsul au câteva sute.',
+        ),
+        (
+          'Document refolosit',
+          'la a doua întrebare din aceeași conversație, pusă în câteva minute, '
+              'documentul se plătește la o zecime din preț.',
+        ),
+        (
+          'Cum plătești mai puțin',
+          'pune întrebările despre același medicament una după alta, în aceeași '
+              'conversație, și oprește „Trimite și RCP-ul” când nu ai nevoie de document.',
+        ),
+      ],
+    ),
+    CapitolAjutor(
+      icon: Icons.warning_amber_rounded,
+      titlu: 'Limite',
+      avertizare: true,
+      puncte: [
+        (
+          'Sumele sunt estimări',
+          'se calculează din tokenii raportați la fiecare răspuns, cu tarifele '
+              'scrise în aplicație. Dacă Anthropic schimbă prețurile, estimarea rămâne '
+              'în urmă până la actualizarea aplicației.',
+        ),
+        (
+          'Doar acest telefon',
+          'întrebările puse de pe alt dispozitiv sau teste făcute în afara aplicației '
+              'nu apar aici. Factura reală este în consola Anthropic, la Usage și Cost.',
+        ),
+        (
+          'Întrebările dinainte',
+          'jurnalul începe de la versiunea care a adus această pagină.',
         ),
       ],
     ),

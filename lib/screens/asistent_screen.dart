@@ -7,6 +7,7 @@ import '../providers/interactiuni_provider.dart';
 import '../providers/medicamente_provider.dart';
 import '../services/claude_client.dart';
 import '../help/ajutor.dart';
+import 'costuri_screen.dart';
 import '../theme/app_theme.dart';
 
 class AsistentScreen extends StatefulWidget {
@@ -66,6 +67,9 @@ class _AsistentScreenState extends State<AsistentScreen> {
       context.read<AsistentProvider>().ataseaza(ales);
     }
   }
+
+  /// Valoarea din meniu care deschide fereastra cheii, pe langa modele.
+  static const _cheieApi = 'cheie_api';
 
   Future<void> _setari(AsistentProvider asistent) async {
     final control = TextEditingController(text: asistent.cheie);
@@ -151,7 +155,9 @@ class _AsistentScreenState extends State<AsistentScreen> {
                       tooltip: 'Model',
                       icon: const Icon(Icons.tune, color: Colors.white),
                       enabled: !asistent.asteapta,
-                      onSelected: asistent.seteazaModel,
+                      onSelected: (v) => v == _cheieApi
+                          ? _setari(asistent)
+                          : asistent.seteazaModel(v),
                       itemBuilder: (context) => [
                         for (final e in ClaudeClient.modele.entries)
                           CheckedPopupMenuItem(
@@ -159,12 +165,28 @@ class _AsistentScreenState extends State<AsistentScreen> {
                             checked: e.key == asistent.model,
                             child: Text(e.value),
                           ),
+                        const PopupMenuDivider(),
+                        const PopupMenuItem(
+                          value: _cheieApi,
+                          child: ListTile(
+                            contentPadding: EdgeInsets.zero,
+                            leading: Icon(Icons.key_outlined),
+                            title: Text('Cheie API proprie'),
+                          ),
+                        ),
                       ],
                     ),
                     IconButton(
-                      tooltip: 'Cheie API',
-                      icon: const Icon(Icons.key_outlined, color: Colors.white),
-                      onPressed: () => _setari(asistent),
+                      tooltip: 'Costuri',
+                      icon: const Icon(
+                        Icons.payments_outlined,
+                        color: Colors.white,
+                      ),
+                      onPressed: () => Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (_) => const CosturiScreen(),
+                        ),
+                      ),
                     ),
                   ],
                 ],
