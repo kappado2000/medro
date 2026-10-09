@@ -85,6 +85,12 @@ final temeRcp = [
     const ['4.5', '4.4', '4.2'],
   ),
   TemaRcp._(
+    'anticolinergic',
+    'Efecte anticolinergice',
+    RegExp(r'anticolinergic|antimuscarinic', caseSensitive: false),
+    const ['4.3', '4.4', '4.5', '4.8'],
+  ),
+  TemaRcp._(
     'qt',
     'Interval QT',
     RegExp(r'\bQT[c]?\b|torsad', caseSensitive: false),

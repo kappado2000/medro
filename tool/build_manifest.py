@@ -29,6 +29,9 @@ def main() -> None:
     comp = DATE / "compensare.json.gz"
     if comp.exists():
         surse["Lista CNAS"] = json.loads(gzip.open(comp).read())["data"]
+    prot = DATE / "protocoale.json.gz"
+    if prot.exists():
+        surse["Protocoale CNAS"] = json.loads(gzip.open(prot).read())["data"]
     surse["Interacțiuni"] = "DDInter 2.0"
     surse["ICD-10"] = "RoDRG, 2011"
     versiune = datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%d %H:%M")

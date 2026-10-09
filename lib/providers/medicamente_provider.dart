@@ -86,8 +86,61 @@ class MedicamenteProvider extends ChangeNotifier {
     } catch (_) {
       _contraindicatii = const {};
     }
+    // protocoalele terapeutice sunt optionale
+    try {
+      final data = await _citesteJsonGz('protocoale.json.gz');
+      dataProtocoale = data['data'] as String;
+      _protocoale = [
+        for (final p in data['protocoale'] as List)
+          Protocol(
+            p[0] as String,
+            p[1] as String,
+            p[2] as String,
+            p[3] as String,
+            p[4] as String,
+            p[5] as int,
+          ),
+      ];
+    } catch (_) {
+      _protocoale = const [];
+      dataProtocoale = '';
+    }
     incarcat = true;
     notifyListeners();
+  }
+
+  List<Protocol> _protocoale = const [];
+
+  /// Luna listei de protocoale CNAS, ex. "iulie 2026".
+  String dataProtocoale = '';
+
+  int get totalProtocoale => _protocoale.length;
+
+  /// Protocoalele terapeutice CNAS care privesc medicamentul: cele cu codul
+  /// lui ATC si cele in a caror denumire apare substanta (toate componentele,
+  /// la o combinatie).
+  List<Protocol> protocoale(Medicament m) {
+    final componente = [
+      for (final c in m.dci.split('+'))
+        if (normalizeForSearch(c).isNotEmpty) normalizeForSearch(c),
+    ];
+    // "COMBINATII" si denumirile generice nu identifica o substanta
+    final dupaNume =
+        componente.isNotEmpty &&
+        componente.every((c) => c.length > 5 && !c.startsWith('combinat'));
+    return [
+      for (final p in _protocoale)
+        if ((m.atc.isNotEmpty && p.cod == m.atc) ||
+            (dupaNume &&
+                // o substanta singura nu intra sub protocoalele combinatiilor ei
+                !(componente.length == 1 && p.cautare.startsWith('combinat')) &&
+                componente.every(
+                  (c) =>
+                      RegExp('(^|[^a-z])${RegExp.escape(c)}(\$|[^a-z])')
+                          .hasMatch(p.cautare),
+                )))
+          p,
+    ];
   }
 
   /// Contraindicatiile din RCP-ul produsului (sectiunea 4.3), daca au putut

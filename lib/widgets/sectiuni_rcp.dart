@@ -117,6 +117,7 @@ class _SectiuniRcpState extends State<SectiuniRcp> {
     'monitorizare': Icons.monitor_heart_outlined,
     'cyp': Icons.hub_outlined,
     'qt': Icons.show_chart,
+    'anticolinergic': Icons.blur_on,
   };
 }
 

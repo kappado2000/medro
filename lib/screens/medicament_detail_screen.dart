@@ -213,6 +213,17 @@ class MedicamentDetailScreen extends StatelessWidget {
                   titlu: 'Compensare CNAS',
                   child: _CompensareCnas(medicament: m, provider: provider),
                 ),
+                if (provider.protocoale(m).isNotEmpty) ...[
+                  const SizedBox(height: 14),
+                  _Sectiune(
+                    titlu: 'Protocol terapeutic CNAS',
+                    child: _Protocoale(
+                      protocoale: provider.protocoale(m),
+                      data: provider.dataProtocoale,
+                      deschide: (url) => _deschide(context, url),
+                    ),
+                  ),
+                ],
                 const SizedBox(height: 14),
                 _Sectiune(
                   titlu: 'Clasificare',
@@ -606,6 +617,88 @@ class _Pastila extends StatelessWidget {
           ),
         ],
       ),
+    );
+  }
+}
+
+class _Protocoale extends StatelessWidget {
+  final List<Protocol> protocoale;
+  final String data;
+  final void Function(String url) deschide;
+
+  const _Protocoale({
+    required this.protocoale,
+    required this.data,
+    required this.deschide,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        for (final p in protocoale)
+          InkWell(
+            onTap: () => deschide(p.legatura),
+            child: Padding(
+              padding: const EdgeInsets.only(bottom: 12),
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          '${p.cod} · ${p.denumire}',
+                          style: const TextStyle(
+                            color: AppColors.ink,
+                            fontSize: 14.5,
+                            fontWeight: FontWeight.w700,
+                            height: 1.3,
+                          ),
+                        ),
+                        if (p.sublista.isNotEmpty)
+                          Text(
+                            'Sublista / grupa: ${p.sublista}',
+                            style: const TextStyle(
+                              color: AppColors.muted,
+                              fontSize: 13,
+                              height: 1.4,
+                            ),
+                          ),
+                        if (p.medicFamilie.isNotEmpty)
+                          Text(
+                            'Continuare la medicul de familie: ${p.medicFamilie}',
+                            style: const TextStyle(
+                              color: AppColors.muted,
+                              fontSize: 13,
+                              height: 1.4,
+                            ),
+                          ),
+                      ],
+                    ),
+                  ),
+                  const SizedBox(width: 8),
+                  const Icon(
+                    Icons.open_in_new,
+                    size: 18,
+                    color: AppColors.blue,
+                  ),
+                ],
+              ),
+            ),
+          ),
+        Text(
+          'Lista CNAS din $data. Atinge un protocol ca să-l deschizi (PDF, necesită '
+          'internet). Potrivirea se face după substanță: verifică indicația.',
+          style: const TextStyle(
+            color: AppColors.muted,
+            fontSize: 12,
+            height: 1.4,
+          ),
+        ),
+      ],
     );
   }
 }

@@ -165,3 +165,34 @@ String? explicatiePrescriptie(String cod) {
   if (explicatii.isEmpty) return null;
   return explicatii.join('; sau: ');
 }
+
+/// Un protocol terapeutic din lista publicata de CNAS.
+class Protocol {
+  final String cod;
+  final String denumire;
+
+  /// Sublista de compensare, grupa de boala sau programul national.
+  final String sublista;
+
+  /// Daca medicul de familie poate continua prescrierea, asa cum scrie in lista.
+  final String medicFamilie;
+
+  /// Fisierul PDF publicat de CNAS si pagina la care incepe protocolul.
+  final String url;
+  final int pagina;
+
+  /// Denumirea fara diacritice, cu majuscule, pentru potrivirea cu DCI-ul.
+  final String cautare;
+
+  Protocol(
+    this.cod,
+    this.denumire,
+    this.sublista,
+    this.medicFamilie,
+    this.url,
+    this.pagina,
+  ) : cautare = normalizeForSearch(denumire);
+
+  /// Legatura care deschide PDF-ul direct la pagina protocolului.
+  String get legatura => '$url#page=$pagina';
+}

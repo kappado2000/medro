@@ -55,7 +55,7 @@ const _paginaMedicamentului = CapitolAjutor(
     (
       'Răspunsuri rapide din RCP',
       'frazele din document despre doza maximă, sarcină și alăptare, insuficiența renală și '
-          'hepatică, vârstnici, monitorizare, enzimele hepatice (CYP) și intervalul QT. '
+          'hepatică, vârstnici, monitorizare, enzimele hepatice (CYP), efectele anticolinergice și intervalul QT. '
           'Fiecare frază are în față numărul secțiunii din care provine. Sunt '
           'disponibile fără internet.',
     ),
@@ -84,6 +84,12 @@ const _paginaMedicamentului = CapitolAjutor(
       'pentru fiecare ambalaj compensat: sublista (A, B, C1, C2, C3, D), procentul de '
           'compensare, prețul maximal și contribuția maximă a pacientului. La sublista B '
           'apare și contribuția pentru pensionarii cu venituri mici.',
+    ),
+    (
+      'Protocol terapeutic CNAS',
+      'apare la medicamentele care au protocol de prescriere: codul, sublista sau '
+          'programul și dacă medicul de familie poate continua tratamentul. Atinge '
+          'protocolul ca să deschizi PDF-ul CNAS direct la pagina lui.',
     ),
     (
       'Clasificare și autorizare',
