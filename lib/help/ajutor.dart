@@ -355,8 +355,10 @@ const ajutorCalculatoare = Ajutor(
         ),
         (
           'Traduceri',
-          'PHQ-9 și GAD-7 folosesc textul oficial în română. Itemii din AUDIT, CIWA-Ar, '
-              'CGI, AIMS și BPRS sunt traduceri de lucru, nu versiuni validate.',
+          'PHQ-9 și GAD-7 folosesc textul oficial în română. AUDIT, CIWA-Ar, CGI, AIMS și '
+              'BPRS sunt traduse după originalele în engleză și revizuite, dar nu au o '
+              'versiune românească validată; la CIWA-Ar și AIMS sunt afișate descrierile '
+              'originale ale fiecărei note.',
         ),
         (
           'Echivalențe de doze',

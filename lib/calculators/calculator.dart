@@ -21,12 +21,16 @@ class CampAlegere extends Camp {
   /// Indexul optiunii selectate de la inceput, daca exista.
   final int? implicit;
 
+  /// Lamurire afisata sub intrebare (definitii, cadrul de referinta).
+  final String? detaliu;
+
   const CampAlegere(
     super.id,
     super.eticheta,
     this.optiuni, {
     this.puncte,
     this.implicit,
+    this.detaliu,
   });
 }
 

@@ -206,6 +206,18 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
                   color: AppColors.ink,
                 ),
               ),
+              if (c.detaliu != null)
+                Padding(
+                  padding: const EdgeInsets.only(top: 2),
+                  child: Text(
+                    c.detaliu!,
+                    style: const TextStyle(
+                      color: AppColors.muted,
+                      fontSize: 12.5,
+                      height: 1.35,
+                    ),
+                  ),
+                ),
               const SizedBox(height: 8),
               Wrap(
                 spacing: 8,

@@ -141,32 +141,37 @@ const _audit = <Camp>[
   ], puncte: _p01234),
   CampAlegere(
     'q2',
-    '2. Câte băuturi standard consumați într-o zi obișnuită în care beți?',
+    '2. Câte băuturi standard (care conțin alcool) consumați într-o zi obișnuită în care beți?',
     ['1–2', '3–4', '5–6', '7–9', '10 sau mai multe'],
     puncte: _p01234,
+    detaliu:
+        'O băutură standard = aproximativ 10 g de alcool pur (definiția OMS): cam '
+        '250–330 ml de bere (4–5%), 100–125 ml de vin (12%) sau 30–40 ml de tărie (40%).',
   ),
   CampAlegere(
     'q3',
-    '3. Cât de des consumați 6 sau mai multe băuturi la o singură ocazie?',
+    '3. Cât de des consumați șase sau mai multe băuturi standard la o singură ocazie?',
     _frecventaAudit,
     puncte: _p01234,
   ),
   CampAlegere(
     'q4',
-    '4. În ultimul an, cât de des ați constatat că nu vă puteți opri din băut odată ce ați început?',
+    '4. În ultimul an, cât de des ați constatat că nu vă mai puteați opri din băut odată '
+        'ce ați început?',
     _frecventaAudit,
     puncte: _p01234,
   ),
   CampAlegere(
     'q5',
-    '5. În ultimul an, cât de des nu ați reușit, din cauza băuturii, să faceți ce se aștepta de la dvs.?',
+    '5. În ultimul an, cât de des nu ați reușit, din cauza băuturii, să faceți ceea ce se '
+        'aștepta în mod normal de la dvs.?',
     _frecventaAudit,
     puncte: _p01234,
   ),
   CampAlegere(
     'q6',
-    '6. În ultimul an, cât de des ați avut nevoie de o băutură dimineața ca să vă reveniți '
-        'după ce ați băut mult?',
+    '6. În ultimul an, cât de des ați avut nevoie de un prim pahar dimineața ca să vă '
+        'puteți pune pe picioare („să vă dregeți”) după ce ați băut mult?',
     _frecventaAudit,
     puncte: _p01234,
   ),
@@ -178,14 +183,15 @@ const _audit = <Camp>[
   ),
   CampAlegere(
     'q8',
-    '8. În ultimul an, cât de des nu v-ați putut aminti ce s-a întâmplat în seara precedentă '
-        'din cauza băuturii?',
+    '8. În ultimul an, cât de des nu v-ați putut aminti ce s-a întâmplat cu o seară '
+        'înainte, pentru că băuserăți?',
     _frecventaAudit,
     puncte: _p01234,
   ),
   CampAlegere(
     'q9',
-    '9. Ați fost rănit dvs. sau altcineva ca urmare a consumului dvs. de alcool?',
+    '9. Ați fost rănit(ă) dvs. sau a fost rănită o altă persoană ca urmare a consumului '
+        'dvs. de alcool?',
     _daNuAudit,
     puncte: _p024,
   ),
@@ -198,88 +204,131 @@ const _audit = <Camp>[
   ),
 ];
 
+// Ancorele sunt cele ale scalei originale: la itemii 1–5 sunt definite notele
+// 0, 1, 4 si 7, iar la itemii 6–10 fiecare nivel.
+const _ciwaHalucinatii =
+    '4–6 = halucinații (moderat severe / severe / extrem de severe) · 7 = halucinații continue';
+
 const _ciwa = <Camp>[
   CampScala(
     'greata',
     'Greață și vărsături',
     7,
-    detaliu: '0 = absente · 7 = greață constantă, vărsături frecvente',
+    detaliu:
+        '0 = fără greață, fără vărsături · 1 = greață ușoară, fără vărsături · '
+        '4 = greață intermitentă, cu eforturi de vărsătură · 7 = greață constantă, '
+        'eforturi de vărsătură frecvente și vărsături',
   ),
   CampScala(
     'tremor',
     'Tremor',
     7,
-    detaliu: '0 = absent · 7 = sever, chiar fără brațele întinse',
+    detaliu:
+        'Cu brațele întinse și degetele răsfirate. 0 = absent · 1 = nu se vede, dar se '
+        'simte vârf de deget la vârf de deget · 4 = moderat, cu brațele întinse · '
+        '7 = sever, chiar și fără brațele întinse',
   ),
   CampScala(
     'transpiratii',
     'Transpirații paroxistice',
     7,
-    detaliu: '0 = absente · 7 = transpirații profuze',
+    detaliu:
+        '0 = fără transpirație vizibilă · 1 = abia perceptibilă, palme umede · '
+        '4 = broboane de sudoare evidente pe frunte · 7 = transpirații profuze',
   ),
   CampScala(
     'anxietate',
     'Anxietate',
     7,
-    detaliu: '0 = absentă · 7 = echivalentă cu un atac de panică',
+    detaliu:
+        '0 = fără anxietate, relaxat · 1 = ușor anxios · 4 = moderat anxios sau reținut '
+        '(anxietatea se deduce) · 7 = echivalentă cu stările acute de panică din '
+        'delirium sever sau din reacțiile schizofrenice acute',
   ),
   CampScala(
     'agitatie',
     'Agitație',
     7,
-    detaliu: '0 = activitate normală · 7 = se plimbă continuu sau se zbate',
+    detaliu:
+        '0 = activitate normală · 1 = activitate ceva mai intensă decât normal · '
+        '4 = moderat neastâmpărat și neliniștit · 7 = se plimbă de colo-colo în cea mai '
+        'mare parte a interviului sau se zbate continuu',
   ),
   CampScala(
     'tactil',
     'Tulburări tactile',
     7,
-    detaliu: '0 = absente · 7 = halucinații continue',
+    detaliu:
+        '0 = absente · 1–3 = prurit, înțepături, arsuri sau amorțeli (foarte ușoare / '
+        'ușoare / moderate) · $_ciwaHalucinatii',
   ),
   CampScala(
     'auditiv',
     'Tulburări auditive',
     7,
-    detaliu: '0 = absente · 7 = halucinații continue',
+    detaliu:
+        '0 = absente · 1–3 = sunete percepute ca stridente sau înspăimântătoare (foarte '
+        'ușor / ușor / moderat) · $_ciwaHalucinatii',
   ),
   CampScala(
     'vizual',
     'Tulburări vizuale',
     7,
-    detaliu: '0 = absente · 7 = halucinații continue',
+    detaliu:
+        '0 = absente · 1–3 = sensibilitate la lumină (foarte ușoară / ușoară / moderată) · '
+        '$_ciwaHalucinatii',
   ),
   CampScala(
     'cefalee',
-    'Cefalee, senzație de cap greu',
+    'Cefalee, senzație de presiune în cap',
     7,
-    detaliu: '0 = absentă · 7 = extrem de severă',
+    detaliu:
+        '0 = absentă · 1 = foarte ușoară · 2 = ușoară · 3 = moderată · 4 = moderat severă · '
+        '5 = severă · 6 = foarte severă · 7 = extrem de severă. Nu se cotează amețeala.',
   ),
   CampScala(
     'orientare',
-    'Orientare și claritatea conștienței',
+    'Orientare și obnubilarea conștienței',
     4,
-    detaliu: '0 = orientat · 4 = dezorientat în spațiu și/sau la persoană',
+    detaliu:
+        '0 = orientat, poate face adunări în serie · 1 = nu poate face adunări în serie '
+        'sau este nesigur asupra datei · 2 = dezorientat asupra datei cu cel mult 2 zile · '
+        '3 = dezorientat asupra datei cu peste 2 zile · 4 = dezorientat în spațiu și/sau '
+        'la propria persoană',
   ),
 ];
 
 const _cgi = <Camp>[
-  CampAlegere('s', 'CGI-S – severitatea bolii', [
-    '1 · Normal, deloc bolnav',
-    '2 · La limita bolii',
-    '3 · Ușor bolnav',
-    '4 · Moderat bolnav',
-    '5 · Marcat bolnav',
-    '6 · Sever bolnav',
-    '7 · Printre cei mai grav bolnavi',
-  ]),
-  CampAlegere('i', 'CGI-I – ameliorarea față de evaluarea inițială', [
-    '1 · Foarte mult ameliorat',
-    '2 · Mult ameliorat',
-    '3 · Minim ameliorat',
-    '4 · Nicio schimbare',
-    '5 · Minim agravat',
-    '6 · Mult agravat',
-    '7 · Foarte mult agravat',
-  ]),
+  CampAlegere(
+    's',
+    'CGI-S – severitatea bolii',
+    [
+      '1 · Normal, deloc bolnav',
+      '2 · La limita bolii psihice',
+      '3 · Ușor bolnav',
+      '4 · Moderat bolnav',
+      '5 · Marcat bolnav',
+      '6 · Sever bolnav',
+      '7 · Printre pacienții cei mai grav bolnavi',
+    ],
+    detaliu:
+        'Având în vedere întreaga dvs. experiență clinică cu această categorie de '
+        'pacienți, cât de bolnav psihic este pacientul în acest moment?',
+  ),
+  CampAlegere(
+    'i',
+    'CGI-I – ameliorarea globală față de starea de la inițierea tratamentului',
+    [
+      '1 · Foarte mult ameliorat',
+      '2 · Mult ameliorat',
+      '3 · Minim ameliorat',
+      '4 · Nicio schimbare',
+      '5 · Minim agravat',
+      '6 · Mult agravat',
+      '7 · Foarte mult agravat',
+    ],
+    detaliu: 'Se notează ameliorarea totală, indiferent dacă se datorează sau nu tratamentului.',
+  ),
 ];
 
 /// Doza (mg) echivalenta cu 10 mg diazepam, dupa tabelul Ashton.
@@ -345,53 +394,113 @@ bool _toateCompletate(List<Camp> campuri, Map<String, Object> v) {
 const _hunter = <Camp>[
   CampBifa(
     'agent',
-    'Tratament cu un agent serotoninergic',
+    'Expunere la un agent serotoninergic',
     0,
-    detaliu: 'Condiție obligatorie pentru aplicarea criteriilor',
+    detaliu:
+        'Tratament, asociere de medicamente sau supradoză; condiție obligatorie '
+        'pentru aplicarea criteriilor',
   ),
   CampBifa('clonus_spontan', 'Clonus spontan', 0),
-  CampBifa('clonus_inductibil', 'Clonus inductibil', 0),
-  CampBifa('clonus_ocular', 'Clonus ocular', 0),
+  CampBifa('clonus_inductibil', 'Clonus provocat (inductibil)', 0),
+  CampBifa(
+    'clonus_ocular',
+    'Clonus ocular',
+    0,
+    detaliu: 'Mișcări oculare orizontale lente, continue',
+  ),
   CampBifa('agitatie', 'Agitație', 0),
   CampBifa('diaforeza', 'Diaforeză', 0),
   CampBifa('tremor', 'Tremor', 0),
   CampBifa('hiperreflexie', 'Hiperreflexie', 0),
-  CampBifa('hipertonie', 'Hipertonie', 0),
+  CampBifa('hipertonie', 'Hipertonie musculară', 0),
   CampBifa('febra', 'Temperatură peste 38 °C', 0),
 ];
 
 const _aimsAncore =
-    '0 = absent · 1 = minim · 2 = ușor · 3 = moderat · 4 = sever';
+    '0 = absente · 1 = minime (pot fi la limita extremă a normalului) · 2 = ușoare · '
+    '3 = moderate · 4 = severe';
 
 /// Primii 7 itemi sunt zonele corporale care intra in scorul total.
 const _aimsZone = 7;
+const _aimsGlobal =
+    '0 = absentă, normal · 1 = minimă · 2 = ușoară · 3 = moderată · 4 = severă';
 const _aims = <Camp>[
-  CampScala('a1', '1. Mușchii expresiei faciale', 4, detaliu: _aimsAncore),
-  CampScala('a2', '2. Buze și regiunea periorală', 4, detaliu: _aimsAncore),
-  CampScala('a3', '3. Mandibulă', 4, detaliu: _aimsAncore),
-  CampScala('a4', '4. Limbă', 4, detaliu: _aimsAncore),
-  CampScala('a5', '5. Membre superioare', 4, detaliu: _aimsAncore),
-  CampScala('a6', '6. Membre inferioare', 4, detaliu: _aimsAncore),
-  CampScala('a7', '7. Trunchi (gât, umeri, șolduri)', 4, detaliu: _aimsAncore),
+  CampScala(
+    'a1',
+    '1. Mușchii mimicii',
+    4,
+    detaliu:
+        'Frunte, sprâncene, regiune periorbitală, obraji; inclusiv încruntare, clipit, '
+        'zâmbet, grimase.\n$_aimsAncore',
+  ),
+  CampScala(
+    'a2',
+    '2. Buze și regiune periorală',
+    4,
+    detaliu: 'Țuguiere, bosumflare, plescăit.\n$_aimsAncore',
+  ),
+  CampScala(
+    'a3',
+    '3. Mandibulă',
+    4,
+    detaliu:
+        'Mușcare, încleștare, masticație, deschiderea gurii, mișcări laterale.\n$_aimsAncore',
+  ),
+  CampScala(
+    'a4',
+    '4. Limbă',
+    4,
+    detaliu:
+        'Se notează doar creșterea mișcărilor, în interiorul și în afara cavității '
+        'bucale, NU incapacitatea de a menține o poziție.\n$_aimsAncore',
+  ),
+  CampScala(
+    'a5',
+    '5. Membre superioare',
+    4,
+    detaliu:
+        'Brațe, articulațiile pumnului, mâini, degete. Se includ mișcările coreice și '
+        'atetozice; NU se include tremorul.\n$_aimsAncore',
+  ),
+  CampScala(
+    'a6',
+    '6. Membre inferioare',
+    4,
+    detaliu:
+        'Gambe, genunchi, glezne, degete: mișcări laterale ale genunchilor, bătut din '
+        'picior, lăsarea călcâiului, frământarea picioarelor, inversiunea și eversiunea '
+        'piciorului.\n$_aimsAncore',
+  ),
+  CampScala(
+    'a7',
+    '7. Trunchi: gât, umeri, șolduri',
+    4,
+    detaliu:
+        'Legănare, răsucire, zvârcolire, mișcări de rotație ale bazinului.\n$_aimsAncore',
+  ),
   CampScala(
     'a8',
-    '8. Severitatea globală a mișcărilor anormale',
+    '8. Severitatea mișcărilor anormale (apreciere globală)',
     4,
-    detaliu: 'Judecată globală; nu intră în scorul total',
+    detaliu: 'Nu intră în scorul total. $_aimsGlobal',
   ),
   CampScala(
     'a9',
-    '9. Incapacitarea produsă de mișcările anormale',
+    '9. Incapacitatea (afectarea funcțională) datorată mișcărilor anormale',
     4,
-    detaliu: 'Judecată globală; nu intră în scorul total',
+    detaliu: 'Nu intră în scorul total. $_aimsGlobal',
   ),
   CampScala(
     'a10',
-    '10. Conștientizarea mișcărilor de către pacient',
+    '10. Conștientizarea mișcărilor anormale de către pacient',
     4,
     detaliu:
-        '0 = nu le conștientizează · 4 = conștientizează, suferință severă',
+        'Se notează doar relatarea pacientului. 0 = nu le conștientizează · 1 = le '
+        'conștientizează, fără disconfort · 2 = disconfort ușor · 3 = disconfort moderat · '
+        '4 = disconfort sever',
   ),
+  CampBifa('a11', '11. Probleme actuale cu dinții și/sau proteza dentară', 0),
+  CampBifa('a12', '12. Pacientul poartă de obicei proteză dentară', 0),
 ];
 
 const _bprsItemi = [
@@ -401,8 +510,8 @@ const _bprsItemi = [
   'Dezorganizare conceptuală',
   'Sentimente de vinovăție',
   'Tensiune',
-  'Manierisme și posturi',
-  'Grandiozitate',
+  'Manierisme și posturi bizare',
+  'Grandoare',
   'Dispoziție depresivă',
   'Ostilitate',
   'Suspiciozitate',
@@ -410,7 +519,7 @@ const _bprsItemi = [
   'Lentoare motorie',
   'Lipsă de cooperare',
   'Conținut neobișnuit al gândirii',
-  'Afect aplatizat',
+  'Aplatizare afectivă',
   'Excitație',
   'Dezorientare',
 ];
@@ -489,9 +598,7 @@ final List<Calculator> calculatoarePsihiatrie = [
     categorie: _categorie,
     icon: Icons.local_bar_outlined,
     campuri: _audit,
-    sursa:
-        'Babor TF et al., OMS 2001. Formularea itemilor este o traducere de lucru, '
-        'nu versiunea românească validată.',
+    sursa: 'Babor TF et al., OMS 2001. Itemii: traducere revizuită după original, fără validare psihometrică în română.',
     calculeaza: (v) {
       if (!_toateCompletate(_audit, v)) return null;
       final scor = sumaPuncte(_audit, v);
@@ -522,7 +629,7 @@ final List<Calculator> calculatoarePsihiatrie = [
     campuri: _ciwa,
     sursa:
         'Sullivan JT et al., Br J Addict 1989. Praguri uzuale: până la 8, 9–19, 20 sau '
-        'peste; unele protocoale folosesc 10 și 18. Itemii sunt o traducere de lucru.',
+        'peste; unele protocoale folosesc 10 și 18. Itemii: traducere revizuită după original, fără validare psihometrică în română.',
     calculeaza: (v) {
       if (!_toateCompletate(_ciwa, v)) return null;
       final scor = sumaPuncte(_ciwa, v);
@@ -632,7 +739,7 @@ final List<Calculator> calculatoarePsihiatrie = [
     campuri: _aims,
     sursa:
         'Guy W, ECDEU Assessment Manual, 1976; pragul de screening după Schooler și '
-        'Kane, 1982. Itemii sunt o traducere de lucru.',
+        'Kane, 1982. Itemii: traducere revizuită după original, fără validare psihometrică în română.',
     calculeaza: (v) {
       final zone = _aims.take(_aimsZone).toList();
       if (!_toateCompletate(zone, v)) return null;
@@ -659,13 +766,14 @@ final List<Calculator> calculatoarePsihiatrie = [
     id: 'bprs',
     titlu: 'BPRS (18 itemi)',
     descriere:
-        'Scala scurtă de evaluare psihiatrică; 1 = absent, 7 = extrem de sever',
+        'Scala scurtă de evaluare psihiatrică. 1 = absent · 2 = foarte ușor · 3 = ușor · '
+        '4 = moderat · 5 = moderat-sever · 6 = sever · 7 = extrem de sever',
     categorie: _categorie,
     icon: Icons.fact_check_outlined,
     campuri: _bprs,
     sursa:
         'Overall JE, Gorham DR, Psychol Rep 1962. Repere de severitate după Leucht '
-        'et al., Br J Psychiatry 2005. Denumirile itemilor sunt o traducere de lucru.',
+        'et al., Br J Psychiatry 2005. Denumirile itemilor: traducere revizuită după original, fără validare psihometrică în română.',
     calculeaza: (v) {
       if (!_toateCompletate(_bprs, v)) return null;
       final scor = sumaPuncte(_bprs, v);
