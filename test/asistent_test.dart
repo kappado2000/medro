@@ -267,10 +267,13 @@ void main() {
             .where((b) => b['type'] == 'document')
             .toList();
         expect(documente, hasLength(2));
-        expect(documente.first['source'], {
-          'type': 'url',
-          'url': sertralina.rcpUrl,
-        });
+        // RCP-urile cu sectiuni extrase merg ca text, nu ca PDF
+        expect(documente.first['source']['type'], 'text');
+        expect(documente.first['title'], 'RCP ${sertralina.denumire} (extras)');
+        expect(
+          documente.first['source']['data'],
+          contains('4.2 Doze și mod de administrare'),
+        );
         expect(documente.first['citations'], {'enabled': true});
         // punctul de cache sta doar pe ultimul document
         expect(documente.first.containsKey('cache_control'), isFalse);

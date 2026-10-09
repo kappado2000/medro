@@ -226,13 +226,14 @@ class AsistentProvider extends ChangeNotifier {
     return b.toString().trim();
   }
 
-  /// RCP-urile EMA sunt documente de sute de pagini (toate concentratiile si
-  /// prospectul), de zeci de ori mai scumpe decat sectiunile lor clinice. Unde
-  /// aplicatia are sectiunile extrase, se trimit acelea in locul PDF-ului.
-  Future<Map<String, Map<String, String>>> _extraseEma() async {
+  /// Sectiunile clinice extrase in aplicatie se trimit in locul PDF-ului: sunt
+  /// de cateva ori mai ieftine decat un RCP national si de zeci de ori decat
+  /// unul de la EMA (sute de pagini, cu toate concentratiile si prospectul).
+  /// PDF-ul ramane doar pentru RCP-urile nationale fara extras.
+  Future<Map<String, Map<String, String>>> _extraseRcp() async {
     final rezultat = <String, Map<String, String>>{};
     for (final m in atasate) {
-      if (!m.centralizat || m.rcpUrl.isEmpty) continue;
+      if (m.rcpUrl.isEmpty) continue;
       final sectiuni = await RcpStore.instance.sectiuni(m.rcpUrl);
       if (sectiuni.isNotEmpty) rezultat[m.rcpUrl] = sectiuni;
     }
@@ -309,7 +310,7 @@ class AsistentProvider extends ChangeNotifier {
     try {
       RaspunsClaude raspuns;
       final extrase = cuDocumente && !conversatieInceputa
-          ? await _extraseEma()
+          ? await _extraseRcp()
           : const <String, Map<String, String>>{};
       var continut = continutMesaj(
         text,

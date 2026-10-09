@@ -486,7 +486,7 @@ const ajutorAsistent = Ajutor(
   titlu: 'Asistent',
   rezumat:
       'Pui întrebări în română și primești răspunsuri formulate pe baza RCP-ului '
-      'medicamentelor atașate, cu trimitere la pagina din document.',
+      'medicamentelor atașate, cu trimitere la pasajul din document.',
   capitole: [
     CapitolAjutor(
       icon: Icons.auto_awesome,
@@ -602,9 +602,9 @@ const ajutorAsistent = Ajutor(
         (
           'Fiecare întrebare costă',
           'prima întrebare cu un RCP atașat este cea mai scumpă; următoarele din aceeași '
-              'conversație costă mult mai puțin. La medicamentele autorizate de EMA, al căror '
-              'RCP are sute de pagini, se trimit doar secțiunile clinice 4.1–4.9 extrase în '
-              'aplicație. Documentul EMA întreg nu se trimite niciodată; dacă extrasul lipsește, '
+              'conversație costă mult mai puțin. Se trimit secțiunile clinice 4.1–4.9 extrase '
+              'în aplicație, nu PDF-ul întreg, care ar costa de câteva ori mai mult. Dacă '
+              'extrasul lipsește, la un RCP național se trimite PDF-ul, iar la unul de la EMA '
               'asistentul răspunde doar din datele aplicației și te anunță.',
         ),
         (

@@ -389,22 +389,12 @@ class _Atasate extends StatelessWidget {
               ),
             ],
           ),
-          if (asistent.includeRcp && asistent.atasate.any((m) => m.centralizat))
-            const Padding(
-              padding: EdgeInsets.only(top: 6),
-              child: Text(
-                'La medicamentele autorizate de EMA se trimit secțiunile clinice '
-                'extrase în aplicație (4.1–4.9). PDF-ul întreg de la EMA nu se '
-                'trimite niciodată, fiind de zece ori mai scump.',
-                style: TextStyle(color: AppColors.muted, fontSize: 12.5),
-              ),
-            ),
           if (asistent.atasate.isNotEmpty)
             Row(
               children: [
                 const Expanded(
                   child: Text(
-                    'Trimite și RCP-ul (răspuns cu trimiteri la pagină, cost mai mare)',
+                    'Trimite și RCP-ul: secțiunile 4.1–4.9 extrase în aplicație (cost mai mare)',
                     style: TextStyle(color: AppColors.muted, fontSize: 12.5),
                   ),
                 ),

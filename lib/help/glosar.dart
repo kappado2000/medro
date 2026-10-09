@@ -114,7 +114,7 @@ ASISTENT ȘI COSTURI
 - Token: unitatea în care se măsoară textul, de 3–4 caractere. Se plătesc separat tokenii trimiși și cei primiți.
 - Tokeni trimiși: întrebarea, instrucțiunile aplicației, datele despre medicamente și documentul RCP. Tokeni primiți: răspunsul.
 - Document nou: RCP-ul trimis prima dată într-o conversație, plătit întreg. Document refolosit: același RCP la întrebările următoare, puse în câteva minute, plătit la o zecime.
-- Extras: secțiunile 4.1–4.9 trimise ca text în locul PDF-ului întreg, la medicamentele autorizate de EMA.
+- Extras: secțiunile 4.1–4.9 ale RCP-ului, trimise asistentului ca text în locul PDF-ului întreg, ca întrebarea să coste mai puțin. Nu cuprinde secțiunile 5 și 6 (farmacocinetică, excipienți); pentru ele se deschide RCP-ul din pagina medicamentului.
 - USD: dolari americani; Anthropic facturează în dolari.
 - Cheie API proprie: opțiune pentru cine vrea să plătească din alt cont Anthropic; în mod obișnuit nu este necesară, asistentul merge prin serverul aplicației.
 ''';
