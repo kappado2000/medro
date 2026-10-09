@@ -147,7 +147,7 @@ class CosturiScreen extends StatelessWidget {
                         '${_pret(t.citireCache)} · răspuns ${_pret(t.iesire)}',
                         style: const TextStyle(
                           color: AppColors.ink,
-                          fontSize: 13.5,
+                          fontSize: 12.5,
                           height: 1.4,
                         ),
                       ),
@@ -170,7 +170,7 @@ class CosturiScreen extends StatelessWidget {
               'Factura reală este în consola Anthropic, la Usage și Cost.',
               style: TextStyle(
                 color: AppColors.muted,
-                fontSize: 12.5,
+                fontSize: 12,
                 height: 1.45,
               ),
             ),
@@ -228,7 +228,7 @@ class _Caseta extends StatelessWidget {
             titlu,
             style: TextStyle(
               color: accent ? Colors.white70 : AppColors.muted,
-              fontSize: 12.5,
+              fontSize: 12,
             ),
           ),
           const SizedBox(height: 6),
@@ -237,11 +237,7 @@ class _Caseta extends StatelessWidget {
             alignment: Alignment.centerLeft,
             child: Text(
               formatUsd(sumar.cost),
-              style: TextStyle(
-                color: culoare,
-                fontSize: 18,
-                fontWeight: FontWeight.w800,
-              ),
+              style: TextStyle(color: culoare, fontSize: 17),
             ),
           ),
           const SizedBox(height: 2),
@@ -252,7 +248,7 @@ class _Caseta extends StatelessWidget {
               CosturiScreen._interogari(sumar.interogari),
               style: TextStyle(
                 color: accent ? Colors.white70 : AppColors.muted,
-                fontSize: 12.5,
+                fontSize: 12,
               ),
             ),
           ),
@@ -273,8 +269,7 @@ class _Titlu extends StatelessWidget {
       child: Text(
         text.toUpperCase(),
         style: const TextStyle(
-          fontSize: 11.5,
-          fontWeight: FontWeight.w800,
+          fontSize: 11,
           letterSpacing: 0.8,
           color: AppColors.blue,
         ),
@@ -305,17 +300,13 @@ class _Rand extends StatelessWidget {
               children: [
                 Text(
                   titlu,
-                  style: const TextStyle(
-                    color: AppColors.ink,
-                    fontSize: 14.5,
-                    fontWeight: FontWeight.w700,
-                  ),
+                  style: const TextStyle(color: AppColors.ink, fontSize: 13.5),
                 ),
                 Text(
                   subtitlu,
                   style: const TextStyle(
                     color: AppColors.muted,
-                    fontSize: 12.5,
+                    fontSize: 12,
                     height: 1.35,
                   ),
                 ),
@@ -325,11 +316,7 @@ class _Rand extends StatelessWidget {
           const SizedBox(width: 10),
           Text(
             valoare,
-            style: const TextStyle(
-              color: AppColors.blue,
-              fontSize: 15,
-              fontWeight: FontWeight.w800,
-            ),
+            style: const TextStyle(color: AppColors.blue, fontSize: 14),
           ),
         ],
       ),

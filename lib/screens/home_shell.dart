@@ -190,11 +190,8 @@ class _Destinatie extends StatelessWidget {
                       softWrap: false,
                       style: TextStyle(
                         color: Colors.white,
-                        fontSize: 11.5,
+                        fontSize: 11,
                         letterSpacing: 0,
-                        fontWeight: selectat
-                            ? FontWeight.w800
-                            : FontWeight.w500,
                       ),
                     ),
                   ),

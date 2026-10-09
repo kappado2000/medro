@@ -116,7 +116,7 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
                     'Sursă: ${calc.sursa}\n\nInstrument orientativ. Nu înlocuiește judecata clinică.',
                     style: const TextStyle(
                       color: AppColors.muted,
-                      fontSize: 12.5,
+                      fontSize: 12,
                       height: 1.45,
                     ),
                   ),
@@ -143,15 +143,14 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
                     Text(
                       c.eticheta,
                       style: const TextStyle(
-                        fontSize: 15,
-                        fontWeight: FontWeight.w600,
+                        fontSize: 14,
                         color: AppColors.ink,
                       ),
                     ),
                     Text(
                       _unitate(c),
                       style: const TextStyle(
-                        fontSize: 12.5,
+                        fontSize: 12,
                         color: AppColors.muted,
                       ),
                     ),
@@ -170,10 +169,7 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
                   inputFormatters: [
                     FilteringTextInputFormatter.allow(RegExp(r'[0-9.,]')),
                   ],
-                  style: const TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.w700,
-                  ),
+                  style: const TextStyle(fontSize: 15),
                   decoration: InputDecoration(
                     isDense: true,
                     filled: true,
@@ -200,11 +196,7 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
             children: [
               Text(
                 c.eticheta,
-                style: const TextStyle(
-                  fontSize: 15,
-                  fontWeight: FontWeight.w600,
-                  color: AppColors.ink,
-                ),
+                style: const TextStyle(fontSize: 14, color: AppColors.ink),
               ),
               if (c.detaliu != null)
                 Padding(
@@ -213,7 +205,7 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
                     c.detaliu!,
                     style: const TextStyle(
                       color: AppColors.muted,
-                      fontSize: 12.5,
+                      fontSize: 12,
                       height: 1.35,
                     ),
                   ),
@@ -240,7 +232,6 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
                             : AppColors.line,
                       ),
                       labelStyle: TextStyle(
-                        fontWeight: FontWeight.w600,
                         color: _valori[c.id] == i
                             ? Colors.white
                             : AppColors.ink,
@@ -260,11 +251,7 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
             children: [
               Text(
                 c.eticheta,
-                style: const TextStyle(
-                  fontSize: 15,
-                  fontWeight: FontWeight.w600,
-                  color: AppColors.ink,
-                ),
+                style: const TextStyle(fontSize: 14, color: AppColors.ink),
               ),
               if (c.detaliu != null)
                 Padding(
@@ -273,7 +260,7 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
                     c.detaliu!,
                     style: const TextStyle(
                       color: AppColors.muted,
-                      fontSize: 12.5,
+                      fontSize: 12,
                     ),
                   ),
                 ),
@@ -295,7 +282,6 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
                             : AppColors.line,
                       ),
                       labelStyle: TextStyle(
-                        fontWeight: FontWeight.w700,
                         color: _valori[c.id] == i
                             ? Colors.white
                             : AppColors.ink,
@@ -316,24 +302,19 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
           controlAffinity: ListTileControlAffinity.leading,
           title: Text(
             c.eticheta,
-            style: const TextStyle(
-              fontSize: 15,
-              fontWeight: FontWeight.w600,
-              color: AppColors.ink,
-            ),
+            style: const TextStyle(fontSize: 14, color: AppColors.ink),
           ),
           subtitle: c.detaliu == null
               ? null
               : Text(
                   c.detaliu!,
-                  style: const TextStyle(color: AppColors.muted, fontSize: 13),
+                  style: const TextStyle(color: AppColors.muted, fontSize: 12),
                 ),
           secondary: c.puncte == 0
               ? null
               : Text(
                   '+${c.puncte}',
                   style: TextStyle(
-                    fontWeight: FontWeight.w800,
                     color: bifat ? AppColors.blue : AppColors.muted,
                   ),
                 ),
@@ -370,11 +351,7 @@ class _RezultatCard extends StatelessWidget {
                 const Expanded(
                   child: Text(
                     'Completează datele pentru a vedea rezultatul',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 15,
-                      fontWeight: FontWeight.w600,
-                    ),
+                    style: TextStyle(color: Colors.white, fontSize: 14),
                   ),
                 ),
               ],
@@ -389,8 +366,7 @@ class _RezultatCard extends StatelessWidget {
                       r.valoare,
                       style: const TextStyle(
                         color: Colors.white,
-                        fontSize: 44,
-                        fontWeight: FontWeight.w800,
+                        fontSize: 43,
                         height: 1,
                       ),
                     ),
@@ -401,8 +377,7 @@ class _RezultatCard extends StatelessWidget {
                         r.unitate,
                         style: TextStyle(
                           color: Colors.white.withValues(alpha: 0.85),
-                          fontSize: 16,
-                          fontWeight: FontWeight.w600,
+                          fontSize: 15,
                         ),
                       ),
                     ),
@@ -422,7 +397,7 @@ class _RezultatCard extends StatelessWidget {
                   r.interpretare,
                   style: const TextStyle(
                     color: Colors.white,
-                    fontSize: 14.5,
+                    fontSize: 13.5,
                     height: 1.4,
                   ),
                 ),

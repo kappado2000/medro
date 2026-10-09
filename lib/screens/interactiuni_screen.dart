@@ -103,7 +103,7 @@ class _InteractiuniScreenState extends State<InteractiuniScreen> {
                         : 'Se încarcă baza de interacțiuni…',
                     style: TextStyle(
                       color: Colors.white.withValues(alpha: 0.82),
-                      fontSize: 13,
+                      fontSize: 12,
                     ),
                   ),
                   const SizedBox(height: 16),
@@ -245,11 +245,7 @@ class _InteractiuniScreenState extends State<InteractiuniScreen> {
           const Text(
             'Verifică interacțiunile dintre medicamente',
             textAlign: TextAlign.center,
-            style: TextStyle(
-              fontSize: 18,
-              fontWeight: FontWeight.w800,
-              color: AppColors.ink,
-            ),
+            style: TextStyle(fontSize: 17, color: AppColors.ink),
           ),
           const SizedBox(height: 8),
           const Text(
@@ -282,10 +278,7 @@ class _InteractiuniScreenState extends State<InteractiuniScreen> {
                 label: Text(s.nume),
                 backgroundColor: Colors.white,
                 side: const BorderSide(color: AppColors.blue),
-                labelStyle: const TextStyle(
-                  color: AppColors.blue,
-                  fontWeight: FontWeight.w700,
-                ),
+                labelStyle: const TextStyle(color: AppColors.blue),
                 deleteIconColor: AppColors.blue,
                 onDeleted: () => provider.scoateDinSelectie(s),
               ),
@@ -362,8 +355,7 @@ class _InteractiuniScreenState extends State<InteractiuniScreen> {
                     side: BorderSide.none,
                     labelStyle: const TextStyle(
                       color: AppColors.red,
-                      fontWeight: FontWeight.w600,
-                      fontSize: 13,
+                      fontSize: 12,
                     ),
                     onPressed: () => _adauga([p]),
                   ),
@@ -392,8 +384,7 @@ class _Titlu extends StatelessWidget {
       child: Text(
         text.toUpperCase(),
         style: const TextStyle(
-          fontSize: 11.5,
-          fontWeight: FontWeight.w800,
+          fontSize: 11,
           letterSpacing: 0.8,
           color: AppColors.blue,
         ),
@@ -501,8 +492,7 @@ class _Sumar extends StatelessWidget {
               textSumar(interactiuni.length, perechi, majore),
               style: const TextStyle(
                 color: Colors.white,
-                fontSize: 15,
-                fontWeight: FontWeight.w700,
+                fontSize: 14,
                 height: 1.35,
               ),
             ),
@@ -561,11 +551,7 @@ class _InteractiuneCardState extends State<_InteractiuneCard> {
                       const SizedBox(height: 3),
                       Text(
                         etichetaSeveritate(i.severitate),
-                        style: TextStyle(
-                          fontSize: 13.5,
-                          fontWeight: FontWeight.w700,
-                          color: culoare,
-                        ),
+                        style: TextStyle(fontSize: 12.5, color: culoare),
                       ),
                     ],
                   ),
@@ -591,8 +577,7 @@ class _InteractiuneCardState extends State<_InteractiuneCard> {
                           'Alternative din aceeași clasă',
                           style: TextStyle(
                             color: AppColors.blue,
-                            fontWeight: FontWeight.w700,
-                            fontSize: 13.5,
+                            fontSize: 12.5,
                           ),
                         ),
                       ),
@@ -614,7 +599,7 @@ class _InteractiuneCardState extends State<_InteractiuneCard> {
                   'faci înlocuirea în listă.',
                   style: TextStyle(
                     color: AppColors.muted,
-                    fontSize: 12,
+                    fontSize: 11.5,
                     height: 1.4,
                   ),
                 ),
@@ -669,8 +654,7 @@ class _PerecheFaraDate extends StatelessWidget {
                       const Text(
                         'Fără înregistrare în DDInter',
                         style: TextStyle(
-                          fontSize: 13.5,
-                          fontWeight: FontWeight.w700,
+                          fontSize: 12.5,
                           color: AppColors.muted,
                         ),
                       ),
@@ -745,11 +729,7 @@ class _TextRcpState extends State<_TextRcp> {
                 const Expanded(
                   child: Text(
                     'Ce spun RCP-urile',
-                    style: TextStyle(
-                      color: AppColors.blue,
-                      fontWeight: FontWeight.w700,
-                      fontSize: 13.5,
-                    ),
+                    style: TextStyle(color: AppColors.blue, fontSize: 12.5),
                   ),
                 ),
                 Icon(
@@ -782,7 +762,7 @@ class _TextRcpState extends State<_TextRcp> {
                     'altfel (de exemplu „inhibitori CYP3A4”) nu apar: verifică RCP-ul.',
                     style: TextStyle(
                       color: AppColors.muted,
-                      fontSize: 12,
+                      fontSize: 11.5,
                       height: 1.4,
                     ),
                   ),
@@ -822,14 +802,14 @@ class _DinRcp extends StatelessWidget {
           if (r == null)
             const Text(
               'Aplicația nu are RCP-ul extras pentru această substanță.',
-              style: TextStyle(color: AppColors.muted, fontSize: 13),
+              style: TextStyle(color: AppColors.muted, fontSize: 12),
             )
           else if (r.peNume.isEmpty)
             Padding(
               padding: const EdgeInsets.only(bottom: 6),
               child: Text(
                 'Nu pomenește ${alta.nume} pe nume.',
-                style: const TextStyle(color: AppColors.muted, fontSize: 13),
+                style: const TextStyle(color: AppColors.muted, fontSize: 12),
               ),
             )
           else
@@ -854,11 +834,7 @@ class _TitluRcp extends StatelessWidget {
       padding: const EdgeInsets.only(bottom: 6),
       child: Text(
         text,
-        style: const TextStyle(
-          color: AppColors.ink,
-          fontWeight: FontWeight.w700,
-          fontSize: 13.5,
-        ),
+        style: const TextStyle(color: AppColors.ink, fontSize: 12.5),
       ),
     );
   }
@@ -888,8 +864,7 @@ class _Fraza extends StatelessWidget {
               f.sectiune,
               style: TextStyle(
                 color: contraindicatie ? AppColors.red : AppColors.blue,
-                fontSize: 11.5,
-                fontWeight: FontWeight.w800,
+                fontSize: 11,
               ),
             ),
           ),
@@ -898,7 +873,7 @@ class _Fraza extends StatelessWidget {
               f.text,
               style: const TextStyle(
                 color: AppColors.ink,
-                fontSize: 14,
+                fontSize: 13,
                 height: 1.4,
               ),
             ),
@@ -933,17 +908,13 @@ class _Alternative extends StatelessWidget {
             clasa == null
                 ? 'În loc de ${deInlocuit.nume}'
                 : 'În loc de ${deInlocuit.nume} ($clasa)',
-            style: const TextStyle(
-              color: AppColors.ink,
-              fontWeight: FontWeight.w700,
-              fontSize: 13.5,
-            ),
+            style: const TextStyle(color: AppColors.ink, fontSize: 12.5),
           ),
           const SizedBox(height: 6),
           if (gasite.isEmpty)
             const Text(
               'Nicio alternativă fără interacțiune majoră în această subgrupă.',
-              style: TextStyle(color: AppColors.muted, fontSize: 13),
+              style: TextStyle(color: AppColors.muted, fontSize: 12),
             )
           else
             Wrap(
@@ -965,8 +936,7 @@ class _Alternative extends StatelessWidget {
                         : const BorderSide(color: AppColors.line),
                     labelStyle: TextStyle(
                       color: sev == null ? AppColors.blue : AppColors.ink,
-                      fontWeight: FontWeight.w600,
-                      fontSize: 13,
+                      fontSize: 12,
                     ),
                     onPressed: () =>
                         provider.inlocuiesteInSelectie(deInlocuit, s),
@@ -991,7 +961,7 @@ class _Nota extends StatelessWidget {
       'Verifică întotdeauna RCP-ul.',
       style: const TextStyle(
         color: AppColors.muted,
-        fontSize: 12.5,
+        fontSize: 12,
         height: 1.45,
       ),
     );

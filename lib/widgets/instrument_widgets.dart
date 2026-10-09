@@ -16,8 +16,7 @@ class TitluGrup extends StatelessWidget {
       child: Text(
         text.toUpperCase(),
         style: const TextStyle(
-          fontSize: 11.5,
-          fontWeight: FontWeight.w800,
+          fontSize: 11,
           letterSpacing: 0.8,
           color: AppColors.blue,
         ),
@@ -46,15 +45,11 @@ class RandData extends StatelessWidget {
       leading: const Icon(Icons.event, color: AppColors.blue),
       title: Text(
         eticheta,
-        style: const TextStyle(color: AppColors.muted, fontSize: 13),
+        style: const TextStyle(color: AppColors.muted, fontSize: 12),
       ),
       subtitle: Text(
         formatData(data),
-        style: const TextStyle(
-          color: AppColors.ink,
-          fontSize: 16,
-          fontWeight: FontWeight.w700,
-        ),
+        style: const TextStyle(color: AppColors.ink, fontSize: 15),
       ),
       trailing: const Icon(Icons.edit_calendar, color: AppColors.muted),
       onTap: () async {
@@ -126,7 +121,7 @@ class NotaInstrument extends StatelessWidget {
         text,
         style: const TextStyle(
           color: AppColors.muted,
-          fontSize: 12.5,
+          fontSize: 12,
           height: 1.45,
         ),
       ),

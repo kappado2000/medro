@@ -75,7 +75,7 @@ class _CalculatoareScreenState extends State<CalculatoareScreen> {
                     '${calculatoare.length} scale, formule și instrumente',
                     style: TextStyle(
                       color: Colors.white.withValues(alpha: 0.82),
-                      fontSize: 13,
+                      fontSize: 12,
                     ),
                   ),
                   const SizedBox(height: 16),
@@ -127,8 +127,7 @@ class _CalculatoareScreenState extends State<CalculatoareScreen> {
                         child: Text(
                           e.key.toUpperCase(),
                           style: const TextStyle(
-                            fontSize: 11.5,
-                            fontWeight: FontWeight.w800,
+                            fontSize: 11,
                             letterSpacing: 0.8,
                             color: AppColors.blue,
                           ),
@@ -194,7 +193,7 @@ class _CalculatorTile extends StatelessWidget {
                     Text(
                       c.descriere,
                       style: const TextStyle(
-                        fontSize: 13.5,
+                        fontSize: 12.5,
                         color: AppColors.muted,
                       ),
                     ),

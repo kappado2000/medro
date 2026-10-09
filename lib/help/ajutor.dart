@@ -711,9 +711,8 @@ class AjutorScreen extends StatelessWidget {
               ajutor.rezumat,
               style: const TextStyle(
                 color: Colors.white,
-                fontSize: 15.5,
+                fontSize: 14.5,
                 height: 1.45,
-                fontWeight: FontWeight.w500,
               ),
             ),
           ),
@@ -763,7 +762,7 @@ class AjutorScreen extends StatelessWidget {
               c.text!,
               style: const TextStyle(
                 color: _cerneala,
-                fontSize: 14.5,
+                fontSize: 13.5,
                 height: 1.45,
               ),
             ),
@@ -791,10 +790,7 @@ class AjutorScreen extends StatelessWidget {
                         children: [
                           TextSpan(
                             text: termen,
-                            style: const TextStyle(
-                              fontWeight: FontWeight.w800,
-                              color: _cerneala,
-                            ),
+                            style: const TextStyle(color: _cerneala),
                           ),
                           TextSpan(
                             text: ' – $explicatie',
@@ -802,7 +798,7 @@ class AjutorScreen extends StatelessWidget {
                           ),
                         ],
                       ),
-                      style: const TextStyle(fontSize: 14.5, height: 1.45),
+                      style: const TextStyle(fontSize: 13.5, height: 1.45),
                     ),
                   ),
                 ],

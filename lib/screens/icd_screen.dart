@@ -64,7 +64,7 @@ class _IcdScreenState extends State<IcdScreen> {
                         : 'Se încarcă clasificarea…',
                     style: TextStyle(
                       color: Colors.white.withValues(alpha: 0.82),
-                      fontSize: 13,
+                      fontSize: 12,
                     ),
                   ),
                   const SizedBox(height: 16),
@@ -189,8 +189,7 @@ class _CapitolTile extends StatelessWidget {
                   capitol.numar,
                   style: TextStyle(
                     color: psihiatrie ? AppColors.red : AppColors.blue,
-                    fontWeight: FontWeight.w800,
-                    fontSize: 14,
+                    fontSize: 13,
                   ),
                 ),
               ),
@@ -212,7 +211,7 @@ class _CapitolTile extends StatelessWidget {
                     Text(
                       capitol.interval,
                       style: const TextStyle(
-                        fontSize: 13.5,
+                        fontSize: 12.5,
                         color: AppColors.muted,
                       ),
                     ),
@@ -255,7 +254,7 @@ class IcdListaScreen extends StatelessWidget {
               subtitlu,
               style: const TextStyle(
                 color: Colors.white,
-                fontSize: 15,
+                fontSize: 14,
                 height: 1.3,
               ),
             ),
@@ -324,11 +323,7 @@ class _CodTile extends StatelessWidget {
                 ),
                 child: Text(
                   cod.cod,
-                  style: const TextStyle(
-                    color: AppColors.blue,
-                    fontWeight: FontWeight.w800,
-                    fontSize: 14,
-                  ),
+                  style: const TextStyle(color: AppColors.blue, fontSize: 13),
                 ),
               ),
               const SizedBox(width: 12),

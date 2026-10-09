@@ -93,7 +93,7 @@ class _DepotScreenState extends State<DepotScreen> {
                       _depot.nota,
                       style: const TextStyle(
                         color: AppColors.ink,
-                        fontSize: 13.5,
+                        fontSize: 12.5,
                         height: 1.4,
                       ),
                     ),
@@ -210,11 +210,7 @@ class _RandAdministrare extends StatelessWidget {
               children: [
                 Text(
                   formatData(a.data),
-                  style: const TextStyle(
-                    color: AppColors.ink,
-                    fontSize: 16,
-                    fontWeight: FontWeight.w800,
-                  ),
+                  style: const TextStyle(color: AppColors.ink, fontSize: 15),
                 ),
                 if (a.deLa != null && a.panaLa != null)
                   Text(
@@ -222,7 +218,7 @@ class _RandAdministrare extends StatelessWidget {
                     '${formatData(a.panaLa!, cuZi: false)}',
                     style: const TextStyle(
                       color: AppColors.muted,
-                      fontSize: 12.5,
+                      fontSize: 12,
                     ),
                   ),
               ],
@@ -232,8 +228,7 @@ class _RandAdministrare extends StatelessWidget {
             cand,
             style: TextStyle(
               color: zile < 0 ? AppColors.red : AppColors.blue,
-              fontWeight: FontWeight.w700,
-              fontSize: 13.5,
+              fontSize: 12.5,
             ),
           ),
         ],

@@ -28,7 +28,7 @@ ThemeData buildAppTheme() {
     error: AppColors.red,
     surface: Colors.white,
   );
-  return ThemeData(
+  final baza = ThemeData(
     useMaterial3: true,
     colorScheme: scheme,
     scaffoldBackgroundColor: AppColors.background,
@@ -58,13 +58,7 @@ ThemeData buildAppTheme() {
       indicatorColor: Colors.white.withValues(alpha: 0.24),
       elevation: 8,
       labelTextStyle: WidgetStateProperty.resolveWith(
-        (states) => TextStyle(
-          fontSize: 11.5,
-          fontWeight: states.contains(WidgetState.selected)
-              ? FontWeight.w800
-              : FontWeight.w500,
-          color: Colors.white,
-        ),
+        (states) => TextStyle(fontSize: 11, color: Colors.white),
       ),
       iconTheme: const WidgetStatePropertyAll(
         IconThemeData(color: Colors.white),
@@ -74,13 +68,31 @@ ThemeData buildAppTheme() {
       style: FilledButton.styleFrom(
         padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 14),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)),
-        textStyle: const TextStyle(fontWeight: FontWeight.w700, fontSize: 15),
+        textStyle: const TextStyle(fontSize: 14),
       ),
     ),
     dividerTheme: const DividerThemeData(
       color: AppColors.line,
       space: 1,
       thickness: 1,
+    ),
+  );
+  // Doar titlurile de ecran si numele din carduri sunt ingrosate, iar ele isi
+  // dau singure stilul. Textul obisnuit, etichetele si butoanele sunt cu
+  // litera normala si cu un punct mai mici decat valorile implicite Material.
+  TextStyle? normal(TextStyle? stil, double marime) =>
+      stil?.copyWith(fontSize: marime, fontWeight: FontWeight.w400);
+  final t = baza.textTheme;
+  return baza.copyWith(
+    textTheme: t.copyWith(
+      bodyLarge: normal(t.bodyLarge, 15),
+      bodyMedium: normal(t.bodyMedium, 13),
+      bodySmall: normal(t.bodySmall, 11.5),
+      titleMedium: normal(t.titleMedium, 15),
+      titleSmall: normal(t.titleSmall, 13),
+      labelLarge: normal(t.labelLarge, 13),
+      labelMedium: normal(t.labelMedium, 11.5),
+      labelSmall: normal(t.labelSmall, 11),
     ),
   );
 }

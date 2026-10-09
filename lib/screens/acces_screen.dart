@@ -190,7 +190,7 @@ class _FormularState extends State<_Formular> {
           widget.blocat ? auth.email : 'Autentifică-te pentru a continua',
           style: TextStyle(
             color: Colors.white.withValues(alpha: 0.85),
-            fontSize: 14.5,
+            fontSize: 13.5,
           ),
         ),
         const SizedBox(height: 28),
@@ -205,10 +205,7 @@ class _FormularState extends State<_Formular> {
               ),
               onPressed: auth.deblocheaza,
               icon: const Icon(Icons.fingerprint, size: 26),
-              label: const Text(
-                'Deblochează',
-                style: TextStyle(fontSize: 16, fontWeight: FontWeight.w800),
-              ),
+              label: const Text('Deblochează', style: TextStyle(fontSize: 15)),
             ),
           ),
           const SizedBox(height: 8),
@@ -274,7 +271,7 @@ class _FormularState extends State<_Formular> {
                       _mesaj!,
                       style: TextStyle(
                         color: _eroare ? AppColors.red : AppColors.ink,
-                        fontSize: 13.5,
+                        fontSize: 12.5,
                         height: 1.35,
                       ),
                     ),
@@ -296,10 +293,7 @@ class _FormularState extends State<_Formular> {
                           )
                         : const Text(
                             'Intră în cont',
-                            style: TextStyle(
-                              fontSize: 15.5,
-                              fontWeight: FontWeight.w800,
-                            ),
+                            style: TextStyle(fontSize: 14.5),
                           ),
                   ),
                   TextButton(
@@ -328,7 +322,7 @@ class _FormularState extends State<_Formular> {
           textAlign: TextAlign.center,
           style: TextStyle(
             color: Colors.white.withValues(alpha: 0.7),
-            fontSize: 12.5,
+            fontSize: 12,
           ),
         ),
       ],

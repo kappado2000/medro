@@ -41,8 +41,7 @@ class PrescriptieBadge extends StatelessWidget {
       child: Text(
         cod,
         style: TextStyle(
-          fontSize: 11.5,
-          fontWeight: FontWeight.w800,
+          fontSize: 11,
           letterSpacing: 0.3,
           color: otc ? AppColors.blue : AppColors.red,
         ),
@@ -109,7 +108,7 @@ class MedicamentTile extends StatelessWidget {
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis,
                       style: const TextStyle(
-                        fontSize: 13.5,
+                        fontSize: 12.5,
                         color: AppColors.muted,
                       ),
                     ),
@@ -121,7 +120,7 @@ class MedicamentTile extends StatelessWidget {
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis,
                       style: const TextStyle(
-                        fontSize: 12.5,
+                        fontSize: 12,
                         color: AppColors.muted,
                       ),
                     ),

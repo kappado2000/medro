@@ -144,7 +144,6 @@ class _CautareRcpScreenState extends State<CautareRcpScreen> {
                   ),
                   labelStyle: TextStyle(
                     color: ales ? Colors.white : AppColors.ink,
-                    fontWeight: FontWeight.w600,
                   ),
                   onSelected: (_) {
                     setState(() => _zona = i - 1);
@@ -176,10 +175,7 @@ class _CautareRcpScreenState extends State<CautareRcpScreen> {
       selectedColor: AppColors.blue,
       backgroundColor: Colors.white,
       side: BorderSide(color: activ ? AppColors.blue : AppColors.line),
-      labelStyle: TextStyle(
-        color: activ ? Colors.white : AppColors.ink,
-        fontWeight: FontWeight.w600,
-      ),
+      labelStyle: TextStyle(color: activ ? Colors.white : AppColors.ink),
       onSelected: (_) async {
         final aleasa = await showModalBottomSheet<ClasaAtc?>(
           context: context,
@@ -280,10 +276,7 @@ class _CautareRcpScreenState extends State<CautareRcpScreen> {
                   ? '${rezultate.length} medicamente'
                         '${progres.trunchiat ? ' (primele găsite; restrânge căutarea)' : ''}'
                   : 'Se caută… ${rezultate.length} până acum',
-              style: const TextStyle(
-                color: AppColors.muted,
-                fontWeight: FontWeight.w600,
-              ),
+              style: const TextStyle(color: AppColors.muted),
             ),
           );
         }
@@ -341,7 +334,7 @@ class _Rezultat extends StatelessWidget {
                     'același text la încă ${produse.length - 1} '
                         '${produse.length == 2 ? 'produs' : 'produse'}',
                 ].join(' · '),
-                style: const TextStyle(color: AppColors.muted, fontSize: 13),
+                style: const TextStyle(color: AppColors.muted, fontSize: 12),
               ),
               const SizedBox(height: 8),
               Row(
@@ -363,8 +356,7 @@ class _Rezultat extends StatelessWidget {
                       potrivire.sectiune,
                       style: TextStyle(
                         color: contraindicatie ? AppColors.red : AppColors.blue,
-                        fontSize: 11.5,
-                        fontWeight: FontWeight.w800,
+                        fontSize: 11,
                       ),
                     ),
                   ),
@@ -373,7 +365,7 @@ class _Rezultat extends StatelessWidget {
                       potrivire.fragment,
                       style: const TextStyle(
                         color: AppColors.ink,
-                        fontSize: 14,
+                        fontSize: 13,
                         height: 1.4,
                       ),
                     ),
@@ -405,11 +397,7 @@ class _Mesaj extends StatelessWidget {
         Text(
           titlu,
           textAlign: TextAlign.center,
-          style: const TextStyle(
-            fontSize: 18,
-            fontWeight: FontWeight.w800,
-            color: AppColors.ink,
-          ),
+          style: const TextStyle(fontSize: 17, color: AppColors.ink),
         ),
         const SizedBox(height: 8),
         Text(

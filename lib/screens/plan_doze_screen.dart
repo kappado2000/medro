@@ -170,10 +170,7 @@ class _PlanDozeScreenState extends State<PlanDozeScreen> {
               padding: const EdgeInsets.symmetric(horizontal: 4),
               child: Text(
                 _rezumat(pasi),
-                style: const TextStyle(
-                  color: AppColors.ink,
-                  fontWeight: FontWeight.w600,
-                ),
+                style: const TextStyle(color: AppColors.ink),
               ),
             ),
             const SizedBox(height: 10),
@@ -216,24 +213,20 @@ class _RandPas extends StatelessWidget {
             width: 28,
             child: Text(
               '$numar',
-              style: const TextStyle(
-                color: AppColors.muted,
-                fontWeight: FontWeight.w700,
-              ),
+              style: const TextStyle(color: AppColors.muted),
             ),
           ),
           Expanded(
             child: Text(
               'din ${formatData(pas.data)}',
-              style: const TextStyle(color: AppColors.ink, fontSize: 14.5),
+              style: const TextStyle(color: AppColors.ink, fontSize: 13.5),
             ),
           ),
           Text(
             oprire ? 'oprire' : '${formatDoza(pas.doza)} mg',
             style: TextStyle(
               color: oprire ? AppColors.red : AppColors.blue,
-              fontSize: 16,
-              fontWeight: FontWeight.w800,
+              fontSize: 15,
             ),
           ),
         ],

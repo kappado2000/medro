@@ -98,8 +98,7 @@ class MedicamentDetailScreen extends StatelessWidget {
                     titleCase(m.dci),
                     style: TextStyle(
                       color: Colors.white.withValues(alpha: 0.9),
-                      fontSize: 16,
-                      fontWeight: FontWeight.w500,
+                      fontSize: 15,
                     ),
                   ),
                   const SizedBox(height: 14),
@@ -156,7 +155,7 @@ class MedicamentDetailScreen extends StatelessWidget {
                     icon: const Icon(Icons.auto_awesome, size: 18),
                     label: const Text(
                       'Întreabă asistentul despre acest medicament',
-                      style: TextStyle(fontWeight: FontWeight.w700),
+                      style: TextStyle(),
                     ),
                   ),
                 ),
@@ -183,7 +182,7 @@ class MedicamentDetailScreen extends StatelessWidget {
                       icon: const Icon(Icons.compare_arrows, size: 18),
                       label: const Text(
                         'Verifică interacțiunile acestui medicament',
-                        style: TextStyle(fontWeight: FontWeight.w700),
+                        style: TextStyle(),
                       ),
                     ),
                   ),
@@ -201,7 +200,7 @@ class MedicamentDetailScreen extends StatelessWidget {
                           explicatie ?? 'Cod de prescripție din nomenclator',
                           style: const TextStyle(
                             color: AppColors.ink,
-                            fontSize: 14.5,
+                            fontSize: 13.5,
                           ),
                         ),
                       ),
@@ -266,8 +265,7 @@ class MedicamentDetailScreen extends StatelessWidget {
                     child: Text(
                       'Aceeași substanță activă (${echivalente.length})',
                       style: const TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.w800,
+                        fontSize: 15,
                         color: AppColors.ink,
                       ),
                     ),
@@ -304,8 +302,8 @@ class _CompensareCnas extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final m = medicament;
-    const text = TextStyle(color: AppColors.ink, fontSize: 14.5, height: 1.35);
-    const nota = TextStyle(color: AppColors.muted, fontSize: 12.5, height: 1.4);
+    const text = TextStyle(color: AppColors.ink, fontSize: 13.5, height: 1.35);
+    const nota = TextStyle(color: AppColors.muted, fontSize: 12, height: 1.4);
     if (provider.dataCompensare.isEmpty) {
       return const Text(
         'Lista de compensare nu este disponibilă.',
@@ -383,7 +381,7 @@ class _ContraindicatiiState extends State<_Contraindicatii> {
 
   @override
   Widget build(BuildContext context) {
-    const stil = TextStyle(color: AppColors.ink, fontSize: 14.5, height: 1.4);
+    const stil = TextStyle(color: AppColors.ink, fontSize: 13.5, height: 1.4);
     return Container(
       width: double.infinity,
       padding: const EdgeInsets.fromLTRB(14, 12, 14, 12),
@@ -409,8 +407,7 @@ class _ContraindicatiiState extends State<_Contraindicatii> {
                     'CONTRAINDICAȚII',
                     style: TextStyle(
                       color: AppColors.red,
-                      fontSize: 13,
-                      fontWeight: FontWeight.w800,
+                      fontSize: 12,
                       letterSpacing: 0.8,
                     ),
                   ),
@@ -448,7 +445,7 @@ class _ContraindicatiiState extends State<_Contraindicatii> {
                       ),
                       child: Text(
                         _extins ? 'Arată mai puțin' : 'Arată tot',
-                        style: const TextStyle(fontWeight: FontWeight.w700),
+                        style: const TextStyle(),
                       ),
                     ),
                 ],
@@ -458,7 +455,7 @@ class _ContraindicatiiState extends State<_Contraindicatii> {
           const SizedBox(height: 6),
           const Text(
             'Text extras automat din RCP, secțiunea 4.3. Verifică documentul.',
-            style: TextStyle(color: AppColors.muted, fontSize: 12),
+            style: TextStyle(color: AppColors.muted, fontSize: 11.5),
           ),
         ],
       ),
@@ -476,7 +473,7 @@ class _RandCompensare extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const nota = TextStyle(color: AppColors.muted, fontSize: 12.5, height: 1.4);
+    const nota = TextStyle(color: AppColors.muted, fontSize: 12, height: 1.4);
     return Padding(
       padding: const EdgeInsets.only(bottom: 6),
       child: Row(
@@ -492,11 +489,7 @@ class _RandCompensare extends StatelessWidget {
             ),
             child: Text(
               c.lista,
-              style: const TextStyle(
-                color: AppColors.blue,
-                fontWeight: FontWeight.w800,
-                fontSize: 12.5,
-              ),
+              style: const TextStyle(color: AppColors.blue, fontSize: 12),
             ),
           ),
           const SizedBox(width: 10),
@@ -506,11 +499,7 @@ class _RandCompensare extends StatelessWidget {
               children: [
                 Text(
                   'Compensare ${procentCompensare(c.lista)}',
-                  style: const TextStyle(
-                    color: AppColors.ink,
-                    fontSize: 14,
-                    fontWeight: FontWeight.w700,
-                  ),
+                  style: const TextStyle(color: AppColors.ink, fontSize: 13),
                 ),
                 Text(
                   'Preț maximal ${_lei(c.pret)} · contribuție maximă '
@@ -608,11 +597,7 @@ class _Pastila extends StatelessWidget {
           Flexible(
             child: Text(
               text,
-              style: const TextStyle(
-                color: Colors.white,
-                fontSize: 13,
-                fontWeight: FontWeight.w600,
-              ),
+              style: const TextStyle(color: Colors.white, fontSize: 12),
             ),
           ),
         ],
@@ -653,8 +638,7 @@ class _Protocoale extends StatelessWidget {
                           '${p.cod} · ${p.denumire}',
                           style: const TextStyle(
                             color: AppColors.ink,
-                            fontSize: 14.5,
-                            fontWeight: FontWeight.w700,
+                            fontSize: 13.5,
                             height: 1.3,
                           ),
                         ),
@@ -663,7 +647,7 @@ class _Protocoale extends StatelessWidget {
                             'Sublista / grupa: ${p.sublista}',
                             style: const TextStyle(
                               color: AppColors.muted,
-                              fontSize: 13,
+                              fontSize: 12,
                               height: 1.4,
                             ),
                           ),
@@ -672,7 +656,7 @@ class _Protocoale extends StatelessWidget {
                             'Continuare la medicul de familie: ${p.medicFamilie}',
                             style: const TextStyle(
                               color: AppColors.muted,
-                              fontSize: 13,
+                              fontSize: 12,
                               height: 1.4,
                             ),
                           ),
@@ -694,7 +678,7 @@ class _Protocoale extends StatelessWidget {
           'internet). Potrivirea se face după substanță: verifică indicația.',
           style: const TextStyle(
             color: AppColors.muted,
-            fontSize: 12,
+            fontSize: 11.5,
             height: 1.4,
           ),
         ),
@@ -719,8 +703,7 @@ class _Sectiune extends StatelessWidget {
             Text(
               titlu.toUpperCase(),
               style: const TextStyle(
-                fontSize: 11.5,
-                fontWeight: FontWeight.w800,
+                fontSize: 11,
                 letterSpacing: 0.8,
                 color: AppColors.blue,
               ),
@@ -750,17 +733,13 @@ class _Rand extends StatelessWidget {
             width: 118,
             child: Text(
               eticheta,
-              style: const TextStyle(color: AppColors.muted, fontSize: 13.5),
+              style: const TextStyle(color: AppColors.muted, fontSize: 12.5),
             ),
           ),
           Expanded(
             child: SelectableText(
               valoare.isEmpty ? '—' : valoare,
-              style: const TextStyle(
-                color: AppColors.ink,
-                fontSize: 14.5,
-                fontWeight: FontWeight.w600,
-              ),
+              style: const TextStyle(color: AppColors.ink, fontSize: 13.5),
             ),
           ),
         ],
@@ -788,14 +767,14 @@ class _AmbalajRand extends StatelessWidget {
           a.descriere,
           style: const TextStyle(
             color: AppColors.ink,
-            fontSize: 14.5,
+            fontSize: 13.5,
             height: 1.3,
           ),
         ),
         const SizedBox(height: 4),
         SelectableText(
           detalii,
-          style: const TextStyle(color: AppColors.muted, fontSize: 12.5),
+          style: const TextStyle(color: AppColors.muted, fontSize: 12),
         ),
       ],
     );

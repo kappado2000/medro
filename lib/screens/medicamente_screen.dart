@@ -65,10 +65,7 @@ class _MedicamenteScreenState extends State<MedicamenteScreen> {
                   Icons.psychology_outlined,
                   color: c == _clasa ? AppColors.red : AppColors.blue,
                 ),
-                title: Text(
-                  c.nume,
-                  style: const TextStyle(fontWeight: FontWeight.w600),
-                ),
+                title: Text(c.nume, style: const TextStyle()),
                 subtitle: Text('ATC ${c.prefix}'),
                 onTap: () => Navigator.pop(context, i),
               ),
@@ -119,7 +116,6 @@ class _MedicamenteScreenState extends State<MedicamenteScreen> {
                     color: activ ? AppColors.blue : AppColors.line,
                   ),
                   labelStyle: TextStyle(
-                    fontWeight: FontWeight.w600,
                     color: activ ? Colors.white : AppColors.ink,
                   ),
                   onSelected: (_) => _alegeClasa(),
@@ -144,7 +140,6 @@ class _MedicamenteScreenState extends State<MedicamenteScreen> {
                   color: selectat ? AppColors.blue : AppColors.line,
                 ),
                 labelStyle: TextStyle(
-                  fontWeight: FontWeight.w600,
                   color: selectat ? Colors.white : AppColors.ink,
                 ),
                 onSelected: (_) => setState(() => _filtru = filtru),
@@ -209,7 +204,7 @@ class _MedicamenteScreenState extends State<MedicamenteScreen> {
               textAlign: TextAlign.center,
               style: TextStyle(
                 color: AppColors.muted,
-                fontSize: 13,
+                fontSize: 12,
                 height: 1.4,
               ),
             ),
@@ -303,6 +298,8 @@ class _Header extends StatelessWidget {
                                   style: TextStyle(
                                     color: Colors.white.withValues(alpha: 0.85),
                                     fontSize: 9.5,
+                                    // litera subtire, ca semnatura sa ramana discreta langa titlu
+                                    fontWeight: FontWeight.w300,
                                     height: 1.25,
                                   ),
                                 ),
@@ -310,7 +307,8 @@ class _Header extends StatelessWidget {
                                   titularNume,
                                   style: TextStyle(
                                     color: Colors.white,
-                                    fontSize: 11.5,
+                                    fontSize: 11,
+                                    fontWeight: FontWeight.w300,
                                     height: 1.25,
                                   ),
                                 ),
@@ -351,7 +349,7 @@ class _Header extends StatelessWidget {
                           softWrap: false,
                           style: TextStyle(
                             color: Colors.white.withValues(alpha: 0.82),
-                            fontSize: 13,
+                            fontSize: 12,
                           ),
                         ),
                       ),
@@ -382,8 +380,7 @@ class _Header extends StatelessWidget {
                           'Date vechi de $vechime zile – aplicația trebuie actualizată.',
                           style: const TextStyle(
                             color: Colors.white,
-                            fontSize: 12.5,
-                            fontWeight: FontWeight.w700,
+                            fontSize: 12,
                           ),
                         ),
                       ),
@@ -448,11 +445,7 @@ class _Mesaj extends StatelessWidget {
             Text(
               titlu,
               textAlign: TextAlign.center,
-              style: const TextStyle(
-                fontSize: 17,
-                fontWeight: FontWeight.w700,
-                color: AppColors.ink,
-              ),
+              style: const TextStyle(fontSize: 16, color: AppColors.ink),
             ),
             const SizedBox(height: 6),
             Text(

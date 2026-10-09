@@ -94,8 +94,7 @@ class _SectiuniRcpState extends State<SectiuniRcp> {
                         f.sectiune,
                         style: const TextStyle(
                           color: AppColors.blue,
-                          fontSize: 11.5,
-                          fontWeight: FontWeight.w800,
+                          fontSize: 11,
                         ),
                       ),
                     ),
@@ -138,8 +137,7 @@ class _Card extends StatelessWidget {
             child: Text(
               titlu.toUpperCase(),
               style: const TextStyle(
-                fontSize: 11.5,
-                fontWeight: FontWeight.w800,
+                fontSize: 11,
                 letterSpacing: 0.8,
                 color: AppColors.blue,
               ),
@@ -152,7 +150,7 @@ class _Card extends StatelessWidget {
               'Text extras automat din RCP. Verifică documentul înainte de o decizie.',
               style: TextStyle(
                 color: AppColors.muted,
-                fontSize: 12,
+                fontSize: 11.5,
                 height: 1.4,
               ),
             ),
@@ -184,17 +182,13 @@ class _Tigla extends StatelessWidget {
         leading: Icon(icon, color: AppColors.blue, size: 22),
         title: Text(
           titlu,
-          style: const TextStyle(
-            fontSize: 15,
-            fontWeight: FontWeight.w700,
-            color: AppColors.ink,
-          ),
+          style: const TextStyle(fontSize: 14, color: AppColors.ink),
         ),
         subtitle: subtitlu == null
             ? null
             : Text(
                 subtitlu!,
-                style: const TextStyle(color: AppColors.muted, fontSize: 12.5),
+                style: const TextStyle(color: AppColors.muted, fontSize: 12),
               ),
         tilePadding: const EdgeInsets.symmetric(horizontal: 16),
         childrenPadding: const EdgeInsets.fromLTRB(16, 0, 16, 12),
@@ -216,7 +210,7 @@ class _Text extends StatelessWidget {
       text,
       style: const TextStyle(
         color: AppColors.ink,
-        fontSize: 14.5,
+        fontSize: 13.5,
         height: 1.45,
       ),
     );

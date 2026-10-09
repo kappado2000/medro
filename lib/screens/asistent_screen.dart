@@ -136,7 +136,7 @@ class _AsistentScreenState extends State<AsistentScreen> {
                         SizedBox(height: 4),
                         Text(
                           'Întrebări pe baza RCP-ului și a datelor din aplicație',
-                          style: TextStyle(color: Colors.white70, fontSize: 13),
+                          style: TextStyle(color: Colors.white70, fontSize: 12),
                         ),
                       ],
                     ),
@@ -265,7 +265,7 @@ class _AsistentScreenState extends State<AsistentScreen> {
                       onSubmitted: (_) => _trimite(),
                       style: const TextStyle(
                         color: AppColors.ink,
-                        fontSize: 16,
+                        fontSize: 15,
                       ),
                       decoration: InputDecoration(
                         hintText: context.watch<Voce>().asculta
@@ -273,8 +273,7 @@ class _AsistentScreenState extends State<AsistentScreen> {
                             : 'Scrie sau dictează o întrebare',
                         hintStyle: const TextStyle(
                           color: AppColors.muted,
-                          fontSize: 16,
-                          fontWeight: FontWeight.w500,
+                          fontSize: 15,
                         ),
                         filled: false,
                         contentPadding: const EdgeInsets.symmetric(
@@ -338,11 +337,7 @@ class _FaraCheieState extends State<_FaraCheie> {
         const Text(
           'Conectează asistentul',
           textAlign: TextAlign.center,
-          style: TextStyle(
-            fontSize: 19,
-            fontWeight: FontWeight.w800,
-            color: AppColors.ink,
-          ),
+          style: TextStyle(fontSize: 18, color: AppColors.ink),
         ),
         const SizedBox(height: 8),
         const Text(
@@ -378,7 +373,7 @@ class _FaraCheieState extends State<_FaraCheie> {
           'Nu introduce date care pot identifica un pacient: întrebările și '
           'documentele atașate sunt trimise către serviciul Anthropic.',
           textAlign: TextAlign.center,
-          style: TextStyle(color: AppColors.red, fontSize: 12.5, height: 1.45),
+          style: TextStyle(color: AppColors.red, fontSize: 12, height: 1.45),
         ),
       ],
     );
@@ -414,8 +409,7 @@ class _Atasate extends StatelessWidget {
                   side: const BorderSide(color: AppColors.blue),
                   labelStyle: const TextStyle(
                     color: AppColors.blue,
-                    fontWeight: FontWeight.w700,
-                    fontSize: 13,
+                    fontSize: 12,
                   ),
                   deleteIconColor: AppColors.blue,
                   onDeleted: asistent.asteapta
@@ -437,7 +431,7 @@ class _Atasate extends StatelessWidget {
                 const Expanded(
                   child: Text(
                     'Trimite și RCP-ul: secțiunile 4.1–4.9 extrase în aplicație (cost mai mare)',
-                    style: TextStyle(color: AppColors.muted, fontSize: 12.5),
+                    style: TextStyle(color: AppColors.muted, fontSize: 12),
                   ),
                 ),
                 Switch(
@@ -465,11 +459,7 @@ class _Sugestii extends StatelessWidget {
         SizedBox(height: 8),
         Text(
           'Atașează unul sau mai multe medicamente și întreabă, de exemplu:',
-          style: TextStyle(
-            color: AppColors.ink,
-            fontSize: 15,
-            fontWeight: FontWeight.w600,
-          ),
+          style: TextStyle(color: AppColors.ink, fontSize: 14),
         ),
         SizedBox(height: 12),
         _Exemplu('Cum se ajustează doza în insuficiența renală?'),
@@ -482,11 +472,7 @@ class _Sugestii extends StatelessWidget {
         Text(
           'Răspunsurile sunt generate de un model AI și pot conține erori. Verifică '
           'pasajele citate din RCP. Nu introduce date care pot identifica un pacient.',
-          style: TextStyle(
-            color: AppColors.muted,
-            fontSize: 12.5,
-            height: 1.45,
-          ),
+          style: TextStyle(color: AppColors.muted, fontSize: 12, height: 1.45),
         ),
       ],
     );
@@ -560,7 +546,7 @@ class _Balon extends StatelessWidget {
               m.text,
               style: TextStyle(
                 color: culoareText,
-                fontSize: 14.5,
+                fontSize: 13.5,
                 height: 1.45,
               ),
             ),
@@ -665,11 +651,7 @@ class _Citari extends StatelessWidget {
         dense: true,
         title: Text(
           'Surse din RCP (${unice.length})',
-          style: const TextStyle(
-            color: AppColors.blue,
-            fontSize: 13,
-            fontWeight: FontWeight.w700,
-          ),
+          style: const TextStyle(color: AppColors.blue, fontSize: 12),
         ),
         children: [
           for (final c in unice)
@@ -682,11 +664,7 @@ class _Citari extends StatelessWidget {
                     c.pagina == null
                         ? c.document
                         : '${c.document}, pagina ${c.pagina}',
-                    style: const TextStyle(
-                      color: AppColors.ink,
-                      fontSize: 12.5,
-                      fontWeight: FontWeight.w700,
-                    ),
+                    style: const TextStyle(color: AppColors.ink, fontSize: 12),
                   ),
                   Text(
                     c.text,
@@ -694,7 +672,7 @@ class _Citari extends StatelessWidget {
                     overflow: TextOverflow.ellipsis,
                     style: const TextStyle(
                       color: AppColors.muted,
-                      fontSize: 12.5,
+                      fontSize: 12,
                       height: 1.4,
                     ),
                   ),

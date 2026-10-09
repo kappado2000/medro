@@ -107,7 +107,7 @@ class _DateAplicatieState extends State<_DateAplicatie> {
                           'Cont',
                           style: TextStyle(
                             color: AppColors.muted,
-                            fontSize: 12.5,
+                            fontSize: 12,
                           ),
                         ),
                         Text(
@@ -116,8 +116,7 @@ class _DateAplicatieState extends State<_DateAplicatie> {
                           overflow: TextOverflow.ellipsis,
                           style: const TextStyle(
                             color: AppColors.ink,
-                            fontSize: 15,
-                            fontWeight: FontWeight.w700,
+                            fontSize: 14,
                           ),
                         ),
                       ],
@@ -163,7 +162,7 @@ class _DateAplicatieState extends State<_DateAplicatie> {
                         e.key,
                         style: const TextStyle(
                           color: AppColors.ink,
-                          fontSize: 14.5,
+                          fontSize: 13.5,
                         ),
                       ),
                     ),
@@ -171,8 +170,7 @@ class _DateAplicatieState extends State<_DateAplicatie> {
                       e.value,
                       style: const TextStyle(
                         color: AppColors.ink,
-                        fontSize: 14.5,
-                        fontWeight: FontWeight.w700,
+                        fontSize: 13.5,
                       ),
                     ),
                   ],
@@ -192,7 +190,7 @@ class _DateAplicatieState extends State<_DateAplicatie> {
                   color: vechime > MedicamenteProvider.pragVechimeZile
                       ? AppColors.red
                       : AppColors.muted,
-                  fontSize: 13,
+                  fontSize: 12,
                 ),
               ),
             ],
@@ -222,7 +220,7 @@ class _DateAplicatieState extends State<_DateAplicatie> {
                 _mesaj!,
                 style: TextStyle(
                   color: _eroare ? AppColors.red : AppColors.ink,
-                  fontSize: 13.5,
+                  fontSize: 12.5,
                   height: 1.4,
                 ),
               ),
@@ -233,7 +231,7 @@ class _DateAplicatieState extends State<_DateAplicatie> {
               'conexiune la internet.',
               style: TextStyle(
                 color: AppColors.muted,
-                fontSize: 12.5,
+                fontSize: 12,
                 height: 1.4,
               ),
             ),

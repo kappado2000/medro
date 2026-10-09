@@ -116,7 +116,7 @@ class MonitorizareScreen extends StatelessWidget {
               '„Răspunsuri rapide din RCP” → „Monitorizare”.',
               style: TextStyle(
                 color: AppColors.muted,
-                fontSize: 12.5,
+                fontSize: 12,
                 height: 1.45,
               ),
             ),
@@ -238,8 +238,7 @@ class _MonitorizareSubstantaState extends State<_MonitorizareSubstanta> {
                                     f.sectiune,
                                     style: const TextStyle(
                                       color: AppColors.blue,
-                                      fontSize: 11.5,
-                                      fontWeight: FontWeight.w800,
+                                      fontSize: 11,
                                     ),
                                   ),
                                 ),
@@ -248,7 +247,7 @@ class _MonitorizareSubstantaState extends State<_MonitorizareSubstanta> {
                                     f.text,
                                     style: const TextStyle(
                                       color: AppColors.ink,
-                                      fontSize: 14.5,
+                                      fontSize: 13.5,
                                       height: 1.45,
                                     ),
                                   ),
@@ -267,7 +266,7 @@ class _MonitorizareSubstantaState extends State<_MonitorizareSubstanta> {
                   'incompletă. Verifică documentul și ghidurile în vigoare.',
                   style: TextStyle(
                     color: AppColors.muted,
-                    fontSize: 12.5,
+                    fontSize: 12,
                     height: 1.45,
                   ),
                 ),
