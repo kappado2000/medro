@@ -294,7 +294,7 @@ class _Header extends StatelessWidget {
                                 titularGrad,
                                 style: TextStyle(
                                   color: Colors.white.withValues(alpha: 0.85),
-                                  fontSize: 11.5,
+                                  fontSize: 9.5,
                                   height: 1.25,
                                 ),
                               ),
