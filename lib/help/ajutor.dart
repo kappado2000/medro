@@ -604,7 +604,8 @@ const ajutorAsistent = Ajutor(
           'prima întrebare cu un RCP atașat este cea mai scumpă; următoarele din aceeași '
               'conversație costă mult mai puțin. La medicamentele autorizate de EMA, al căror '
               'RCP are sute de pagini, se trimit doar secțiunile clinice 4.1–4.9 extrase în '
-              'aplicație, ca să nu plătești tot documentul.',
+              'aplicație. Documentul EMA întreg nu se trimite niciodată; dacă extrasul lipsește, '
+              'asistentul răspunde doar din datele aplicației și te anunță.',
         ),
         (
           'Poate greși',

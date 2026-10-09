@@ -336,6 +336,25 @@ void main() {
       );
     });
 
+    test('PDF-ul EMA intreg nu se trimite cand extrasul lipseste', () async {
+      final cereri = <http.Request>[];
+      final p = cuRaspunsuri([
+        (_) => jsonRaspuns(raspunsText('Raspuns')),
+      ], cereri);
+      final ema = med
+          .cauta('', FiltruMedicamente.toate)
+          .firstWhere((m) => m.centralizat && m.rcpUrl.isNotEmpty);
+      p.ataseaza(ema);
+      final continut = p.continutMesaj(
+        'Intrebare',
+        med,
+        inter,
+        cuDocumente: true,
+      );
+      expect(continut.where((b) => b['type'] == 'document'), isEmpty);
+      expect(continut.last, {'type': 'text', 'text': 'Intrebare'});
+    });
+
     test('instructiunile contin ghidul aplicatiei, din paginile de ajutor', () async {
       final cereri = <http.Request>[];
       final p = cuRaspunsuri([

@@ -270,7 +270,9 @@ class AsistentProvider extends ChangeNotifier {
                 'title': 'RCP ${m.denumire} (extras)',
                 'citations': {'enabled': true},
               }
-            else
+            // PDF-ul intreg de la EMA nu se trimite niciodata: costa de zece
+            // ori mai mult decat un RCP obisnuit
+            else if (!m.centralizat)
               {
                 'type': 'document',
                 'source': {'type': 'url', 'url': m.rcpUrl},
@@ -339,6 +341,28 @@ class AsistentProvider extends ChangeNotifier {
         await costuri.adauga(
           consum,
           documente: continut.where((b) => b['type'] == 'document').length,
+        );
+      }
+      final faraRcp = [
+        for (final m in atasate)
+          if (cuDocumente &&
+              !conversatieInceputa &&
+              m.centralizat &&
+              m.rcpUrl.isNotEmpty &&
+              !extrase.containsKey(m.rcpUrl))
+            m.denumire,
+      ];
+      if (faraRcp.isNotEmpty) {
+        mesaje.add(
+          MesajAsistent(
+            utilizator: false,
+            avertizare: true,
+            text:
+                'RCP-ul pentru ${faraRcp.join(', ')} nu a fost trimis: documentul EMA '
+                'întreg ar fi costat în jur de 0,50 USD, iar aplicația nu are extrasul '
+                'lui. Răspunsul se bazează pe datele din aplicație; deschide RCP-ul din '
+                'pagina medicamentului.',
+          ),
         );
       }
       _istoric

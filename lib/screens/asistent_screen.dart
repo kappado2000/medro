@@ -394,8 +394,8 @@ class _Atasate extends StatelessWidget {
               padding: EdgeInsets.only(top: 6),
               child: Text(
                 'La medicamentele autorizate de EMA se trimit secțiunile clinice '
-                'extrase în aplicație (4.1–4.9), nu PDF-ul întreg. Dacă extrasul '
-                'lipsește, se trimite documentul, de câteva ori mai scump.',
+                'extrase în aplicație (4.1–4.9). PDF-ul întreg de la EMA nu se '
+                'trimite niciodată, fiind de zece ori mai scump.',
                 style: TextStyle(color: AppColors.muted, fontSize: 12.5),
               ),
             ),
