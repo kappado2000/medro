@@ -1,58 +1,17 @@
-"""Genereaza iconita aplicatiei (emblema din antet: cruce rosie pe patrat alb,
-pe degradeul albastru) pentru iOS, Android si web.
+"""Genereaza iconita aplicatiei pentru iOS, Android si web: capsula lucioasa
+galben-rosu, desenata in tool/icon_variante.py.
 
-Rulare:  python tool/build_icon.py
+Rulare:  python tool/build_icon.py [alb]     (fara argument: fond albastru)
 """
 import json
+import sys
 from pathlib import Path
 
-from PIL import Image, ImageDraw
+from PIL import Image
+
+import icon_variante as v
 
 ROOT = Path(__file__).resolve().parent.parent
-ALBASTRU = (0x15, 0x58, 0xD6)
-ALBASTRU_INCHIS = (0x0B, 0x2F, 0x7A)
-ROSU = (0xE0, 0x2B, 0x3C)
-ALB = (255, 255, 255)
-
-
-def emblema(marime: int, margine: float = 0.0) -> Image.Image:
-    """Iconita patrata, fara transparenta. `margine` micsoreaza emblema pentru
-    variantele pe care sistemul le decupeaza (iconite mascabile)."""
-    n = marime * 4  # desenat marit, apoi micsorat, pentru margini netede
-    img = Image.new("RGB", (n, n))
-    # degrade pe diagonala, ca in antetul aplicatiei
-    px = img.load()
-    for y in range(n):
-        for x in range(n):
-            t = (x + y) / (2 * (n - 1))
-            px[x, y] = tuple(round(a + (b - a) * t) for a, b in zip(ALBASTRU, ALBASTRU_INCHIS))
-    d = ImageDraw.Draw(img)
-    latura = n * (0.58 - margine)
-    x0 = (n - latura) / 2
-    d.rounded_rectangle([x0, x0, x0 + latura, x0 + latura], radius=latura * 0.26, fill=ALB)
-    brat, grosime = latura * 0.62, latura * 0.235
-    c = n / 2
-    raza = grosime * 0.12
-    d.rounded_rectangle([c - brat / 2, c - grosime / 2, c + brat / 2, c + grosime / 2], raza, fill=ROSU)
-    d.rounded_rectangle([c - grosime / 2, c - brat / 2, c + grosime / 2, c + brat / 2], raza, fill=ROSU)
-    return img.resize((marime, marime), Image.LANCZOS)
-
-
-def prim_plan(marime: int) -> Image.Image:
-    """Stratul din fata al iconitei adaptive: emblema pe fond transparent."""
-    n = marime * 4
-    img = Image.new("RGBA", (n, n), (0, 0, 0, 0))
-    d = ImageDraw.Draw(img)
-    latura = n * 0.40
-    x0 = (n - latura) / 2
-    d.rounded_rectangle([x0, x0, x0 + latura, x0 + latura], radius=latura * 0.26, fill=ALB + (255,))
-    brat, grosime = latura * 0.62, latura * 0.235
-    c = n / 2
-    raza = grosime * 0.12
-    d.rounded_rectangle([c - brat / 2, c - grosime / 2, c + brat / 2, c + grosime / 2], raza, fill=ROSU + (255,))
-    d.rounded_rectangle([c - grosime / 2, c - brat / 2, c + grosime / 2, c + brat / 2], raza, fill=ROSU + (255,))
-    return img.resize((marime, marime), Image.LANCZOS)
-
 
 ADAPTIV = """<?xml version="1.0" encoding="utf-8"?>
 <adaptive-icon xmlns:android="http://schemas.android.com/apk/res/android">
@@ -61,15 +20,28 @@ ADAPTIV = """<?xml version="1.0" encoding="utf-8"?>
 </adaptive-icon>
 """
 
-FUNDAL = """<?xml version="1.0" encoding="utf-8"?>
+FUNDAL_ALBASTRU = """<?xml version="1.0" encoding="utf-8"?>
 <shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="rectangle">
     <gradient android:startColor="#1558D6" android:endColor="#0B2F7A" android:angle="315"/>
 </shape>
 """
 
+FUNDAL_ALB = """<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="rectangle">
+    <solid android:color="#FFFFFF"/>
+</shape>
+"""
+
+
+def prim_plan(marime: int) -> Image.Image:
+    """Stratul din fata al iconitei adaptive (Android 8+): capsula pe fond
+    transparent, micsorata ca sa ramana in zona pe care sistemul nu o decupeaza."""
+    return v.capsula_lucioasa(marime * v.S, scara=0.62).resize((marime, marime), Image.LANCZOS)
+
 
 def main() -> None:
-    master = emblema(1024)
+    alb = "alb" in sys.argv[1:]
+    master = v.randeaza(10 if alb else 9, 1024)
 
     ios = ROOT / "ios/Runner/Assets.xcassets/AppIcon.appiconset"
     for intrare in json.loads((ios / "Contents.json").read_text())["images"]:
@@ -79,21 +51,20 @@ def main() -> None:
     android = ROOT / "android/app/src/main/res"
     for densitate, pixeli in {"mdpi": 48, "hdpi": 72, "xhdpi": 96, "xxhdpi": 144, "xxxhdpi": 192}.items():
         master.resize((pixeli, pixeli), Image.LANCZOS).save(android / f"mipmap-{densitate}/ic_launcher.png")
-
-    # Iconita adaptiva (Android 8+): fundalul si emblema sunt straturi separate,
-    # iar sistemul decupeaza forma. Emblema sta in zona centrala sigura.
     for densitate, pixeli in {"mdpi": 108, "hdpi": 162, "xhdpi": 216, "xxhdpi": 324, "xxxhdpi": 432}.items():
         prim_plan(pixeli).save(android / f"mipmap-{densitate}/ic_launcher_foreground.png")
     (android / "mipmap-anydpi-v26").mkdir(exist_ok=True)
     (android / "mipmap-anydpi-v26/ic_launcher.xml").write_text(ADAPTIV, encoding="utf-8")
-    (android / "drawable/ic_launcher_background.xml").write_text(FUNDAL, encoding="utf-8")
+    (android / "drawable/ic_launcher_background.xml").write_text(
+        FUNDAL_ALB if alb else FUNDAL_ALBASTRU, encoding="utf-8"
+    )
 
     web = ROOT / "web"
     for pixeli in (192, 512):
         master.resize((pixeli, pixeli), Image.LANCZOS).save(web / f"icons/Icon-{pixeli}.png")
-        emblema(pixeli, margine=0.10).save(web / f"icons/Icon-maskable-{pixeli}.png")
+        master.resize((pixeli, pixeli), Image.LANCZOS).save(web / f"icons/Icon-maskable-{pixeli}.png")
     master.resize((32, 32), Image.LANCZOS).save(web / "favicon.png")
-    print("iconite generate")
+    print("iconite generate:", "fond alb" if alb else "fond albastru")
 
 
 if __name__ == "__main__":
