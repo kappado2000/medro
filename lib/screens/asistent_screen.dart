@@ -223,43 +223,73 @@ class _AsistentScreenState extends State<AsistentScreen> {
                   },
                 ),
         ),
-        Container(
-          color: Colors.white,
-          padding: const EdgeInsets.fromLTRB(12, 8, 8, 8),
-          child: SafeArea(
-            top: false,
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.end,
-              children: [
-                Expanded(
-                  child: TextField(
-                    controller: _intrebare,
-                    minLines: 1,
-                    maxLines: 4,
-                    textInputAction: TextInputAction.send,
-                    onSubmitted: (_) => _trimite(),
-                    decoration: InputDecoration(
-                      hintText: 'Scrie o întrebare',
-                      filled: true,
-                      fillColor: AppColors.background,
-                      contentPadding: const EdgeInsets.symmetric(
-                        horizontal: 14,
-                        vertical: 12,
+        // campul de intrebare: alb, cu contur albastru si umbra, ca sa se
+        // deosebeasca limpede de fundal si de banerul de dedesubt
+        SafeArea(
+          top: false,
+          child: Padding(
+            padding: const EdgeInsets.fromLTRB(12, 6, 12, 10),
+            child: Container(
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(22),
+                border: Border.all(color: AppColors.blue, width: 1.6),
+                boxShadow: [
+                  BoxShadow(
+                    color: AppColors.blue.withValues(alpha: 0.18),
+                    blurRadius: 14,
+                    offset: const Offset(0, 4),
+                  ),
+                ],
+              ),
+              padding: const EdgeInsets.fromLTRB(6, 4, 6, 4),
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: [
+                  const Padding(
+                    padding: EdgeInsets.only(left: 8, bottom: 12),
+                    child: Icon(
+                      Icons.auto_awesome,
+                      color: AppColors.blue,
+                      size: 22,
+                    ),
+                  ),
+                  Expanded(
+                    child: TextField(
+                      controller: _intrebare,
+                      minLines: 1,
+                      maxLines: 4,
+                      textInputAction: TextInputAction.send,
+                      onSubmitted: (_) => _trimite(),
+                      style: const TextStyle(
+                        color: AppColors.ink,
+                        fontSize: 16,
                       ),
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(16),
-                        borderSide: BorderSide.none,
+                      decoration: const InputDecoration(
+                        hintText: 'Scrie o întrebare',
+                        hintStyle: TextStyle(
+                          color: AppColors.muted,
+                          fontSize: 16,
+                          fontWeight: FontWeight.w500,
+                        ),
+                        filled: false,
+                        contentPadding: EdgeInsets.symmetric(
+                          horizontal: 10,
+                          vertical: 13,
+                        ),
+                        border: InputBorder.none,
+                        enabledBorder: InputBorder.none,
+                        focusedBorder: InputBorder.none,
                       ),
                     ),
                   ),
-                ),
-                const SizedBox(width: 6),
-                IconButton.filled(
-                  tooltip: 'Trimite',
-                  onPressed: asistent.asteapta ? null : _trimite,
-                  icon: const Icon(Icons.arrow_upward),
-                ),
-              ],
+                  IconButton.filled(
+                    tooltip: 'Trimite',
+                    onPressed: asistent.asteapta ? null : _trimite,
+                    icon: const Icon(Icons.arrow_upward),
+                  ),
+                ],
+              ),
             ),
           ),
         ),
