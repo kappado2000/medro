@@ -1,0 +1,133 @@
+name: iOS signed build (TestFlight)
+
+# Signed with the Apple Developer account and uploaded to App Store Connect,
+# where it shows up in TestFlight. Needs these repo secrets:
+#   IOS_DIST_CERTIFICATE_BASE64, IOS_DIST_CERTIFICATE_PASSWORD  (distribution .p12)
+#   IOS_APP_PROVISION_PROFILE_BASE64  (App Store profile named "MedRO App Store")
+#   IOS_TEAM_ID
+#   IOS_ASC_KEY_ID, IOS_ASC_ISSUER_ID, IOS_ASC_API_KEY_BASE64  (App Store Connect API key)
+on:
+  workflow_dispatch: {}
+
+jobs:
+  build:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.47.0'
+          channel: 'stable'
+
+      # lib/config/asistent_server.dart is gitignored (it holds the assistant
+      # server's access token), so it is recreated here from repo secrets.
+      - name: Write the assistant server config
+        env:
+          MEDRO_ASISTENT_URL: ${{ secrets.MEDRO_ASISTENT_URL }}
+          MEDRO_ASISTENT_TOKEN: ${{ secrets.MEDRO_ASISTENT_TOKEN }}
+          MEDRO_FIREBASE_API_KEY: ${{ secrets.MEDRO_FIREBASE_API_KEY }}
+        run: |
+          test -n "$MEDRO_ASISTENT_URL" && test -n "$MEDRO_ASISTENT_TOKEN"
+          cat > lib/config/asistent_server.dart <<EOF
+          const asistentServerUrl = '$MEDRO_ASISTENT_URL';
+          const asistentServerToken = '$MEDRO_ASISTENT_TOKEN';
+          const firebaseApiKey = '$MEDRO_FIREBASE_API_KEY';
+          EOF
+
+      - name: Install dependencies
+        run: flutter pub get
+
+      # Standard recipe for Mac-less iOS signing: the distribution cert goes
+      # into a throwaway keychain that only lives for this run, and the
+      # provisioning profile goes where Xcode looks for it.
+      - name: Import signing certificate and provisioning profile
+        env:
+          CERTIFICATE_BASE64: ${{ secrets.IOS_DIST_CERTIFICATE_BASE64 }}
+          CERTIFICATE_PASSWORD: ${{ secrets.IOS_DIST_CERTIFICATE_PASSWORD }}
+          APP_PROFILE_BASE64: ${{ secrets.IOS_APP_PROVISION_PROFILE_BASE64 }}
+          KEYCHAIN_PASSWORD: ${{ secrets.IOS_DIST_CERTIFICATE_PASSWORD }}
+        run: |
+          test -n "$CERTIFICATE_BASE64" && test -n "$APP_PROFILE_BASE64"
+          CERT_PATH="$RUNNER_TEMP/distribution.p12"
+          KEYCHAIN_PATH="$RUNNER_TEMP/signing.keychain-db"
+          PROFILE_DIR="$HOME/Library/MobileDevice/Provisioning Profiles"
+
+          echo -n "$CERTIFICATE_BASE64" | base64 --decode -o "$CERT_PATH"
+
+          security create-keychain -p "$KEYCHAIN_PASSWORD" "$KEYCHAIN_PATH"
+          security set-keychain-settings -lut 21600 "$KEYCHAIN_PATH"
+          security unlock-keychain -p "$KEYCHAIN_PASSWORD" "$KEYCHAIN_PATH"
+          security import "$CERT_PATH" -P "$CERTIFICATE_PASSWORD" -A -t cert -f pkcs12 -k "$KEYCHAIN_PATH"
+          security list-keychain -d user -s "$KEYCHAIN_PATH" login.keychain
+          security set-key-partition-list -S apple-tool:,apple:,codesign: -s -k "$KEYCHAIN_PASSWORD" "$KEYCHAIN_PATH"
+
+          mkdir -p "$PROFILE_DIR"
+          echo -n "$APP_PROFILE_BASE64" | base64 --decode -o "$PROFILE_DIR/app.mobileprovision"
+
+      # The Xcode project is committed with automatic signing and no team, so
+      # the unsigned Sideloadly workflow keeps working. For this build the
+      # Runner target is switched to manual signing with the App Store profile.
+      - name: Switch the Runner target to manual signing
+        env:
+          TEAM_ID: ${{ secrets.IOS_TEAM_ID }}
+        run: |
+          test -n "$TEAM_ID"
+          perl -0pi -e 's/(PRODUCT_BUNDLE_IDENTIFIER = ro\.kappado\.medro;)/$1\n\t\t\t\tCODE_SIGN_STYLE = Manual;\n\t\t\t\tDEVELOPMENT_TEAM = $ENV{TEAM_ID};\n\t\t\t\t"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Apple Distribution";\n\t\t\t\tPROVISIONING_PROFILE_SPECIFIER = "MedRO App Store";/g' \
+            ios/Runner.xcodeproj/project.pbxproj
+          grep -c 'PROVISIONING_PROFILE_SPECIFIER = "MedRO App Store";' ios/Runner.xcodeproj/project.pbxproj
+
+      - name: Write export options plist
+        env:
+          TEAM_ID: ${{ secrets.IOS_TEAM_ID }}
+        run: |
+          cat > "$RUNNER_TEMP/ExportOptions.plist" << PLIST
+          <?xml version="1.0" encoding="UTF-8"?>
+          <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+          <plist version="1.0">
+          <dict>
+            <key>method</key>
+            <string>app-store-connect</string>
+            <key>teamID</key>
+            <string>$TEAM_ID</string>
+            <key>signingStyle</key>
+            <string>manual</string>
+            <key>provisioningProfiles</key>
+            <dict>
+              <key>ro.kappado.medro</key>
+              <string>MedRO App Store</string>
+            </dict>
+          </dict>
+          </plist>
+          PLIST
+
+      # The run number makes every dispatch a distinct build number, which
+      # App Store Connect requires. It is offset so signed builds never reuse
+      # a number already taken by an unsigned one.
+      - name: Build signed IPA
+        run: |
+          flutter build ipa --release \
+            --build-number=$((1000 + ${{ github.run_number }})) \
+            --export-options-plist="$RUNNER_TEMP/ExportOptions.plist"
+
+      # API-key auth (no login or 2FA prompt), so this works headless; altool
+      # looks for the key under a few fixed paths and this is one of them.
+      # The IPA is not published as a release: it embeds the assistant
+      # server's access token.
+      - name: Upload to TestFlight
+        env:
+          ASC_KEY_ID: ${{ secrets.IOS_ASC_KEY_ID }}
+          ASC_ISSUER_ID: ${{ secrets.IOS_ASC_ISSUER_ID }}
+          ASC_API_KEY_BASE64: ${{ secrets.IOS_ASC_API_KEY_BASE64 }}
+        run: |
+          KEY_DIR="$HOME/.appstoreconnect/private_keys"
+          mkdir -p "$KEY_DIR"
+          echo -n "$ASC_API_KEY_BASE64" | base64 --decode -o "$KEY_DIR/AuthKey_${ASC_KEY_ID}.p8"
+
+          IPA_PATH=$(ls build/ios/ipa/*.ipa | head -n1)
+          xcrun altool --upload-app -f "$IPA_PATH" -t ios \
+            --apiKey "$ASC_KEY_ID" --apiIssuer "$ASC_ISSUER_ID"
+
+      - name: Clean up keychain
+        if: always()
+        run: security delete-keychain "$RUNNER_TEMP/signing.keychain-db" || true
