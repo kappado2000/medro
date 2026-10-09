@@ -127,7 +127,12 @@ class _IcdScreenState extends State<IcdScreen> {
     }
     if (_interogare.trim().isEmpty) {
       return ListView.separated(
-        padding: const EdgeInsets.fromLTRB(16, 16, 16, 24),
+        padding: EdgeInsets.fromLTRB(
+          16,
+          16,
+          16,
+          24 + MediaQuery.paddingOf(context).bottom,
+        ),
         itemCount: provider.capitole.length,
         separatorBuilder: (_, _) => const SizedBox(height: 10),
         itemBuilder: (context, i) => _CapitolTile(provider.capitole[i]),
@@ -269,7 +274,12 @@ class IcdLista extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView.separated(
-      padding: const EdgeInsets.fromLTRB(16, 14, 16, 24),
+      padding: EdgeInsets.fromLTRB(
+        16,
+        14,
+        16,
+        24 + MediaQuery.paddingOf(context).bottom,
+      ),
       keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
       itemCount: coduri.length,
       separatorBuilder: (_, _) => const SizedBox(height: 8),

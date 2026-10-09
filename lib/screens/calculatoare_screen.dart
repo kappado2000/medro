@@ -112,7 +112,12 @@ class _CalculatoareScreenState extends State<CalculatoareScreen> {
                   ),
                 )
               : ListView(
-                  padding: const EdgeInsets.fromLTRB(16, 16, 16, 24),
+                  padding: EdgeInsets.fromLTRB(
+                    16,
+                    16,
+                    16,
+                    24 + MediaQuery.paddingOf(context).bottom,
+                  ),
                   keyboardDismissBehavior:
                       ScrollViewKeyboardDismissBehavior.onDrag,
                   children: [

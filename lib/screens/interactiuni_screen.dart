@@ -196,7 +196,12 @@ class _InteractiuniScreenState extends State<InteractiuniScreen> {
       );
     }
     return ListView(
-      padding: const EdgeInsets.fromLTRB(16, 12, 16, 24),
+      padding: EdgeInsets.fromLTRB(
+        16,
+        12,
+        16,
+        24 + MediaQuery.paddingOf(context).bottom,
+      ),
       keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
       children: [
         if (substante.isNotEmpty) const _Titlu('Substanțe'),
@@ -226,7 +231,12 @@ class _InteractiuniScreenState extends State<InteractiuniScreen> {
   Widget _rezultate(InteractiuniProvider provider) {
     if (_selectie.isEmpty) {
       return ListView(
-        padding: const EdgeInsets.all(24),
+        padding: EdgeInsets.fromLTRB(
+          24,
+          24,
+          24,
+          24 + MediaQuery.paddingOf(context).bottom,
+        ),
         children: [
           const SizedBox(height: 24),
           const Icon(Icons.compare_arrows, size: 56, color: AppColors.blue),
@@ -255,7 +265,12 @@ class _InteractiuniScreenState extends State<InteractiuniScreen> {
     final interactiuni = provider.verifica(_selectie);
     final perechi = _selectie.length * (_selectie.length - 1) ~/ 2;
     return ListView(
-      padding: const EdgeInsets.fromLTRB(16, 14, 16, 24),
+      padding: EdgeInsets.fromLTRB(
+        16,
+        14,
+        16,
+        24 + MediaQuery.paddingOf(context).bottom,
+      ),
       children: [
         Wrap(
           spacing: 8,

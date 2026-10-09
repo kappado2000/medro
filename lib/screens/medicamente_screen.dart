@@ -188,7 +188,12 @@ class _MedicamenteScreenState extends State<MedicamenteScreen> {
     final limitat =
         _clasa == null && rezultate.length == MedicamenteProvider.maxRezultate;
     return ListView.separated(
-      padding: const EdgeInsets.fromLTRB(16, 2, 16, 24),
+      padding: EdgeInsets.fromLTRB(
+        16,
+        2,
+        16,
+        24 + MediaQuery.paddingOf(context).bottom,
+      ),
       keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
       // lista libera e limitata; utilizatorul trebuie sa stie ca nu vede tot
       itemCount: rezultate.length + (limitat ? 1 : 0),

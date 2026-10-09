@@ -1,4 +1,5 @@
 import 'dart:math' as math;
+import 'dart:ui' show ImageFilter;
 
 import 'package:flutter/material.dart';
 
@@ -31,6 +32,8 @@ class HomeShell extends StatelessWidget {
     return ValueListenableBuilder<int>(
       valueListenable: tabCurent,
       builder: (context, index, _) => Scaffold(
+        // continutul trece pe sub banerul translucid de jos
+        extendBody: true,
         body: IndexedStack(index: index, children: _pagini),
         bottomNavigationBar: _BaraJos(
           index: index,
@@ -41,7 +44,8 @@ class HomeShell extends StatelessWidget {
   }
 }
 
-/// Bara de jos, in acelasi degrade ca antetul. E construita manual, nu cu
+/// Bara de jos: un baner plutitor, usor translucid, in acelasi degrade ca
+/// antetul. E construita manual, nu cu
 /// NavigationBar, ca etichetele sa ramana pe un singur rand la orice latime
 /// de ecran si iconitele sa stea aliniate.
 class _BaraJos extends StatelessWidget {
@@ -66,26 +70,64 @@ class _BaraJos extends StatelessWidget {
     Icons.auto_awesome,
   ];
 
+  /// Cat de opac este banerul; restul lasa sa se vada lista de dedesubt.
+  static const _opacitate = 0.85;
+
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: const BoxDecoration(gradient: AppColors.headerGradient),
-      child: SafeArea(
-        top: false,
-        child: Padding(
-          padding: const EdgeInsets.fromLTRB(4, 8, 4, 6),
-          child: Row(
-            children: [
-              for (final (i, eticheta) in _etichete.indexed)
-                Expanded(
-                  child: _Destinatie(
-                    eticheta: eticheta,
-                    icon: _iconite[i],
-                    selectat: i == index,
-                    onTap: () => onSelect(i),
+    final raza = BorderRadius.circular(26);
+    return SafeArea(
+      top: false,
+      minimum: const EdgeInsets.only(bottom: 10),
+      child: Padding(
+        padding: const EdgeInsets.fromLTRB(12, 0, 12, 2),
+        child: DecoratedBox(
+          decoration: BoxDecoration(
+            borderRadius: raza,
+            boxShadow: [
+              BoxShadow(
+                color: AppColors.blueDark.withValues(alpha: 0.28),
+                blurRadius: 18,
+                offset: const Offset(0, 6),
+              ),
+            ],
+          ),
+          child: ClipRRect(
+            borderRadius: raza,
+            // sticla mata: ce e dedesubt se vede estompat, fara sa incurce textul
+            child: BackdropFilter(
+              filter: ImageFilter.blur(sigmaX: 14, sigmaY: 14),
+              child: Container(
+                decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                    begin: AppColors.headerGradient.begin,
+                    end: AppColors.headerGradient.end,
+                    colors: [
+                      for (final c in AppColors.headerGradient.colors)
+                        c.withValues(alpha: _opacitate),
+                    ],
+                  ),
+                  borderRadius: raza,
+                  border: Border.all(
+                    color: Colors.white.withValues(alpha: 0.22),
                   ),
                 ),
-            ],
+                padding: const EdgeInsets.fromLTRB(6, 8, 6, 7),
+                child: Row(
+                  children: [
+                    for (final (i, eticheta) in _etichete.indexed)
+                      Expanded(
+                        child: _Destinatie(
+                          eticheta: eticheta,
+                          icon: _iconite[i],
+                          selectat: i == index,
+                          onTap: () => onSelect(i),
+                        ),
+                      ),
+                  ],
+                ),
+              ),
+            ),
           ),
         ),
       ),
