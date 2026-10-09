@@ -89,8 +89,9 @@ class Medicament {
   }) : denumireNorm = normalizeForSearch(denumire),
        dciNorm = normalizeForSearch(dci);
 
-  /// Primul cod CIM identifica stabil produsul (pentru favorite).
-  String get id => ambalaje.first.cim;
+  /// Identificator stabil al produsului (pentru favorite). Primul cod CIM
+  /// singur nu ajunge: in nomenclator cateva coduri apar la doua produse.
+  String get id => '${ambalaje.first.cim}|$denumire';
 
   bool get faraReteta => prescriptie == 'OTC';
 
@@ -125,19 +126,25 @@ class Medicament {
   }
 }
 
-/// Explicatia codului de prescriptie din nomenclator; null daca nu e cunoscut.
+const _explicatiiPrescriptie = {
+  'OTC': 'Se eliberează fără prescripție medicală',
+  'P6L': 'Prescripție care nu se reține în farmacie; valabilă 6 luni, se poate reînnoi',
+  'PRF': 'Prescripție care se reține în farmacie; nu se reînnoiește',
+  'PR': 'Prescripție restrictivă, pentru utilizare în domenii specializate',
+  // in nomenclator, "S" este notatia alternativa pentru prescriptia restrictiva
+  'S': 'Prescripție restrictivă, pentru utilizare în domenii specializate',
+  'PS': 'Prescripție specială (stupefiante și psihotrope)',
+};
+
+/// Explicatia codului de prescriptie din nomenclator, dupa legenda CNAS.
+/// Codurile compuse ("S/PRF", "PS,PR") se explica parte cu parte; null daca
+/// nicio parte nu e cunoscuta.
 String? explicatiePrescriptie(String cod) {
-  switch (cod) {
-    case 'OTC':
-      return 'Se eliberează fără prescripție medicală';
-    case 'PRF':
-      return 'Prescripție care se reține în farmacie';
-    case 'P6L':
-      return 'Prescripție valabilă 6 luni';
-    case 'PR':
-      return 'Prescripție medicală restrictivă';
-    case 'PS':
-      return 'Prescripție medicală specială';
-  }
-  return null;
+  final parti = cod.split(RegExp(r'[/,]')).map((p) => p.trim()).toList();
+  final explicatii = <String>{
+    for (final p in parti)
+      if (_explicatiiPrescriptie[p] != null) _explicatiiPrescriptie[p]!,
+  };
+  if (explicatii.isEmpty) return null;
+  return explicatii.join('; sau: ');
 }

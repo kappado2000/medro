@@ -521,16 +521,19 @@ final List<Calculator> calculatoarePsihiatrie = [
     icon: Icons.monitor_heart_outlined,
     campuri: _ciwa,
     sursa:
-        'Sullivan JT et al., Br J Addict 1989. Pragurile de interpretare diferă ușor '
-        'între protocoale; itemii sunt o traducere de lucru.',
+        'Sullivan JT et al., Br J Addict 1989. Praguri uzuale: până la 8, 9–19, 20 sau '
+        'peste; unele protocoale folosesc 10 și 18. Itemii sunt o traducere de lucru.',
     calculeaza: (v) {
       if (!_toateCompletate(_ciwa, v)) return null;
       final scor = sumaPuncte(_ciwa, v);
       final (text, nivel) = switch (scor) {
-        < 8 => ('Sevraj ușor (sub 8).', Nivel.normal),
-        <= 15 => ('Sevraj moderat (8–15).', Nivel.atentie),
+        <= 8 => (
+          'Sevraj absent sau minim (până la 8) – de regulă fără medicație.',
+          Nivel.normal,
+        ),
+        <= 19 => ('Sevraj ușor până la moderat (9–19).', Nivel.atentie),
         _ => (
-          'Sevraj sever (peste 15) – risc de convulsii și delirium tremens.',
+          'Sevraj sever (20 sau peste) – risc de convulsii și delirium tremens.',
           Nivel.ridicat,
         ),
       };

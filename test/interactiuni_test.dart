@@ -124,6 +124,11 @@ void main() {
     expect(textSumar(2, 3, 2), '2 interacțiuni din 3 perechi, toate majore.');
   });
 
+  test('combinatiile acoperite partial isi declara componentele lipsa', () {
+    expect(provider.componenteNeacoperite('SERTRALINUM'), isEmpty);
+    expect(provider.componenteNeacoperite('DCI INEXISTENT'), isEmpty);
+  });
+
   test('produsele combinate dau toate substantele', () {
     expect(
       provider.substanteProdus('SERTRALINUM').single.denumireEn,

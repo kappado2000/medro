@@ -1,5 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:medro/main.dart';
+import 'package:medro/models/medicament.dart';
 import 'package:medro/providers/medicamente_provider.dart';
 import 'package:medro/utils/text_utils.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -122,6 +123,29 @@ void main() {
       expect(text.length, lessThanOrEqualTo(4000), reason: m.denumire);
       expect(m.rcpUrl, isNotEmpty, reason: m.denumire);
     }
+  });
+
+  test('toate codurile de prescriptie uzuale au explicatie', () {
+    expect(explicatiePrescriptie('OTC'), contains('fără prescripție'));
+    expect(explicatiePrescriptie('S'), explicatiePrescriptie('PR'));
+    expect(explicatiePrescriptie('S/PRF'), contains('restrictivă'));
+    expect(explicatiePrescriptie('S/PRF'), contains('se reține'));
+    expect(explicatiePrescriptie('PS,PR'), contains('specială'));
+    expect(explicatiePrescriptie(''), isNull);
+    expect(explicatiePrescriptie('XYZ'), isNull);
+    final toate = provider.cauta('', FiltruMedicamente.toate, atcPrefix: 'N');
+    final fara = toate.where(
+      (m) => explicatiePrescriptie(m.prescriptie) == null,
+    );
+    expect(fara.length, lessThan(toate.length ~/ 50));
+  });
+
+  test('identificatorii de favorite sunt unici', () {
+    final toate = [
+      for (final litera in 'ABCDGHJLMNPRSV'.split(''))
+        ...provider.cauta('', FiltruMedicamente.toate, atcPrefix: litera),
+    ];
+    expect(toate.map((m) => m.id).toSet().length, toate.length);
   });
 
   test('filtrele separa OTC de reteta', () {

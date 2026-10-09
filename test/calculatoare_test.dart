@@ -232,6 +232,18 @@ void main() {
       })!;
       expect(usor.valoare, '5');
       expect(usor.nivel, Nivel.normal);
+      // pragurile uzuale: pana la 8 minim, 9-19 usor-moderat, 20+ sever
+      Rezultat cuTremor(int nota, int anxietate) => calc('ciwa', {
+        for (final id in iduri) id: 0,
+        'orientare': 0,
+        'tremor': nota,
+        'anxietate': anxietate,
+        'agitatie': anxietate,
+      })!;
+      expect(cuTremor(7, 0).nivel, Nivel.normal); // 7
+      expect(cuTremor(1, 4).nivel, Nivel.atentie); // 9
+      expect(cuTremor(5, 7).nivel, Nivel.atentie); // 19
+      expect(cuTremor(6, 7).nivel, Nivel.ridicat); // 20
     });
 
     test('CGI afiseaza severitatea si ameliorarea', () {

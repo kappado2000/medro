@@ -66,7 +66,9 @@ def cheie(nume: str) -> str:
 def componente(dci: str) -> list[str]:
     """Substantele dintr-un DCI: "COMBINATII (A+B)" -> ["A", "B"]."""
     fara = re.sub(r"^COMBINATII\s*\(?", "", dci).rstrip(")")
-    return [c.strip(" ()") for c in re.split(r"\s*\+\s*", fara) if c.strip(" ()")]
+    parti = [c.strip(" ()") for c in re.split(r"\s*\+\s*", fara)]
+    # "SARURI" (ex. "ACIDUM VALPROICUM + SARURI") nu e o substanta separata
+    return [c for c in parti if c and c != "SARURI"]
 
 
 def descarca() -> None:
@@ -119,6 +121,8 @@ def main() -> None:
     produse = json.loads(gzip.open(MEDICAMENTE).read())["products"]
     en_la_ro: dict[str, set[str]] = collections.defaultdict(set)
     dci_la_en: dict[str, list[str]] = {}
+    # combinatii din care cel putin o componenta nu exista in DDInter
+    incomplete: dict[str, list[str]] = {}
     nepotrivite = collections.Counter()
     for p in produse:
         dci = p["d"]
@@ -134,6 +138,9 @@ def main() -> None:
                 nepotrivite[(c, p["a"][:1])] += 1
         if gasite:
             dci_la_en[dci] = sorted(set(gasite))
+            lipsa = [c for c in componente(dci) if not potriveste(c)]
+            if lipsa:
+                incomplete[dci] = lipsa
 
     for en, ro in SUPLIMENTARE.items():
         if en in denumiri:
@@ -163,6 +170,7 @@ def main() -> None:
         # [denumire DDInter, denumirile DCI din nomenclator]
         "substante": [[en, sorted(en_la_ro[en])] for en in substante],
         "dci": {d: [index[e] for e in ens] for d, ens in sorted(dci_la_en.items())},
+        "incomplet": dict(sorted(incomplete.items())),
         # i -> [majore, moderate, minore, necunoscute], doar cu j > i
         "perechi": {str(i): [sorted(v) for v in n] for i, n in sorted(vecini.items())},
     }

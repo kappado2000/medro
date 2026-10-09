@@ -176,12 +176,30 @@ class _MedicamenteScreenState extends State<MedicamenteScreen> {
             : 'Încearcă denumirea comercială, substanța activă sau codul ATC.',
       );
     }
+    final limitat =
+        _clasa == null && rezultate.length == MedicamenteProvider.maxRezultate;
     return ListView.separated(
       padding: const EdgeInsets.fromLTRB(16, 2, 16, 24),
       keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
-      itemCount: rezultate.length,
+      // lista libera e limitata; utilizatorul trebuie sa stie ca nu vede tot
+      itemCount: rezultate.length + (limitat ? 1 : 0),
       separatorBuilder: (_, _) => const SizedBox(height: 10),
       itemBuilder: (context, i) {
+        if (i == rezultate.length) {
+          return const Padding(
+            padding: EdgeInsets.symmetric(vertical: 10),
+            child: Text(
+              'Sunt afișate primele ${MedicamenteProvider.maxRezultate} de rezultate. '
+              'Scrie mai multe litere sau alege un filtru ca să restrângi lista.',
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                color: AppColors.muted,
+                fontSize: 13,
+                height: 1.4,
+              ),
+            ),
+          );
+        }
         final m = rezultate[i];
         return MedicamentTile(
           medicament: m,

@@ -6,6 +6,7 @@ import '../providers/interactiuni_provider.dart';
 import '../providers/medicamente_provider.dart';
 import '../help/ajutor.dart';
 import '../theme/app_theme.dart';
+import '../utils/text_utils.dart';
 
 String etichetaSeveritate(Severitate s) {
   switch (s) {
@@ -211,7 +212,11 @@ class _InteractiuniScreenState extends State<InteractiuniScreen> {
           _Sugestie(
             icon: Icons.medication_outlined,
             titlu: baseName(m.denumire),
-            subtitlu: s.map((x) => x.nume).join(' + '),
+            subtitlu: [
+              s.map((x) => x.nume).join(' + '),
+              if (provider.componenteNeacoperite(m.dci).isNotEmpty)
+                'fără date pentru: ${provider.componenteNeacoperite(m.dci).map(titleCase).join(', ')}',
+            ].join(' · '),
             onTap: () => _adauga(s),
           ),
       ],

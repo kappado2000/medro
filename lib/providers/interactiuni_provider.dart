@@ -39,6 +39,7 @@ class InteractiuniProvider extends ChangeNotifier {
 
   List<Substanta> _substante = const [];
   Map<String, List<int>> _dupaDci = const {};
+  Map<String, List<String>> _incomplet = const {};
 
   /// Pentru fiecare substanta, vecinii cu index mai mare, pe niveluri.
   Map<int, List<List<int>>> _perechi = const {};
@@ -83,6 +84,12 @@ class InteractiuniProvider extends ChangeNotifier {
         for (final e in (data['dci'] as Map<String, dynamic>).entries)
           e.key: (e.value as List).cast<int>(),
       };
+      _incomplet = {
+        for (final e
+            in ((data['incomplet'] as Map<String, dynamic>?) ?? const {})
+                .entries)
+          e.key: (e.value as List).cast<String>(),
+      };
       _perechi = {
         for (final e in (data['perechi'] as Map<String, dynamic>).entries)
           int.parse(e.key): [
@@ -100,6 +107,10 @@ class InteractiuniProvider extends ChangeNotifier {
   List<Substanta> substanteProdus(String dci) {
     return [for (final i in _dupaDci[dci] ?? const <int>[]) _substante[i]];
   }
+
+  /// Componentele unei combinatii care nu exista in baza de interactiuni si
+  /// deci nu pot fi verificate.
+  List<String> componenteNeacoperite(String dci) => _incomplet[dci] ?? const [];
 
   /// Cauta dupa denumirea DCI sau dupa cea englezeasca.
   List<Substanta> cauta(String interogare) {

@@ -108,10 +108,15 @@ class MedicamenteProvider extends ChangeNotifier {
   /// Sublistele in care figureaza substanta activa, indiferent de ambalaj.
   List<String> listeSubstanta(String dci) => _listeDci[dci] ?? const [];
 
-  bool esteFavorit(Medicament m) => _favorite.contains(m.id);
+  bool esteFavorit(Medicament m) =>
+      _favorite.contains(m.id) || _favorite.contains(m.ambalaje.first.cim);
 
   Future<void> comutaFavorit(Medicament m) async {
-    if (!_favorite.remove(m.id)) _favorite.add(m.id);
+    final era = esteFavorit(m);
+    _favorite
+      ..remove(m.id)
+      ..remove(m.ambalaje.first.cim);
+    if (!era) _favorite.add(m.id);
     notifyListeners();
     final prefs = await SharedPreferences.getInstance();
     await prefs.setStringList(_favoriteKey, _favorite.toList());
@@ -167,7 +172,7 @@ class MedicamenteProvider extends ChangeNotifier {
       case FiltruMedicamente.compensate:
         return m.liste.isNotEmpty;
       case FiltruMedicamente.favorite:
-        return _favorite.contains(m.id);
+        return esteFavorit(m);
     }
   }
 

@@ -420,13 +420,21 @@ class _ContraindicatiiState extends State<_Contraindicatii> {
             children: [
               Icon(Icons.warning_amber_rounded, color: AppColors.red, size: 22),
               SizedBox(width: 8),
-              Text(
-                'CONTRAINDICAȚII',
-                style: TextStyle(
-                  color: AppColors.red,
-                  fontSize: 13,
-                  fontWeight: FontWeight.w800,
-                  letterSpacing: 0.8,
+              // se micsoreaza pe ecrane inguste cu text marit, in loc sa iasa
+              // din caseta
+              Flexible(
+                child: FittedBox(
+                  fit: BoxFit.scaleDown,
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    'CONTRAINDICAȚII',
+                    style: TextStyle(
+                      color: AppColors.red,
+                      fontSize: 13,
+                      fontWeight: FontWeight.w800,
+                      letterSpacing: 0.8,
+                    ),
+                  ),
                 ),
               ),
             ],
