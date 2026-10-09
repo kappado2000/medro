@@ -58,7 +58,19 @@ class MedRoApp extends StatelessWidget {
         supportedLocales: const [Locale('ro')],
         localizationsDelegates: GlobalMaterialLocalizations.delegates,
         // poarta sta peste tot navigatorul, deci blocheaza si ecranele deschise
-        builder: (context, child) => PoartaAcces(child: child!),
+        builder: (context, child) {
+          // Aplicatia arata la fel indiferent de setarile de text ale
+          // telefonului: „Text aldin” ar ingrosa tot scrisul, iar marirea
+          // textului l-ar scoate din marimile alese. Micsorarea ramane permisa.
+          final mq = MediaQuery.of(context);
+          return MediaQuery(
+            data: mq.copyWith(
+              boldText: false,
+              textScaler: mq.textScaler.clamp(maxScaleFactor: 1),
+            ),
+            child: PoartaAcces(child: child!),
+          );
+        },
         home: const HomeShell(),
       ),
     );
