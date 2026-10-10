@@ -1,6 +1,6 @@
 """Genereaza editia saptamanala a Sintezei: noutati din psihiatrie si
 psihoterapie (sectiunea principala), din restul cercetarii medicale, din
-stiinte si din arta, culese de pe web si rezumate in romana de Claude.
+stiinte, din arta si din arhitectura, culese de pe web si rezumate in romana de Claude.
 
 Calea obisnuita, fara cost de API: o rutina programata din abonamentul Claude
 scrie sambata ciorna editiei in sinteza/ciorne/ (instructiunile ei sunt in
@@ -44,11 +44,13 @@ TINTA = ROOT / "hosting" / "sinteza" / "date"
 
 MODEL = os.environ.get("SINTEZA_MODEL", "claude-opus-5-5")
 # ordinea de afisare; psihiatria deschide editia
-SECTIUNI = ("psihiatrie", "medicina", "stiinta", "arta")
+SECTIUNI = ("psihiatrie", "medicina", "stiinta", "arta", "arhitectura")
 
 # sub aceste praguri editia nu se publica si ramane cea de saptamana trecuta
-MINIM_PE_SECTIUNE = {"psihiatrie": 3, "medicina": 2, "stiinta": 2, "arta": 2}
-MINIM_TOTAL = 9
+MINIM_PE_SECTIUNE = {
+    "psihiatrie": 3, "medicina": 2, "stiinta": 2, "arta": 2, "arhitectura": 2,
+}
+MINIM_TOTAL = 11
 
 # pret orientativ, USD pe milion de tokeni (intrare, iesire), pentru raportul de cost
 PRETURI = {
@@ -63,13 +65,14 @@ LUNI = [
     "august", "septembrie", "octombrie", "noiembrie", "decembrie",
 ]
 
-SISTEM = """Ești redactorul unei sinteze săptămânale de știri despre psihiatrie și psihoterapie, cercetare medicală, științe și artă, scrisă în limba română. Cititorul principal este un medic psihiatru, care vrea să fie la curent cu cercetarea, inovațiile și noutățile din domeniul lui; ediția este citită și de familia și prietenii lui, oameni curioși și educați, dar nu specialiști.
+SISTEM = """Ești redactorul unei sinteze săptămânale de știri despre psihiatrie și psihoterapie, cercetare medicală, științe, artă și arhitectură, scrisă în limba română. Cititorul principal este un medic psihiatru, care vrea să fie la curent cu cercetarea, inovațiile și noutățile din domeniul lui; ediția este citită și de familia și prietenii lui, oameni curioși și educați, dar nu specialiști.
 
-Sarcina ta: caută pe web ce s-a întâmplat cu adevărat important sau surprinzător în intervalul de date primit și alege cele mai bune subiecte. Secțiunea de psihiatrie este cea principală: deschide ediția și primește cele mai multe articole, cinci (cel puțin patru, cel mult șase). Celelalte trei secțiuni au câte trei articole (cel puțin două, cel mult patru).
+Sarcina ta: caută pe web ce s-a întâmplat cu adevărat important sau surprinzător în intervalul de date primit și alege cele mai bune subiecte. Secțiunea de psihiatrie este cea principală: deschide ediția și primește cele mai multe articole, cinci (cel puțin patru, cel mult șase). Celelalte patru secțiuni au câte trei articole (cel puțin două, cel mult patru).
 - psihiatrie: psihiatrie și psihoterapie. Cercetare: studii clinice cu medicamente, psihoterapii, neuromodulare (rTMS, ECT, stimulare cerebrală profundă) și intervenții digitale; meta-analize; studii despre mecanisme, genetică și epidemiologie. Inovare: molecule și clase noi, terapii asistate de psihedelice, instrumente de diagnostic și de monitorizare. Informații și noutăți: aprobări și avertizări ale EMA, FDA sau ANMDM, ghiduri noi sau revizuite, rezultate prezentate la congrese, schimbări de clasificare. Acoperă pe cât se poate atât partea biologică, cât și psihoterapia, și caută mai întâi în revistele domeniului (JAMA Psychiatry, The Lancet Psychiatry, American Journal of Psychiatry, World Psychiatry, Molecular Psychiatry, Psychotherapy and Psychosomatics, British Journal of Psychiatry) și în publicațiile profesionale (Psychiatric Times, Medscape Psychiatry). Aici poți scrie la nivelul unui medic: denumiri comune internaționale, doze, scale, mărimi de efect, intervale de încredere, design-ul studiului și limitele lui;
 - medicina: restul cercetării medicale: studii clinice, terapii noi, descoperiri despre boli, sănătate publică, neuroștiințe;
 - stiinta: fizică, astronomie, chimie, biologie, paleontologie, arheologie, mediu, matematică, tehnologie cu miză științifică;
-- arta: arte vizuale, muzee și expoziții, patrimoniu, literatură, muzică, arhitectură, film, redescoperiri și restaurări.
+- arta: arte vizuale, muzee și expoziții, patrimoniu, literatură, muzică, film, redescoperiri și restaurări;
+- arhitectura: clădiri noi sau redeschise, concursuri și premii, urbanism și spațiu public, restaurări și reconversii, materiale și tehnici de construcție, arhitecți și proiecte anunțate.
 
 Ce face un subiect bun: aduce ceva nou (un rezultat, o descoperire, o premieră, o decizie), are o sursă serioasă și poate fi explicat cuiva din afara domeniului. Caută varietate de țări și de discipline, nu doar știri din Statele Unite și nu de trei ori aceeași temă. Evită comunicatele comerciale, produsele, zvonurile și subiectele deja tratate în edițiile anterioare, pe care le primești în mesaj.
 
@@ -80,7 +83,7 @@ La psihiatrie și la medicină, spune limpede în ce stadiu este rezultatul: pe 
 Cum scrii: în română firească, cu diacritice, la persoana a treia, fără entuziasm de reclamă și fără formule de umplutură. Explică termenii de specialitate la prima apariție. Titlul spune faptul, nu îl ascunde. Numele proprii rămân în forma originală.
 
 Pentru fiecare subiect scrie, cu aceste etichete, pe rânduri separate:
-SECTIUNE: psihiatrie, medicina, stiinta sau arta
+SECTIUNE: psihiatrie, medicina, stiinta, arta sau arhitectura
 TITLU: cel mult 90 de caractere
 REZUMAT: una sau două fraze care spun esențialul
 TEXT: trei până la cinci paragrafe, 180-320 de cuvinte în total

@@ -4,7 +4,8 @@ enum SectiuneSinteza {
   psihiatrie('psihiatrie', 'Psihiatrie și psihoterapie', 'Psihiatrie'),
   medicina('medicina', 'Medicină'),
   stiinta('stiinta', 'Științe'),
-  arta('arta', 'Artă');
+  arta('arta', 'Artă'),
+  arhitectura('arhitectura', 'Arhitectură');
 
   final String cod;
   final String eticheta;

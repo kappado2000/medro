@@ -14,6 +14,7 @@ Color culoareSectiune(SectiuneSinteza s) => switch (s) {
   SectiuneSinteza.medicina => SintezaColors.medicina,
   SectiuneSinteza.stiinta => SintezaColors.stiinta,
   SectiuneSinteza.arta => SintezaColors.arta,
+  SectiuneSinteza.arhitectura => SintezaColors.arhitectura,
 };
 
 IconData iconSectiune(SectiuneSinteza s) => switch (s) {
@@ -21,6 +22,7 @@ IconData iconSectiune(SectiuneSinteza s) => switch (s) {
   SectiuneSinteza.medicina => Icons.biotech_outlined,
   SectiuneSinteza.stiinta => Icons.science_outlined,
   SectiuneSinteza.arta => Icons.palette_outlined,
+  SectiuneSinteza.arhitectura => Icons.architecture,
 };
 
 TextStyle _serif(double marime, {FontWeight? grosime, Color? culoare}) =>
@@ -55,7 +57,7 @@ Future<void> _deschideLegatura(BuildContext context, String url) async {
 }
 
 /// Sinteza saptamanala: noutati din psihiatrie si psihoterapie, din restul
-/// cercetarii medicale, din stiinte si din arta.
+/// cercetarii medicale, din stiinte, din arta si din arhitectura.
 class SintezaScreen extends StatefulWidget {
   const SintezaScreen({super.key});
 
@@ -181,7 +183,7 @@ class _SintezaScreenState extends State<SintezaScreen> {
                     const SizedBox(height: 6),
                     Text(
                       editie == null
-                          ? 'Noutăți din psihiatrie, medicină, științe și artă'
+                          ? 'Psihiatrie, medicină, științe, artă, arhitectură'
                           : 'Săptămâna ${editie.interval} · '
                                 '${editie.articole.length} articole',
                       maxLines: 1,

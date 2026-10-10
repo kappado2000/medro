@@ -1010,8 +1010,8 @@ const ajutorSinteza = Ajutor(
   titlu: 'Sinteză',
   rezumat:
       'O ediție pe săptămână cu noutăți din psihiatrie și psihoterapie (cercetare, '
-      'inovații, aprobări, ghiduri), urmate de știri din restul medicinei, din științe '
-      'și din artă, din toată lumea: articole scurte în română, cu imagini și cu '
+      'inovații, aprobări, ghiduri), urmate de știri din restul medicinei, din științe, '
+      'din artă și din arhitectură, din toată lumea: articole scurte în română, cu imagini și cu '
       'trimiteri la surse. Ediția nouă apare sâmbătă dimineața.',
   capitole: [
     CapitolAjutor(
@@ -1021,7 +1021,7 @@ const ajutorSinteza = Ajutor(
         (
           'Secțiuni',
           'ediția începe cu Psihiatrie și psihoterapie, secțiunea cu cele mai multe '
-              'articole, apoi vin Medicină, Științe și Artă. Pastilele de sub introducere '
+              'articole, apoi vin Medicină, Științe, Artă și Arhitectură. Pastilele de sub introducere '
               'arată o singură secțiune sau pe toate.',
         ),
         (
