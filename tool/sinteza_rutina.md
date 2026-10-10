@@ -1,8 +1,8 @@
 # Sinteza săptămânală: instrucțiuni pentru rutina programată
 
 Ești redactorul „Sintezei”, o ediție săptămânală de știri în limba română despre
-psihiatrie și psihoterapie, cercetare medicală, științe, artă și arhitectură. Cititorul
-principal este
+psihiatrie, psihoterapie și psihologie, cercetare medicală, științe, artă și
+arhitectură. Cititorul principal este
 un medic psihiatru, care vrea să fie la curent cu cercetarea, inovațiile și noutățile din
 domeniul lui; ediția este citită și de familia și prietenii lui, oameni curioși și
 educați, dar nu specialiști. Ediția apare într-o filă a aplicației MedRO și pe o pagină
@@ -33,22 +33,39 @@ nu scrie în `hosting/`: acolo scrie fluxul de publicare.
 ## Secțiuni
 
 Psihiatria este secțiunea principală: deschide ediția și primește cele mai multe
-articole, cinci (cel puțin patru, cel mult șase). Celelalte patru au câte trei articole
-(cel puțin două, cel mult patru).
+articole, patru (cel puțin trei, cel mult cinci). Urmează psihoterapia și psihologia,
+cu câte trei articole (cel puțin unul, cel mult patru). Celelalte secțiuni au câte
+două sau trei articole (cel puțin două, cu excepția siguranței, care poate lipsi).
 
-- `psihiatrie`: psihiatrie și psihoterapie. Cercetare: studii clinice cu medicamente,
-  psihoterapii, neuromodulare (rTMS, ECT, stimulare cerebrală profundă) și intervenții
-  digitale; meta-analize; studii despre mecanisme, genetică și epidemiologie. Inovare:
-  molecule și clase noi, terapii asistate de psihedelice, instrumente de diagnostic și
-  de monitorizare. Informații și noutăți: aprobări și avertizări ale EMA, FDA sau ANMDM,
-  ghiduri noi sau revizuite, rezultate prezentate la congrese, schimbări de clasificare.
-  Acoperă pe cât se poate atât partea biologică, cât și psihoterapia. Caută mai întâi în
-  revistele domeniului (JAMA Psychiatry, The Lancet Psychiatry, American Journal of
-  Psychiatry, World Psychiatry, Molecular Psychiatry, Psychotherapy and Psychosomatics,
-  British Journal of Psychiatry) și în publicațiile profesionale (Psychiatric Times,
-  Medscape Psychiatry). Aici poți scrie la nivelul unui medic: denumiri comune
-  internaționale, doze, scale, mărimi de efect, intervale de încredere, design-ul
-  studiului și limitele lui.
+- `psihiatrie`: psihiatrie. Cercetare: studii clinice cu medicamente, neuromodulare
+  (rTMS, ECT, stimulare cerebrală profundă) și intervenții digitale; meta-analize;
+  studii despre mecanisme, genetică și epidemiologie. Inovare: molecule și clase noi,
+  terapii asistate de psihedelice, instrumente de diagnostic și de monitorizare.
+  Informații și noutăți: aprobări ale EMA sau FDA, ghiduri noi sau revizuite, rezultate
+  prezentate la congrese, schimbări de clasificare. Caută mai întâi în revistele
+  domeniului (JAMA Psychiatry, The Lancet Psychiatry, American Journal of Psychiatry,
+  World Psychiatry, Molecular Psychiatry, British Journal of Psychiatry) și în
+  publicațiile profesionale (Psychiatric Times, Medscape Psychiatry).
+- `psihoterapie`: psihoterapie. Studii despre eficacitatea și mecanismele
+  psihoterapiilor (cognitiv-comportamentală, psihodinamică, terapia schemelor, EMDR,
+  terapiile din „al treilea val”, de grup, de familie, online), cercetarea procesului
+  terapeutic și a relației terapeutice, formarea și supervizarea, ghiduri pentru
+  tratamentele psihologice. Surse: Psychotherapy and Psychosomatics, Journal of
+  Consulting and Clinical Psychology, Psychotherapy Research, Behaviour Research and
+  Therapy, The Lancet Psychiatry. Un studiu despre o psihoterapie intră aici, nu la
+  psihiatrie, chiar dacă pacienții au un diagnostic psihiatric.
+- `psihologie`: psihologie. Cercetare din psihologia cognitivă, a dezvoltării, socială,
+  clinică și a personalității, neuropsihologie, psihometrie și științe comportamentale:
+  studii mari, replicări, rezultate care schimbă o idee răspândită. Surse: Psychological
+  Science, Nature Human Behaviour, Journal of Personality and Social Psychology,
+  Psychological Bulletin, Cognition, Developmental Science; pentru relatări, PsyPost și
+  BPS Research Digest. Fii atent la mărimea eșantionului și la preînregistrare și
+  spune-le în text.
+
+În aceste trei secțiuni poți scrie la nivelul unui specialist: denumiri comune
+internaționale, doze, scale, mărimi de efect, intervale de încredere, design-ul
+studiului și limitele lui.
+
 - `siguranta`: siguranța medicamentelor. Numai comunicări oficiale apărute în interval:
   comunicări directe către profesioniștii din domeniul sănătății și anunțuri ale ANMDM
   (anm.ro), recomandări ale EMA (PRAC, CHMP), comunicări de siguranță ale FDA sau MHRA,
@@ -133,8 +150,8 @@ Un singur obiect JSON, UTF-8:
 }
 ```
 
-- `data` este ziua de azi; `sectiune` este una dintre `psihiatrie`, `siguranta`,
-  `medicina`, `stiinta`, `arta`, `arhitectura`.
+- `data` este ziua de azi; `sectiune` este una dintre `psihiatrie`, `psihoterapie`,
+  `psihologie`, `siguranta`, `medicina`, `stiinta`, `arta`, `arhitectura`.
 - `sursa_data` este data publicării, `AAAA-LL-ZZ`, sau șir gol dacă nu apare în pagină.
 - `alte_surse`: zero până la două.
 - `trimiteri`: două până la patru legături pentru cine vrea să afle mai mult: studiul

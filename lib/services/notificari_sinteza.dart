@@ -117,7 +117,7 @@ class NotificariSinteza {
       id: _id,
       title: 'Sinteza săptămânii',
       body:
-          'A apărut ediția nouă: psihiatrie, medicină, științe, artă și '
+          'A apărut ediția nouă: psihiatrie, psihologie, medicină, științe, artă și '
           'arhitectură.',
       scheduledDate: urmatoareaAparitie(tz.TZDateTime.now(tz.local)),
       notificationDetails: const NotificationDetails(

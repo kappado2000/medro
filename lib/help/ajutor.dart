@@ -1009,7 +1009,7 @@ const ajutorCosturi = Ajutor(
 const ajutorSinteza = Ajutor(
   titlu: 'Sinteză',
   rezumat:
-      'O ediție pe săptămână cu noutăți din psihiatrie și psihoterapie (cercetare, '
+      'O ediție pe săptămână cu noutăți din psihiatrie, psihoterapie și psihologie (cercetare, '
       'inovații, aprobări, ghiduri), urmate de știri din restul medicinei, din științe, '
       'din artă și din arhitectură, din toată lumea: articole scurte în română, cu imagini și cu '
       'trimiteri la surse. Ediția nouă apare sâmbătă dimineața.',
@@ -1020,8 +1020,8 @@ const ajutorSinteza = Ajutor(
       puncte: [
         (
           'Secțiuni',
-          'ediția începe cu Psihiatrie și psihoterapie, secțiunea cu cele mai multe '
-              'articole. Urmează Siguranța medicamentelor, cu comunicările oficiale ale ANMDM, '
+          'ediția începe cu Psihiatrie, secțiunea cu cele mai multe articole, urmată de '
+              'Psihoterapie și Psihologie. Vine apoi Siguranța medicamentelor, cu comunicările oficiale ale ANMDM, '
               'EMA și FDA din săptămâna respectivă (lipsește dacă nu a apărut niciuna), apoi '
               'Medicină, Științe, Artă și Arhitectură. Pastilele de sub introducere '
               'arată o singură secțiune sau pe toate.',

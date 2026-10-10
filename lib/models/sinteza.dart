@@ -1,7 +1,9 @@
 /// Sectiunile unei editii, in ordinea in care sunt afisate.
 enum SectiuneSinteza {
   /// Sectiunea principala: deschide editia si are cele mai multe articole.
-  psihiatrie('psihiatrie', 'Psihiatrie și psihoterapie', 'Psihiatrie'),
+  psihiatrie('psihiatrie', 'Psihiatrie'),
+  psihoterapie('psihoterapie', 'Psihoterapie'),
+  psihologie('psihologie', 'Psihologie'),
 
   /// Comunicari oficiale de siguranta; poate lipsi dintr-o editie.
   siguranta('siguranta', 'Siguranța medicamentelor', 'Siguranță'),

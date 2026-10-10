@@ -14,6 +14,8 @@ import 'home_shell.dart';
 
 Color culoareSectiune(SectiuneSinteza s) => switch (s) {
   SectiuneSinteza.psihiatrie => SintezaColors.psihiatrie,
+  SectiuneSinteza.psihoterapie => SintezaColors.psihoterapie,
+  SectiuneSinteza.psihologie => SintezaColors.psihologie,
   SectiuneSinteza.siguranta => SintezaColors.siguranta,
   SectiuneSinteza.medicina => SintezaColors.medicina,
   SectiuneSinteza.stiinta => SintezaColors.stiinta,
@@ -24,6 +26,8 @@ Color culoareSectiune(SectiuneSinteza s) => switch (s) {
 
 IconData iconSectiune(SectiuneSinteza s) => switch (s) {
   SectiuneSinteza.psihiatrie => Icons.psychology_outlined,
+  SectiuneSinteza.psihoterapie => Icons.forum_outlined,
+  SectiuneSinteza.psihologie => Icons.emoji_objects_outlined,
   SectiuneSinteza.siguranta => Icons.health_and_safety_outlined,
   SectiuneSinteza.medicina => Icons.biotech_outlined,
   SectiuneSinteza.stiinta => Icons.science_outlined,
@@ -97,7 +101,7 @@ Future<void> _trimite(BuildContext context, String text) async {
   }
 }
 
-/// Sinteza saptamanala: noutati din psihiatrie si psihoterapie, din restul
+/// Sinteza saptamanala: noutati din psihiatrie, psihoterapie si psihologie, din restul
 /// cercetarii medicale, din stiinte, din arta si din arhitectura.
 class SintezaScreen extends StatefulWidget {
   const SintezaScreen({super.key});
@@ -284,7 +288,7 @@ class _SintezaScreenState extends State<SintezaScreen> {
                     const SizedBox(height: 6),
                     Text(
                       editie == null
-                          ? 'Psihiatrie, medicină, științe, artă, arhitectură'
+                          ? 'Psihiatrie, psihologie, medicină, științe, artă'
                           : 'Săptămâna ${editie.interval} · '
                                 '${editie.articole.length} articole',
                       maxLines: 1,

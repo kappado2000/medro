@@ -110,6 +110,8 @@ class SintezaColors {
   static const legatura = Color(0xFF3F6B7D);
 
   static const psihiatrie = Color(0xFF7A5C86);
+  static const psihoterapie = Color(0xFF3F8079);
+  static const psihologie = Color(0xFF5C62A0);
   static const siguranta = Color(0xFF9A4F5A);
   static const medicina = Color(0xFF5E8068);
   static const stiinta = Color(0xFF4F7190);

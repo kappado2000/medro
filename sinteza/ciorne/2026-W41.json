@@ -1,7 +1,7 @@
 {
  "data": "2026-10-10",
  "titlu": "Schizofrenia, pe trei fronturi: o terapie digitală, o psihoterapie și o injecție lunară; apoi, săptămâna Nobelurilor",
- "introducere": "Săptămâna a adus trei noutăți pentru tratamentul schizofreniei: prima terapie autorizată în Statele Unite pentru simptomele negative, un studiu randomizat care arată că psihoterapia psihodinamică îmbunătățește funcționarea și o formă lunară, subcutanată, de olanzapină. Un studiu mare leagă ADHD-ul adultului de declinul cognitiv de mai târziu. În rest, ediția stă sub semnul anunțurilor de la Stockholm: optogenetica, neutrinii de la Polul Sud, chiralitatea moleculelor și poeta Anne Carson. La arhitectură: muzeul de design din Gent, redeschis cu o aripă din cărămizi făcute din deșeuri de construcții, și opera din Shanghai a biroului Snøhetta, cu acoperișul ei pe care se poate urca.",
+ "introducere": "Săptămâna a adus două noutăți pentru tratamentul medicamentos și digital al schizofreniei, prima terapie autorizată în Statele Unite pentru simptomele negative și o formă lunară, subcutanată, de olanzapină, plus un studiu randomizat care arată că psihoterapia psihodinamică îmbunătățește funcționarea. Alte studii leagă ADHD-ul adultului de declinul cognitiv, arată cât de frecventă rămâne aplatizarea emoțională după remisiunea depresiei și testează pe 90.000 de pacienți un mesaj care crește vaccinarea. ANMDM semnalează un risc hepatic nou la ocrelizumab. În rest, ediția stă sub semnul anunțurilor de la Stockholm: optogenetica, neutrinii de la Polul Sud, chiralitatea moleculelor și poeta Anne Carson. La arhitectură: muzeul de design din Gent, redeschis cu o aripă din cărămizi făcute din deșeuri de construcții, și opera din Shanghai a biroului Snøhetta, cu acoperișul ei pe care se poate urca.",
  "articole": [
   {
    "sectiune": "psihiatrie",
@@ -31,41 +31,6 @@
     {
      "titlu": "Noutăți în psihiatrie, în UpToDate (engleză)",
      "url": "https://www.uptodate.com/contents/whats-new-in-psychiatry/print"
-    }
-   ]
-  },
-  {
-   "sectiune": "psihiatrie",
-   "titlu": "Psihoterapia psihodinamică îmbunătățește funcționarea în schizofrenie, arată un studiu randomizat din Berlin",
-   "rezumat": "Adăugată tratamentului obișnuit, o psihoterapie psihodinamică modificată și manualizată a îmbunătățit funcționarea psihosocială, iar beneficiul se menținea la un an după încheierea terapiei.",
-   "text": "Ghidurile recomandă în schizofrenie mai ales terapia cognitiv-comportamentală și intervențiile familiale; pentru psihoterapia psihodinamică, dovezile din studii controlate au fost până acum puține. Un studiu publicat în numărul din octombrie al revistei The Lancet Psychiatry aduce date dintr-un trial randomizat.\n\nStudiul a fost făcut la Clinica Universitară de Psihiatrie a Charité de la Spitalul St. Hedwig din Berlin: prospectiv, monocentric, cu grupuri paralele și cu evaluatori care nu știau ce tratament primise pacientul. Au fost incluși pacienți tratați ambulatoriu, de 18–64 de ani, cu schizofrenie sau tulburare schizoafectivă; au fost excluși cei cu tulburări organice cerebrale și cei cu abuz de alcool sau de droguri care cerea tratament specific. Participanții au fost repartizați aleatoriu, în raport de 1:1, fie la psihoterapie psihodinamică modificată pentru schizofrenie (MPP-S), cu minimum 30 de ședințe, adăugată tratamentului obișnuit, fie doar la tratamentul obișnuit.\n\nCriteriul principal nu a fost reducerea simptomelor, ci funcționarea psihosocială, măsurată cu scala Mini-ICF-APP, care evaluează limitările de activitate și de participare. Evaluările au fost făcute la includere, la sfârșitul tratamentului (24 de luni) și la urmărire (36 de luni). Psihoterapia adăugată tratamentului obișnuit a îmbunătățit funcționarea, iar beneficiul era încă prezent la un an după încheierea terapiei. Studiul a fost preînregistrat (NCT02576613).",
-   "de_ce_conteaza": "Este una dintre puținele dovezi randomizate pentru o abordare psihodinamică în tulburările din spectrul schizofreniei și folosește un criteriu care contează pentru pacienți: funcționarea. Limitele sunt cele ale unui studiu dintr-un singur centru, cu un comparator care nu controlează timpul petrecut cu terapeutul.",
-   "loc": "Berlin, Germania",
-   "sursa_nume": "The Lancet Psychiatry",
-   "sursa_url": "https://www.sciencedirect.com/science/article/pii/S2215036626002403",
-   "sursa_data": "",
-   "alte_surse": [
-    {
-     "nume": "PubMed",
-     "url": "https://pubmed.ncbi.nlm.nih.gov/42716057/"
-    }
-   ],
-   "trimiteri": [
-    {
-     "titlu": "Protocolul studiului, pe ClinicalTrials.gov",
-     "url": "https://clinicaltrials.gov/study/NCT02576613"
-    },
-    {
-     "titlu": "Numărul din octombrie al revistei The Lancet Psychiatry",
-     "url": "https://www.thelancet.com/journals/lanpsy/issue/current"
-    },
-    {
-     "titlu": "Intervențiile psihologice în schizofrenia rezistentă: meta-analiză în rețea (Lancet Psychiatry, 2024)",
-     "url": "https://www.thelancet.com/journals/lanpsy/article/PIIS2215-0366(24)00136-6/fulltext"
-    },
-    {
-     "titlu": "Psihoterapia psihodinamică, pe Wikipedia (engleză)",
-     "url": "https://en.wikipedia.org/wiki/Psychodynamic_psychotherapy"
     }
    ]
   },
@@ -136,6 +101,98 @@
     {
      "titlu": "ADHD la adult, pe Wikipedia (engleză)",
      "url": "https://en.wikipedia.org/wiki/Adult_attention_deficit_hyperactivity_disorder"
+    }
+   ]
+  },
+  {
+   "sectiune": "psihiatrie",
+   "titlu": "Aplatizarea emoțională rămâne frecventă și după remisiunea depresiei, arată un studiu din Thailanda",
+   "rezumat": "Peste jumătate dintre 106 pacienți ambulatori tratați cu antidepresive au raportat aplatizare emoțională; în remisiune, proporția era tot de 45%.",
+   "text": "Aplatizarea emoțională, senzația că emoțiile, plăcute și neplăcute, sunt estompate, este una dintre plângerile frecvente ale pacienților tratați pentru depresie și un motiv cunoscut de întrerupere a tratamentului. Un studiu publicat în BMC Psychiatry a măsurat cât de des apare la pacienți a căror depresie era ușoară, moderată sau în remisiune.\n\nNarak Chadbunchachai și colegii săi de la Universitatea Khon Kaen, din Thailanda, au evaluat 106 pacienți ambulatori aflați în tratament cu antidepresive. Mai mult de jumătate au raportat aplatizare emoțională. Frecvența nu a diferit semnificativ între pacienții cu tulburare depresivă majoră, cei cu tulburare depresivă persistentă și cei cu tulburare bipolară.\n\nFenomenul a fost mai rar la pacienții aflați în remisiune, dar a rămas frecvent și la ei: 45%. Autorii au urmărit și legătura dintre aplatizarea emoțională și adversitățile din copilărie.",
+   "de_ce_conteaza": "Rezultatul sugerează că aplatizarea emoțională nu este doar un simptom rezidual al depresiei și merită întrebată explicit și la pacienții care altfel merg bine. Este însă un studiu transversal, dintr-un singur centru și pe un eșantion mic, care nu poate despărți efectul bolii de cel al medicației.",
+   "loc": "Khon Kaen, Thailanda",
+   "sursa_nume": "PsyPost",
+   "sursa_url": "https://www.psypost.org/emotional-blunting-is-common-in-depression-and-bipolar-disorder-even-after-symptoms-ease/",
+   "sursa_data": "2026-10-09",
+   "alte_surse": [],
+   "trimiteri": [
+    {
+     "titlu": "Aplatizarea emoțională sub antidepresive: sinteză (Frontiers in Psychiatry)",
+     "url": "https://frontiersin.org/articles/10.3389/fpsyt.2021.792960/full"
+    },
+    {
+     "titlu": "Aplatizarea emoțională în studiul PREDDICT, cu vortioxetină (IJNP)",
+     "url": "https://academic.oup.com/ijnp/article/27/3/pyad066/7619250"
+    },
+    {
+     "titlu": "Afectul redus, pe Wikipedia (engleză)",
+     "url": "https://en.wikipedia.org/wiki/Reduced_affect_display"
+    }
+   ]
+  },
+  {
+   "sectiune": "psihoterapie",
+   "titlu": "Psihoterapia psihodinamică îmbunătățește funcționarea în schizofrenie, arată un studiu randomizat din Berlin",
+   "rezumat": "Adăugată tratamentului obișnuit, o psihoterapie psihodinamică modificată și manualizată a îmbunătățit funcționarea psihosocială, iar beneficiul se menținea la un an după încheierea terapiei.",
+   "text": "Ghidurile recomandă în schizofrenie mai ales terapia cognitiv-comportamentală și intervențiile familiale; pentru psihoterapia psihodinamică, dovezile din studii controlate au fost până acum puține. Un studiu publicat în numărul din octombrie al revistei The Lancet Psychiatry aduce date dintr-un trial randomizat.\n\nStudiul a fost făcut la Clinica Universitară de Psihiatrie a Charité de la Spitalul St. Hedwig din Berlin: prospectiv, monocentric, cu grupuri paralele și cu evaluatori care nu știau ce tratament primise pacientul. Au fost incluși pacienți tratați ambulatoriu, de 18–64 de ani, cu schizofrenie sau tulburare schizoafectivă; au fost excluși cei cu tulburări organice cerebrale și cei cu abuz de alcool sau de droguri care cerea tratament specific. Participanții au fost repartizați aleatoriu, în raport de 1:1, fie la psihoterapie psihodinamică modificată pentru schizofrenie (MPP-S), cu minimum 30 de ședințe, adăugată tratamentului obișnuit, fie doar la tratamentul obișnuit.\n\nCriteriul principal nu a fost reducerea simptomelor, ci funcționarea psihosocială, măsurată cu scala Mini-ICF-APP, care evaluează limitările de activitate și de participare. Evaluările au fost făcute la includere, la sfârșitul tratamentului (24 de luni) și la urmărire (36 de luni). Psihoterapia adăugată tratamentului obișnuit a îmbunătățit funcționarea, iar beneficiul era încă prezent la un an după încheierea terapiei. Studiul a fost preînregistrat (NCT02576613).",
+   "de_ce_conteaza": "Este una dintre puținele dovezi randomizate pentru o abordare psihodinamică în tulburările din spectrul schizofreniei și folosește un criteriu care contează pentru pacienți: funcționarea. Limitele sunt cele ale unui studiu dintr-un singur centru, cu un comparator care nu controlează timpul petrecut cu terapeutul.",
+   "loc": "Berlin, Germania",
+   "sursa_nume": "The Lancet Psychiatry",
+   "sursa_url": "https://www.sciencedirect.com/science/article/pii/S2215036626002403",
+   "sursa_data": "",
+   "alte_surse": [
+    {
+     "nume": "PubMed",
+     "url": "https://pubmed.ncbi.nlm.nih.gov/42716057/"
+    }
+   ],
+   "trimiteri": [
+    {
+     "titlu": "Protocolul studiului, pe ClinicalTrials.gov",
+     "url": "https://clinicaltrials.gov/study/NCT02576613"
+    },
+    {
+     "titlu": "Numărul din octombrie al revistei The Lancet Psychiatry",
+     "url": "https://www.thelancet.com/journals/lanpsy/issue/current"
+    },
+    {
+     "titlu": "Intervențiile psihologice în schizofrenia rezistentă: meta-analiză în rețea (Lancet Psychiatry, 2024)",
+     "url": "https://www.thelancet.com/journals/lanpsy/article/PIIS2215-0366(24)00136-6/fulltext"
+    },
+    {
+     "titlu": "Psihoterapia psihodinamică, pe Wikipedia (engleză)",
+     "url": "https://en.wikipedia.org/wiki/Psychodynamic_psychotherapy"
+    }
+   ]
+  },
+  {
+   "sectiune": "psihologie",
+   "titlu": "„Ai un risc crescut”: un mesaj personalizat crește vaccinarea antigripală, în trei studii pe peste 90.000 de pacienți",
+   "rezumat": "Pacienții anunțați că un algoritm i-a identificat ca având risc mare de gripă s-au vaccinat mai des decât cei care au primit un simplu memento; faptul că riscul fusese calculat de un algoritm nu a contat.",
+   "text": "Științele comportamentale caută de ani buni „îndemnuri” ieftine care să schimbe decizii de sănătate. Un studiu publicat pe 5 octombrie în Nature Human Behaviour testează unul la scară mare: să îi spui pacientului că are, personal, un risc crescut.\n\nCercetătorii au făcut trei studii randomizate, preînregistrate, pe peste 90.000 de pacienți ai unui sistem de sănătate din Statele Unite. Un algoritm de învățare automată, validat anterior, i-a identificat pe cei cu risc mare de gripă și de complicații. Aceștia au fost repartizați aleatoriu: unii nu au primit niciun mesaj, iar ceilalți au primit unul dintre mai multe mesaje care îi încurajau să se vaccineze.\n\nLa pacienții informați că au risc crescut, vaccinarea a fost cu 1,1–1,4 puncte procentuale mai mare decât la cei care au primit doar un memento (o creștere relativă de 3,3–5,4%) și cu 1,7–3,5 puncte procentuale mai mare decât la cei care nu au primit niciun mesaj (3,3–14,7%).\n\nAutorii au testat și o întrebare legată de încrederea în inteligența artificială: schimbă ceva dacă pacientului i se spune că riscul a fost stabilit de un algoritm? Nu au găsit niciun efect suplimentar, nici în bine, nici în rău.",
+   "de_ce_conteaza": "Efectul este mic pentru un om, dar apreciabil la scara unui sistem de sănătate, pentru un mesaj care nu costă aproape nimic. Studiul arată și că oamenii nu resping o recomandare doar pentru că vine de la un algoritm, o temere frecventă în medicina digitală.",
+   "loc": "Statele Unite",
+   "sursa_nume": "Nature Human Behaviour",
+   "sursa_url": "https://www.nature.com/articles/s41562-026-02603-4",
+   "sursa_data": "2026-10-05",
+   "alte_surse": [
+    {
+     "nume": "ThePrint",
+     "url": "https://theprint.in/feature/could-a-personalised-flu-warning-get-more-people-vaccinated-us-study-says-yes/3063311/"
+    }
+   ],
+   "trimiteri": [
+    {
+     "titlu": "Preprintul studiului, pe PsyArXiv",
+     "url": "https://osf.io/preprints/psyarxiv/vtxza"
+    },
+    {
+     "titlu": "Protocolul, pe ClinicalTrials.gov",
+     "url": "https://clinicaltrials.gov/study/NCT05509283"
+    },
+    {
+     "titlu": "Teoria îndemnurilor (nudge), pe Wikipedia (engleză)",
+     "url": "https://en.wikipedia.org/wiki/Nudge_theory"
     }
    ]
   },
