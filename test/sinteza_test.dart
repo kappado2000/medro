@@ -8,8 +8,11 @@ import 'package:medro/models/sinteza.dart';
 import 'package:medro/providers/sinteza_provider.dart';
 import 'package:medro/screens/home_shell.dart';
 import 'package:medro/screens/sinteza_screen.dart';
+import 'package:medro/services/notificari_sinteza.dart';
 import 'package:medro/services/sinteza_store.dart';
 import 'package:provider/provider.dart';
+import 'package:timezone/data/latest.dart' as tzdata;
+import 'package:timezone/timezone.dart' as tz;
 
 Map<String, dynamic> _articol(String id, String sectiune, String titlu) => {
   'id': id,
@@ -91,8 +94,93 @@ Widget _aplicatie(SintezaProvider provider) => ChangeNotifierProvider.value(
   child: const MaterialApp(home: Scaffold(body: SintezaScreen())),
 );
 
+/// Tine minte alegerea, fara sa atinga notificarile telefonului.
+class _NotificariDeProba extends NotificariSinteza {
+  bool? stare;
+  _NotificariDeProba([this.stare]);
+
+  @override
+  Future<bool?> alegere() async => stare;
+
+  @override
+  Future<bool> seteaza(bool pornita) async => stare = pornita;
+}
+
 void main() {
-  tearDown(() => tabCurent.value = 0);
+  tearDown(() {
+    tabCurent.value = 0;
+    NotificariSinteza.instance = NotificariSinteza();
+  });
+
+  test('textul trimis altora are titlul si adresa de pe pagina web', () {
+    final e = EditieSinteza.dinJson(_editie('2026-W41', _intervalNou));
+    expect(
+      textDeTrimis(e),
+      'Sinteza săptămânii, 3–10 octombrie 2026\n'
+      'Titlul ediției 2026-W41\n'
+      'https://medro-asistent-2026.web.app/sinteza/#2026-W41',
+    );
+    final articol = textDeTrimis(e, e.articole[2]);
+    expect(articol, startsWith('Articol de artă\n'));
+    expect(
+      articol,
+      endsWith('https://medro-asistent-2026.web.app/sinteza/#2026-W41/a3'),
+    );
+  });
+
+  test('notificarea cade in prima sambata la ora 9, si peste ora de iarna', () {
+    tzdata.initializeTimeZones();
+    final ro = tz.getLocation('Europe/Bucharest');
+    tz.TZDateTime la(int luna, int zi, int ora) =>
+        tz.TZDateTime(ro, 2026, luna, zi, ora);
+    // sambata, 10 octombrie 2026
+    expect(NotificariSinteza.urmatoareaAparitie(la(10, 10, 8)), la(10, 10, 9));
+    expect(NotificariSinteza.urmatoareaAparitie(la(10, 10, 9)), la(10, 17, 9));
+    expect(NotificariSinteza.urmatoareaAparitie(la(10, 12, 15)), la(10, 17, 9));
+    // 25 octombrie 2026: trecerea la ora de iarna, intre sambata 24 si sambata 31
+    final peste = NotificariSinteza.urmatoareaAparitie(la(10, 24, 10));
+    expect(peste, la(10, 31, 9));
+    expect(peste.hour, 9);
+  });
+
+  testWidgets('invitatia la notificare apare o data si dispare dupa alegere', (
+    tester,
+  ) async {
+    tester.view.physicalSize = const Size(1170, 2532);
+    tester.view.devicePixelRatio = 3;
+    addTearDown(tester.view.reset);
+    final notificari = _NotificariDeProba();
+    NotificariSinteza.instance = notificari;
+
+    tabCurent.value = tabSinteza;
+    await tester.pumpWidget(_aplicatie(SintezaProvider(_store())));
+    await tester.pumpAndSettle();
+    expect(find.textContaining('Vrei o notificare'), findsOneWidget);
+
+    await tester.tap(find.text('Da, anunță-mă'));
+    await tester.pumpAndSettle();
+    expect(notificari.stare, isTrue);
+    expect(find.textContaining('Vrei o notificare'), findsNothing);
+    expect(find.textContaining('Vei primi o notificare'), findsOneWidget);
+  });
+
+  testWidgets('notificarea se opreste din meniul cu trei puncte', (
+    tester,
+  ) async {
+    final notificari = _NotificariDeProba(true);
+    NotificariSinteza.instance = notificari;
+
+    tabCurent.value = tabSinteza;
+    await tester.pumpWidget(_aplicatie(SintezaProvider(_store())));
+    await tester.pumpAndSettle();
+    expect(find.textContaining('Vrei o notificare'), findsNothing);
+
+    await tester.tap(find.byIcon(Icons.more_vert));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Notificare sâmbăta'));
+    await tester.pumpAndSettle();
+    expect(notificari.stare, isFalse);
+  });
 
   test('articolul se citeste din JSON, cu paragrafe si trimiteri', () {
     final e = EditieSinteza.dinJson(_editie('2026-W41', _intervalNou));
@@ -189,13 +277,15 @@ void main() {
     expect(find.text('ACEEAȘI ȘTIRE, ÎN ALTE REDACȚII'), findsOneWidget);
   });
 
-  testWidgets('ceasul din antet deschide lista editiilor', (tester) async {
+  testWidgets('meniul din antet deschide lista editiilor', (tester) async {
     tabCurent.value = tabSinteza;
     final p = SintezaProvider(_store());
     await tester.pumpWidget(_aplicatie(p));
     await tester.pumpAndSettle();
 
-    await tester.tap(find.byIcon(Icons.history));
+    await tester.tap(find.byIcon(Icons.more_vert));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Ediții anterioare'));
     await tester.pumpAndSettle();
     await tester.tap(find.text(_intervalVechi));
     await tester.pumpAndSettle();

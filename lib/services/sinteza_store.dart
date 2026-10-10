@@ -18,6 +18,10 @@ class SintezaStore {
     defaultValue: 'https://medro-asistent-2026.web.app/sinteza/date/',
   );
 
+  /// Pagina web a Sintezei, cea trimisa altora; `#editie` sau
+  /// `#editie/articol` deschide direct o editie sau un articol.
+  static const paginaPublica = 'https://medro-asistent-2026.web.app/sinteza/';
+
   final String url;
 
   /// Clientul HTTP; in teste se inlocuieste cu unul simulat.

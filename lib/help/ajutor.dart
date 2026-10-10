@@ -1033,12 +1033,24 @@ const ajutorSinteza = Ajutor(
         ),
         (
           'Ediții anterioare',
-          'ceasul din antet deschide lista edițiilor publicate până acum; apare după '
-              'ce există cel puțin două ediții.',
+          'meniul cu trei puncte din antet deschide lista edițiilor publicate până '
+              'acum; apare după ce există cel puțin două ediții.',
         ),
         (
           'Ediție nouă',
           'trage lista în jos ca să verifici dacă a apărut ediția săptămânii.',
+        ),
+        (
+          'Notificare sâmbăta',
+          'din meniul cu trei puncte poți porni o notificare în fiecare sâmbătă la ora '
+              '9, când apare de obicei ediția nouă. Atingerea ei deschide direct Sinteza.',
+        ),
+        (
+          'Trimite ediția',
+          'săgeata din antet deschide fereastra telefonului de trimis (WhatsApp, Mesaje, '
+              'e-mail), cu titlul ediției și legătura către pagina web, pe care o poate '
+              'citi oricine, fără aplicație. Aceeași săgeată, în pagina unui articol, '
+              'trimite doar articolul.',
         ),
       ],
     ),
@@ -1082,6 +1094,11 @@ const ajutorSinteza = Ajutor(
           'Necesită internet',
           'edițiile și imaginile se descarcă de pe internet. O ediție deja deschisă '
               'rămâne pe telefon și poate fi recitită fără conexiune, dar fără imagini.',
+        ),
+        (
+          'Notificarea nu verifică ediția',
+          'este programată de telefon pentru sâmbătă la ora 9 și apare chiar dacă, '
+              'într-o săptămână, ediția întârzie sau nu a putut fi generată.',
         ),
         (
           'Imaginile',

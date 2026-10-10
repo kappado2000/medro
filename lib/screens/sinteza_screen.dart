@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
+import 'package:share_plus/share_plus.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../help/ajutor.dart';
 import '../models/sinteza.dart';
 import '../providers/sinteza_provider.dart';
+import '../services/notificari_sinteza.dart';
+import '../services/sinteza_store.dart';
 import '../theme/app_theme.dart';
 import 'home_shell.dart';
 
@@ -60,6 +63,40 @@ Future<void> _deschideLegatura(BuildContext context, String url) async {
   }
 }
 
+/// Textul trimis altora: titlul editiei sau al articolului si adresa lui pe
+/// pagina web a Sintezei.
+String textDeTrimis(EditieSinteza editie, [ArticolSinteza? articol]) {
+  final adresa = '${SintezaStore.paginaPublica}#${editie.id}';
+  if (articol == null) {
+    return 'Sinteza săptămânii, ${editie.interval}\n${editie.titlu}\n$adresa';
+  }
+  return '${articol.titlu}\n'
+      'Din Sinteza săptămânii, ${editie.interval}\n'
+      '$adresa/${articol.id}';
+}
+
+/// Deschide fereastra telefonului de trimis (WhatsApp, Mesaje, e-mail…).
+Future<void> _trimite(BuildContext context, String text) async {
+  // pe iPad fereastra are nevoie de locul din care se deschide
+  final cutie = context.findRenderObject() as RenderBox?;
+  try {
+    await SharePlus.instance.share(
+      ShareParams(
+        text: text,
+        subject: 'Sinteza săptămânii',
+        sharePositionOrigin: cutie == null
+            ? null
+            : cutie.localToGlobal(Offset.zero) & cutie.size,
+      ),
+    );
+  } catch (_) {
+    if (!context.mounted) return;
+    ScaffoldMessenger.of(context).showSnackBar(
+      const SnackBar(content: Text('Trimiterea nu este disponibilă aici.')),
+    );
+  }
+}
+
 /// Sinteza saptamanala: noutati din psihiatrie si psihoterapie, din restul
 /// cercetarii medicale, din stiinte, din arta si din arhitectura.
 class SintezaScreen extends StatefulWidget {
@@ -73,11 +110,42 @@ class _SintezaScreenState extends State<SintezaScreen> {
   /// Sectiunea aleasa din filtre; null inseamna toate.
   SectiuneSinteza? _filtru;
 
+  /// Notificarea de sambata: pornita, oprita sau null daca utilizatorul nu a
+  /// fost inca intrebat.
+  bool? _notificare;
+  bool _notificareCitita = false;
+
   @override
   void initState() {
     super.initState();
     tabCurent.addListener(_laSchimbareaSectiunii);
     _laSchimbareaSectiunii();
+    NotificariSinteza.instance.alegere().then((v) {
+      if (!mounted) return;
+      setState(() {
+        _notificare = v;
+        _notificareCitita = true;
+      });
+    });
+  }
+
+  Future<void> _seteazaNotificarea(bool pornita) async {
+    final reusit = await NotificariSinteza.instance.seteaza(pornita);
+    if (!mounted) return;
+    setState(() => _notificare = reusit);
+    ScaffoldMessenger.of(context)
+      ..hideCurrentSnackBar()
+      ..showSnackBar(
+        SnackBar(
+          content: Text(
+            reusit
+                ? 'Vei primi o notificare sâmbăta la ${NotificariSinteza.ora}:00.'
+                : pornita
+                ? 'Notificările sunt oprite pentru MedRO în setările telefonului.'
+                : 'Notificarea de sâmbătă a fost oprită.',
+          ),
+        ),
+      );
   }
 
   @override
@@ -172,15 +240,44 @@ class _SintezaScreenState extends State<SintezaScreen> {
                             ),
                           ),
                         ),
-                        if (provider.editii.length > 1)
-                          IconButton(
-                            tooltip: 'Ediții anterioare',
-                            icon: const Icon(
-                              Icons.history,
-                              color: Colors.white,
+                        if (editie != null)
+                          Builder(
+                            builder: (context) => IconButton(
+                              tooltip: 'Trimite ediția',
+                              icon: const Icon(
+                                Icons.ios_share,
+                                color: Colors.white,
+                              ),
+                              onPressed: () =>
+                                  _trimite(context, textDeTrimis(editie)),
                             ),
-                            onPressed: () => _arataArhiva(provider),
                           ),
+                        PopupMenuButton<String>(
+                          tooltip: 'Mai multe',
+                          icon: const Icon(
+                            Icons.more_vert,
+                            color: Colors.white,
+                          ),
+                          onSelected: (ales) {
+                            if (ales == 'arhiva') {
+                              _arataArhiva(provider);
+                            } else {
+                              _seteazaNotificarea(!(_notificare ?? false));
+                            }
+                          },
+                          itemBuilder: (context) => [
+                            if (provider.editii.length > 1)
+                              const PopupMenuItem(
+                                value: 'arhiva',
+                                child: Text('Ediții anterioare'),
+                              ),
+                            CheckedPopupMenuItem(
+                              value: 'notificare',
+                              checked: _notificare ?? false,
+                              child: const Text('Notificare sâmbăta'),
+                            ),
+                          ],
+                        ),
                         const ButonAjutor(ajutorSinteza),
                       ],
                     ),
@@ -276,6 +373,11 @@ class _SintezaScreenState extends State<SintezaScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+                // o singura data, pana cand utilizatorul alege
+                if (_notificareCitita && _notificare == null) ...[
+                  _InvitatieNotificare(laAlegere: _seteazaNotificarea),
+                  const SizedBox(height: 18),
+                ],
                 if (provider.eroare != null) ...[
                   Text(
                     provider.eroare!,
@@ -339,6 +441,67 @@ class _SintezaScreenState extends State<SintezaScreen> {
                     fontSize: 12,
                     height: 1.45,
                   ),
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+/// Intrebarea pusa o singura data: vrei notificarea de sambata?
+class _InvitatieNotificare extends StatelessWidget {
+  final ValueChanged<bool> laAlegere;
+  const _InvitatieNotificare({required this.laAlegere});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.fromLTRB(14, 12, 8, 6),
+      decoration: BoxDecoration(
+        color: SintezaColors.card,
+        borderRadius: BorderRadius.circular(14),
+        border: Border.all(color: SintezaColors.linie),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const Icon(
+                Icons.notifications_none,
+                color: SintezaColors.legatura,
+                size: 22,
+              ),
+              const SizedBox(width: 10),
+              Expanded(
+                child: Text(
+                  'Vrei o notificare sâmbăta dimineața, când apare ediția nouă?',
+                  style: _serif(15.5).copyWith(height: 1.35),
+                ),
+              ),
+            ],
+          ),
+          Align(
+            alignment: Alignment.centerRight,
+            child: Wrap(
+              children: [
+                TextButton(
+                  onPressed: () => laAlegere(false),
+                  style: TextButton.styleFrom(
+                    foregroundColor: SintezaColors.estompat,
+                  ),
+                  child: const Text('Nu acum'),
+                ),
+                TextButton(
+                  onPressed: () => laAlegere(true),
+                  style: TextButton.styleFrom(
+                    foregroundColor: SintezaColors.legatura,
+                  ),
+                  child: const Text('Da, anunță-mă'),
                 ),
               ],
             ),
@@ -626,6 +789,15 @@ class ArticolSintezaScreen extends StatelessWidget {
           '${a.sectiune.eticheta} · ${editie.interval}',
           style: const TextStyle(fontSize: 14, color: SintezaColors.estompat),
         ),
+        actions: [
+          Builder(
+            builder: (context) => IconButton(
+              tooltip: 'Trimite articolul',
+              icon: const Icon(Icons.ios_share),
+              onPressed: () => _trimite(context, textDeTrimis(editie, a)),
+            ),
+          ),
+        ],
       ),
       body: SelectionArea(
         child: ListView(

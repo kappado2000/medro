@@ -14,6 +14,7 @@ import 'screens/acces_screen.dart';
 import 'screens/home_shell.dart';
 import 'services/claude_client.dart';
 import 'services/data_store.dart';
+import 'services/notificari_sinteza.dart';
 import 'services/voce.dart';
 import 'theme/app_theme.dart';
 
@@ -22,6 +23,10 @@ Future<void> main() async {
   // afla daca exista date descarcate mai noi decat cele din pachet
   await DataStore.instance.init();
   runApp(const MedRoApp());
+  // atingerea notificarii de sambata deschide direct sectiunea Sinteză
+  NotificariSinteza.instance
+    ..laAtingere = (() => tabCurent.value = tabSinteza)
+    ..init();
 }
 
 class MedRoApp extends StatelessWidget {
