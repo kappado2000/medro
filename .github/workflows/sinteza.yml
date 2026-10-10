@@ -11,6 +11,9 @@ on:
     branches: [main]
     paths:
       - 'sinteza/ciorne/**'
+      # pagina web si scriptul de publicare se republica si ele la modificare
+      - 'hosting/sinteza/index.html'
+      - 'tool/build_sinteza.py'
   workflow_dispatch: {}
 
 # acelasi grup ca fluxul de date: amandoua scriu in main si publica hosting-ul
