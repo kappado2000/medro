@@ -9,12 +9,14 @@ import 'calculatoare_screen.dart';
 import 'icd_screen.dart';
 import 'interactiuni_screen.dart';
 import 'medicamente_screen.dart';
+import 'sinteza_screen.dart';
 
 /// Sectiunea afisata; alte ecrane o pot schimba (ex. "Întreabă asistentul").
 final tabCurent = ValueNotifier<int>(0);
 
 const tabInteractiuni = 1;
 const tabAsistent = 4;
+const tabSinteza = 5;
 
 class HomeShell extends StatelessWidget {
   const HomeShell({super.key});
@@ -25,6 +27,7 @@ class HomeShell extends StatelessWidget {
     CalculatoareScreen(),
     IcdScreen(),
     AsistentScreen(),
+    SintezaScreen(),
   ];
 
   @override
@@ -60,6 +63,7 @@ class _BaraJos extends StatelessWidget {
     'Calculatoare',
     'ICD-10',
     'Asistent',
+    'Sinteză',
   ];
 
   static const _iconite = <IconData?>[
@@ -68,6 +72,7 @@ class _BaraJos extends StatelessWidget {
     Icons.calculate_outlined,
     Icons.account_tree_outlined,
     Icons.auto_awesome,
+    Icons.auto_stories_outlined,
   ];
 
   /// Cat de opac este banerul; restul lasa sa se vada lista de dedesubt.

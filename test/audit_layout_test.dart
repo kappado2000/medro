@@ -1,15 +1,22 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:http/http.dart' as http;
+import 'package:http/testing.dart';
 import 'package:medro/calculators/lista_calculatoare.dart';
 import 'package:medro/help/ajutor.dart';
 import 'package:medro/providers/asistent_provider.dart';
 import 'package:medro/providers/icd_provider.dart';
 import 'package:medro/providers/interactiuni_provider.dart';
 import 'package:medro/providers/medicamente_provider.dart';
+import 'package:medro/providers/sinteza_provider.dart';
 import 'package:medro/screens/calculator_screen.dart';
 import 'package:medro/screens/home_shell.dart';
 import 'package:medro/screens/icd_screen.dart';
 import 'package:medro/screens/medicament_detail_screen.dart';
+import 'package:medro/screens/sinteza_screen.dart';
+import 'package:medro/services/sinteza_store.dart';
 import 'package:medro/theme/app_theme.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -22,6 +29,7 @@ void main() {
   late MedicamenteProvider med;
   late IcdProvider icd;
   late InteractiuniProvider inter;
+  late SintezaProvider sinteza;
 
   setUpAll(() async {
     SharedPreferences.setMockInitialValues({});
@@ -31,6 +39,21 @@ void main() {
     await icd.incarca();
     inter = InteractiuniProvider();
     await inter.incarca();
+    // editia publicata in repo, servita de un client simulat
+    sinteza = SintezaProvider(
+      SintezaStore(
+        url: 'https://exemplu.test/',
+        client: MockClient((cerere) async {
+          final f = File(
+            'hosting/sinteza/date/${cerere.url.pathSegments.last}',
+          );
+          return f.existsSync()
+              ? http.Response.bytes(f.readAsBytesSync(), 200)
+              : http.Response('', 404);
+        }),
+      ),
+    );
+    await sinteza.incarcaLaPrimaDeschidere();
   });
 
   Widget cadru(Widget ecran, double scara) {
@@ -40,6 +63,7 @@ void main() {
         ChangeNotifierProvider.value(value: icd),
         ChangeNotifierProvider.value(value: inter),
         ChangeNotifierProvider(create: (_) => AsistentProvider()..cheie = 'x'),
+        ChangeNotifierProvider.value(value: sinteza),
       ],
       child: MaterialApp(
         theme: buildAppTheme(),
@@ -68,13 +92,38 @@ void main() {
       addTearDown(() => tabCurent.value = 0);
     }
 
-    testWidgets('cele cinci sectiuni: $eticheta', (tester) async {
+    testWidgets('cele sase sectiuni: $eticheta', (tester) async {
       await pregateste(tester);
       await tester.pumpWidget(cadru(const HomeShell(), scara));
-      for (var i = 0; i < 5; i++) {
+      for (var i = 0; i < 6; i++) {
         tabCurent.value = i;
         await tester.pump(const Duration(milliseconds: 300));
         expect(tester.takeException(), isNull, reason: 'sectiunea $i');
+      }
+    });
+
+    testWidgets('Sinteză, lista si articolele: $eticheta', (tester) async {
+      await pregateste(tester);
+      final editie = sinteza.editie!;
+      await tester.pumpWidget(cadru(const HomeShell(), scara));
+      tabCurent.value = tabSinteza;
+      await tester.pump(const Duration(milliseconds: 300));
+      // lista intreaga, pana la nota de la sfarsit
+      await tester.scrollUntilVisible(
+        find.textContaining('Textele sunt rezumate'),
+        500,
+        scrollable: find.byType(Scrollable).last,
+      );
+      expect(tester.takeException(), isNull, reason: 'lista');
+      for (final a in editie.articole) {
+        await tester.pumpWidget(
+          cadru(ArticolSintezaScreen(editie: editie, articol: a), scara),
+        );
+        await tester.pump();
+        expect(tester.takeException(), isNull, reason: a.titlu);
+        await tester.drag(find.byType(ListView), const Offset(0, -6000));
+        await tester.pump();
+        expect(tester.takeException(), isNull, reason: '${a.titlu} (jos)');
       }
     });
 

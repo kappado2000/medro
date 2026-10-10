@@ -15,6 +15,7 @@ void main() {
     ajutorInstrumente,
     ajutorCosturi,
     ajutorCautareRcp,
+    ajutorSinteza,
   ];
 
   test('fiecare pagina de ajutor are continut si un capitol de limite', () {
@@ -77,6 +78,7 @@ void main() {
       'Calculatoare': 'Despre Calculatoare',
       'ICD-10': 'Despre ICD-10',
       'Asistent': 'Despre Asistent',
+      'Sinteză': 'Despre Sinteză',
     };
     for (final e in etichete.entries) {
       await tester.tap(find.bySemanticsLabel(e.key).last);

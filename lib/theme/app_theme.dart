@@ -98,3 +98,23 @@ ThemeData buildAppTheme({FontWeight grosime = FontWeight.w400}) {
     ),
   );
 }
+
+/// Paleta paginilor de lectura din Sinteză: hartie calda, cerneala moale si
+/// accente stinse, ca textul lung sa nu oboseasca ochii.
+class SintezaColors {
+  static const hartie = Color(0xFFF4EFE6);
+  static const card = Color(0xFFFBF8F2);
+  static const cerneala = Color(0xFF2E2B27);
+  static const estompat = Color(0xFF7A7268);
+  static const linie = Color(0xFFE3DACB);
+  static const legatura = Color(0xFF3F6B7D);
+
+  static const psihiatrie = Color(0xFF7A5C86);
+  static const medicina = Color(0xFF5E8068);
+  static const stiinta = Color(0xFF4F7190);
+  static const arta = Color(0xFFB0694F);
+}
+
+/// Litera cu serife a textelor de citit; fiecare platforma o are pe a ei.
+const fontLectura = 'Georgia';
+const fontLecturaRezerve = ['Noto Serif', 'Times New Roman', 'serif'];

@@ -9,6 +9,7 @@ import 'providers/icd_provider.dart';
 import 'providers/interactiuni_provider.dart';
 import 'providers/medicamente_provider.dart';
 import 'providers/setari_text_provider.dart';
+import 'providers/sinteza_provider.dart';
 import 'screens/acces_screen.dart';
 import 'screens/home_shell.dart';
 import 'services/claude_client.dart';
@@ -38,6 +39,8 @@ class MedRoApp extends StatelessWidget {
         ChangeNotifierProvider(
           create: (_) => InteractiuniProvider()..incarca(),
         ),
+        // se incarca abia la prima deschidere a sectiunii
+        ChangeNotifierProvider(create: (_) => SintezaProvider()),
         ChangeNotifierProvider(
           create: (context) {
             final auth = context.read<AuthProvider>();

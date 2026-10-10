@@ -14,6 +14,13 @@
       {
         "source": "/date/**",
         "headers": [{ "key": "Cache-Control", "value": "no-cache" }]
+      },
+      {
+        "source": "/sinteza/**",
+        "headers": [
+          { "key": "Cache-Control", "value": "no-cache" },
+          { "key": "Access-Control-Allow-Origin", "value": "*" }
+        ]
       }
     ]
   }

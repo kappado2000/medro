@@ -1,0 +1,76 @@
+name: Sinteza saptamanala (psihiatrie, medicina, stiinte, arta)
+
+# Genereaza editia saptamanii cu Claude (cautare pe web), o salveaza in repo si
+# o publica pe Firebase Hosting, de unde o citesc aplicatia si pagina web
+# hosting/sinteza/. Ruleaza pe Linux, cateva minute pe saptamana.
+on:
+  schedule:
+    - cron: '0 4 * * 6' # sambata, 04:00 UTC (07:00 vara, 06:00 iarna, ora Romaniei)
+  workflow_dispatch:
+    inputs:
+      forteaza:
+        description: Reface editia saptamanii curente, daca exista deja
+        type: boolean
+        default: false
+
+# acelasi grup ca fluxul de date: amandoua scriu in main si publica hosting-ul
+concurrency: date
+
+jobs:
+  sinteza:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - run: pip install anthropic
+
+      # daca prea putine articole trec de verificarea surselor, fluxul se
+      # opreste aici si ramane editia de saptamana trecuta
+      - name: Genereaza editia
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          # modelul se poate schimba din Settings > Variables, fara commit
+          SINTEZA_MODEL: ${{ vars.SINTEZA_MODEL || 'claude-opus-5-5' }}
+        run: |
+          if [ -z "$ANTHROPIC_API_KEY" ]; then
+            echo "::error::Secretul ANTHROPIC_API_KEY lipseste; editia nu poate fi generata."
+            exit 1
+          fi
+          python tool/build_sinteza.py ${{ inputs.forteaza && '--forteaza' || '' }}
+
+      - name: Salveaza editia in repo
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add hosting/sinteza
+          if git diff --cached --quiet; then
+            echo "Nicio editie noua."
+          else
+            git commit -m "Sinteza: editia saptamanii"
+            git pull --rebase
+            git push
+          fi
+
+      # hosting/date/ nu este in repo; fara acest pas, publicarea ar sterge de
+      # pe server datele aplicatiei
+      - name: Pregateste si datele aplicatiei pentru publicare
+        run: python tool/publica_date.py
+
+      - name: Publica pe Firebase Hosting
+        env:
+          CONT: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_MEDRO_ASISTENT_2026 }}
+        run: |
+          if [ -z "$CONT" ]; then
+            echo "::warning::Secretul FIREBASE_SERVICE_ACCOUNT_MEDRO_ASISTENT_2026 lipseste; editia nu a fost publicata."
+            exit 0
+          fi
+          echo "$CONT" > "$RUNNER_TEMP/cont.json"
+          export GOOGLE_APPLICATION_CREDENTIALS="$RUNNER_TEMP/cont.json"
+          npx --yes firebase-tools@latest deploy --only hosting --project medro-asistent-2026 --non-interactive
+          rm -f "$RUNNER_TEMP/cont.json"

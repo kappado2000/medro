@@ -1,0 +1,327 @@
+<!doctype html>
+<html lang="ro">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<meta name="referrer" content="no-referrer">
+<title>Sinteza săptămânii</title>
+<!--
+  Pagina de lectura a Sintezei pentru familie si prieteni. Citeste aceleasi
+  fisiere ca aplicatia (date/index.json si date/<editie>.json), generate
+  saptamanal de tool/build_sinteza.py. Un singur fisier, fara dependinte.
+-->
+<style>
+  :root {
+    --hartie: #f4efe6;
+    --card: #fbf8f2;
+    --cerneala: #2e2b27;
+    --estompat: #7a7268;
+    --linie: #e3dacb;
+    --legatura: #3f6b7d;
+    --psihiatrie: #7a5c86;
+    --medicina: #5e8068;
+    --stiinta: #4f7190;
+    --arta: #b0694f;
+    --serif: Georgia, "Iowan Old Style", "Noto Serif", "Times New Roman", serif;
+    --sans: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --hartie: #1f1d1a;
+      --card: #292622;
+      --cerneala: #e6dfd3;
+      --estompat: #a39a8c;
+      --linie: #3a362f;
+      --legatura: #8fb7c7;
+      --psihiatrie: #b79ac2;
+      --medicina: #93b59d;
+      --stiinta: #8fb0cd;
+      --arta: #d99a80;
+    }
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--hartie);
+    color: var(--cerneala);
+    font-family: var(--serif);
+    font-size: 18px;
+    line-height: 1.62;
+  }
+  a { color: var(--legatura); }
+  .pagina { max-width: 1040px; margin: 0 auto; padding: 0 20px 64px; }
+  .ingust { max-width: 700px; margin: 0 auto; }
+
+  header.cap {
+    text-align: center;
+    padding: 34px 0 20px;
+    border-bottom: 3px double var(--linie);
+  }
+  header.cap a { color: inherit; text-decoration: none; }
+  header.cap h1 { margin: 0; font-size: clamp(30px, 6vw, 46px); line-height: 1.1; letter-spacing: -0.5px; }
+  header.cap p {
+    margin: 8px 0 0;
+    font-family: var(--sans);
+    font-size: 12.5px;
+    letter-spacing: 1.6px;
+    text-transform: uppercase;
+    color: var(--estompat);
+  }
+  .bara {
+    display: flex; flex-wrap: wrap; gap: 8px; align-items: center; justify-content: center;
+    padding: 14px 0;
+    font-family: var(--sans); font-size: 14px;
+  }
+  .bara select, .pastila {
+    font: inherit;
+    color: var(--cerneala);
+    background: var(--card);
+    border: 1px solid var(--linie);
+    border-radius: 18px;
+    padding: 7px 14px;
+    cursor: pointer;
+  }
+  .pastila[aria-pressed="true"] { color: #fff; background: var(--culoare, var(--cerneala)); border-color: transparent; }
+  @media (prefers-color-scheme: dark) { .pastila[aria-pressed="true"] { color: #1f1d1a; } }
+
+  .intro h2 { font-size: clamp(24px, 4.4vw, 32px); line-height: 1.22; margin: 22px 0 12px; }
+  .intro p { color: var(--estompat); margin: 0; }
+
+  .sectiune { margin-top: 44px; }
+  .sectiune > h3 {
+    margin: 0 0 6px;
+    font-family: var(--sans); font-size: 14px; font-weight: 700;
+    letter-spacing: 1.6px; text-transform: uppercase;
+    color: var(--culoare);
+  }
+  .sectiune > h3::after { content: ""; display: block; width: 44px; height: 2px; margin-top: 8px; background: var(--culoare); }
+  .grila { display: grid; gap: 18px; margin-top: 18px; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); }
+  .card {
+    display: flex; flex-direction: column;
+    background: var(--card);
+    border: 1px solid var(--linie);
+    border-radius: 16px;
+    overflow: hidden;
+    color: inherit; text-decoration: none;
+    transition: transform .15s ease, box-shadow .15s ease;
+  }
+  .card:hover, .card:focus-visible { transform: translateY(-2px); box-shadow: 0 8px 22px rgba(60, 45, 20, .10); }
+  .card.mare { grid-column: 1 / -1; }
+  @media (min-width: 760px) {
+    .card.mare { flex-direction: row; }
+    .card.mare .poza { flex: 0 0 52%; aspect-ratio: auto; min-height: 300px; }
+    .card.mare .text { padding: 26px 28px; justify-content: center; }
+    .card.mare h4 { font-size: 27px; }
+  }
+  .poza { position: relative; overflow: hidden; aspect-ratio: 16 / 9; background: color-mix(in srgb, var(--culoare) 16%, var(--card)); }
+  /* scoasa din flux, ca proportiile pozei sa nu schimbe inaltimea casetei */
+  .poza img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .card .text { display: flex; flex-direction: column; gap: 8px; padding: 16px 18px 18px; flex: 1; }
+  .card h4 { margin: 0; font-size: 20px; line-height: 1.25; }
+  .card p { margin: 0; font-size: 15.5px; line-height: 1.5; color: var(--estompat); }
+  .card .subsol { margin-top: auto; padding-top: 6px; font-family: var(--sans); font-size: 12.5px; color: var(--estompat); }
+
+  /* pagina de lectura */
+  .articol .inapoi { display: inline-block; margin: 18px 0 6px; font-family: var(--sans); font-size: 14px; text-decoration: none; }
+  .articol figure { margin: 10px 0 0; }
+  .articol figure img { width: 100%; border-radius: 14px; display: block; aspect-ratio: 16 / 9; object-fit: cover; }
+  .articol figcaption { font-family: var(--sans); font-size: 12px; color: var(--estompat); margin-top: 6px; }
+  .eticheta { margin: 24px 0 8px; font-family: var(--sans); font-size: 12.5px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--culoare); }
+  .articol h2 { margin: 0; font-size: clamp(27px, 5vw, 38px); line-height: 1.18; letter-spacing: -0.3px; }
+  .articol .lead { font-size: 20px; line-height: 1.45; font-style: italic; color: var(--estompat); margin: 14px 0 0; }
+  .articol .timp { font-family: var(--sans); font-size: 12.5px; color: var(--estompat); margin: 10px 0 0; }
+  .articol hr { border: 0; border-top: 1px solid var(--linie); margin: 20px 0; }
+  .articol .corp p { margin: 0 0 18px; }
+  .miza {
+    background: color-mix(in srgb, var(--culoare) 11%, var(--hartie));
+    border-left: 3px solid var(--culoare);
+    border-radius: 12px;
+    padding: 14px 18px;
+    margin: 6px 0 0;
+  }
+  .miza strong { display: block; font-family: var(--sans); font-size: 12px; letter-spacing: 1px; text-transform: uppercase; color: var(--culoare); margin-bottom: 4px; }
+  .miza p { margin: 0; font-size: 17px; line-height: 1.5; }
+  .bloc { margin-top: 26px; }
+  .bloc h5 { margin: 0 0 8px; font-family: var(--sans); font-size: 12px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--estompat); }
+  .trimitere {
+    display: flex; align-items: center; gap: 12px;
+    background: var(--card); border: 1px solid var(--linie); border-radius: 12px;
+    padding: 10px 14px; margin-bottom: 8px;
+    font-family: var(--sans); font-size: 15px; line-height: 1.3; text-decoration: none;
+  }
+  .trimitere:hover { border-color: var(--legatura); }
+  .trimitere span { flex: 1; }
+  .trimitere small { display: block; color: var(--estompat); font-size: 12.5px; margin-top: 2px; }
+  .trimitere::after { content: "↗"; color: var(--estompat); }
+  .urmatorul {
+    display: block; margin-top: 30px;
+    background: var(--card); border: 1px solid var(--linie); border-radius: 14px;
+    padding: 14px 18px; color: inherit; text-decoration: none;
+  }
+  .urmatorul small { display: block; font-family: var(--sans); font-size: 12px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--culoare); }
+  .urmatorul b { font-size: 18px; line-height: 1.25; }
+
+  footer, .stare { font-family: var(--sans); font-size: 13px; line-height: 1.5; color: var(--estompat); }
+  footer { margin-top: 48px; padding-top: 16px; border-top: 1px solid var(--linie); }
+  .stare { text-align: center; padding: 60px 0; font-size: 15px; }
+</style>
+</head>
+<body>
+<div class="pagina">
+  <header class="cap">
+    <a href="#"><h1>Sinteza săptămânii</h1></a>
+    <p>Psihiatrie · Medicină · Științe · Artă</p>
+  </header>
+  <main id="continut"><p class="stare">Se încarcă ediția…</p></main>
+  <footer>
+    Textele sunt rezumate scrise de un model AI pe baza surselor citate și pot conține greșeli;
+    pentru detalii și verificare, deschide sursa fiecărui articol. Știrile medicale descriu cercetări,
+    nu sunt recomandări de tratament. Imaginile aparțin publicațiilor menționate.
+  </footer>
+</div>
+<script>
+const SECTIUNI = [
+  ['psihiatrie', 'Psihiatrie și psihoterapie', 'Psihiatrie'],
+  ['medicina', 'Medicină', 'Medicină'],
+  ['stiinta', 'Științe', 'Științe'],
+  ['arta', 'Artă', 'Artă'],
+];
+const LUNI = ['ianuarie', 'februarie', 'martie', 'aprilie', 'mai', 'iunie', 'iulie',
+  'august', 'septembrie', 'octombrie', 'noiembrie', 'decembrie'];
+const continut = document.getElementById('continut');
+const editii = {};
+let index = null;
+let filtru = null;
+
+// construieste un element; textul intra mereu ca text, niciodata ca HTML
+function el(tag, atribute, ...copii) {
+  const e = document.createElement(tag);
+  for (const [k, v] of Object.entries(atribute || {})) {
+    if (v === null || v === undefined || v === false) continue;
+    if (k === 'class') e.className = v;
+    else if (k === 'culoare') e.style.setProperty('--culoare', `var(--${v})`);
+    else if (k.startsWith('on')) e.addEventListener(k.slice(2), v);
+    else e.setAttribute(k, v);
+  }
+  for (const c of copii.flat()) {
+    if (c !== null && c !== undefined && c !== false) e.append(c);
+  }
+  return e;
+}
+
+const numeSectiune = (cod) => (SECTIUNI.find((s) => s[0] === cod) || [cod, cod])[1];
+const site = (url) => { try { return new URL(url).hostname.replace(/^www\./, ''); } catch { return ''; } };
+const minute = (text) => Math.max(1, Math.ceil(text.split(/\s+/).length / 200));
+function dataPeLitere(iso) {
+  const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(iso || '');
+  return m ? `${+m[3]} ${LUNI[+m[2] - 1]} ${m[1]}` : '';
+}
+
+async function json(nume) {
+  const r = await fetch(`date/${nume}`, { cache: 'no-cache' });
+  if (!r.ok) throw new Error(r.status);
+  return r.json();
+}
+
+function poza(articol, lenes) {
+  if (!articol.imagine) return null;
+  return el('img', {
+    src: articol.imagine.url, alt: '', loading: lenes ? 'lazy' : null,
+    referrerpolicy: 'no-referrer',
+    // o imagine mutata de publicatie lasa in loc fondul colorat
+    onerror: (ev) => ev.target.remove(),
+  });
+}
+
+function card(editie, a, mare) {
+  return el('a', { class: mare ? 'card mare' : 'card', href: `#${editie.id}/${a.id}`, culoare: a.sectiune },
+    el('div', { class: 'poza' }, poza(a, true)),
+    el('div', { class: 'text' },
+      el('h4', null, a.titlu),
+      el('p', null, a.rezumat),
+      el('div', { class: 'subsol' }, `${a.sursa.nume} · ${minute(a.text)} min de citit`)));
+}
+
+function paginaEditie(editie) {
+  const selector = index.editii.length > 1 && el('select', {
+    'aria-label': 'Ediția',
+    onchange: (ev) => { location.hash = ev.target.value; },
+  }, index.editii.map((e) => el('option', { value: e.id, selected: e.id === editie.id }, e.interval)));
+  const pastila = (eticheta, cod) => el('button', {
+    class: 'pastila', 'aria-pressed': String(filtru === cod), culoare: cod,
+    onclick: () => { filtru = cod; arata(); },
+  }, eticheta);
+
+  const sectiuni = SECTIUNI
+    .filter(([cod]) => filtru === null || filtru === cod)
+    .map(([cod, nume]) => {
+      const articole = editie.articole.filter((a) => a.sectiune === cod);
+      if (!articole.length) return null;
+      return el('section', { class: 'sectiune', culoare: cod },
+        el('h3', null, nume),
+        el('div', { class: 'grila' }, articole.map((a, i) => card(editie, a, i === 0))));
+    });
+
+  continut.replaceChildren(
+    el('div', { class: 'bara' }, selector, pastila('Toate', null),
+      SECTIUNI.map(([cod, , scurt]) => pastila(scurt, cod))),
+    el('div', { class: 'intro ingust' },
+      el('p', { class: 'timp' }, `Săptămâna ${editie.interval} · ${editie.articole.length} articole`),
+      el('h2', null, editie.titlu),
+      el('p', null, editie.introducere)),
+    ...sectiuni);
+  document.title = `Sinteza săptămânii · ${editie.interval}`;
+}
+
+function trimitere(titlu, detaliu, url) {
+  return el('a', { class: 'trimitere', href: url, target: '_blank', rel: 'noopener noreferrer' },
+    el('span', null, titlu, detaliu && el('small', null, detaliu)));
+}
+
+function paginaArticol(editie, a) {
+  const pozitie = editie.articole.indexOf(a);
+  const urmatorul = editie.articole[pozitie + 1];
+  const bloc = (titlu, randuri) => randuri.length
+    ? el('div', { class: 'bloc' }, el('h5', null, titlu), randuri) : null;
+  continut.replaceChildren(el('article', { class: 'articol ingust', culoare: a.sectiune },
+    el('a', { class: 'inapoi', href: `#${editie.id}` }, `← Ediția ${editie.interval}`),
+    a.imagine && el('figure', null, poza(a, false), el('figcaption', null, `Imagine: ${a.imagine.credit}`)),
+    el('p', { class: 'eticheta' }, [numeSectiune(a.sectiune), a.loc].filter(Boolean).join('  ·  ')),
+    el('h2', null, a.titlu),
+    el('p', { class: 'lead' }, a.rezumat),
+    el('p', { class: 'timp' }, `${minute(a.text)} min de citit`),
+    el('hr'),
+    el('div', { class: 'corp' }, a.text.split(/\n\s*\n/).filter((p) => p.trim()).map((p) => el('p', null, p.trim()))),
+    a.de_ce_conteaza && el('div', { class: 'miza' }, el('strong', null, 'De ce contează'), el('p', null, a.de_ce_conteaza)),
+    bloc('Sursa', [trimitere(a.sursa.nume,
+      [dataPeLitere(a.sursa.data), site(a.sursa.url)].filter(Boolean).join(' · '), a.sursa.url)]),
+    bloc('Aceeași știre, în alte redacții', (a.alte_surse || []).map((s) => trimitere(s.nume, site(s.url), s.url))),
+    bloc('Află mai mult', (a.trimiteri || []).map((t) => trimitere(t.titlu, site(t.url), t.url))),
+    urmatorul && el('a', { class: 'urmatorul', href: `#${editie.id}/${urmatorul.id}`, culoare: urmatorul.sectiune },
+      el('small', null, `Următorul · ${numeSectiune(urmatorul.sectiune)}`), el('b', null, urmatorul.titlu))));
+  document.title = `${a.titlu} · Sinteza săptămânii`;
+}
+
+// adresa paginii: #<editie> sau #<editie>/<articol>; fara nimic, cea mai noua editie
+async function arata() {
+  try {
+    index = index || await json('index.json');
+    if (!index.editii.length) throw new Error('fara editii');
+    const [idEditie, idArticol] = decodeURIComponent(location.hash.slice(1)).split('/');
+    const id = index.editii.some((e) => e.id === idEditie) ? idEditie : index.editii[0].id;
+    const editie = editii[id] || (editii[id] = await json(`${id}.json`));
+    const articol = idArticol && editie.articole.find((a) => a.id === idArticol);
+    if (articol) paginaArticol(editie, articol); else paginaEditie(editie);
+  } catch (e) {
+    continut.replaceChildren(el('p', { class: 'stare' },
+      'Ediția nu a putut fi încărcată. Verifică legătura la internet și reîncarcă pagina.'));
+  }
+}
+
+window.addEventListener('hashchange', () => { arata(); window.scrollTo(0, 0); });
+arata();
+</script>
+</body>
+</html>

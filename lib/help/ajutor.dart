@@ -1006,6 +1006,92 @@ const ajutorCosturi = Ajutor(
   ],
 );
 
+const ajutorSinteza = Ajutor(
+  titlu: 'Sinteză',
+  rezumat:
+      'O ediție pe săptămână cu noutăți din psihiatrie și psihoterapie (cercetare, '
+      'inovații, aprobări, ghiduri), urmate de știri din restul medicinei, din științe '
+      'și din artă, din toată lumea: articole scurte în română, cu imagini și cu '
+      'trimiteri la surse. Ediția nouă apare sâmbătă dimineața.',
+  capitole: [
+    CapitolAjutor(
+      icon: Icons.auto_stories_outlined,
+      titlu: 'Cum citești o ediție',
+      puncte: [
+        (
+          'Secțiuni',
+          'ediția începe cu Psihiatrie și psihoterapie, secțiunea cu cele mai multe '
+              'articole, apoi vin Medicină, Științe și Artă. Pastilele de sub introducere '
+              'arată o singură secțiune sau pe toate.',
+        ),
+        (
+          'Articolul',
+          'atinge un card ca să deschizi pagina de lectură: imaginea, textul, caseta '
+              '„De ce contează” și, la sfârșit, butonul către următorul articol.',
+        ),
+        (
+          'Ediții anterioare',
+          'ceasul din antet deschide lista edițiilor publicate până acum; apare după '
+              'ce există cel puțin două ediții.',
+        ),
+        (
+          'Ediție nouă',
+          'trage lista în jos ca să verifici dacă a apărut ediția săptămânii.',
+        ),
+      ],
+    ),
+    CapitolAjutor(
+      icon: Icons.link,
+      titlu: 'Trimiteri',
+      text: 'La sfârșitul fiecărui articol sunt trei feluri de legături, care se deschid în browser:',
+      puncte: [
+        (
+          'Sursa',
+          'pagina din care provine știrea, cu data publicării atunci când este cunoscută.',
+        ),
+        (
+          'Aceeași știre, în alte redacții',
+          'alte publicații care au scris despre același fapt, utile pentru comparație.',
+        ),
+        (
+          'Află mai mult',
+          'studiul original, pagina instituției sau a expoziției și articole de '
+              'enciclopedie care explică noțiunile din text.',
+        ),
+      ],
+    ),
+    CapitolAjutor(
+      icon: Icons.info_outline,
+      titlu: 'Ce trebuie să știi',
+      avertizare: true,
+      puncte: [
+        (
+          'Texte scrise de AI',
+          'subiectele sunt alese și rezumate de un model AI care caută pe web. Pot '
+              'apărea greșeli de detaliu sau de interpretare; pentru orice contează, '
+              'deschide sursa.',
+        ),
+        (
+          'Nu este ghid clinic',
+          'știrile medicale descriu cercetări, multe în stadii timpurii (pe animale '
+              'sau pe puțini pacienți). Nu sunt recomandări de tratament.',
+        ),
+        (
+          'Necesită internet',
+          'edițiile și imaginile se descarcă de pe internet. O ediție deja deschisă '
+              'rămâne pe telefon și poate fi recitită fără conexiune, dar fără imagini.',
+        ),
+        (
+          'Imaginile',
+          'aparțin publicațiilor citate și sunt afișate de pe site-urile lor, cu '
+              'menționarea sursei; dacă o publicație își mută imaginea, în locul ei '
+              'rămâne un fond colorat.',
+        ),
+      ],
+    ),
+  ],
+);
+
 /// Toate paginile de ajutor, in ordinea sectiunilor din aplicatie.
 const toateAjutoarele = [
   ajutorMedicamente,
@@ -1017,6 +1103,7 @@ const toateAjutoarele = [
   ajutorIcd,
   ajutorAsistent,
   ajutorCosturi,
+  ajutorSinteza,
 ];
 
 /// Paginile de ajutor ca text simplu. Asistentul il primeste ca sa poata
