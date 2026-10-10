@@ -27,7 +27,10 @@ class SintezaStore {
   /// Clientul HTTP; in teste se inlocuieste cu unul simulat.
   final http.Client? client;
 
-  SintezaStore({this.url = urlImplicit, this.client});
+  /// Copia locala tinuta in memorie in loc de disc; folosita in teste.
+  final Map<String, String>? memorie;
+
+  SintezaStore({this.url = urlImplicit, this.client, this.memorie});
 
   static bool get _inTest =>
       !kIsWeb && Platform.environment.containsKey('FLUTTER_TEST');
@@ -49,6 +52,7 @@ class SintezaStore {
   }
 
   Future<String?> _dinMemorie(String nume) async {
+    if (memorie != null) return memorie![nume];
     try {
       final f = await _fisier(nume);
       if (f != null && await f.exists()) return await f.readAsString();
@@ -67,9 +71,13 @@ class SintezaStore {
       if (r.statusCode != 200) return null;
       final text = utf8.decode(r.bodyBytes);
       jsonDecode(text); // un raspuns care nu e JSON nu ajunge in memorie
-      try {
-        await (await _fisier(nume))?.writeAsString(text);
-      } catch (_) {}
+      if (memorie != null) {
+        memorie![nume] = text;
+      } else {
+        try {
+          await (await _fisier(nume))?.writeAsString(text);
+        } catch (_) {}
+      }
       return text;
     } catch (_) {
       return null;
@@ -98,15 +106,23 @@ class SintezaStore {
     }
   }
 
-  /// O editie. Editiile nu se schimba dupa publicare, deci copia de pe
-  /// telefon are intaietate.
-  Future<EditieSinteza?> editie(String id) async {
-    final text = await _dinMemorie('$id.json') ?? await _dePeServer('$id.json');
-    if (text == null) return null;
-    try {
-      return EditieSinteza.dinJson(jsonDecode(text) as Map<String, dynamic>);
-    } catch (_) {
-      return null;
+  /// O editie. Copia de pe telefon se foloseste doar daca are amprenta
+  /// [versiune] din lista editiilor; altfel editia a fost republicata si se
+  /// descarca din nou. Fara internet se arata copia veche, daca exista.
+  Future<EditieSinteza?> editie(String id, {String versiune = ''}) async {
+    EditieSinteza? citeste(String? text) {
+      if (text == null) return null;
+      try {
+        return EditieSinteza.dinJson(jsonDecode(text) as Map<String, dynamic>);
+      } catch (_) {
+        return null;
+      }
     }
+
+    final copie = citeste(await _dinMemorie('$id.json'));
+    if (copie != null && (versiune.isEmpty || copie.versiune == versiune)) {
+      return copie;
+    }
+    return citeste(await _dePeServer('$id.json')) ?? copie;
   }
 }

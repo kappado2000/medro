@@ -128,6 +128,9 @@ class EditieSinteza {
   final String introducere;
   final List<ArticolSinteza> articole;
 
+  /// Amprenta continutului; se schimba daca editia este republicata.
+  final String versiune;
+
   const EditieSinteza({
     required this.id,
     required this.data,
@@ -135,6 +138,7 @@ class EditieSinteza {
     required this.titlu,
     required this.introducere,
     required this.articole,
+    this.versiune = '',
   });
 
   factory EditieSinteza.dinJson(Map<String, dynamic> j) => EditieSinteza(
@@ -143,6 +147,7 @@ class EditieSinteza {
     interval: j['interval'] as String,
     titlu: j['titlu'] as String,
     introducere: (j['introducere'] as String?) ?? '',
+    versiune: (j['versiune'] as String?) ?? '',
     articole: [
       for (final a in j['articole'] as List)
         ArticolSinteza.dinJson((a as Map).cast<String, dynamic>()),
@@ -163,13 +168,17 @@ class RezumatEditie {
   final String titlu;
   final int articole;
 
+  /// Amprenta editiei de pe server; goala la editiile publicate fara ea.
+  final String versiune;
+
   const RezumatEditie(
     this.id,
     this.data,
     this.interval,
     this.titlu,
-    this.articole,
-  );
+    this.articole, [
+    this.versiune = '',
+  ]);
 
   factory RezumatEditie.dinJson(Map<String, dynamic> j) => RezumatEditie(
     j['id'] as String,
@@ -177,5 +186,6 @@ class RezumatEditie {
     j['interval'] as String,
     j['titlu'] as String,
     (j['articole'] as num).toInt(),
+    (j['versiune'] as String?) ?? '',
   );
 }

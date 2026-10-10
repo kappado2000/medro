@@ -208,6 +208,56 @@ void main() {
     expect(e.dinSectiunea(SectiuneSinteza.stiinta), hasLength(1));
   });
 
+  test('o editie republicata inlocuieste copia de pe telefon', () async {
+    var versiune = 'v1';
+    var titlu = 'Titlul vechi';
+    var cereri = 0;
+    final store = SintezaStore(
+      url: 'https://exemplu.test/',
+      memorie: {},
+      client: MockClient((cerere) async {
+        final editie = _editie('2026-W41', _intervalNou)
+          ..['titlu'] = titlu
+          ..['versiune'] = versiune;
+        if (cerere.url.pathSegments.last == 'index.json') {
+          return http.Response.bytes(
+            utf8.encode(
+              jsonEncode({
+                'editii': [
+                  {
+                    'id': '2026-W41',
+                    'data': '2026-10-10',
+                    'interval': _intervalNou,
+                    'titlu': titlu,
+                    'articole': 3,
+                    'versiune': versiune,
+                  },
+                ],
+              }),
+            ),
+            200,
+          );
+        }
+        cereri++;
+        return http.Response.bytes(utf8.encode(jsonEncode(editie)), 200);
+      }),
+    );
+    final p = SintezaProvider(store);
+    await p.incarcaLaPrimaDeschidere();
+    expect(p.editie!.titlu, 'Titlul vechi');
+
+    // aceeasi amprenta: editia vine din copia locala, fara o cerere noua
+    await p.reincarca();
+    expect(cereri, 1);
+
+    // editia este republicata cu alt continut
+    versiune = 'v2';
+    titlu = 'Titlul nou';
+    await p.reincarca();
+    expect(cereri, 2);
+    expect(p.editie!.titlu, 'Titlul nou');
+  });
+
   test('data se scrie pe litere', () {
     expect(dataPeLitere('2026-10-05'), '5 octombrie 2026');
     expect(dataPeLitere(''), '');

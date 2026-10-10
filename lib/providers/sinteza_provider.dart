@@ -54,7 +54,11 @@ class SintezaProvider extends ChangeNotifier {
   }
 
   Future<void> _deschide(String id) async {
-    final e = await _store.editie(id);
+    final versiune = editii
+        .where((r) => r.id == id)
+        .map((r) => r.versiune)
+        .firstOrNull;
+    final e = await _store.editie(id, versiune: versiune ?? '');
     seIncarca = false;
     if (e == null) {
       eroare =

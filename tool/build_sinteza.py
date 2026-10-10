@@ -27,6 +27,7 @@ Rulare:
 """
 import argparse
 import datetime as dt
+import hashlib
 import html
 import json
 import os
@@ -625,6 +626,12 @@ def finalizeaza(
 def publica(editie: dict) -> None:
     """Pasul 4: scrie editia si o trece prima in index."""
     TINTA.mkdir(parents=True, exist_ok=True)
+    # amprenta continutului: dupa ea afla aplicatia ca o editie deja descarcata
+    # a fost republicata si trebuie adusa din nou
+    editie.pop("versiune", None)
+    editie["versiune"] = hashlib.sha256(
+        json.dumps(editie, ensure_ascii=False, sort_keys=True).encode("utf-8")
+    ).hexdigest()[:12]
     (TINTA / f"{editie['id']}.json").write_text(
         json.dumps(editie, ensure_ascii=False, indent=1), encoding="utf-8"
     )
@@ -639,6 +646,7 @@ def publica(editie: dict) -> None:
         "titlu": editie["titlu"],
         "articole": len(editie["articole"]),
         "imagine": prima_imagine,
+        "versiune": editie["versiune"],
     }
     editii = [e for e in index["editii"] if e["id"] != editie["id"]] + [rand]
     editii.sort(key=lambda e: e["data"], reverse=True)
