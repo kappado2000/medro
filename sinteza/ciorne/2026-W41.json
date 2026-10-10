@@ -1,0 +1,454 @@
+{
+ "data": "2026-10-10",
+ "titlu": "Schizofrenia, pe trei fronturi: o terapie digitală, o psihoterapie și o injecție lunară; apoi, săptămâna Nobelurilor",
+ "introducere": "Săptămâna a adus trei noutăți pentru tratamentul schizofreniei: prima terapie autorizată în Statele Unite pentru simptomele negative, un studiu randomizat care arată că psihoterapia psihodinamică îmbunătățește funcționarea și o formă lunară, subcutanată, de olanzapină. Un studiu mare leagă ADHD-ul adultului de declinul cognitiv de mai târziu. În rest, ediția stă sub semnul anunțurilor de la Stockholm: optogenetica, neutrinii de la Polul Sud, chiralitatea moleculelor și poeta Anne Carson.",
+ "articole": [
+  {
+   "sectiune": "psihiatrie",
+   "titlu": "FDA autorizează prima terapie pentru simptomele negative ale schizofreniei: o aplicație pe telefon",
+   "rezumat": "Motivista (CT-155), o terapie digitală pe bază de prescripție, a primit autorizarea FDA pe 5 octombrie, după un studiu de fază 3 în care a redus simptomele negative mai mult decât o aplicație de control.",
+   "text": "Simptomele negative ale schizofreniei, adică lipsa motivației, a plăcerii și retragerea socială, sunt cele care apasă cel mai mult pe funcționarea de zi cu zi și cele pentru care antipsihoticele ajută cel mai puțin. Până acum nu exista în Statele Unite niciun tratament autorizat anume pentru ele.\n\nPe 5 octombrie, FDA a autorizat pe calea 510(k) Motivista, cunoscută în studii drept CT-155, o terapie digitală a companiei Click Therapeutics. Este o aplicație pentru telefon, eliberată pe bază de prescripție adulților, care combină elemente ale terapiilor psihosociale validate cu metode digitale. Se folosește aproximativ o oră pe săptămână, ca adjuvant al îngrijirii ambulatorii conduse de clinician și în completarea tratamentului antipsihotic, nu în locul lui.\n\nAutorizarea se sprijină pe studiul de fază 3 CONVOKE, randomizat, în care comparatorul a fost o aplicație digitală de control. Criteriul principal a fost severitatea simptomelor negative la 16 săptămâni, măsurată pe subscala de motivație și plăcere a interviului CAINS (CAINS-MAP). Scorul s-a ameliorat cu 6,8 puncte în grupul Motivista, față de 4,2 puncte în grupul de control: o diferență medie de 2,6 puncte (interval de încredere 95%: 1,2–4,0; p=0,0003), cu o mărime a efectului d Cohen de 0,36. Nu au fost raportate evenimente adverse grave legate de tratament. Rezultatele au fost publicate în JAMA.",
+   "de_ce_conteaza": "Este prima opțiune autorizată pentru un domeniu de simptome rămas fără tratament specific. Efectul este mic spre moderat, comparabil cu al intervențiilor psihologice și farmacologice existente, iar comparația s-a făcut cu o aplicație de control, nu cu o psihoterapie față în față; deocamdată autorizarea privește doar Statele Unite.",
+   "loc": "Statele Unite",
+   "sursa_nume": "Psychiatric Times",
+   "sursa_url": "https://www.psychiatrictimes.com/view/fda-grants-clearance-to-motivista-the-first-authorized-treatment-for-negative-symptoms-of-schizophrenia",
+   "sursa_data": "2026-10-07",
+   "alte_surse": [
+    {
+     "nume": "Medical Dialogues",
+     "url": "https://medicaldialogues.in/psychiatry/news/digital-therapeutic-ct-155-improves-negative-symptoms-in-schizophrenia-jama-180271"
+    }
+   ],
+   "trimiteri": [
+    {
+     "titlu": "Ce sunt terapiile digitale pe bază de prescripție, pe Wikipedia (engleză)",
+     "url": "https://en.wikipedia.org/wiki/Digital_therapeutics"
+    },
+    {
+     "titlu": "Simptomele negative în schizofrenie, pe Wikipedia (engleză)",
+     "url": "https://en.wikipedia.org/wiki/Schizophrenia#Negative_symptoms"
+    },
+    {
+     "titlu": "Noutăți în psihiatrie, în UpToDate (engleză)",
+     "url": "https://www.uptodate.com/contents/whats-new-in-psychiatry/print"
+    }
+   ]
+  },
+  {
+   "sectiune": "psihiatrie",
+   "titlu": "Psihoterapia psihodinamică îmbunătățește funcționarea în schizofrenie, arată un studiu randomizat din Berlin",
+   "rezumat": "Adăugată tratamentului obișnuit, o psihoterapie psihodinamică modificată și manualizată a îmbunătățit funcționarea psihosocială, iar beneficiul se menținea la un an după încheierea terapiei.",
+   "text": "Ghidurile recomandă în schizofrenie mai ales terapia cognitiv-comportamentală și intervențiile familiale; pentru psihoterapia psihodinamică, dovezile din studii controlate au fost până acum puține. Un studiu publicat în numărul din octombrie al revistei The Lancet Psychiatry aduce date dintr-un trial randomizat.\n\nStudiul a fost făcut la Clinica Universitară de Psihiatrie a Charité de la Spitalul St. Hedwig din Berlin: prospectiv, monocentric, cu grupuri paralele și cu evaluatori care nu știau ce tratament primise pacientul. Au fost incluși pacienți tratați ambulatoriu, de 18–64 de ani, cu schizofrenie sau tulburare schizoafectivă; au fost excluși cei cu tulburări organice cerebrale și cei cu abuz de alcool sau de droguri care cerea tratament specific. Participanții au fost repartizați aleatoriu, în raport de 1:1, fie la psihoterapie psihodinamică modificată pentru schizofrenie (MPP-S), cu minimum 30 de ședințe, adăugată tratamentului obișnuit, fie doar la tratamentul obișnuit.\n\nCriteriul principal nu a fost reducerea simptomelor, ci funcționarea psihosocială, măsurată cu scala Mini-ICF-APP, care evaluează limitările de activitate și de participare. Evaluările au fost făcute la includere, la sfârșitul tratamentului (24 de luni) și la urmărire (36 de luni). Psihoterapia adăugată tratamentului obișnuit a îmbunătățit funcționarea, iar beneficiul era încă prezent la un an după încheierea terapiei. Studiul a fost preînregistrat (NCT02576613).",
+   "de_ce_conteaza": "Este una dintre puținele dovezi randomizate pentru o abordare psihodinamică în tulburările din spectrul schizofreniei și folosește un criteriu care contează pentru pacienți: funcționarea. Limitele sunt cele ale unui studiu dintr-un singur centru, cu un comparator care nu controlează timpul petrecut cu terapeutul.",
+   "loc": "Berlin, Germania",
+   "sursa_nume": "The Lancet Psychiatry",
+   "sursa_url": "https://www.sciencedirect.com/science/article/pii/S2215036626002403",
+   "sursa_data": "",
+   "alte_surse": [
+    {
+     "nume": "PubMed",
+     "url": "https://pubmed.ncbi.nlm.nih.gov/42716057/"
+    }
+   ],
+   "trimiteri": [
+    {
+     "titlu": "Protocolul studiului, pe ClinicalTrials.gov",
+     "url": "https://clinicaltrials.gov/study/NCT02576613"
+    },
+    {
+     "titlu": "Numărul din octombrie al revistei The Lancet Psychiatry",
+     "url": "https://www.thelancet.com/journals/lanpsy/issue/current"
+    },
+    {
+     "titlu": "Intervențiile psihologice în schizofrenia rezistentă: meta-analiză în rețea (Lancet Psychiatry, 2024)",
+     "url": "https://www.thelancet.com/journals/lanpsy/article/PIIS2215-0366(24)00136-6/fulltext"
+    },
+    {
+     "titlu": "Psihoterapia psihodinamică, pe Wikipedia (engleză)",
+     "url": "https://en.wikipedia.org/wiki/Psychodynamic_psychotherapy"
+    }
+   ]
+  },
+  {
+   "sectiune": "psihiatrie",
+   "titlu": "Olanzapină injectabilă o dată pe lună, subcutanat și fără monitorizare după injecție, aprobată de FDA",
+   "rezumat": "Weltruza (Teva) este prima olanzapină cu eliberare prelungită administrată subcutanat; în studiul SOLARIS nu a apărut niciun caz de sindrom de delir/sedare postinjecție la 3.971 de injecții.",
+   "text": "FDA a aprobat pe 9 octombrie Weltruza, o suspensie injectabilă de olanzapină cu eliberare prelungită a companiei Teva, pentru tratamentul schizofreniei la adulți. Se administrează subcutanat, o dată pe lună, în doze de 318 mg, 425 mg și 531 mg, care corespund dozelor orale zilnice de 10 mg, 15 mg și 20 mg de olanzapină.\n\nNoutatea ține de siguranța administrării. Forma injectabilă existentă, intramusculară (olanzapină pamoat), poate produce rar sindromul de delir/sedare postinjecție (PDSS), motiv pentru care pacientul trebuie supravegheat trei ore după fiecare injecție, într-o unitate medicală. Noua formulare nu cere doze de încărcare, suplimentare orală sau monitorizare după injecție: în studiul SOLARIS nu a fost observat și nici confirmat vreun caz de PDSS la 3.971 de injecții.\n\nSOLARIS a fost un studiu de fază 3, randomizat, dublu-orb, controlat cu placebo, pe 675 de pacienți cu schizofrenie, cu vârste între 18 și 64 de ani, având drept criteriu principal ameliorarea scorului PANSS. Mai mult de jumătate dintre participanți au atins stabilizarea clinică, iar peste 20% dintre cei tratați cel puțin șase luni au îndeplinit criteriile de remisiune. Reacțiile adverse cele mai frecvente au fost cele cunoscute ale olanzapinei, creștere în greutate, somnolență, cefalee și constipație, plus reacții la locul injecției. Tratamentul a fost întrerupt din cauza reacțiilor adverse la 5% dintre pacienții cu olanzapină și la 4% dintre cei cu placebo.",
+   "de_ce_conteaza": "Supravegherea de trei ore a limitat mult folosirea olanzapinei depot; o formă fără această cerință ar putea face tratamentul injectabil accesibil mai multor pacienți. Profilul metabolic al olanzapinei rămâne același. Aprobarea este deocamdată numai în Statele Unite, unde produsul urmează să fie disponibil în săptămânile următoare.",
+   "loc": "Statele Unite",
+   "sursa_nume": "Psychiatric Times",
+   "sursa_url": "https://www.psychiatrictimes.com/view/olanzapine-lai-weltruza-receives-fda-approval-for-schizophrenia",
+   "sursa_data": "2026-10-09",
+   "alte_surse": [
+    {
+     "nume": "Psychiatric Times",
+     "url": "https://www.psychiatrictimes.com/view/nda-approved-for-long-acting-injectable-for-schizophrenia-and-bipolar-i"
+    }
+   ],
+   "trimiteri": [
+    {
+     "titlu": "Sindromul de delir/sedare postinjecție, la olanzapină (Wikipedia, engleză)",
+     "url": "https://en.wikipedia.org/wiki/Olanzapine#Post-injection_delirium/sedation_syndrome"
+    },
+    {
+     "titlu": "Antipsihoticele injectabile cu eliberare prelungită, pe Wikipedia (engleză)",
+     "url": "https://en.wikipedia.org/wiki/Depot_injection"
+    },
+    {
+     "titlu": "Alte aprobări din 2026 în psihiatrie: milsaperidona (Psychiatric Times)",
+     "url": "https://www.psychiatrictimes.com/view/fda-approves-bysanti-for-treatment-of-bipolar-1-disorder-and-schizophrenia"
+    }
+   ]
+  },
+  {
+   "sectiune": "psihiatrie",
+   "titlu": "ADHD la adult, asociat cu un risc de peste patru ori mai mare de tulburare cognitivă la vârste înaintate",
+   "rezumat": "Un studiu din JAMA Psychiatry pe peste 187.000 de persoane de 50 de ani și peste arată că și riscul genetic de ADHD, fără diagnostic, se asociază cu un declin cognitiv mai probabil.",
+   "text": "Legătura dintre ADHD și demență a fost sugerată de mai multe studii, dar pe eșantioane mici sau puțin diverse. Un studiu publicat pe 7 octombrie în JAMA Psychiatry folosește dosarele medicale și datele genomice a peste 187.000 de participanți de 50 de ani și peste din programul de cercetare All of Us al Institutelor Naționale de Sănătate din Statele Unite.\n\nDintre participanții cu diagnostic de ADHD, 6,7% au dezvoltat demență sau tulburare cognitivă ușoară, față de 3,4% dintre cei fără acest diagnostic. După ajustări, riscul adulților diagnosticați a fost de peste patru ori mai mare.\n\nPartea nouă este analiza genetică. Persoanele cu scoruri poligenice mari pentru ADHD au avut un risc cu 35% mai mare de demență chiar și în lipsa unui diagnostic. Rezultatul sugerează că asocierea nu ține doar de felul în care sunt puse diagnosticele sau de tratament, ci și de o vulnerabilitate biologică.\n\nStudiul arată și că ADHD-ul îngreunează viața cu demența: dintre cei care au dezvoltat o tulburare cognitivă, participanții care aveau și ADHD au raportat o sănătate mintală mai proastă, o calitate a vieții mai scăzută și mai puțină satisfacție socială.",
+   "de_ce_conteaza": "Este un studiu observațional, deci arată o asociere, nu o cauză, iar diagnosticele vin din dosare medicale. Ridică totuși întrebări practice: dacă adulții cu ADHD ar trebui urmăriți cognitiv mai atent după 50 de ani și dacă tratamentul schimbă riscul, lucru pe care studiul nu îl poate spune.",
+   "loc": "Statele Unite",
+   "sursa_nume": "JAMA Psychiatry",
+   "sursa_url": "https://jamanetwork.com/journals/jamapsychiatry/fullarticle/2854889",
+   "sursa_data": "2026-10-07",
+   "alte_surse": [
+    {
+     "nume": "Medical Xpress",
+     "url": "https://medicalxpress.com/news/2026-10-health-link-adhd-fourfold-higher.html"
+    },
+    {
+     "nume": "Neuroscience News",
+     "url": "https://neurosciencenews.com/adhd-dementia-cognition-aging-31296/"
+    }
+   ],
+   "trimiteri": [
+    {
+     "titlu": "Comunicatul studiului, pe EurekAlert",
+     "url": "https://www.eurekalert.org/news-releases/1146661"
+    },
+    {
+     "titlu": "Programul de cercetare All of Us, pe Wikipedia (engleză)",
+     "url": "https://en.wikipedia.org/wiki/All_of_Us_(initiative)"
+    },
+    {
+     "titlu": "Scorul de risc poligenic, pe Wikipedia (engleză)",
+     "url": "https://en.wikipedia.org/wiki/Polygenic_score"
+    },
+    {
+     "titlu": "ADHD la adult, pe Wikipedia (engleză)",
+     "url": "https://en.wikipedia.org/wiki/Adult_attention_deficit_hyperactivity_disorder"
+    }
+   ]
+  },
+  {
+   "sectiune": "medicina",
+   "titlu": "Nobelul pentru medicină răsplătește optogenetica, tehnica de a comanda neuronii cu lumină",
+   "rezumat": "Karl Deisseroth, Peter Hegemann și Georg Nagel au primit Premiul Nobel pentru Fiziologie sau Medicină 2026 pentru descoperirea canalelor ionice activate de lumină și pentru optogenetică.",
+   "text": "Adunarea Nobel de la Institutul Karolinska a anunțat luni, 5 octombrie, că premiul pentru Fiziologie sau Medicină merge anul acesta la trei cercetători: Karl Deisseroth, profesor la Universitatea Stanford, Peter Hegemann, profesor de biofizică la Universitatea Humboldt din Berlin, și Georg Nagel, de la Universitatea din Würzburg. Motivarea oficială: „pentru descoperirile lor privind canalele ionice activate de lumină și optogenetica”.\n\nCanalele ionice sunt proteine din membrana celulei care lasă să treacă particule încărcate electric; prin ele „vorbesc” neuronii. Cele premiate acum au o proprietate neobișnuită: se deschid atunci când sunt luminate. Optogenetica folosește această proprietate: gena unei astfel de proteine este introdusă în anumite celule nervoase, care pot fi apoi pornite sau oprite cu un fascicul de lumină, cu o precizie pe care medicamentele sau electrozii nu o au.\n\nMetoda a devenit în ultimele două decenii unul dintre instrumentele de bază ale neuroștiințelor. Ea permite cercetătorilor să afle ce rol are un anumit grup de neuroni, aprinzându-l și urmărind ce se schimbă în comportamentul animalului, și a fost folosită pentru a studia circuitele implicate în mișcare, somn, memorie, frică sau dependență.\n\nCei trei laureați împart în mod egal premiul de 12 milioane de coroane suedeze, aproximativ 1,2 milioane de dolari.",
+   "de_ce_conteaza": "Optogenetica a schimbat felul în care este studiat creierul și începe să dea și primele terapii: tot săptămâna aceasta au fost prezentate rezultate timpurii ale unui tratament pentru vedere construit pe aceeași descoperire.",
+   "loc": "Stockholm, Suedia",
+   "sursa_nume": "Nature",
+   "sursa_url": "https://www.nature.com/articles/d41586-026-03091-2",
+   "sursa_data": "2026-10-05",
+   "alte_surse": [
+    {
+     "nume": "STAT News",
+     "url": "https://www.statnews.com/2026/10/05/nobel-prize-medicine-2026-winner-deisseroth-hegemann-nagel/"
+    },
+    {
+     "nume": "CNN",
+     "url": "https://www.cnn.com/2026/10/05/science/nobel-prize-medicine-karl-deisseroth-peter-hegemann-georg-nagel-intl"
+    }
+   ],
+   "trimiteri": [
+    {
+     "titlu": "Explicația pentru publicul larg, de la Comitetul Nobel (engleză)",
+     "url": "https://www.nobelprize.org/prizes/medicine/2026/popular-information/"
+    },
+    {
+     "titlu": "Optogenetica, pe Wikipedia (engleză)",
+     "url": "https://en.wikipedia.org/wiki/Optogenetics"
+    },
+    {
+     "titlu": "Toți laureații Nobel din 2026, în revista Time",
+     "url": "https://time.com/article/2026/10/05/nobel-prize-2026-winners/"
+    }
+   ]
+  },
+  {
+   "sectiune": "medicina",
+   "titlu": "O injecție unică în ochi, bazată pe optogenetică, merge spre un studiu de fază 2 în atrofia geografică",
+   "rezumat": "Terapia genică son-vec a fost asociată cu un câștig mediu de 12 litere la testul de vedere la un grup de pacienți cu boala Stargardt; urmează un studiu controlat în atrofia geografică.",
+   "text": "La congresul Academiei Americane de Oftalmologie, desfășurat între 9 și 12 octombrie la New Orleans, au fost prezentate rezultate timpurii pentru sonpiretigene isteparvovec (pe scurt son-vec, cunoscut anterior ca MCO-010), o terapie genică a companiei Nanoscope Therapeutics. Tratamentul constă într-o singură injecție în interiorul ochiului și face ca celulele rămase în viață în retină să devină ele însele sensibile la lumină, preluând o parte din rolul fotoreceptorilor pierduți.\n\nDatele noi provin dintr-un studiu deschis de fază 2, fără grup de control, la pacienți cu boala Stargardt, o formă ereditară de degenerescență a maculei, care aveau o acuitate vizuală de 20/200 sau mai slabă. Pacienții la care atrofia era limitată la maculă au câștigat în medie 12 litere pe panoul standard de testare a vederii (ETDRS). Într-un studiu anterior, publicat, pe șase adulți, câștigul mediu fusese de 5,5 litere la 48 de săptămâni. În grupul nou prezentat nu au fost raportate evenimente adverse grave; cele mai frecvente reacții au fost hemoragia conjunctivală, creșterea presiunii din ochi și celule inflamatorii în vitros.\n\nPentru atrofia geografică, forma avansată a degenerescenței maculare „uscate” legate de vârstă, dovezile sunt deocamdată doar pe animale: la primate cu leziuni retiniene produse cu laser, ochii tratați au răspuns electric semnificativ mai puternic decât cei netratați.\n\nPe baza acestor date, echipa condusă de dr. David S. Boyer plănuiește un studiu randomizat și controlat de fază 2 la pacienți cu atrofie geografică.",
+   "de_ce_conteaza": "Medicamentele existente pentru atrofia geografică doar încetinesc boala; aceasta este o încercare de a reda vedere. Rezultatele sunt însă timpurii, pe puțini pacienți și fără grup de control, iar în atrofia geografică terapia nu a fost încă testată la oameni.",
+   "loc": "New Orleans, SUA",
+   "sursa_nume": "Ophthalmology Times",
+   "sursa_url": "https://www.ophthalmologytimes.com/view/aao-2026-optogenetic-gene-therapy-heads-to-phase-2-trial-in-geographic-atrophy",
+   "sursa_data": "",
+   "alte_surse": [
+    {
+     "nume": "Newswise",
+     "url": "https://www.newswise.com/articles/a-gene-therapy-aims-to-do-what-dry-macular-degeneration-drugs-cannot-restore-sight"
+    }
+   ],
+   "trimiteri": [
+    {
+     "titlu": "Ce alte tratamente sunt în lucru pentru atrofia geografică (Retinal Physician)",
+     "url": "https://www.retinalphysician.com/issues/2026/march-april/the-therapeutic-pipeline-for-geographic-atrophy/"
+    },
+    {
+     "titlu": "Boala Stargardt, pe Wikipedia (engleză)",
+     "url": "https://en.wikipedia.org/wiki/Stargardt_disease"
+    },
+    {
+     "titlu": "Degenerescența maculară, pe Wikipedia (română)",
+     "url": "https://ro.wikipedia.org/wiki/Degenerescență_maculară"
+    }
+   ]
+  },
+  {
+   "sectiune": "medicina",
+   "titlu": "Celule CAR-T fabricate direct în corp au eliminat leucemia la șoareci după o singură injecție",
+   "rezumat": "O echipă de la Universitatea California din San Francisco a reprogramat limfocitele T în interiorul organismului, cu două particule care duc instrumentele CRISPR și gena nouă exact în locul dorit din genom.",
+   "text": "Terapia CAR-T este unul dintre cele mai eficiente tratamente pentru unele cancere de sânge: limfocitele T ale pacientului sunt scoase din corp, modificate genetic ca să recunoască celulele canceroase și apoi reintroduse. Procedeul este însă lent și foarte scump, pentru că fiecare doză se fabrică separat, pentru un singur om.\n\nCercetătorii de la Universitatea California din San Francisco descriu, într-un studiu publicat în revista Nature, o cale de a face această modificare direct în organism. Ei folosesc două tipuri de particule injectate în sânge: unele duc în limfocitele T instrumentele de editare genetică CRISPR, celelalte duc ADN-ul nou, care conține instrucțiunile pentru receptorul ce țintește cancerul. Gena este inserată într-un loc precis din genom, nu la întâmplare. Autorii spun că este prima demonstrație a unei integrări programabile, la o poziție aleasă, a unui fragment mare de ADN în limfocite T aflate în corp.\n\nRezultatele sunt deocamdată pe animale. La șoareci cu o leucemie agresivă, o singură injecție a eliminat orice urmă detectabilă de cancer la aproape toate animalele în două săptămâni. Metoda a funcționat și împotriva mielomului multiplu și, mai neașteptat, împotriva unui sarcom, o tumoră solidă; tumorile solide au rezistat până acum în general terapiei CAR-T.",
+   "de_ce_conteaza": "Dacă metoda se confirmă la oameni, terapia CAR-T ar putea deveni un medicament „de pe raft”, fără săptămânile de fabricație și costurile care îi limitează astăzi accesul. Până atunci urmează studiile de siguranță; rezultatele de acum sunt numai pe șoareci.",
+   "loc": "San Francisco, SUA",
+   "sursa_nume": "ScienceDaily",
+   "sursa_url": "https://www.sciencedaily.com/releases/2026/10/261005071532.htm",
+   "sursa_data": "2026-10-05",
+   "alte_surse": [
+    {
+     "nume": "UCSF",
+     "url": "https://www.ucsf.edu/news/2026/03/431616/scientists-create-cancer-fighting-immune-cells-right-body"
+    }
+   ],
+   "trimiteri": [
+    {
+     "titlu": "Studiul original, în Nature",
+     "url": "https://www.nature.com/articles/s41586-026-10235-x"
+    },
+    {
+     "titlu": "Primii pacienți tratați cu celule CAR-T produse în corp (Science)",
+     "url": "https://www.science.org/content/article/first-patients-have-been-helped-cancer-fighting-cells-made-directly-their-bodies"
+    },
+    {
+     "titlu": "Ce este terapia CAR-T, pe Wikipedia (engleză)",
+     "url": "https://en.wikipedia.org/wiki/CAR_T_cell"
+    }
+   ]
+  },
+  {
+   "sectiune": "stiinta",
+   "titlu": "Nobelul pentru fizică: Francis Halzen, omul care a transformat gheața Polului Sud într-un telescop",
+   "rezumat": "Fizicianul Francis Halzen a primit singur Premiul Nobel pentru Fizică 2026 pentru observatorul IceCube și pentru descoperirea neutrinilor de mare energie veniți din afara sistemului solar.",
+   "text": "Academia Regală de Științe a Suediei a acordat marți, 6 octombrie, Premiul Nobel pentru Fizică lui Francis Halzen, „pentru contribuții decisive la Observatorul de Neutrini IceCube și pentru descoperirea neutrinilor de mare energie de origine astrofizică”. Halzen, născut în Belgia, are 82 de ani și lucrează la Universitatea Wisconsin–Madison din Statele Unite, instituția care operează observatorul.\n\nNeutrinii sunt particule aproape fără masă, care trec prin materie practic fără să interacționeze cu ea, motiv pentru care sunt numiți adesea „particule-fantomă”. Tocmai de aceea sunt mesageri prețioși: ajung la noi neschimbați din locuri din care lumina nu poate scăpa sau este deviată pe drum. Problema este prinderea lor.\n\nIdeea lui Halzen, la care lucrează din anii 1980, a fost să folosească drept detector chiar gheața de la Polul Sud. Când un neutrin lovește, foarte rar, un atom din gheață, apare o scânteie slabă de lumină, pe care o pot înregistra senzori coborâți adânc în calota glaciară. Așa a apărut IceCube, un instrument construit de o echipă internațională de cercetători și ingineri, pe care Halzen a condus-o.\n\nComitetul Nobel a subliniat că tenacitatea și viziunea lui au deschis drumul unui nou fel de astronomie, care privește universul nu prin lumină, ci prin neutrini.",
+   "de_ce_conteaza": "Neutrinii de mare energie arată spre cele mai violente fenomene din univers și pot spune de unde vin razele cosmice, o întrebare veche de peste un secol. Premiul recunoaște astronomia cu neutrini ca domeniu de sine stătător.",
+   "loc": "Stockholm, Suedia · Polul Sud",
+   "sursa_nume": "ITV News",
+   "sursa_url": "https://www.itv.com/news/2026-10-06/nobel-prize-in-physics-goes-to-francis-halzen",
+   "sursa_data": "2026-10-06",
+   "alte_surse": [
+    {
+     "nume": "Ara",
+     "url": "https://en.ara.cat/science-technology/nobel-in-physics-for-francis-halzen-the-hunter-of-the-ghost-particles-of-the-universe_1_5871117.html"
+    },
+    {
+     "nume": "Britannica",
+     "url": "https://www.britannica.com/topic/2026-Nobel-Prize-winners"
+    }
+   ],
+   "trimiteri": [
+    {
+     "titlu": "Observatorul IceCube, pagina oficială",
+     "url": "https://icecube.wisc.edu/"
+    },
+    {
+     "titlu": "Cum funcționează IceCube, pe Wikipedia (engleză)",
+     "url": "https://en.wikipedia.org/wiki/IceCube_Neutrino_Observatory"
+    },
+    {
+     "titlu": "Neutrinul, pe Wikipedia (română)",
+     "url": "https://ro.wikipedia.org/wiki/Neutrin"
+    }
+   ]
+  },
+  {
+   "sectiune": "stiinta",
+   "titlu": "Nobelul pentru chimie: cum ajunge natura să aleagă o singură „mână” a moleculelor",
+   "rezumat": "Henri B. Kagan și Kenso Soai au fost premiați pentru descoperirea efectelor neliniare și a autocatalizei în sinteza asimetrică, o explicație pentru felul în care poate apărea spontan homochiralitatea.",
+   "text": "Premiul Nobel pentru Chimie 2026 a fost acordat miercuri, 7 octombrie, chimistului francez Henri B. Kagan, de la Université Paris-Sud din Orsay, și chimistului japonez Kenso Soai, de la Tokyo University of Science.\n\nMulte molecule există în două variante care arată la fel, dar sunt una imaginea în oglindă a celeilalte, ca mâna stângă și mâna dreaptă; chimiștii numesc această proprietate chiralitate. Diferența nu este de formă: una dintre variantele carvonei miroase a mentă, cealaltă a chimen. Viața folosește aproape întotdeauna o singură variantă, de pildă numai aminoacizi „de stânga”, fenomen numit homochiralitate. De peste un secol, chimiștii se întreabă cum a putut apărea de la sine o asemenea alegere, când reacțiile obișnuite produc cele două variante în părți egale.\n\nKagan și Soai au arătat cum poate chimia „să aleagă o parte”. Kagan a descoperit așa-numitele efecte neliniare: un mic dezechilibru între cele două variante ale unui catalizator poate duce la un produs mult mai dezechilibrat decât ar fi de așteptat. Soai a găsit o reacție, care îi poartă astăzi numele, în care produsul își catalizează propria formare, astfel încât un avantaj inițial infim al uneia dintre variante se amplifică de la un ciclu la altul.\n\nComitetul Nobel a notat că descoperirile lor au fost decisive și pentru chimiștii care proiectează reacții pentru fabricarea medicamentelor.",
+   "de_ce_conteaza": "La multe medicamente doar una dintre cele două variante în oglindă are efectul dorit, deci controlul chiralității este o problemă practică, nu doar una despre originea vieții. Reacția Soai rămâne cel mai bun model de laborator pentru felul în care a putut apărea asimetria moleculelor vii.",
+   "loc": "Stockholm, Suedia",
+   "sursa_nume": "Al Jazeera",
+   "sursa_url": "https://www.aljazeera.com/amp/news/2026/10/7/henri-kagan-kenso-soai-win-chemistry-nobel-for-mirror-image-breakthrough",
+   "sursa_data": "2026-10-07",
+   "alte_surse": [
+    {
+     "nume": "South China Morning Post",
+     "url": "https://scmp.com/news/world/europe/article/3370059/nobel-chemistry-prize-awarded-henri-b-kagan-and-kenso-soai"
+    },
+    {
+     "nume": "Anchorage Daily News",
+     "url": "https://www.adn.com/nation-world/2026/10/07/nobel-prize-in-chemistry-awarded-to-kagan-and-soai-for-untangling-mirror-images-in-molecules/"
+    }
+   ],
+   "trimiteri": [
+    {
+     "titlu": "Reacția Soai, pe Wikipedia (engleză)",
+     "url": "https://en.wikipedia.org/wiki/Soai_reaction"
+    },
+    {
+     "titlu": "Homochiralitatea, pe Wikipedia (engleză)",
+     "url": "https://en.wikipedia.org/wiki/Homochirality"
+    },
+    {
+     "titlu": "Chiralitatea în chimie, pe Wikipedia (română)",
+     "url": "https://ro.wikipedia.org/wiki/Chiralitate_(chimie)"
+    }
+   ]
+  },
+  {
+   "sectiune": "stiinta",
+   "titlu": "Un fragment de craniu din Africa de Sud împinge Homo erectus cu 200.000 de ani înapoi",
+   "rezumat": "Printre 18 fosile descrise din peștera Drimolen se află primul adult Homo erectus găsit acolo, vechi de aproximativ două milioane de ani.",
+   "text": "Peștera Drimolen, aflată la nord-est de Johannesburg, a dat în ultimii ani unele dintre cele mai vechi urme ale genului uman. Un studiu publicat în revista Annals of Human Biology descrie acum 18 fosile de hominini găsite acolo, între care un fragment de craniu, catalogat DNH 127, atribuit unui adult din specia Homo erectus.\n\nFragmentul este datat între 2,04 și 1,95 milioane de ani. Este cu aproximativ 200.000 de ani mai vechi decât celelalte fosile de adulți Homo erectus cunoscute, inclusiv cele de la Dmanisi, în Georgia, datate la 1,8 milioane de ani. La Drimolen mai fusese găsit un craniu de copil atribuit aceleiași specii; un adult întărește mult concluzia, pentru că trăsăturile unui craniu de copil sunt mai greu de interpretat.\n\nFosilele arată și cu cine împărțea Homo erectus locul. Acum două milioane de ani, în aceeași zonă trăia Paranthropus robustus, o rudă a omului cu fălci și măsele masive, care nu se numără printre strămoșii noștri. La Drimolen, fosilele de Paranthropus sunt de peste zece ori mai numeroase decât cele de Homo erectus, iar autorii spun că ele arată o specie aflată în schimbare, sub presiunea climei.",
+   "de_ce_conteaza": "Homo erectus este prima specie cu proporții ale corpului apropiate de ale noastre și prima care a ieșit din Africa. Dacă exista deja acum două milioane de ani în sudul continentului, originea și răspândirea ei trebuie regândite.",
+   "loc": "Peștera Drimolen, Africa de Sud",
+   "sursa_nume": "ScienceDaily",
+   "sursa_url": "https://www.sciencedaily.com/releases/2026/10/261007042113.htm",
+   "sursa_data": "2026-10-07",
+   "alte_surse": [
+    {
+     "nume": "Phys.org",
+     "url": "https://phys.org/news/2026-09-adult-fossil-evidence-homo-erectus.html"
+    },
+    {
+     "nume": "Earth.com",
+     "url": "https://www.earth.com/science/drimolen-adult-homo-erectus-fossil/"
+    }
+   ],
+   "trimiteri": [
+    {
+     "titlu": "Situl Drimolen, pe Wikipedia (engleză)",
+     "url": "https://en.wikipedia.org/wiki/Drimolen"
+    },
+    {
+     "titlu": "Homo erectus, pe Wikipedia (română)",
+     "url": "https://ro.wikipedia.org/wiki/Homo_erectus"
+    },
+    {
+     "titlu": "Relatarea din Archaeology Magazine",
+     "url": "https://archaeologymag.com/2026/09/homo-erectus-lived-in-africa-earlier-than-thought/"
+    }
+   ]
+  },
+  {
+   "sectiune": "arta",
+   "titlu": "Anne Carson, poeta care scrie în dialog cu grecii antici, primește Nobelul pentru literatură",
+   "rezumat": "Academia Suedeză a premiat-o pe scriitoarea canadiană Anne Carson pentru o operă „îndrăzneață și inventivă” care a creat forme noi pentru literatura de azi.",
+   "text": "Premiul Nobel pentru Literatură 2026 a fost acordat joi, 8 octombrie, scriitoarei canadiene Anne Carson, poetă, eseistă, traducătoare și profesoară de limbi clasice. Academia Suedeză și-a motivat alegerea prin „opera ei îndrăzneață și inventivă care, într-un dialog jucăuș cu tradiția clasică, a creat forme noi pentru literatura contemporană”.\n\nNăscută la Toronto, Carson are 76 de ani și este una dintre vocile cele mai greu de încadrat ale literaturii de limbă engleză. Cărțile ei pornesc adesea de la teme și povești din literatura greacă și romană și amestecă poezia, eseul și ficțiunea până când granițele dintre ele dispar.\n\nPrintre titlurile cele mai cunoscute se numără „Eros the Bittersweet”, un eseu despre dorință pornit de la un vers al poetei Sappho, „Autobiography of Red”, un roman în versuri care rescrie mitul lui Gerion, monstrul roșu ucis de Heracle, ca pe povestea unui adolescent de azi, și „The Beauty of the Husband”, istoria unei căsnicii spusă în 29 de „tangouri”.",
+   "de_ce_conteaza": "Este o recunoaștere pentru o literatură care nu ține seama de genuri și pentru ideea că autorii antici pot fi încă o sursă vie, nu doar un obiect de studiu. Numele ei circula de ani buni pe listele de favoriți.",
+   "loc": "Stockholm, Suedia",
+   "sursa_nume": "NPR",
+   "sursa_url": "https://www.npr.org/2026/10/08/nx-s1-5984350/nobel-prize-in-literature-anne-carson",
+   "sursa_data": "2026-10-08",
+   "alte_surse": [
+    {
+     "nume": "CNN",
+     "url": "https://www.cnn.com/2026/10/08/style/nobel-prize-literature-name-name-winner-intl"
+    },
+    {
+     "nume": "PBS NewsHour",
+     "url": "https://www.pbs.org/newshour/arts/watch-live-winner-of-the-2026-nobel-prize-in-literature-is"
+    }
+   ],
+   "trimiteri": [
+    {
+     "titlu": "Anne Carson, viața și cărțile, pe Wikipedia (engleză)",
+     "url": "https://en.wikipedia.org/wiki/Anne_Carson"
+    },
+    {
+     "titlu": "Premiul Nobel pentru Literatură 2026, pe Wikipedia (engleză)",
+     "url": "https://en.wikipedia.org/wiki/2026_Nobel_Prize_in_Literature"
+    },
+    {
+     "titlu": "„Autobiography of Red”, pe Wikipedia (engleză)",
+     "url": "https://en.wikipedia.org/wiki/Autobiography_of_Red"
+    }
+   ]
+  },
+  {
+   "sectiune": "arta",
+   "titlu": "Whitney redeschide dosarul Lichtenstein: peste 130 de lucrări și debutul din 1962, reunit",
+   "rezumat": "Retrospectiva „Roy Lichtenstein: Like New”, deschisă pe 11 octombrie la New York, îl prezintă pe pictorul benzilor desenate ca pe un gânditor al imaginii copiate și puse în circulație.",
+   "text": "Whitney Museum of American Art din New York deschide pe 11 octombrie „Roy Lichtenstein: Like New”, o retrospectivă cu peste 130 de lucrări care urmărește cariera artistului de la începutul anilor 1940 până în anii 1990. Expoziția este organizată de curatoarea Meg Onli, împreună cu artistul Alex Da Corte, invitat în calitate de curator.\n\nUnul dintre punctele de atracție este reunirea, pentru prima oară, a tuturor celor opt lucrări din expoziția de debut de la galeria Leo Castelli, din 1962, cea care l-a făcut cunoscut. Sunt prezente și tablourile intrate în cultura populară: „Look Mickey” (1961), „Drowning Girl” (1963), „Happy Tears” (1964) și „Artist's Studio «The Dance»” (1974). Muzeul a refăcut și trei picturi murale, între care o versiune de aproape 29 de metri a lucrării „Greene Street Mural” (1983).\n\nMiza expoziției este să treacă dincolo de suprafața pop a punctelor și a contururilor groase. Curatorii îl arată pe Lichtenstein preocupat de felul în care imaginile sunt copiate, mărite, decupate și schimbate pe măsură ce circulă, o temă care sună altfel într-o epocă a filtrelor și a redistribuirii digitale. Cronicarul publicației Artnet numește expoziția „un triumf discret”.",
+   "de_ce_conteaza": "Lichtenstein este unul dintre cei mai reproduși artiști ai secolului al XX-lea, iar expoziția propune o lectură nouă a lui: nu un pictor al benzilor desenate, ci unul care a înțeles devreme cât de instabile sunt imaginile.",
+   "loc": "New York, SUA",
+   "sursa_nume": "Artnet News",
+   "sursa_url": "https://news.artnet.com/art-world/roy-lichtenstein-whitney-museum-2821650",
+   "sursa_data": "",
+   "alte_surse": [
+    {
+     "nume": "Artsy",
+     "url": "https://www.artsy.net/article/artsy-editorial-whitney-stage-major-roy-lichtenstein-exhibition-october-2026"
+    },
+    {
+     "nume": "Artprice",
+     "url": "https://news.artprice.com/en/15812/roy-lichtenstein-like-new-at-the-whitney-the-exhibition-redefining-pop-art-from-october-11-2026"
+    }
+   ],
+   "trimiteri": [
+    {
+     "titlu": "Roy Lichtenstein, pe Wikipedia (română)",
+     "url": "https://ro.wikipedia.org/wiki/Roy_Lichtenstein"
+    },
+    {
+     "titlu": "„Drowning Girl”, povestea tabloului, pe Wikipedia (engleză)",
+     "url": "https://en.wikipedia.org/wiki/Drowning_Girl"
+    },
+    {
+     "titlu": "Whitney Museum of American Art, pagina muzeului",
+     "url": "https://whitney.org/"
+    }
+   ]
+  },
+  {
+   "sectiune": "arta",
+   "titlu": "„Renoir and Love”: National Gallery din Londra aduce pentru prima dată în Marea Britanie „Bal du moulin de la Galette”",
+   "rezumat": "Prima expoziție dedicată lui Renoir la National Gallery din 2007 încoace reunește aproximativ 45 de tablouri despre afecțiune, dorință și viața socială modernă.",
+   "text": "National Gallery din Londra a deschis pe 3 octombrie „Renoir and Love”, una dintre cele mai ambițioase expoziții ale muzeului din ultimele două decenii și prima consacrată lui Pierre-Auguste Renoir în această instituție din 2007. Expoziția rămâne deschisă până pe 31 ianuarie 2027 și vine la Londra după ce a fost prezentată la Musée d'Orsay din Paris, unde s-a numărat printre cele mai vizitate din istoria muzeului.\n\nCele aproximativ 45 de tablouri acoperă perioada cea mai fertilă a pictorului, de la mijlocul anilor 1860 până la mijlocul anilor 1880. Tema care le leagă este felul în care Renoir a pictat apropierea dintre oameni: seducția, prietenia, conversația, tovărășia dintre bărbați, viața de familie și copilăria. Emoția circulă prin spații sociale: cafeneaua, teatrul, grădina, terasa sau localul de dans de pe malul apei.\n\nPiesa centrală este „Bal du moulin de la Galette” (1876), împrumutată de Musée d'Orsay, una dintre capodoperele impresionismului, arătată acum pentru prima dată în Regatul Unit.",
+   "de_ce_conteaza": "Renoir a fost privit multă vreme drept un pictor al scenelor plăcute și atât; expoziția îl prezintă ca pe un observator atent al relațiilor dintre oameni în orașul modern. Pentru publicul britanic este și o ocazie rară de a vedea un tablou care părăsește foarte rar Parisul.",
+   "loc": "Londra, Marea Britanie",
+   "sursa_nume": "Wanderlust",
+   "sursa_url": "https://www.wanderlustmagazine.com/news/renoir-and-love-at-londons-national-gallery-displays-the-french-impressionists-modern-approach-to-human-interaction/",
+   "sursa_data": "",
+   "alte_surse": [
+    {
+     "nume": "Artprice",
+     "url": "https://news.artprice.com/it/16172/renoir-and-love-london-s-national-gallery-celebrates-the-painter-of-modern-emotions-from-3-october-2026"
+    },
+    {
+     "nume": "ianVisits",
+     "url": "https://www.ianvisits.co.uk/calendar/?p=435189"
+    }
+   ],
+   "trimiteri": [
+    {
+     "titlu": "„Bal du moulin de la Galette”, pe Wikipedia (engleză)",
+     "url": "https://en.wikipedia.org/wiki/Bal_du_moulin_de_la_Galette"
+    },
+    {
+     "titlu": "Pierre-Auguste Renoir, pe Wikipedia (română)",
+     "url": "https://ro.wikipedia.org/wiki/Pierre-Auguste_Renoir"
+    },
+    {
+     "titlu": "National Gallery, Londra, pagina muzeului",
+     "url": "https://www.nationalgallery.org.uk/"
+    },
+    {
+     "titlu": "Cele 13 expoziții de văzut în octombrie (ArtReview)",
+     "url": "https://artreview.com/the-13-exhibitions-to-see-in-october-2026/"
+    }
+   ]
+  }
+ ]
+}

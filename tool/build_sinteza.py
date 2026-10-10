@@ -2,6 +2,11 @@
 psihoterapie (sectiunea principala), din restul cercetarii medicale, din
 stiinte si din arta, culese de pe web si rezumate in romana de Claude.
 
+Calea obisnuita, fara cost de API: o rutina programata din abonamentul Claude
+scrie sambata ciorna editiei in sinteza/ciorne/ (instructiunile ei sunt in
+tool/sinteza_rutina.md), iar fluxul .github/workflows/sinteza.yml ruleaza acest
+script cu --din-fisier.
+
 Pasii:
   1. cercetare  - Claude cauta pe web noutatile ultimelor 7 zile si scrie articolele
   2. structurare - textul este transcris intr-un JSON cu forma fixa
@@ -10,10 +15,13 @@ Pasii:
   4. publicare  - editia ajunge in hosting/sinteza/date/, de unde o citesc
                   aplicatia (lib/services/sinteza_store.dart) si pagina web
                   (hosting/sinteza/index.html)
+Pasii 1 si 2 ruleaza aici doar fara --din-fisier, prin API (cu cost pe tokeni).
 
 Rulare:
-  python tool/build_sinteza.py                    (cere ANTHROPIC_API_KEY)
-  python tool/build_sinteza.py --din-fisier c.json   doar pasii 3 si 4, pe o ciorna
+  python tool/build_sinteza.py --din-fisier c.json   pasii 3 si 4, pe o ciorna
+  python tool/build_sinteza.py --din-fisier c.json --verifica-forma
+                                                  doar forma ciornei, fara retea
+  python tool/build_sinteza.py                    toti pasii (cere ANTHROPIC_API_KEY)
   python tool/build_sinteza.py --forteaza         reface editia saptamanii curente
   python tool/build_sinteza.py --data 2026-10-10  alta data decat cea de azi
 """
@@ -140,6 +148,62 @@ SCHEMA = {
     "required": ["titlu", "introducere", "articole"],
     "additionalProperties": False,
 }
+
+
+# ----------------------------------------------------------------- forma ciornei
+
+_CAMPURI_TEXT = (
+    "titlu", "rezumat", "text", "de_ce_conteaza", "loc", "sursa_nume", "sursa_url",
+)
+
+
+def probleme_forma(ciorna) -> list[str]:
+    """Ce lipseste sau este gresit intr-o ciorna; lista goala daca e in regula.
+    Nu foloseste reteaua."""
+    if not isinstance(ciorna, dict):
+        return ["ciorna trebuie sa fie un obiect JSON"]
+    probleme = []
+    for camp in ("titlu", "introducere"):
+        if not isinstance(ciorna.get(camp), str) or not ciorna[camp].strip():
+            probleme.append(f"lipseste {camp}")
+    if "data" in ciorna:
+        try:
+            dt.date.fromisoformat(ciorna["data"])
+        except (TypeError, ValueError):
+            probleme.append("data nu este de forma AAAA-LL-ZZ")
+    articole = ciorna.get("articole")
+    if not isinstance(articole, list):
+        return probleme + ["lipseste lista articole"]
+    for i, a in enumerate(articole, 1):
+        unde = f"articolul {i}"
+        if not isinstance(a, dict):
+            probleme.append(f"{unde}: nu este un obiect")
+            continue
+        if a.get("sectiune") not in SECTIUNI:
+            probleme.append(f"{unde}: sectiune necunoscuta ({a.get('sectiune')!r})")
+        for camp in _CAMPURI_TEXT:
+            if not isinstance(a.get(camp), str) or not a[camp].strip():
+                probleme.append(f"{unde}: lipseste {camp}")
+        if not str(a.get("sursa_url", "")).startswith("https://"):
+            probleme.append(f"{unde}: sursa_url trebuie sa inceapa cu https://")
+        if not isinstance(a.get("sursa_data"), str):
+            probleme.append(f"{unde}: sursa_data trebuie sa fie text (poate fi gol)")
+        for lista, cheie in (("alte_surse", "nume"), ("trimiteri", "titlu")):
+            randuri = a.get(lista)
+            if not isinstance(randuri, list) or any(
+                not isinstance(r, dict)
+                or not isinstance(r.get(cheie), str)
+                or not isinstance(r.get("url"), str)
+                for r in randuri
+            ):
+                probleme.append(
+                    f"{unde}: {lista} trebuie sa fie o lista de {{{cheie}, url}}"
+                )
+    for sectiune, minim in MINIM_PE_SECTIUNE.items():
+        n = sum(isinstance(a, dict) and a.get("sectiune") == sectiune for a in articole)
+        if n < minim:
+            probleme.append(f"{sectiune}: {n} articole, minimum {minim}")
+    return probleme
 
 
 # ---------------------------------------------------------------- date si editii
@@ -582,11 +646,33 @@ def main() -> None:
     sys.stdout.reconfigure(encoding="utf-8", errors="replace")
     p = argparse.ArgumentParser(description=__doc__.split("\n")[0])
     p.add_argument("--din-fisier", help="ciorna JSON deja scrisa; sare peste Claude")
+    p.add_argument(
+        "--verifica-forma",
+        action="store_true",
+        help="cu --din-fisier: verifica doar forma ciornei, fara retea si fara publicare",
+    )
     p.add_argument("--forteaza", action="store_true", help="reface editia existenta")
     p.add_argument("--data", help="data editiei, AAAA-LL-ZZ (implicit: azi)")
     arg = p.parse_args()
 
-    zi = dt.date.fromisoformat(arg.data) if arg.data else dt.date.today()
+    ciorna = None
+    if arg.din_fisier:
+        ciorna = json.loads(Path(arg.din_fisier).read_text(encoding="utf-8"))
+        probleme = probleme_forma(ciorna)
+        if probleme:
+            print("Ciorna nu are forma ceruta:")
+            for problema in probleme:
+                print("  -", problema)
+            sys.exit(1)
+        if arg.verifica_forma:
+            print(f"Forma ciornei este in regula: {len(ciorna['articole'])} articole.")
+            return
+    elif arg.verifica_forma:
+        p.error("--verifica-forma se foloseste impreuna cu --din-fisier")
+
+    # data editiei: din linia de comanda, din ciorna sau ziua de azi
+    data = arg.data or (ciorna or {}).get("data")
+    zi = dt.date.fromisoformat(data) if data else dt.date.today()
     editie_id = id_editie(zi)
     if (TINTA / f"{editie_id}.json").exists() and not arg.forteaza:
         print(f"Editia {editie_id} exista deja; foloseste --forteaza ca sa o refaci.")
@@ -594,9 +680,7 @@ def main() -> None:
 
     vazute: set[str] = set()
     consum = None
-    if arg.din_fisier:
-        ciorna = json.loads(Path(arg.din_fisier).read_text(encoding="utf-8"))
-    else:
+    if ciorna is None:
         import anthropic
 
         client = anthropic.Anthropic()

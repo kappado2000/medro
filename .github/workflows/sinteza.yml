@@ -1,17 +1,17 @@
 name: Sinteza saptamanala (psihiatrie, medicina, stiinte, arta)
 
-# Genereaza editia saptamanii cu Claude (cautare pe web), o salveaza in repo si
-# o publica pe Firebase Hosting, de unde o citesc aplicatia si pagina web
-# hosting/sinteza/. Ruleaza pe Linux, cateva minute pe saptamana.
+# Ciorna editiei este scrisa sambata dimineata de o rutina programata din
+# abonamentul Claude (instructiuni: tool/sinteza_rutina.md), care o urca in
+# sinteza/ciorne/. Fluxul acesta porneste la acel push: verifica sursele, ia
+# imaginile, salveaza editia in repo si o publica pe Firebase Hosting, de unde o
+# citesc aplicatia si pagina web hosting/sinteza/. Nu foloseste API-ul Claude,
+# deci nu are cost.
 on:
-  schedule:
-    - cron: '0 4 * * 6' # sambata, 04:00 UTC (07:00 vara, 06:00 iarna, ora Romaniei)
-  workflow_dispatch:
-    inputs:
-      forteaza:
-        description: Reface editia saptamanii curente, daca exista deja
-        type: boolean
-        default: false
+  push:
+    branches: [main]
+    paths:
+      - 'sinteza/ciorne/**'
+  workflow_dispatch: {}
 
 # acelasi grup ca fluxul de date: amandoua scriu in main si publica hosting-ul
 concurrency: date
@@ -28,21 +28,16 @@ jobs:
         with:
           python-version: '3.12'
 
-      - run: pip install anthropic
+      # certificatele la zi pentru verificarea surselor
+      - run: pip install certifi
 
       # daca prea putine articole trec de verificarea surselor, fluxul se
       # opreste aici si ramane editia de saptamana trecuta
-      - name: Genereaza editia
-        env:
-          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
-          # modelul se poate schimba din Settings > Variables, fara commit
-          SINTEZA_MODEL: ${{ vars.SINTEZA_MODEL || 'claude-opus-5-5' }}
+      - name: Verifica sursele si construieste editia
         run: |
-          if [ -z "$ANTHROPIC_API_KEY" ]; then
-            echo "::error::Secretul ANTHROPIC_API_KEY lipseste; editia nu poate fi generata."
-            exit 1
-          fi
-          python tool/build_sinteza.py ${{ inputs.forteaza && '--forteaza' || '' }}
+          ciorna=$(ls sinteza/ciorne/*.json | sort | tail -n 1)
+          echo "Ciorna: $ciorna"
+          python tool/build_sinteza.py --din-fisier "$ciorna" --forteaza
 
       - name: Salveaza editia in repo
         run: |
@@ -50,7 +45,7 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add hosting/sinteza
           if git diff --cached --quiet; then
-            echo "Nicio editie noua."
+            echo "Editia nu s-a schimbat."
           else
             git commit -m "Sinteza: editia saptamanii"
             git pull --rebase
