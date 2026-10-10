@@ -58,3 +58,6 @@ firebase-debug.*.log
 
 # copia datelor pregatita pentru publicare (tool/publica_date.py)
 hosting/date/
+
+# memoria locala a Firebase CLI
+.firebase/
