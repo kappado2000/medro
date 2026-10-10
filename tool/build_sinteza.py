@@ -184,15 +184,15 @@ class Consum:
 
     def __init__(self) -> None:
         self.intrare = 0
+        self.scrise_cache = 0
+        self.citite_cache = 0
         self.iesire = 0
         self.cautari = 0
 
     def aduna(self, usage) -> None:
-        self.intrare += (
-            (usage.input_tokens or 0)
-            + (getattr(usage, "cache_creation_input_tokens", 0) or 0)
-            + (getattr(usage, "cache_read_input_tokens", 0) or 0)
-        )
+        self.intrare += usage.input_tokens or 0
+        self.scrise_cache += getattr(usage, "cache_creation_input_tokens", 0) or 0
+        self.citite_cache += getattr(usage, "cache_read_input_tokens", 0) or 0
         self.iesire += usage.output_tokens or 0
         unelte = getattr(usage, "server_tool_use", None)
         if unelte is not None:
@@ -200,16 +200,19 @@ class Consum:
 
     def cost(self) -> float:
         intrare, iesire = PRETURI.get(MODEL, PRETURI["claude-opus-5-5"])
+        # scrierea in cache costa 1,25x, iar citirea din cache 0,1x pretul de intrare
         return (
-            self.intrare / 1e6 * intrare
+            (self.intrare + 1.25 * self.scrise_cache + 0.1 * self.citite_cache)
+            / 1e6 * intrare
             + self.iesire / 1e6 * iesire
             + self.cautari * PRET_CAUTARE
         )
 
     def raport(self) -> str:
         return (
-            f"Model {MODEL}: {self.intrare:,} tokeni intrare, {self.iesire:,} tokeni "
-            f"iesire, {self.cautari} cautari web, cost estimat {self.cost():.2f} USD"
+            f"Model {MODEL}: {self.intrare:,} tokeni intrare (+{self.scrise_cache:,} "
+            f"scrisi in cache, {self.citite_cache:,} cititi din cache), {self.iesire:,} "
+            f"tokeni iesire, {self.cautari} cautari web, cost estimat {self.cost():.2f} USD"
         )
 
 
@@ -277,6 +280,8 @@ def cerceteaza(client, consum: Consum, de_la: dt.date, pana_la: dt.date):
             model=MODEL,
             max_tokens=64000,
             system=SISTEM,
+            # la reluarea unei ture intrerupte, ce s-a citit deja se plateste la 0,1x
+            cache_control={"type": "ephemeral"},
             thinking={"type": "adaptive"},
             output_config={"effort": "high"},
             tools=[
