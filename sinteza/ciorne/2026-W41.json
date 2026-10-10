@@ -140,6 +140,32 @@
    ]
   },
   {
+   "sectiune": "siguranta",
+   "titlu": "ANMDM: risc nou de leziune hepatică indusă medicamentos la Ocrevus (ocrelizumab)",
+   "rezumat": "O comunicare directă către profesioniștii din domeniul sănătății, publicată pe 8 octombrie, semnalează riscul și recomandă monitorizarea funcției hepatice înaintea și în timpul tratamentului.",
+   "text": "Agenția Națională a Medicamentului și a Dispozitivelor Medicale din România a publicat pe 8 octombrie o comunicare directă către profesioniștii din domeniul sănătății privind Ocrevus (ocrelizumab). Comunicarea anunță un risc nou, de leziune hepatică indusă medicamentos, și cuprinde recomandări privind monitorizarea funcției hepatice înaintea tratamentului și pe durata lui.\n\nOcrelizumab este un anticorp monoclonal anti-CD20 folosit în scleroza multiplă, atât în formele recurente, cât și în forma primar progresivă.\n\nComunicările directe sunt instrumentul prin care medicii, farmaciștii și asistenții sunt anunțați despre o problemă nouă și importantă de siguranță și despre măsurile de luat pentru a o reduce. Ele sunt distribuite de deținătorul autorizației de punere pe piață, cu acordul autorității naționale.\n\nDetaliile, adică analizele recomandate, momentul lor și conduita la valori modificate, se află în documentul comunicării, de pe pagina ANMDM; acest rezumat redă doar ce anunță titlul ei.",
+   "de_ce_conteaza": "Un risc nou adăugat unui medicament aflat de ani buni în uz schimbă monitorizarea pacienților deja tratați. Pentru conduita exactă trebuie citit documentul oficial, nu acest rezumat.",
+   "loc": "România",
+   "sursa_nume": "ANMDM",
+   "sursa_url": "https://www.anm.ro/comunicare-directa-08-10-2026/",
+   "sursa_data": "2026-10-08",
+   "alte_surse": [],
+   "trimiteri": [
+    {
+     "titlu": "Toate comunicările directe către profesioniști, pe pagina ANMDM",
+     "url": "https://www.anm.ro/medicamente-de-uz-uman/farmacovigilenta/comunicari-directe-catre-profesionistii-din-domeniul-sanatatii/"
+    },
+    {
+     "titlu": "Rezumatul ședinței PRAC din 28 septembrie – 1 octombrie (EMA, engleză)",
+     "url": "https://www.ema.europa.eu/en/news/meeting-highlights-pharmacovigilance-risk-assessment-committee-prac-28-september-1-october"
+    },
+    {
+     "titlu": "Ocrelizumab, pe Wikipedia (engleză)",
+     "url": "https://en.wikipedia.org/wiki/Ocrelizumab"
+    }
+   ]
+  },
+  {
    "sectiune": "medicina",
    "titlu": "Nobelul pentru medicină răsplătește optogenetica, tehnica de a comanda neuronii cu lumină",
    "rezumat": "Karl Deisseroth, Peter Hegemann și Georg Nagel au primit Premiul Nobel pentru Fiziologie sau Medicină 2026 pentru descoperirea canalelor ionice activate de lumină și pentru optogenetică.",

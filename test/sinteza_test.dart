@@ -112,6 +112,14 @@ void main() {
     expect(e.dinSectiunea(SectiuneSinteza.arta).single.id, 'a3');
   });
 
+  test('o sectiune necunoscuta aplicatiei ajunge la Alte noutăți', () {
+    final j = _editie('2026-W41', _intervalNou);
+    (j['articole'] as List).add(_articol('a4', 'gastronomie', 'Articol nou'));
+    final e = EditieSinteza.dinJson(j);
+    expect(e.articole.last.sectiune, SectiuneSinteza.altele);
+    expect(e.dinSectiunea(SectiuneSinteza.stiinta), hasLength(1));
+  });
+
   test('data se scrie pe litere', () {
     expect(dataPeLitere('2026-10-05'), '5 octombrie 2026');
     expect(dataPeLitere(''), '');

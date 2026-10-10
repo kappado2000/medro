@@ -44,11 +44,13 @@ TINTA = ROOT / "hosting" / "sinteza" / "date"
 
 MODEL = os.environ.get("SINTEZA_MODEL", "claude-opus-5-5")
 # ordinea de afisare; psihiatria deschide editia
-SECTIUNI = ("psihiatrie", "medicina", "stiinta", "arta", "arhitectura")
+SECTIUNI = ("psihiatrie", "siguranta", "medicina", "stiinta", "arta", "arhitectura")
 
 # sub aceste praguri editia nu se publica si ramane cea de saptamana trecuta
+# siguranta poate lipsi: sunt saptamani fara nicio comunicare oficiala relevanta
 MINIM_PE_SECTIUNE = {
-    "psihiatrie": 3, "medicina": 2, "stiinta": 2, "arta": 2, "arhitectura": 2,
+    "psihiatrie": 3, "siguranta": 0, "medicina": 2, "stiinta": 2, "arta": 2,
+    "arhitectura": 2,
 }
 MINIM_TOTAL = 11
 
@@ -69,6 +71,7 @@ SISTEM = """Ești redactorul unei sinteze săptămânale de știri despre psihia
 
 Sarcina ta: caută pe web ce s-a întâmplat cu adevărat important sau surprinzător în intervalul de date primit și alege cele mai bune subiecte. Secțiunea de psihiatrie este cea principală: deschide ediția și primește cele mai multe articole, cinci (cel puțin patru, cel mult șase). Celelalte patru secțiuni au câte trei articole (cel puțin două, cel mult patru).
 - psihiatrie: psihiatrie și psihoterapie. Cercetare: studii clinice cu medicamente, psihoterapii, neuromodulare (rTMS, ECT, stimulare cerebrală profundă) și intervenții digitale; meta-analize; studii despre mecanisme, genetică și epidemiologie. Inovare: molecule și clase noi, terapii asistate de psihedelice, instrumente de diagnostic și de monitorizare. Informații și noutăți: aprobări și avertizări ale EMA, FDA sau ANMDM, ghiduri noi sau revizuite, rezultate prezentate la congrese, schimbări de clasificare. Acoperă pe cât se poate atât partea biologică, cât și psihoterapia, și caută mai întâi în revistele domeniului (JAMA Psychiatry, The Lancet Psychiatry, American Journal of Psychiatry, World Psychiatry, Molecular Psychiatry, Psychotherapy and Psychosomatics, British Journal of Psychiatry) și în publicațiile profesionale (Psychiatric Times, Medscape Psychiatry). Aici poți scrie la nivelul unui medic: denumiri comune internaționale, doze, scale, mărimi de efect, intervale de încredere, design-ul studiului și limitele lui;
+- siguranta: siguranța medicamentelor. Numai comunicări oficiale din interval: comunicări directe către profesioniștii din domeniul sănătății și anunțuri ale ANMDM, recomandări ale EMA (PRAC, CHMP), comunicări de siguranță ale FDA sau MHRA, retrageri și restricții. Întâi psihotropele și medicamentele neurologice, apoi cele de uz larg. Între zero și trei articole: dacă în interval nu a apărut nimic relevant, secțiunea lipsește. Sursa principală este pagina agenției, iar recomandările se redau așa cum sunt formulate acolo, fără adăugiri;
 - medicina: restul cercetării medicale: studii clinice, terapii noi, descoperiri despre boli, sănătate publică, neuroștiințe;
 - stiinta: fizică, astronomie, chimie, biologie, paleontologie, arheologie, mediu, matematică, tehnologie cu miză științifică;
 - arta: arte vizuale, muzee și expoziții, patrimoniu, literatură, muzică, film, redescoperiri și restaurări;
@@ -83,7 +86,7 @@ La psihiatrie și la medicină, spune limpede în ce stadiu este rezultatul: pe 
 Cum scrii: în română firească, cu diacritice, la persoana a treia, fără entuziasm de reclamă și fără formule de umplutură. Explică termenii de specialitate la prima apariție. Titlul spune faptul, nu îl ascunde. Numele proprii rămân în forma originală.
 
 Pentru fiecare subiect scrie, cu aceste etichete, pe rânduri separate:
-SECTIUNE: psihiatrie, medicina, stiinta, arta sau arhitectura
+SECTIUNE: psihiatrie, siguranta, medicina, stiinta, arta sau arhitectura
 TITLU: cel mult 90 de caractere
 REZUMAT: una sau două fraze care spun esențialul
 TEXT: trei până la cinci paragrafe, 180-320 de cuvinte în total

@@ -2,10 +2,16 @@
 enum SectiuneSinteza {
   /// Sectiunea principala: deschide editia si are cele mai multe articole.
   psihiatrie('psihiatrie', 'Psihiatrie și psihoterapie', 'Psihiatrie'),
+
+  /// Comunicari oficiale de siguranta; poate lipsi dintr-o editie.
+  siguranta('siguranta', 'Siguranța medicamentelor', 'Siguranță'),
   medicina('medicina', 'Medicină'),
   stiinta('stiinta', 'Științe'),
   arta('arta', 'Artă'),
-  arhitectura('arhitectura', 'Arhitectură');
+  arhitectura('arhitectura', 'Arhitectură'),
+
+  /// Sectiuni adaugate pe server dupa ce aplicatia a fost instalata.
+  altele('altele', 'Alte noutăți', 'Altele');
 
   final String cod;
   final String eticheta;
@@ -17,7 +23,7 @@ enum SectiuneSinteza {
 
   static SectiuneSinteza dinCod(String cod) => values.firstWhere(
     (s) => s.cod == cod,
-    orElse: () => SectiuneSinteza.stiinta,
+    orElse: () => SectiuneSinteza.altele,
   );
 }
 

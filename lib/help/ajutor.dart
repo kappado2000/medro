@@ -1021,7 +1021,9 @@ const ajutorSinteza = Ajutor(
         (
           'Secțiuni',
           'ediția începe cu Psihiatrie și psihoterapie, secțiunea cu cele mai multe '
-              'articole, apoi vin Medicină, Științe, Artă și Arhitectură. Pastilele de sub introducere '
+              'articole. Urmează Siguranța medicamentelor, cu comunicările oficiale ale ANMDM, '
+              'EMA și FDA din săptămâna respectivă (lipsește dacă nu a apărut niciuna), apoi '
+              'Medicină, Științe, Artă și Arhitectură. Pastilele de sub introducere '
               'arată o singură secțiune sau pe toate.',
         ),
         (

@@ -49,6 +49,15 @@ articole, cinci (cel puțin patru, cel mult șase). Celelalte patru au câte tre
   Medscape Psychiatry). Aici poți scrie la nivelul unui medic: denumiri comune
   internaționale, doze, scale, mărimi de efect, intervale de încredere, design-ul
   studiului și limitele lui.
+- `siguranta`: siguranța medicamentelor. Numai comunicări oficiale apărute în interval:
+  comunicări directe către profesioniștii din domeniul sănătății și anunțuri ale ANMDM
+  (anm.ro), recomandări ale EMA (PRAC, CHMP), comunicări de siguranță ale FDA sau MHRA,
+  retrageri și restricții. Întâi psihotropele și medicamentele neurologice, apoi cele de
+  uz larg. Între zero și trei articole: dacă în interval nu a apărut nimic relevant,
+  secțiunea lipsește, nu o umple cu știri vechi. Sursa principală trebuie să fie pagina
+  agenției, nu o relatare de presă. Redă recomandările pentru medici așa cum sunt
+  formulate în comunicare, fără să adaugi altele; dacă nu ai putut citi documentul
+  complet, spune ce conține titlul și trimite cititorul la document.
 - `medicina`: restul cercetării medicale: studii clinice, terapii noi, descoperiri
   despre boli, sănătate publică, neuroștiințe.
 - `stiinta`: fizică, astronomie, chimie, biologie, paleontologie, arheologie, mediu,
@@ -124,8 +133,8 @@ Un singur obiect JSON, UTF-8:
 }
 ```
 
-- `data` este ziua de azi; `sectiune` este una dintre `psihiatrie`, `medicina`,
-  `stiinta`, `arta`, `arhitectura`.
+- `data` este ziua de azi; `sectiune` este una dintre `psihiatrie`, `siguranta`,
+  `medicina`, `stiinta`, `arta`, `arhitectura`.
 - `sursa_data` este data publicării, `AAAA-LL-ZZ`, sau șir gol dacă nu apare în pagină.
 - `alte_surse`: zero până la două.
 - `trimiteri`: două până la patru legături pentru cine vrea să afle mai mult: studiul

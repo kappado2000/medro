@@ -110,10 +110,12 @@ class SintezaColors {
   static const legatura = Color(0xFF3F6B7D);
 
   static const psihiatrie = Color(0xFF7A5C86);
+  static const siguranta = Color(0xFF9A4F5A);
   static const medicina = Color(0xFF5E8068);
   static const stiinta = Color(0xFF4F7190);
   static const arta = Color(0xFFB0694F);
   static const arhitectura = Color(0xFF857650);
+  static const altele = Color(0xFF6F7A80);
 }
 
 /// Litera cu serife a textelor de citit; fiecare platforma o are pe a ei.

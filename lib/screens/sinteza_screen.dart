@@ -11,18 +11,22 @@ import 'home_shell.dart';
 
 Color culoareSectiune(SectiuneSinteza s) => switch (s) {
   SectiuneSinteza.psihiatrie => SintezaColors.psihiatrie,
+  SectiuneSinteza.siguranta => SintezaColors.siguranta,
   SectiuneSinteza.medicina => SintezaColors.medicina,
   SectiuneSinteza.stiinta => SintezaColors.stiinta,
   SectiuneSinteza.arta => SintezaColors.arta,
   SectiuneSinteza.arhitectura => SintezaColors.arhitectura,
+  SectiuneSinteza.altele => SintezaColors.altele,
 };
 
 IconData iconSectiune(SectiuneSinteza s) => switch (s) {
   SectiuneSinteza.psihiatrie => Icons.psychology_outlined,
+  SectiuneSinteza.siguranta => Icons.health_and_safety_outlined,
   SectiuneSinteza.medicina => Icons.biotech_outlined,
   SectiuneSinteza.stiinta => Icons.science_outlined,
   SectiuneSinteza.arta => Icons.palette_outlined,
   SectiuneSinteza.arhitectura => Icons.architecture,
+  SectiuneSinteza.altele => Icons.auto_stories_outlined,
 };
 
 TextStyle _serif(double marime, {FontWeight? grosime, Color? culoare}) =>
@@ -301,6 +305,10 @@ class _SintezaScreenState extends State<SintezaScreen> {
                 ],
                 const SizedBox(height: 16),
                 _Filtre(
+                  sectiuni: [
+                    for (final s in SectiuneSinteza.values)
+                      if (editie.dinSectiunea(s).isNotEmpty) s,
+                  ],
                   ales: _filtru,
                   laAlegere: (s) => setState(() => _filtru = s),
                 ),
@@ -356,9 +364,15 @@ class _Centrat extends StatelessWidget {
 }
 
 class _Filtre extends StatelessWidget {
+  /// Sectiunile care au articole in editia afisata.
+  final List<SectiuneSinteza> sectiuni;
   final SectiuneSinteza? ales;
   final ValueChanged<SectiuneSinteza?> laAlegere;
-  const _Filtre({required this.ales, required this.laAlegere});
+  const _Filtre({
+    required this.sectiuni,
+    required this.ales,
+    required this.laAlegere,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -401,7 +415,7 @@ class _Filtre extends StatelessWidget {
       child: Row(
         children: [
           pastila('Toate', null),
-          for (final s in SectiuneSinteza.values) pastila(s.scurt, s),
+          for (final s in sectiuni) pastila(s.scurt, s),
         ],
       ),
     );
