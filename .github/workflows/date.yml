@@ -27,7 +27,11 @@ jobs:
       - name: Reface nomenclatorul si lista de compensate
         run: |
           python tool/build_medicamente.py
-          python tool/build_compensare.py --refresh
+          # Site-ul CNAS nu trimite tabelul catre serverele GitHub (din afara
+          # Romaniei vine o pagina fara el). Lista de compensate ramane atunci
+          # cea din repo, iar nomenclatorul se actualizeaza oricum; lista CNAS
+          # se reface de pe un calculator din tara, cu aceeasi comanda.
+          python tool/build_compensare.py --refresh             || echo "::warning::Lista CNAS nu a putut fi citita de pe GitHub; a ramas cea din repo."
           python tool/build_manifest.py
 
       # daca o sursa a raspuns incomplet, fluxul se opreste aici si raman

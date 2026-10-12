@@ -61,7 +61,13 @@ def main() -> None:
 
     table = re.search(r'<table[^>]*id="tablepress-4"[^>]*>(.*?)</table>', page, flags=re.S)
     if not table:
-        raise SystemExit("Tabelul CNAS nu a fost gasit; structura paginii s-a schimbat.")
+        titlu = re.search(r"<title>(.*?)</title>", page, flags=re.S)
+        raise SystemExit(
+            "Tabelul CNAS nu a fost gasit: pagina primita are "
+            f"{len(page) // 1024} KB si titlul {titlu.group(1).strip()[:80] if titlu else '(fara)'!r}. "
+            "Fie structura paginii s-a schimbat, fie site-ul nu trimite tabelul "
+            "catre acest calculator (se intampla din afara Romaniei)."
+        )
     rows = [cells(r) for r in re.findall(r"<tr[^>]*>(.*?)</tr>", table.group(1), flags=re.S)]
     header, rows = rows[0], rows[1:]
     if len(header) != 17 or "Cod medicament" not in header[CIM]:
