@@ -1,5 +1,5 @@
 {
- "versiune": "2026-10-09 13:17",
+ "versiune": "2026-10-12 13:39",
  "surse": {
   "Nomenclator ANMDM": "08.10.26",
   "Lista CNAS": "01.06.2025",
@@ -25,7 +25,7 @@
    "marime": 87406
   },
   "medicamente.json.gz": {
-   "sha256": "04621e5881cc8e65d6a46269fb8f076dfbee9e24916572605ed3f6ed45444d5e",
+   "sha256": "ecae902076634623558a9b14709a4dbf9edea484eee72101f7b462d945faec0c",
    "marime": 759194
   },
   "protocoale.json.gz": {
