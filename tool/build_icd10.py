@@ -261,7 +261,7 @@ def main() -> None:
         "coduri": [[c, coduri[c], capitol(c)] for c in sorted(coduri)],
     }
     raw = json.dumps(out, ensure_ascii=False, separators=(",", ":")).encode("utf-8")
-    OUT.write_bytes(gzip.compress(raw, 9))
+    OUT.write_bytes(gzip.compress(raw, 9, mtime=0))  # mtime fix: acelasi continut da acelasi fisier
     print(f"{len(coduri)} coduri; JSON {len(raw) / 1e6:.2f} MB, gzip {OUT.stat().st_size / 1e6:.2f} MB")
 
 

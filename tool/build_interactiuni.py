@@ -175,7 +175,7 @@ def main() -> None:
         "perechi": {str(i): [sorted(v) for v in n] for i, n in sorted(vecini.items())},
     }
     raw = json.dumps(out, ensure_ascii=False, separators=(",", ":")).encode("utf-8")
-    OUT.write_bytes(gzip.compress(raw, 9))
+    OUT.write_bytes(gzip.compress(raw, 9, mtime=0))  # mtime fix: acelasi continut da acelasi fisier
     cu_dci = sum(1 for p in produse if p["d"] in dci_la_en)
     print(f"DDInter: {len(perechi)} perechi, {len(denumiri)} substante")
     print(f"Potrivite cu nomenclatorul: {len(substante)} substante, {total} perechi; "

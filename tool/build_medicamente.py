@@ -153,7 +153,7 @@ def main() -> None:
 
     data = {"updated": updated, "products": list(products.values())}
     raw = json.dumps(data, ensure_ascii=False, separators=(",", ":")).encode("utf-8")
-    OUT.write_bytes(gzip.compress(raw, 9))
+    OUT.write_bytes(gzip.compress(raw, 9, mtime=0))  # mtime fix: acelasi continut da acelasi fisier
 
     with_rcp = sum(1 for p in products.values() if p["r"])
     with_pro = sum(1 for p in products.values() if p["l"])

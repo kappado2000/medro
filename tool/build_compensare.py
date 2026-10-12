@@ -106,7 +106,7 @@ def main() -> None:
         "nume": {n: [v[k] for k in sorted(v)] for n, v in sorted(by_nume.items())},
     }
     raw = json.dumps(out, ensure_ascii=False, separators=(",", ":")).encode("utf-8")
-    OUT.write_bytes(gzip.compress(raw, 9))
+    OUT.write_bytes(gzip.compress(raw, 9, mtime=0))  # mtime fix: acelasi continut da acelasi fisier
     print(f"Lista CNAS din {out['data'] or '?'}: {len(rows)} randuri, {len(by_cim)} ambalaje, "
           f"{len(by_dci)} substante")
     print(f"JSON: {len(raw) / 1e6:.2f} MB  gzip: {OUT.stat().st_size / 1e6:.2f} MB  -> {OUT}")
