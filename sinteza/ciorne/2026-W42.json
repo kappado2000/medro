@@ -1,0 +1,373 @@
+{
+ "data": "2026-10-17",
+ "titlu": "Psilocibina, între promisiunea unui efect de durată și un pilot de grup; apoi, premiul Stirling pentru locuințe și o epavă de 4.700 de ani",
+ "introducere": "Săptămâna a adus noi date despre psilocibină în depresia rezistentă, prezentate de sponsorul studiilor de fază 3, și un pilot de grup, mai ieftin, din Oregon. În psihiatrie mai citim despre genetica ADHD-ului, un marker cerebral al riscului de depresie și despre nivelurile plasmatice ale antipsihoticelor. La psihoterapie, un studiu randomizat de CBT online, iar la psihologie, oxitocina și amintirile despre mamă, și diferențele cerebrale dintre sexe care apar în adolescență. În rest: un dinozaur din colecția unui muzeu londonez, o posibilă epavă record din Turcia, expozițiile Zurbarán și Mary Cassatt la Paris și premiul Stirling pentru locuințe.",
+ "articole": [
+  {
+   "sectiune": "psihiatrie",
+   "titlu": "Psilocibina COMP360 în depresia rezistentă: efect menținut 26 de săptămâni în două studii de fază 3",
+   "rezumat": "Compass Pathways raportează, într-un articol semnat de directorul ei medical, că în studiile COMP005 și COMP006 răspunsul clinic la psilocibină s-a păstrat în medie cel puțin până în săptămâna 26.",
+   "text": "Psilocibina COMP360 este o formulare a Compass Pathways testată în depresia rezistentă la tratament (TRD) cronică: pacienți cu episodul curent de peste trei ani, în medie, și cu mai mult de șase episoade depresive de-a lungul vieții. Rezultatele vin din două studii pivotale de fază 3, COMP005 și COMP006, și sunt prezentate în Psychiatric Times de Guy Goodwin, directorul medical al companiei.\n\nÎn COMP005, 25% dintre participanții care au primit 25 mg au atins în săptămâna 6 o reducere clinic semnificativă a simptomelor, iar beneficiul s-a menținut, în medie, cel puțin până în săptămâna 26, după una sau două doze. În COMP006, 39% dintre cei care au primit două doze fixe de 25 mg au atins aceeași reducere în săptămâna 6, tot cu menținerea efectului, în medie, până în săptămâna 26.\n\nÎn COMP006, dintre pacienții cu reducere semnificativă în săptămâna 6 care nu ajunseseră încă la remisiune, 28% au intrat în remisiune după retratare. Articolul nu raportează nicio problemă nouă de siguranță până în săptămâna 26.\n\nTextul cuprinde și o analiză economică pe date din practica curentă, realizată de companie. Costurile și consumul de servicii au fost concentrate în episoadele rezistente și au scăzut pe măsură ce pacienții s-au stabilizat; bolnavii care nu îndeplineau definițiile clasice ale TRD aveau o povară comparabilă. Goodwin precizează că analizele nu arată că COMP360 ar reduce costurile de îngrijire.",
+   "de_ce_conteaza": "Sursa este un articol semnat de un reprezentant al sponsorului, iar textul nu indică numărul de pacienți, comparatorul și identificatorii din registrul de studii; cifrele trebuie confirmate în publicațiile complete ale studiilor.",
+   "loc": "Londra / Statele Unite (Compass Pathways)",
+   "sursa_nume": "Psychiatric Times",
+   "sursa_url": "https://www.psychiatrictimes.com/view/can-durable-response-to-psilocybin-reshape-treatment-resistant-depression-care",
+   "sursa_data": "2026-10-16",
+   "alte_surse": [],
+   "trimiteri": [
+    {
+     "titlu": "Studiul de fază 2b cu doză unică de psilocibină în depresia rezistentă (NEJM, 2022)",
+     "url": "https://www.nejm.org/doi/full/10.1056/NEJMoa2206443"
+    },
+    {
+     "titlu": "Studiu randomizat cu psilocibină și psihoterapie în depresie (JAMA Psychiatry, 2020)",
+     "url": "https://doi.org/10.1001/jamapsychiatry.2020.3285"
+    },
+    {
+     "titlu": "Psilocibina, pe scurt (Wikipedia, în română)",
+     "url": "https://ro.wikipedia.org/wiki/Psilocibin%C4%83"
+    }
+   ]
+  },
+  {
+   "sectiune": "psihiatrie",
+   "titlu": "ADHD: genetica copilului, nu cea a părinților, explică mai mult, pe 12.000 de triade norvegiene",
+   "rezumat": "O analiză a cohortei norvegiene MoBa pe peste 12.000 de triade mamă-tată-copil nu găsește dovezi solide că genele părinților influențează indirect ADHD-ul copilului; la 8 ani, modelul cel mai potrivit conține doar efecte genetice directe.",
+   "text": "Studiul, publicat în Behavior Genetics și condus de Daniel Wechsler de la King's College London, a căutat să separe două surse de influență genetică asupra trăsăturilor de ADHD ale copilului: genele pe care copilul le moștenește (efect direct) și genele părinților care modelează mediul în care crește, așa-numitul „genetic nurture” (efect indirect).\n\nDatele provin din Norwegian Mother, Father and Child Cohort Study. Autorii au folosit analiza trio GCTA (genome-wide complex trait analysis), pe aproximativ un milion de variante genetice (SNP) ale fiecărui membru al triadei, și chestionare completate de părinți despre comportamentele de tip ADHD. Eșantioanele au avut 12.374 de triade la 5 ani și 12.714 la 8 ani, parțial suprapuse.\n\nLa 5 ani, modelele inițiale au sugerat că efectele indirecte materne explică aproape 5% din variație, iar efectele directe ale copilului sub 2%, dar comparațiile mai stricte între modele au favorizat un model fără niciun efect, cu intervale de eroare largi. La 8 ani, estimările inițiale au fost de aproximativ 8% pentru efectele directe și 8% pentru cele indirecte materne, iar modelul cel mai potrivit a inclus doar efecte directe. Concluzia autorilor este că ADN-ul copilului este principalul factor biologic al trăsăturilor de ADHD până la mijlocul copilăriei.\n\nLimitele sunt serioase: intervalele largi pot ascunde efecte mici, s-a analizat scorul total și nu separat hiperactivitatea și neatenția (unde studii anterioare au găsit efecte indirecte), informatoarele au fost doar mamele, iar toți participanții sunt de ascendență europeană.",
+   "de_ce_conteaza": "Rezultatul nu exclude efecte indirecte mici sau specifice anumitor simptome; arată doar că, la scorul total de ADHD, ele nu au putut fi demonstrate în această cohortă.",
+   "loc": "Norvegia / Regatul Unit (King's College London)",
+   "sursa_nume": "PsyPost",
+   "sursa_url": "https://www.psypost.org/child-s-own-genetics-drive-adhd-traits-more-than-family-environment-large-study/",
+   "sursa_data": "2026-10-15",
+   "alte_surse": [],
+   "trimiteri": [
+    {
+     "titlu": "Articolul original din Behavior Genetics",
+     "url": "https://doi.org/10.1007/s10519-026-10273-1"
+    },
+    {
+     "titlu": "Despre ADHD și adulți: noile ghiduri anunțate (Psychiatric Times)",
+     "url": "https://www.psychiatrictimes.com/view/the-new-impending-adult-adhd-guidelines"
+    }
+   ]
+  },
+  {
+   "sectiune": "psihiatrie",
+   "titlu": "Un marker din cortexul vizual prezice simptome depresive la tineri, dar cu efecte încă mici",
+   "rezumat": "Un marker computațional derivat din cortexul vizual a prezis simptome emoționale la 23 de ani la tineri fără simptome la 19, dar efectele rămân mici și necesită validare independentă.",
+   "text": "Studiul, apărut în Science Advances și condus de Han Lu (Universitatea Shenzhen) și Qiang Luo (Universitatea Fudan), pornește de la ideea că depresia ar putea schimba felul în care cortexul vizual codifică expresiile emoționale. Analiza s-a făcut pe 1.332 de tineri de 19 ani din cohorta europeană IMAGEN, care au privit în RMN funcțional scurte filme cu fețe trecând de la neutru la furios.\n\nUn algoritm de învățare automată a extras din cortexul vizual un „cod” al feței furioase, iar participanții au fost împărțiți în grupuri cu codificare eficientă și zgomotoasă. Autorii au construit apoi o rețea neuronală în care o cale conceptuală reglează o cale vizuală: la reglare moderată modelul recunoaște bine emoțiile, la reglare excesivă clasifică fețe neutre drept furioase sau triste, iar codul lui intern seamănă cu cel zgomotos din creier. Din aceasta au derivat un marker de „suprareglare”.\n\nCodificarea mai puțin eficientă s-a asociat cu anxietate și dispoziție scăzută autoraportate, cu un efect descris ca relativ mic. La 725 dintre participanți, reevaluați la 23 de ani, markerul măsurat la 19 ani a prezis simptome emoționale ridicate la cei fără simptome inițial și a depășit modelele de bază cu date demografice și activare cerebrală simplă. A fost legat de o variantă genetică asociată depresiei majore și de scorul poligenic al depresiei, nu și de riscul genetic pentru alcoolism sau tulburări alimentare. Într-un lot clinic de 134 de pacienți cu depresie și 62 de controale, pacienții au avut valori mai mari ale markerului, iar activarea clasică nu i-a deosebit semnificativ de controale.\n\nArticolul nu indică AUC, sensibilitate sau specificitate.",
+   "de_ce_conteaza": "Autorii notează că diferențele de simptome în eșantionul general au fost mici, eșantionul este în mare parte alb și de statut socioeconomic mediu-ridicat, iar markerul nu are încă valoare diagnostică individuală.",
+   "loc": "China / Europa (Universitatea Shenzhen, Universitatea Fudan, consorțiul IMAGEN)",
+   "sursa_nume": "PsyPost",
+   "sursa_url": "https://www.psypost.org/deep-learning-model-links-visual-distortions-to-future-depression-risk/",
+   "sursa_data": "2026-10-15",
+   "alte_surse": [],
+   "trimiteri": [
+    {
+     "titlu": "Articolul original din Science Advances",
+     "url": "https://doi.org/10.1126/sciadv.aed0772"
+    },
+    {
+     "titlu": "Tulburarea depresivă majoră (Wikipedia, în română)",
+     "url": "https://ro.wikipedia.org/wiki/Tulburare_depresiv%C4%83_major%C4%83"
+    }
+   ]
+  },
+  {
+   "sectiune": "psihiatrie",
+   "titlu": "Nivelurile plasmatice ale antipsihoticelor pot arăta nonaderența și ghida doza, spun doi experți",
+   "rezumat": "Jonathan Meyer și Joseph Goldberg discută, într-un interviu din seria „Brain Trust”, cum monitorizarea concentrațiilor plasmatice înlocuiește ghicitul când un pacient pare să nu răspundă la antipsihotic.",
+   "text": "Interviul publicat de Psychiatric Times pe 14 octombrie, între Joseph Goldberg și Jonathan Meyer, pornește de la o situație obișnuită în clinică: pacientul pare că nu răspunde la antipsihotic. Meyer susține că monitorizarea terapeutică a medicamentului (măsurarea concentrației plasmatice) poate înlocui presupunerile.\n\nRelațiile dintre doză și concentrație, stabilite pe populații, permit prezicerea unei concentrații așteptate la 12 ore de la doză (nivelul „trough”). O valoare mult sub cea așteptată indică cel mai des nonaderență, nu metabolizare neobișnuită. Meyer distinge între pragul de răspuns și un nivel cu adevărat terapeutic și vorbește despre „punctul de inutilitate”: concentrația peste care un nivel tolerat, dar ineficient, are puține șanse să transforme un nonrăspunzător într-un răspunzător.\n\nRăspunsul se construiește în timp: pentru o doză orală dată, cea mai mare parte a beneficiului asupra simptomelor pozitive apare în aproximativ două săptămâni, iar după circa patru săptămâni se câștigă puțin. Antipsihoticele moderne au un indice terapeutic destul de îngăduitor. Pentru titrarea clozapinei poate conta istoricul familial, iar un nivel măsurat poate fi mai informativ decât testarea farmacogenetică.\n\nRezumatul disponibil al interviului nu cuprinde intervale terapeutice sau valori-prag concrete; pentru ele, cititorul trebuie să consulte ghidurile de monitorizare și textul complet.",
+   "de_ce_conteaza": "Este o opinie de expert în format de interviu, nu un studiu nou; interesul ei practic ține de felul în care se interpretează o concentrație scăzută înainte de a schimba doza sau medicamentul.",
+   "loc": "Statele Unite (Psychiatric Times)",
+   "sursa_nume": "Psychiatric Times",
+   "sursa_url": "https://www.psychiatrictimes.com/view/antipsychotic-plasma-levels-in-schizophrenia-detecting-nonadherence-and-guiding-dose-decisions",
+   "sursa_data": "2026-10-14",
+   "alte_surse": [],
+   "trimiteri": [
+    {
+     "titlu": "Capcane în interpretarea nivelurilor serice ale antipsihoticelor (Psychiatric Times, 15 octombrie)",
+     "url": "https://www.psychiatrictimes.com/view/pitfalls-in-antipsychotic-serum-level-interpretation"
+    },
+    {
+     "titlu": "Podcast cu Jonathan Meyer despre nivelurile plasmatice (Psychiatric Times)",
+     "url": "https://www.psychiatrictimes.com/view/podcast-using-antipsychotic-plasma-levels-to-guide-schizophrenia-treatment-with-jonathan-m-meyer-md"
+    }
+   ]
+  },
+  {
+   "sectiune": "psihoterapie",
+   "titlu": "CBT online pentru angajați din penitenciare: simptome reduse cu 61%, față de 23% la control",
+   "rezumat": "Un studiu randomizat pe 84 de angajați ai unor penitenciare din Ontario arată un efect moderat în favoarea terapiei cognitiv-comportamentale online, însă cu eșantion sub țintă și renunțări în ambele grupuri.",
+   "text": "Studiul, publicat pe 16 octombrie în Frontiers in Psychiatry de echipa condusă de Nazanin Alavi, a comparat un program de terapie cognitiv-comportamentală online (eCBT) cu îngrijirea obișnuită la angajați din penitenciarele din Ontario. Programul a durat 12 săptămâni, pe platforma OPTT, cu trei trasee după diagnostic (depresie majoră, anxietate generalizată sau PTSD), module interactive, teme obligatorii și feedback personalizat asincron din partea unor asistenți de cercetare.\n\nAu fost repartizați aleatoriu 84 de participanți: 40 în eCBT și 44 în îngrijirea obișnuită; ținta inițială fusese de 110. Interacțiunea tratament × timp pentru severitatea simptomelor a fost semnificativă (F = 6,98, p = 0,001). Severitatea a scăzut cu 61,37% în brațul eCBT față de 23,29% în brațul de control, între debut și săptămâna 12; acestea sunt modificări în interiorul fiecărui grup, nu un test direct între grupuri. Mărimea de efect pe scorul normalizat post-tratament a fost moderată (d = 0,68), iar pentru PTSD (PCL-5) diferența dintre grupuri a fost d = −0,49 (IÎ 95%: −0,91 până la −0,07). Calitatea vieții nu a diferit semnificativ.\n\nRezultatele trebuie citite cu rezerve. Abandonul a fost de 65% în brațul eCBT și de 54,5% în cel de control, iar participanții care au terminat au făcut în medie 6,48 sesiuni. Autorii menționează puterea statistică redusă, lipsa corecției pentru comparații multiple, combinarea celor trei diagnostice, utilizarea frecventă a medicației și diferențe de vârstă și etnie între grupuri.",
+   "de_ce_conteaza": "Studiul sugerează că o terapie online structurată poate ajunge la o categorie profesională greu de abordat, dar abandonul ridicat și eșantionul mic cer replicare înainte de orice concluzie fermă.",
+   "loc": "Ontario, Canada",
+   "sursa_nume": "Frontiers in Psychiatry",
+   "sursa_url": "https://www.frontiersin.org/journals/psychiatry/articles/10.3389/fpsyt.2026.1922912/full",
+   "sursa_data": "2026-10-16",
+   "alte_surse": [],
+   "trimiteri": [
+    {
+     "titlu": "Înregistrarea studiului în ClinicalTrials.gov (NCT04666974)",
+     "url": "https://clinicaltrials.gov/study/NCT04666974"
+    },
+    {
+     "titlu": "Rezultate la 12 luni ale terapiei psihodinamice vs. CBT online la adolescenți cu depresie (Frontiers in Psychiatry)",
+     "url": "https://www.frontiersin.org/journals/psychiatry/articles/10.3389/fpsyt.2026.1794684/full"
+    }
+   ]
+  },
+  {
+   "sectiune": "psihoterapie",
+   "titlu": "Psilocibină în grup pentru persoane cu venituri mici: 19 din 20 au terminat pilotul din Oregon",
+   "rezumat": "Un studiu de fezabilitate, fără grup de control, a testat o variantă de grup, mai ieftină, a terapiei asistate de psilocibină la adulți cu depresie și venituri sub 200% din pragul sărăciei.",
+   "text": "Terapia cu psilocibină a ajuns mai ales la oameni cu venituri mari: o singură ședință poate costa în jur de 2.000 de dolari. Un studiu publicat în Journal of Psychedelic Studies (Matthew Hicks, Olivia Hicks, Ryan Bradley, Heather Zwickey; National University of Natural Medicine și Helfgott Research Institute) a testat în cadrul programului reglementat al statului Oregon o variantă de grup, destinată adulților cu venituri de cel mult 200% din pragul federal al sărăciei.\n\nDesignul a fost de fezabilitate: fără grup de control, fără orbire, cu depresia ca rezultat exploratoriu. Au început 20 de participanți, toți cu depresie majoră diagnosticată și în psihoterapie în afara studiului, iar 19 au terminat. Grupurile au avut până la șase persoane, cu două sesiuni online de pregătire, două sesiuni de administrare, la o săptămână distanță, într-o singură încăpere și cu doi facilitatori, și sesiuni online de integrare după fiecare. Doza a fost aleasă de participanți, până la 50 mg pentru cei pe ISRS sau IRSN și 35 mg pentru ceilalți.\n\nPrezența la sesiuni a fost de 98%, iar satisfacția medie de 4,8 din 5. Nu au apărut evenimente adverse severe; au fost frecvente greața, durerile de cap și neliniștea trecătoare. Scorul Hamilton pentru depresie a scăzut de la 22,21 la 8,79 la două zile după a doua sesiune și era 11,89 la trei luni.\n\nAutorii avertizează că nu se poate separa efectul psilocibinei de cel al pregătirii, al grupului și al psihoterapiei continuate, că așteptările erau foarte mari și că urmărirea a durat doar trei luni.",
+   "de_ce_conteaza": "Rezultatul arată în principal că formatul de grup este realizabil și acceptat; nu dovedește eficacitatea, care ar cere studii mai mari, cu comparator și analize de cost.",
+   "loc": "Oregon, Statele Unite",
+   "sursa_nume": "PsyPost",
+   "sursa_url": "https://www.psypost.org/psilocybin-therapy-has-mostly-reached-the-well-off-a-small-oregon-study-tested-a-cheaper-group-model-for-low-income-patients/",
+   "sursa_data": "2026-10-16",
+   "alte_surse": [],
+   "trimiteri": [
+    {
+     "titlu": "Articolul original din Journal of Psychedelic Studies",
+     "url": "https://doi.org/10.1556/2054.2026.00485"
+    },
+    {
+     "titlu": "Studiu din 2023 despre costul terapiei de grup cu psilocibină (Frontiers in Psychiatry)",
+     "url": "https://doi.org/10.3389/fpsyt.2023.1293243"
+    }
+   ]
+  },
+  {
+   "sectiune": "psihologie",
+   "titlu": "Oxitocina amplifică amintirile negative despre mamă la adulții cu atașament anxios",
+   "rezumat": "La 77 de participanți, spray-ul nazal cu oxitocină a făcut descrierile mamei mai negative la cei cu atașament anxios, în ciuda imaginii populare a oxitocinei ca „hormon al legăturii”.",
+   "text": "Studiul, publicat în revista Emotion de echipa lui Jennifer Bartz de la McGill (Melissa Shemirani, prim autor), testează „ipoteza salienței”: oxitocina nu face amintirile mai plăcute, ci mai proeminente, iar efectul depinde de stilul de atașament al persoanei.\n\nCei 77 de participanți au venit de două ori, o dată cu spray nazal cu oxitocină și o dată cu placebo, într-un design încrucișat dublu-orb. După ce hormonul a avut timp să acționeze, ei au auzit cuvinte legate de atașament, au rememorat copilăria și au descris verbal, câteva minute, o amintire pozitivă și una negativă despre mamă. Preînregistrarea nu este menționată în relatare, iar doza nu este precizată.\n\nLa cei cu atașament anxios ridicat, evaluatorii umani au găsit în descrieri mai multă emoție negativă și mai puțină pozitivă sub oxitocină decât sub placebo. La cei cu anxietate scăzută, două programe de analiză a textului au arătat un ton negativ mai redus, dar numai programele, nu și evaluatorii. Limbajul pozitiv nu a diferit măsurabil în analiza automată. La participanții cu atașament evitant, oxitocina nu a schimbat conținutul emoțional, dar i-a făcut mai reticenți în a-și dezvălui informații personale.\n\nRelatarea nu raportează valori statistice. Autorii amintesc limitele: au fost examinate doar amintirile despre mamă, eșantionul este tânăr și puțin divers etnic (predominant alb și asiatic), iar evaluatorii umani și programele nu au fost de acord peste tot.",
+   "de_ce_conteaza": "Rezultatul sprijină ideea că oxitocina amplifică ce este deja important emoțional pentru o persoană, cu implicații pentru încercările de a o folosi ca adjuvant în psihoterapie, deocamdată neconfirmate.",
+   "loc": "Montréal, Canada (Universitatea McGill)",
+   "sursa_nume": "PsyPost",
+   "sursa_url": "https://www.psypost.org/oxytocin-amplifies-negative-childhood-memories-for-anxiously-attached-adults/",
+   "sursa_data": "2026-10-16",
+   "alte_surse": [],
+   "trimiteri": [
+    {
+     "titlu": "Articolul original din Emotion",
+     "url": "https://doi.org/10.1037/emo0001679"
+    },
+    {
+     "titlu": "Oxitocina (Wikipedia, în română)",
+     "url": "https://ro.wikipedia.org/wiki/Oxitocin%C4%83"
+    }
+   ]
+  },
+  {
+   "sectiune": "psihologie",
+   "titlu": "Diferențele dintre sexe din hipocamp și amigdală apar în adolescență, nu înainte, pe 1.643 de persoane",
+   "rezumat": "Un studiu transversal cu RMN de difuzie pe participanți de 9–35 de ani nu găsește diferențe între sexe la 9–12 ani și le vede apărând după 13 ani în hipocamp, amigdală și talamus.",
+   "text": "Studiul, apărut în Developmental Cognitive Neuroscience (Christopher Filippi, Jay Giedd, Aziz Uluğ, Richard Watts), a folosit datele publice ale proiectelor Human Connectome Project Development și Young Adult pe 1.643 de participanți de 9 până la 35 de ani. Tehnica, restriction spectrum imaging, o formă de RMN de difuzie, separă apa din interiorul celulelor (difuzie restricționată, reflectând cât de dens sunt împachetate celulele) de cea din spațiul extracelular. Au fost examinate șase structuri profunde: amigdala, hipocampul, nucleul accumbens, talamusul, caudatul și putamenul. Analizele au controlat vârsta și indicele de masă corporală și au ținut cont de rudenia dintre participanți, mulți fiind gemeni.\n\nLa 9–12 ani nu au existat diferențe semnificative între sexe. La 13–16 ani au apărut mai întâi în hipocamp, amigdală și talamus, cu difuzie restricționată mai mare la băieți. La 17–21 de ani, sexul a explicat între 13% și 33% din variație, iar la adulți între 32% și 37% în hipocamp și amigdală. În nucleul accumbens, caudat și putamen, traiectoriile fetelor au încetinit la sfârșitul adolescenței și au accelerat în jurul vârstei de 20 de ani.\n\nLimitele sunt importante: datele sunt transversale, pubertatea s-a măsurat prin stadii fizice, atât de legate de vârstă încât nu pot fi separate, hormonii nu au fost dozați, iar cele două proiecte folosesc scannere diferite, cu un punct de ajustare în jurul tranziției spre vârsta adultă. Autorii nu pot spune că diferențele ar cauza deosebiri de comportament sau de sănătate mintală.",
+   "de_ce_conteaza": "Cercetători din afara echipei, citați de PsyPost, consideră descrierea solidă, dar cer studii longitudinale; momentul apariției depinde și de intervalul de vârstă studiat.",
+   "loc": "Toronto, Canada / Christchurch, Noua Zeelandă",
+   "sursa_nume": "PsyPost",
+   "sursa_url": "https://www.psypost.org/puberty-may-mark-a-turning-point-for-sex-differences-in-the-brains-emotion-and-memory-centers/",
+   "sursa_data": "2026-10-15",
+   "alte_surse": [],
+   "trimiteri": [
+    {
+     "titlu": "Articolul original din Developmental Cognitive Neuroscience",
+     "url": "https://doi.org/10.1016/j.dcn.2026.101811"
+    },
+    {
+     "titlu": "Pubertatea (Wikipedia, în română)",
+     "url": "https://ro.wikipedia.org/wiki/Pubertate"
+    }
+   ]
+  },
+  {
+   "sectiune": "medicina",
+   "titlu": "Embolizarea arterelor genunchiului a redus durerea din artroză într-un studiu necontrolat pe 194 de pacienți",
+   "rezumat": "La un an, 80% dintre cei evaluați au avut o ameliorare clinic semnificativă a durerii, dar studiul nu a avut grup de control, iar un studiu cu simulare publicat anul acesta nu a găsit diferență.",
+   "text": "Embolizarea arterelor genunchiului (GAE) este o procedură de radiologie intervențională care blochează vasele sangvine anormale din jurul articulației afectate de artroză. Studiul de la Charité Berlin, publicat în Radiology și comunicat de Radiological Society of North America, a folosit microsfere pe bază de gelatină care se resorb în câteva ore.\n\nAu fost incluși prospectiv, într-un singur centru, 194 de pacienți (114 femei, vârsta mediană 69 de ani) cu durere persistentă după cel puțin trei luni de tratament conservator; 45 au fost tratați la ambii genunchi, în total 239 de proceduri, efectuate între iulie și noiembrie 2024. Durerea mediană pe scala 0–10 a scăzut de la 7 la 4 în săptămâna 6 și la 3 la 6 și la 12 luni. La 12 luni, 80% dintre cei care au completat evaluarea au avut o scădere de cel puțin 2 puncte. Scorurile KOOS s-au îmbunătățit, de exemplu cel pentru durere de la 44 la 65. Nu au apărut evenimente adverse moderate sau severe; complicații ușoare, trecătoare, au apărut la 6,7% dintre proceduri.\n\nLimitele sunt esențiale: nu a existat grup de control sau procedură simulată, deci nu se știe cât din ameliorare vine din procedură; 21% dintre pacienți nu au mai fost urmăriți la 12 luni; studiul nu arată că procedura oprește pierderea de cartilaj sau amână proteza. Relatarea citează și un studiu cu control simulat din European Radiology (2026) care nu a găsit diferențe semnificative între embolizare și simulare.",
+   "de_ce_conteaza": "Procedura rămâne experimentală pentru artroză; datele de acest tip generează ipoteze, nu stabilesc eficacitatea.",
+   "loc": "Berlin, Germania (Charité – Universitätsmedizin)",
+   "sursa_nume": "ScienceDaily",
+   "sursa_url": "https://www.sciencedaily.com/releases/2026/10/261013234801.htm",
+   "sursa_data": "2026-10-14",
+   "alte_surse": [],
+   "trimiteri": [
+    {
+     "titlu": "Articolul original din Radiology",
+     "url": "http://dx.doi.org/10.1148/radiol.253312"
+    },
+    {
+     "titlu": "Alte știri medicale ale săptămânii pe ScienceDaily",
+     "url": "https://www.sciencedaily.com/news/health_medicine/"
+    }
+   ]
+  },
+  {
+   "sectiune": "medicina",
+   "titlu": "GLP-1 și neuropatia optică ischemică: 3–4 cazuri suplimentare la 10.000 de pacienți cu diabet de tip 2",
+   "rezumat": "Un studiu de la Rutgers, publicat în Annals of Internal Medicine, estimează 3–4 cazuri suplimentare la 10.000 de pacienți tratați în 18 luni; datele arată asociere, nu cauzalitate.",
+   "text": "Neuropatia optică ischemică (ION) este o afecțiune rară în care nervul optic primește prea puțin sânge, ducând de obicei la pierderea parțială a vederii la un ochi, adesea permanentă. Un studiu al unei echipe de la Rutgers, condusă de Chintan Dave, publicat în Annals of Internal Medicine, a analizat riscul ei la adulți de 18–65 de ani cu diabet de tip 2 care au început recent tratamentul cu agoniști ai receptorului GLP-1, între care semaglutida (Ozempic, Wegovy) și tirzepatida (Mounjaro, Zepbound).\n\nRelatarea ScienceDaily descrie o creștere „modestă” a riscului și estimează aproximativ 3 până la 4 cazuri suplimentare la 10.000 de pacienți tratați, pe 18 luni. Peste 80% dintre cazurile de ION ar fi forma anterioară non-arteritică. Cazurile au fost mai frecvente la bărbați și la participanții de 50–65 de ani. Aproximativ o treime dintre pacienți recapătă o parte din vedere, de obicei în șase luni, dar de regulă rămâne o deficiență.\n\nPagina nu precizează baza de date, designul exact, raportul de risc sau numărul de cazuri. Autorii subliniază că rezultatele arată o asociere: diferențele de boli de fond între pacienți ar putea explica o parte din risc sau tot riscul, iar cauzalitatea rămâne de stabilit.",
+   "de_ce_conteaza": "Riscul absolut este foarte mic și nu justifică, prin el însuși, oprirea unui tratament; decizia aparține medicului și pacientului.",
+   "loc": "New Jersey, Statele Unite (Universitatea Rutgers)",
+   "sursa_nume": "ScienceDaily",
+   "sursa_url": "https://www.sciencedaily.com/releases/2026/10/261014015521.htm",
+   "sursa_data": "2026-10-15",
+   "alte_surse": [],
+   "trimiteri": [
+    {
+     "titlu": "Articolul original din Annals of Internal Medicine",
+     "url": "http://dx.doi.org/10.7326/ANNALS-25-00860"
+    },
+    {
+     "titlu": "Creșterea accidentelor vasculare cerebrale la adulții tineri (Neurology, relatare ScienceDaily)",
+     "url": "https://www.sciencedaily.com/releases/2026/10/261014015459.htm"
+    }
+   ]
+  },
+  {
+   "sectiune": "stiinta",
+   "titlu": "Primul dinozaur megaraptoran din Europa, identificat într-o cutie craniană păstrată un secol la Londra",
+   "rezumat": "Invictibellatrix amberina, descrisă în Royal Society Open Science, trăia acum aproximativ 120 de milioane de ani pe insula Wight și era printre cei mai mici megaraptorani cunoscuți.",
+   "text": "O cutie craniană fosilă aflată de un secol în colecția Natural History Museum din Londra a fost identificată drept primul megaraptoran din Europa, un grup de dinozauri carnivori bipezi. Noua specie, Invictibellatrix amberina, a fost descrisă într-un articol publicat pe 14 octombrie în Royal Society Open Science de Cassius Morrison (University College London) și colegii.\n\nFosila a fost găsită la baza unei stânci la Sudmoor Point, lângă Brook, pe coasta de sud-vest a insulei Wight, în Formațiunea Wessex din Cretacicul timpuriu (etajul Barremian, circa 120 de milioane de ani). Muzeul a cumpărat-o în mai 1924 de la reverendul R. W. Hooley, dar nu fusese niciodată descrisă formal.\n\nPe baza mărimii cutiei craniene, comparabilă cu cea a genului Timurlengia, cercetătorii estimează că animalul avea 3–4 m lungime și puțin peste 1,5 m înălțime, ceea ce îl face unul dintre cei mai mici megaraptorani cunoscuți, poate cel mai mic. Ghearele ar fi putut avea 10–20 cm, iar corpul era probabil acoperit cu pene. Prin analogie cu rudele, se hrănea probabil cu dinozauri mici, șopârle și mamifere.\n\nAutorii propun că grupul a apărut în Asia, a ajuns în Europa cam acum 130 de milioane de ani și s-a răspândit apoi în Africa și în emisfera sudică. Dimensiunea mică ar susține ideea că talia mare a evoluat târziu în acest grup. Identificarea se bazează pe un singur exemplar, iar mărimea corpului, dieta și ruta de migrație sunt deduceri din rude, nu observații directe.",
+   "de_ce_conteaza": "Descoperirea mută prezența megaraptoranilor în Europa și sugerează că ei erau mai răspândiți în Cretacicul timpuriu decât se credea, cu rezerva unui singur exemplar.",
+   "loc": "Londra / insula Wight, Regatul Unit",
+   "sursa_nume": "Sci.News",
+   "sursa_url": "https://www.sci.news/paleontology/invictibellatrix-amberina-15131.html",
+   "sursa_data": "2026-10-14",
+   "alte_surse": [],
+   "trimiteri": [
+    {
+     "titlu": "Articolul științific din Royal Society Open Science",
+     "url": "https://royalsocietypublishing.org/rsos/article/13/10/260937/483607/A-new-megaraptoran-dinosaur-from-the-Lower"
+    },
+    {
+     "titlu": "Știri de paleontologie pe Sci.News",
+     "url": "https://www.sci.news/news/paleontology"
+    }
+   ]
+  },
+  {
+   "sectiune": "stiinta",
+   "titlu": "O epavă de 4.400–4.700 de ani la Kekova ar putea fi cea mai veche cunoscută",
+   "rezumat": "Peste 30 de amfore și trei ancore de piatră indică o navă comercială din Bronzul timpuriu; datarea, bazată pe stilul amforelor, este preliminară, iar titlul de „cea mai veche” vine din presă și din declarații oficiale.",
+   "text": "La Kekova, lângă coasta Antalyei, în Turcia, arheologii cercetează o epavă pe care o datează între 4.400 și 4.700 de ani în urmă, adică din Bronzul timpuriu. Corpul de lemn nu s-a păstrat, așa că nu s-a putut folosi radiocarbonul: datarea se bazează pe forma amforelor, asemănătoare cu cele din Egipt și Orientul Mijlociu.\n\nPe fundul mării se văd peste 30 de amfore și trei ancore mari de piatră. Analizele argilei arată că vasele au fost probabil făcute în ateliere din Valea Iordanului, iar nava ar fi plecat dintr-un port levantin spre Troia sau Creta. Conținutul este încă neclar: ar putea fi ulei de măsline, vin sau rășină; o amforă cu două orificii și nouă semne ar fi putut servi la frământat brânza sau untul.\n\nSondajele inițiale au fost făcute de Universitatea Akdeniz, iar echipa îi include pe Hakan Öniz (Akdeniz) și Karin Sowada (Macquarie University), care analizează reziduuri din amforele intacte. Săpăturile din 2026 sunt conduse de Direcția Muzeului Antalya, cu autorizația Ministerului Culturii și Turismului.\n\nSursele nu sunt de acord asupra detaliilor: Archaeology Magazine dă adâncimea de circa 100 de picioare și lungimea navei de circa 30 de picioare, iar Euronews nu raportează aceste date. Calificativul „cea mai veche epavă din lume” nu este demonstrat în articolele citite, iar un membru al echipei a numit estimarea preliminară.",
+   "de_ce_conteaza": "Dacă datarea se confirmă, epava ar oferi o imagine rară a comerțului maritim din Mediterana de acum aproape cinci milenii.",
+   "loc": "Kekova, Antalya, Turcia",
+   "sursa_nume": "Euronews",
+   "sursa_url": "https://www.euronews.com/2026/10/14/worlds-oldest-shipwreck-off-turkey-4700-year-old-amphorae-discovered",
+   "sursa_data": "2026-10-14",
+   "alte_surse": [
+    {
+     "nume": "Archaeology Magazine",
+     "url": "https://archaeology.org/news/2026/10/15/worlds-oldest-shipwreck-discovered-in-the-mediterranean/"
+    }
+   ],
+   "trimiteri": [
+    {
+     "titlu": "Amforă (Wikipedia, în română)",
+     "url": "https://ro.wikipedia.org/wiki/Amfor%C4%83"
+    },
+    {
+     "titlu": "Epavă (Wikipedia, în română)",
+     "url": "https://ro.wikipedia.org/wiki/Epav%C4%83"
+    }
+   ]
+  },
+  {
+   "sectiune": "arta",
+   "titlu": "Zurbarán la Luvru: prima mare retrospectivă internațională după 1987–1988",
+   "rezumat": "Expoziția din Sala Napoleon, organizată cu National Gallery din Londra și Art Institute of Chicago, rămâne deschisă până pe 25 ianuarie 2027.",
+   "text": "Muzeul Luvru prezintă, între 7 octombrie 2026 și 25 ianuarie 2027, în Hall Napoléon, o retrospectivă Francisco de Zurbarán (1598–1664), organizată împreună cu National Gallery din Londra și Art Institute of Chicago. Comisarii sunt Charlotte Chastel-Rousseau (Luvru), Francesca Whitlum-Cooper și Daniel Sobrino Ralston (National Gallery) și Rebecca Long (Art Institute).\n\nPotrivit paginii oficiale a Luvrului, este prima expoziție internațională mare dedicată pictorului după cea organizată în 1987–1988 de Metropolitan Museum of Art și Grand Palais. Muzeul o descrie ca pe o selecție a celor mai bune picturi, nu ca pe o prezentare monografică exhaustivă. Traseul are șapte secțiuni, cronologice și tematice: marile picturi comandate de mănăstirile andaluze, care i-au adus faima, portrete și naturi moarte, scurta carieră a fiului său Juan de Zurbarán (1620–1649) și influența lui asupra avangardei franceze, de la Manet la Picasso și Juan Gris.\n\nPagina arată cum a fost văzut artistul: la început ca un caravaggist al ascetismului monahal, apoi ca un colorist cu stil propriu. Un bilet unic dă acces și la „Sculpting Colour”, expoziția despre artele spaniole ale secolului al XVII-lea. Programul include patru concerte și un spectacol al coregrafului Israel Galván, pe 8 decembrie.\n\nPagina nu precizează câte lucrări sunt expuse și nici cine le-a împrumutat. Pe 17 octombrie, din cauza demonstrațiilor din Paris, muzeul admite doar vizitatori cu bilet.",
+   "de_ce_conteaza": "Rareori se adună într-un singur loc atâtea dintre marile comenzi monahale ale lui Zurbarán, ceea ce permite comparații între colecții din Europa și Statele Unite.",
+   "loc": "Paris, Franța (Muzeul Luvru)",
+   "sursa_nume": "Muzeul Luvru",
+   "sursa_url": "https://www.louvre.fr/en/exhibitions-and-events/exhibitions/zurbaran",
+   "sursa_data": "",
+   "alte_surse": [],
+   "trimiteri": [
+    {
+     "titlu": "Francisco de Zurbarán (Wikipedia, în română)",
+     "url": "https://ro.wikipedia.org/wiki/Francisco_de_Zurbar%C3%A1n"
+    },
+    {
+     "titlu": "Muzeul Luvru, pagina expoziției în engleză",
+     "url": "https://musee.louvre.fr/en/exhibitions-and-events/exhibitions/zurbaran"
+    }
+   ]
+  },
+  {
+   "sectiune": "arta",
+   "titlu": "Mary Cassatt la Orsay: prima mare expoziție din Franța dedicată pictoriței, la un secol de la moarte",
+   "rezumat": "Expoziția, deschisă din 6 octombrie până pe 31 ianuarie 2027, reunește circa 80 de lucrări, cu împrumuturi de la National Portrait Gallery din Londra și Museum of Fine Arts din Boston.",
+   "text": "Musée d'Orsay găzduiește, între 6 octombrie 2026 și 31 ianuarie 2027, expoziția „Mary Cassatt. Being independent” („Alegerea independenței”), organizată la 100 de ani de la moartea artistei, în 1926. Potrivit Artprice, care a anunțat-o în iulie, este prima mare expoziție din Franța dedicată în întregime ei.\n\nSunt prezentate aproximativ 80 de lucrări (pictură, pasteluri și gravuri), multe din colecții internaționale rar văzute în Europa, cu parteneri la National Portrait Gallery din Londra și Museum of Fine Arts din Boston. Articolul nu numește comisarii.\n\nTraseul are patru secvențe: formarea academică la Philadelphia, copiile și participarea la Salon în Europa; expozițiile impresioniste și cercetarea culorii și a compoziției; seriile târzii despre maternitate și viața domestică. Temele urmărite sunt cariera independentă între Statele Unite și Europa, interioarele burgheze, femeile și copiii, influența stampelor japoneze, a fotografiei și a gravurii, precum și relația ei cu Edgar Degas.\n\nSursa principală este un articol publicat înaintea deschiderii, pe 10 iulie, așa că detaliile, în special numărul de lucrări, sunt cele anunțate de organizatori, nu o relatare după vernisaj.\n\nPartenerul londonez este National Portrait Gallery, iar cel american Museum of Fine Arts din Boston, potrivit articolului citat; relatările din alte surse confirmă datele de desfășurare.",
+   "de_ce_conteaza": "Aniversarea centenară readuce în atenție o pictoriță americană care a lucrat la Paris în cercul impresioniștilor, adesea pomenită mai ales prin relația cu Degas.",
+   "loc": "Paris, Franța (Musée d'Orsay)",
+   "sursa_nume": "Artprice",
+   "sursa_url": "https://news.artprice.com/en/15566/mary-cassatt-pioneer-of-impressionism-at-the-musee-d-orsay-from-october-6-2026-to-january-31-2027",
+   "sursa_data": "2026-07-10",
+   "alte_surse": [
+    {
+     "nume": "Finestre sull'Arte",
+     "url": "https://www.finestresullarte.info/en/exhibitions/a-major-exhibition-at-the-musee-d-orsay-celebrates-the-impressionist-painter-mary-cassatt-and-her-independence"
+    }
+   ],
+   "trimiteri": [
+    {
+     "titlu": "Mary Cassatt (Wikipedia, în română)",
+     "url": "https://ro.wikipedia.org/wiki/Mary_Cassatt"
+    },
+    {
+     "titlu": "Expoziția pe parisjetaime.com",
+     "url": "https://parisjetaime.com/eng/event/exhibition-mary-cassatt-the-choice-of-independence-e2350"
+    }
+   ]
+  },
+  {
+   "sectiune": "arhitectura",
+   "titlu": "Premiul Stirling 2026: 157 de locuințe din Coulsdon, Londra, semnate Mary Duggan Architects",
+   "rezumat": "Lion Green Road, cinci blocuri cu 13 laturi pe un deal din Croydon, a câștigat pe 15 octombrie premiul RIBA, la a 30-a ediție.",
+   "text": "Premiul RIBA Stirling 2026 a fost acordat ansamblului Lion Green Road din Coulsdon, în boroughul londonez Croydon, proiectat de Mary Duggan Architects, cu RUFF Architects pentru livrare. Anunțul a fost făcut pe 15 octombrie, la Old Billingsgate, în anul în care premiul împlinește 30 de ani.\n\nProiectul cuprinde 157 de locuințe, private și accesibile, comandate de autoritatea locală, grupate în cinci blocuri prismatice cu 13 laturi, din cărămidă, pe o pantă verde. Terenul are diferențe de nivel de 8 m și se află într-un bazin geologic, iar un monument istoric învecinat, legat de Surrey Iron Railway, a trebuit protejat. Peisajul include spații de joacă, locuri de ședere, zone pentru cultivat și trasee publice. Juriul, din care au făcut parte președintele RIBA Chris Williamson și Will Gompertz, a spus că proiectul „aduce un beneficiu public real” și sprijină comunitatea.\n\nAlți finaliști au fost A house at Fairmead (Sergison Bates), Beam (Bennetts Associates), Paddington Square (Renzo Piano Building Workshop cu Adamson Associates), Pembroke, Mill Lane (Haworth Tompkins) și River Wing (Witherford Watson Mann).\n\nÎn aceeași seară, premiul internațional RIBA 2026 a revenit fabricii Green Field Factory din Rangpur, Bangladesh, a studioului Nakshabid Architects.",
+   "de_ce_conteaza": "Alegerea unui ansamblu de locuințe publice, nu a unui edificiu emblematic, orientează atenția spre locuirea accesibilă.",
+   "loc": "Coulsdon, Croydon, Londra",
+   "sursa_nume": "Wallpaper*",
+   "sursa_url": "https://www.wallpaper.com/architecture/riba-stirling-prize-2026-winner",
+   "sursa_data": "2026-10-15",
+   "alte_surse": [],
+   "trimiteri": [
+    {
+     "titlu": "Premiul Stirling pe site-ul RIBA",
+     "url": "https://www.riba.org/explore/awards/uk-awards/stirling-prize/"
+    },
+    {
+     "titlu": "Premiul Stirling la 30 de ani (RIBA)",
+     "url": "https://www.riba.org/stirlingprize/"
+    }
+   ]
+  },
+  {
+   "sectiune": "arhitectura",
+   "titlu": "Pavilionul „Resonance”, din calcar și placaj, deschide Bienala de Arhitectură de la Tallinn",
+   "rezumat": "Studioul Aru Ma- Architects a câștigat concursul pentru pavilionul central cu o structură în tensiune echilibrată, construită cu materiale obișnuite.",
+   "text": "Pavilionul „Resonance” al studioului Aru Ma- Architects, cu sediul la Shanghai și Tokyo, este piesa centrală a Bienalei de Arhitectură de la Tallinn (TAB) 2026, amplasat în fața Muzeului Estonian de Arhitectură. Proiectul a câștigat un concurs organizat de bienală.\n\nStructura, descrisă de arhitecți ca o structură în tensiune echilibrată, folosește calcar și placaj, „materiale obișnuite”. Calcarul formează un nucleu care servește drept balast. Ideea, spun arhitecții, este că lipsurile economice și materiale pot deveni un mediu imersiv modelat de lumină, vânt, sunet și gravitație, iar luxul poate fi obținut cu resurse limitate. Articolul din Dezeen nu dă dimensiunile.\n\nPavilionul răspunde temei curatoriale din 2026, „How Much?”, care discută rolul banilor în arhitectură. Expoziția principală este realizată de curatorul acestei ediții, studioul eston Stuudio Täna; Kertu Johanna Jõeste, de la studio, a spus că pavilionul „folosește materiale de construcție standard în moduri neașteptate”. Bienala se ține din doi în doi ani, din 2011, și durează de la 9 septembrie până la 30 noiembrie 2026. Pavilioanele centrale anterioare au fost Fungible Non-Fungible Pavilion (2022) și o stație de autobuz din materiale recuperate (2024).",
+   "de_ce_conteaza": "Pavilionul pune în practică tema bienalei, costul ca limită de proiectare, cu un edificiu temporar construit din materiale banale.",
+   "loc": "Tallinn, Estonia",
+   "sursa_nume": "Dezeen",
+   "sursa_url": "https://www.dezeen.com/2026/10/15/resonance-pavilion-tallinn-architecture-biennale",
+   "sursa_data": "2026-10-15",
+   "alte_surse": [],
+   "trimiteri": [
+    {
+     "titlu": "Arhitectură pe Dezeen: știri recente",
+     "url": "https://www.dezeen.com/architecture/"
+    },
+    {
+     "titlu": "Interviu cu Daniel Libeskind (Dezeen, 11 octombrie)",
+     "url": "https://www.dezeen.com/2026/10/11/daniel-libeskind-interview-key-projects/"
+    }
+   ]
+  }
+ ]
+}
