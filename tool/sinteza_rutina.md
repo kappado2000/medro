@@ -97,8 +97,12 @@ studiului și limitele lui.
 ## Ce face un subiect bun
 
 Aduce ceva nou (un rezultat, o descoperire, o premieră, o decizie), are o sursă serioasă
-și poate fi explicat cuiva din afara domeniului. Caută varietate de țări și de
-discipline, nu doar știri din Statele Unite și nu de trei ori aceeași temă. Evită
+și poate fi explicat cuiva din afara domeniului. În fiecare secțiune, alege din toată
+lumea: Europa, Americi, Asia, Africa, Orientul Mijlociu, Oceania. Nu lua toate
+subiectele unei secțiuni din aceeași țară sau regiune (de exemplu toate din Statele
+Unite) și nu trata de trei ori aceeași temă. Un subiect din România e binevenit când
+există, fără să fie o regulă. Excepție face siguranța medicamentelor, unde contează
+întâi ce privește medicii din România: ANMDM și EMA, apoi FDA sau MHRA. Evită
 comunicatele comerciale, produsele și zvonurile. Subiectul trebuie să fie din intervalul
 ediției; un articol de sinteză publicat acum despre ceva vechi nu este o noutate.
 
