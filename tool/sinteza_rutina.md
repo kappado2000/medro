@@ -34,8 +34,9 @@ nu scrie în `hosting/`: acolo scrie fluxul de publicare.
 
 Psihiatria este secțiunea principală: deschide ediția și primește cele mai multe
 articole, patru (cel puțin trei, cel mult cinci). Urmează psihoterapia și psihologia,
-cu câte trei articole (cel puțin unul, cel mult patru). Celelalte secțiuni au câte
-două sau trei articole (cel puțin două, cu excepția siguranței, care poate lipsi).
+cu câte trei articole (cel puțin unul, cel mult patru). Arhitectura are patru articole
+(cel puțin trei, cel mult cinci). Celelalte secțiuni au câte două sau trei articole
+(cel puțin două, cu excepția siguranței, care poate lipsi).
 
 - `psihiatrie`: psihiatrie. Cercetare: studii clinice cu medicamente, neuromodulare
   (rTMS, ECT, stimulare cerebrală profundă) și intervenții digitale; meta-analize;
@@ -84,7 +85,11 @@ studiului și limitele lui.
 - `arhitectura`: clădiri noi sau redeschise, concursuri și premii, urbanism și spațiu
   public, restaurări și reconversii, materiale și tehnici de construcție, arhitecți și
   proiecte anunțate. Surse bune: Dezeen, ArchDaily, The Architectural Review, Domus,
-  paginile birourilor de arhitectură și ale instituțiilor. Alege clădiri și proiecte
+  Wallpaper, designboom, The Architect's Newspaper, Architects' Journal, World
+  Architecture Community, paginile birourilor de arhitectură și ale instituțiilor
+  (Dezeen refuză uneori citirea paginilor; atunci caută același subiect în altă sursă).
+  Variază subiectele: nu toate clădiri noi, ci și urbanism, restaurări, premii, proiecte
+  din România sau din Europa Centrală și de Est când există. Alege clădiri și proiecte
   care se pot arăta: imaginea contează aici mai mult decât în alte secțiuni.
 
 ## Ce face un subiect bun

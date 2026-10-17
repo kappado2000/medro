@@ -54,7 +54,7 @@ SECTIUNI = (
 # siguranta poate lipsi: sunt saptamani fara nicio comunicare oficiala relevanta
 MINIM_PE_SECTIUNE = {
     "psihiatrie": 3, "psihoterapie": 1, "psihologie": 1, "siguranta": 0,
-    "medicina": 2, "stiinta": 2, "arta": 2, "arhitectura": 2,
+    "medicina": 2, "stiinta": 2, "arta": 2, "arhitectura": 3,
 }
 MINIM_TOTAL = 13
 
