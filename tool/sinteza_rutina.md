@@ -88,8 +88,10 @@ studiului și limitele lui.
   Wallpaper, designboom, The Architect's Newspaper, Architects' Journal, World
   Architecture Community, paginile birourilor de arhitectură și ale instituțiilor
   (Dezeen refuză uneori citirea paginilor; atunci caută același subiect în altă sursă).
-  Variază subiectele: nu toate clădiri noi, ci și urbanism, restaurări, premii, proiecte
-  din România sau din Europa Centrală și de Est când există. Alege clădiri și proiecte
+  Alege din toată lumea (Asia, Americi, Africa, Orientul Mijlociu, Oceania, Europa),
+  nu doar dintr-o regiune, și variază subiectele: nu toate clădiri noi, ci și urbanism,
+  restaurări, premii. Un proiect din România e binevenit când există, fără să fie o
+  regulă. Alege clădiri și proiecte
   care se pot arăta: imaginea contează aici mai mult decât în alte secțiuni.
 
 ## Ce face un subiect bun
