@@ -342,4 +342,19 @@ void main() {
     expect(p.editie!.id, '2026-W40');
     expect(find.text('Titlul ediției 2026-W40'), findsOneWidget);
   });
+
+  test('notificarea are legatura spre editia saptamanii', () {
+    // aceleasi identificatoare ca `date -u +%G-W%V`
+    expect(NotificariSinteza.idEditie(DateTime(2026, 10, 10)), '2026-W41');
+    expect(NotificariSinteza.idEditie(DateTime(2026, 10, 17)), '2026-W42');
+    expect(NotificariSinteza.idEditie(DateTime(2027, 1, 2)), '2026-W53');
+    expect(NotificariSinteza.idEditie(DateTime(2027, 1, 9)), '2027-W01');
+    expect(NotificariSinteza.idEditie(DateTime(2025, 12, 27)), '2025-W52');
+    final text = NotificariSinteza.textNotificare(DateTime(2026, 10, 24, 9));
+    expect(text, contains('A apărut ediția nouă'));
+    expect(
+      text,
+      endsWith('https://medro-asistent-2026.web.app/sinteza/#2026-W43'),
+    );
+  });
 }

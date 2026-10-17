@@ -7,6 +7,8 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:timezone/data/latest.dart' as tzdata;
 import 'package:timezone/timezone.dart' as tz;
 
+import 'sinteza_store.dart';
+
 /// Notificarea de sambata dimineata care anunta editia noua a Sintezei.
 ///
 /// Este o notificare locala, programata de telefon: nu are nevoie de server
@@ -20,7 +22,15 @@ class NotificariSinteza {
   static NotificariSinteza instance = NotificariSinteza();
 
   static const _cheie = 'sinteza_notificare';
-  static const _id = 4101;
+
+  /// Notificarea repetata din versiunile anterioare; se anuleaza la reprogramare.
+  static const _idVechi = 4101;
+
+  /// Fiecare sambata are notificarea ei, cu legatura spre editia acelei
+  /// saptamani; se programeaza cateva inainte si se reinnoiesc la fiecare
+  /// deschidere a aplicatiei.
+  static const _primulId = 4110;
+  static const saptamaniProgramate = 8;
 
   /// Ziua si ora locala la care apare notificarea.
   static const zi = DateTime.saturday;
@@ -55,6 +65,8 @@ class NotificariSinteza {
       _initializat = true;
       final pornire = await _plugin.getNotificationAppLaunchDetails();
       if (pornire?.didNotificationLaunchApp ?? false) laAtingere?.call();
+      // sambetele programate se consuma; la fiecare pornire se completeaza
+      if ((await alegere()) == true) await _programeaza();
     } catch (_) {
       // fara notificari, restul aplicatiei merge la fel
     }
@@ -78,7 +90,7 @@ class NotificariSinteza {
         await _programeaza();
         reusit = true;
       } else {
-        await _plugin.cancel(id: _id);
+        await _anuleaza();
       }
     } catch (_) {
       reusit = false;
@@ -113,27 +125,53 @@ class NotificariSinteza {
     } catch (_) {
       tz.setLocalLocation(tz.getLocation('Europe/Bucharest'));
     }
-    await _plugin.zonedSchedule(
-      id: _id,
-      title: 'Sinteza săptămânii',
-      body:
-          'A apărut ediția nouă: psihiatrie, psihologie, medicină, științe, artă și '
-          'arhitectură.',
-      scheduledDate: urmatoareaAparitie(tz.TZDateTime.now(tz.local)),
-      notificationDetails: const NotificationDetails(
-        android: AndroidNotificationDetails(
-          'sinteza',
-          'Sinteza săptămânii',
-          channelDescription: 'Anunță ediția nouă, sâmbătă dimineața',
+    await _anuleaza();
+    var sambata = urmatoareaAparitie(tz.TZDateTime.now(tz.local));
+    for (var i = 0; i < saptamaniProgramate; i++) {
+      await _plugin.zonedSchedule(
+        id: _primulId + i,
+        title: 'Sinteza săptămânii',
+        body: textNotificare(sambata),
+        scheduledDate: sambata,
+        notificationDetails: const NotificationDetails(
+          android: AndroidNotificationDetails(
+            'sinteza',
+            'Sinteza săptămânii',
+            channelDescription: 'Anunță ediția nouă, sâmbătă dimineața',
+            // textul intreg, cu legatura, se vede cand notificarea e deschisa
+            styleInformation: BigTextStyleInformation(''),
+          ),
+          iOS: DarwinNotificationDetails(),
         ),
-        iOS: DarwinNotificationDetails(),
-      ),
-      // ora nu trebuie sa fie exacta la minut, deci nu se cere permisiunea
-      // de alarme exacte
-      androidScheduleMode: AndroidScheduleMode.inexactAllowWhileIdle,
-      // se repeta in fiecare saptamana, in aceeasi zi si la aceeasi ora
-      matchDateTimeComponents: DateTimeComponents.dayOfWeekAndTime,
-    );
+        // ora nu trebuie sa fie exacta la minut, deci nu se cere permisiunea
+        // de alarme exacte
+        androidScheduleMode: AndroidScheduleMode.inexactAllowWhileIdle,
+      );
+      sambata = urmatoareaAparitie(sambata);
+    }
+  }
+
+  Future<void> _anuleaza() async {
+    await _plugin.cancel(id: _idVechi);
+    for (var i = 0; i < saptamaniProgramate; i++) {
+      await _plugin.cancel(id: _primulId + i);
+    }
+  }
+
+  /// Textul notificarii unei sambete, cu legatura spre editia ei pe pagina web.
+  static String textNotificare(DateTime sambata) =>
+      'A apărut ediția nouă: psihiatrie, psihologie, medicină, științe, artă și '
+      'arhitectură.\n${SintezaStore.paginaPublica}#${idEditie(sambata)}';
+
+  /// Identificatorul editiei: saptamana ISO a zilei, ca in "2026-W42". Este
+  /// acelasi pe care il foloseste rutina care scrie editia.
+  static String idEditie(DateTime zi) {
+    final d = DateTime.utc(zi.year, zi.month, zi.day);
+    // joia saptamanii decide anul ISO
+    final joi = d.add(Duration(days: DateTime.thursday - d.weekday));
+    final primaZi = DateTime.utc(joi.year, 1, 1);
+    final saptamana = joi.difference(primaZi).inDays ~/ 7 + 1;
+    return '${joi.year}-W${saptamana.toString().padLeft(2, '0')}';
   }
 
   /// Prima sambata, ora 9, de dupa momentul dat.

@@ -1043,7 +1043,8 @@ const ajutorSinteza = Ajutor(
         (
           'Notificare sâmbăta',
           'din meniul cu trei puncte poți porni o notificare în fiecare sâmbătă la ora '
-              '9, când apare de obicei ediția nouă. Atingerea ei deschide direct Sinteza.',
+              '9, când apare de obicei ediția nouă. Mesajul are și legătura spre ediția '
+              'săptămânii pe pagina web; atingerea notificării deschide direct Sinteza.',
         ),
         (
           'Trimite ediția',
