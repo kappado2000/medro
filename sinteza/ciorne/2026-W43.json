@@ -1,0 +1,417 @@
+{
+ "data": "2026-10-24",
+ "titlu": "Un modulator AMPA în mania bipolară și o analiză a „psihozei legate de IA”; apoi, heliul din primele minute ale Universului și un Monet de 50 de milioane de euro",
+ "introducere": "Psihiatria deschide ediția cu rezultate preliminare pentru RAP-219 în mania bipolară, o analiză a cazurilor de psihoză asociate cu chatboturile, un biomarker sanguin al răspunsului la ISRS și o corelație între depresia vârstnicilor și volumul hipocampului. Urmează o intervenție cu vibrații la adulți cu traumă, șase studii despre credința în conspirații și retragerea britanică a unui vaccin. În rest: un studiu negativ despre DHA, heliul primordial, Bennu, o pereche de găuri negre, Monet la Paris, Centre Pompidou Francilien și trei proiecte de arhitectură din trei țări.",
+ "articole": [
+  {
+   "sectiune": "psihiatrie",
+   "titlu": "RAP-219, un modulator AMPA, a depășit placebo în mania bipolară, într-un studiu de fază 2 pe 253 de pacienți",
+   "rezumat": "Rapport Therapeutics anunță rezultate pozitive la trei săptămâni: o diferență de 3,1 puncte pe scala YMRS față de placebo, cu p = 0,045.",
+   "text": "RAP-219 este un modulator alosteric negativ al receptorilor AMPA, specific pentru subunitatea auxiliară TARPγ8, aflat în investigație și descris de sponsor ca potențial prim în clasă. Rapport Therapeutics a anunțat pe 20 octombrie rezultatele preliminare (topline) ale unui studiu de fază 2 randomizat, dublu-orb și controlat cu placebo, desfășurat în Statele Unite.\n\nAu fost incluși 253 de adulți cu tulburare bipolară de tip I, în episod maniacal acut (scor YMRS de cel puțin 25 la debut), internați pe durata a trei săptămâni de tratament. Doza a fost de 0,75 mg o dată pe zi, după o titrare de două sau patru zile, comparativ cu placebo. Scorul YMRS inițial a fost 36,9 în brațul activ și 35,8 în cel placebo.\n\nLa săptămâna 3, criteriul principal a arătat o îmbunătățire ajustată la placebo de 3,1 puncte (p = 0,045), cu o reducere medie de 15,4 puncte față de 12,3 sub placebo. Diferența a crescut de la 0,9 puncte în săptămâna 1 la 2,2 în săptămâna 2. Pe criteriul secundar principal, severitatea maniei la CGI-BP, diferența a fost de 0,4 puncte (p = 0,024).\n\nEvenimentele adverse apărute sub tratament au fost similare ca frecvență (51,6% față de 52,8%), iar cele psihiatrice 34,9% față de 33,1%. Întreruperile din cauza evenimentelor adverse au fost 3,2% față de 0,8%, fără evenimente adverse grave. Agitația a fost mai frecventă sub RAP-219 (16,7% față de 9,4%), la fel greața (5,6% față de 1,6%). Nu au fost raportate acatizie, simptome extrapiramidale sau hipotensiune ortostatică. Sponsorul plănuiește studii de fază 3 în a doua jumătate a lui 2027.",
+   "de_ce_conteaza": "Rezultatul vine de la sponsor, printr-un comunicat de presă preluat de Psychiatric Times, nu dintr-o publicație evaluată de experți; valoarea p este apropiată de prag, iar urmărirea a fost de doar trei săptămâni.",
+   "loc": "Statele Unite",
+   "sursa_nume": "Psychiatric Times",
+   "sursa_url": "https://www.psychiatrictimes.com/view/positive-topline-results-from-phase-2-trial-of-rap-219-for-the-treatment-of-bipolar-mania",
+   "sursa_data": "2026-10-20",
+   "alte_surse": [],
+   "trimiteri": [
+    {
+     "titlu": "Comunicatul Rapport Therapeutics despre rezultatele topline",
+     "url": "https://investors.rapportrx.com/news-releases/news-release-details/rapport-therapeutics-announces-positive-topline-results-its"
+    },
+    {
+     "titlu": "Tulburarea bipolară (Wikipedia)",
+     "url": "https://ro.wikipedia.org/wiki/Tulburare_bipolar%C4%83"
+    }
+   ]
+  },
+  {
+   "sectiune": "psihiatrie",
+   "titlu": "„Psihoza legată de IA”: 0,013% dintre pacienții unui centru medical american, cei mai mulți la primul episod",
+   "rezumat": "Un studiu din JAMA Psychiatry, pe dosarele medicale de la Vanderbilt, descrie 28 de pacienți la care utilizarea unui chatbot a părut să agraveze simptomele psihotice.",
+   "text": "Echipa condusă de Julia Sheffield, de la Vanderbilt University Medical Center din Tennessee, a analizat retrospectiv dosarele electronice: 578.058 de note de progres ale 215.712 de pacienți aflați în îngrijire psihiatrică între 1 decembrie 2022 și 15 aprilie 2026. După filtrarea pe cuvinte-cheie și pe un diagnostic de tulburare psihotică, doi evaluatori au revizuit manual notele, ajungând la 187 de consultații la 73 de pacienți. Concordanța dintre evaluatori a fost de 86,1% pentru încadrarea pe grupe.\n\nPacienții au fost împărțiți în trei grupuri: 17 cu interacțiuni neutre cu IA, 28 cu conținut psihotic legat de IA, fără utilizare documentată a unui chatbot, și 28 cu „psihoză legată de IA”, adică la care folosirea unui chatbot a părut să înrăutățească simptomele. Prevalența din ultimul grup a fost de 0,013% dintre pacienții centrului.\n\nÎn acest grup, 67,9% erau bărbați, vârsta mediană era de 27,5 ani, iar 60,7% se aflau la primul episod, față de 17,6% în grupul neutru și 28,5% în cel cu conținut legat de IA. ChatGPT a fost numit în 53,6% dintre dosare. Chatbotul a funcționat ca „amplificator” al ideilor delirante în 64,3% dintre cazuri. Nu au apărut diferențe semnificative între grupuri la internări anterioare, medicație sau tentative de suicid.\n\nAutorii subliniază limitele: design observațional, un singur centru, o clasificare nevalidată formal și o subestimare probabilă, fiindcă apar doar cazurile în care clinicienii au consemnat utilizarea tehnologiei. Iris Sommer, de la Universitatea din Groningen, care nu a participat la studiu, a cerut prudență cu eticheta „psihoză legată de IA” și a amintit că cauzalitatea e greu de stabilit.",
+   "de_ce_conteaza": "Studiul nu arată că chatboturile provoacă psihoza, ci că întrebarea despre utilizarea lor merită pusă la evaluarea unui prim episod psihotic.",
+   "loc": "Tennessee, Statele Unite",
+   "sursa_nume": "PsyPost",
+   "sursa_url": "https://www.psypost.org/ai-psychosis-appears-rare-but-real-and-first-episode-patients-may-be-most-vulnerable-study-suggests/",
+   "sursa_data": "2026-10-23",
+   "alte_surse": [],
+   "trimiteri": [
+    {
+     "titlu": "Studiul original, JAMA Psychiatry (DOI)",
+     "url": "https://doi.org/10.1001/jamapsychiatry.2026.2923"
+    },
+    {
+     "titlu": "Psihoza (Wikipedia)",
+     "url": "https://ro.wikipedia.org/wiki/Psihoz%C4%83"
+    }
+   ]
+  },
+  {
+   "sectiune": "psihiatrie",
+   "titlu": "Un ARN circular din sânge ar putea prezice răspunsul la ISRS, arată un studiu din Molecular Psychiatry",
+   "rezumat": "Nivelurile inițiale mai mari ale ARN-ului circular Cdr1as s-au asociat cu lipsa de răspuns la sertralină; cifrele exacte nu apar în relatarea consultată.",
+   "text": "Un grup de cercetători, între care Nikolaos Mellios și Eleni Tzavara de la compania Circular Genomics, alături de Madhukar Trivedi (UT Southwestern) și Roy Perlis, a publicat în Molecular Psychiatry un studiu despre un biomarker sanguin al răspunsului la antidepresive. Marcatorul este un ARN circular, CDR1as, îmbogățit în creier. Relatarea PsyPost nu precizează numărul de participanți și nu dă mărimi de efect, valori p sau indicatori de acuratețe.\n\nCercetătorii au măsurat nivelurile din sânge la pacienți cu tulburare depresivă majoră din două studii clinice independente, la începutul tratamentului cu sertralină și apoi în timp. Cei care nu au răspuns după opt săptămâni aveau la început niveluri mai mari de CDR1as, în timp ce la cei care au răspuns nivelurile au crescut după începerea tratamentului. Nivelurile inițiale nu au prezis răspunsul la placebo și nici remisiunea sub bupropion, iar rezultatul a fost reprodus la pacienți tratați cu fluoxetină, citalopram sau escitalopram.\n\nÎn experimente pe șoareci, blocarea receptorului serotoninergic 5-HT2A a scăzut Cdr1as în trei regiuni cerebrale, iar blocarea receptorilor dopaminergici sau glutamatergici nu a avut acest efect. În celule neuronale cultivate, inhibarea receptorilor pentru BDNF a redus producția ARN-ului circular.\n\nTestul a funcționat mai slab la pacienții cu istoric familial de manie; excluderea lor a îmbunătățit acuratețea. Nivelurile ridicate s-au corelat cu anhedonia și retragerea socială, iar traumatismele cranio-cerebrale sau accidentul vascular pot modifica ARN-urile circulare din sânge. Mai mulți autori sunt afiliați companiei Circular Genomics.",
+   "de_ce_conteaza": "Un test care ar anticipa de la început eșecul unui ISRS ar putea scurta calea spre tratamentul potrivit, dar fără cifre de acuratețe și fără validare prospectivă rămâne o ipoteză de cercetare.",
+   "loc": "Statele Unite și Franța",
+   "sursa_nume": "PsyPost",
+   "sursa_url": "https://www.psypost.org/blood-test-could-predict-if-an-antidepressant-will-work-for-you/",
+   "sursa_data": "2026-10-22",
+   "alte_surse": [],
+   "trimiteri": [
+    {
+     "titlu": "Studiul original, Molecular Psychiatry (DOI)",
+     "url": "https://doi.org/10.1038/s41380-026-03491-w"
+    },
+    {
+     "titlu": "Sertralina (Wikipedia)",
+     "url": "https://ro.wikipedia.org/wiki/Sertralin%C4%83"
+    }
+   ]
+  },
+  {
+   "sectiune": "psihiatrie",
+   "titlu": "Depresia la vârstnici, asociată cu un subcâmp CA23DG mai mic; rolul antidepresivelor e neclar",
+   "rezumat": "Pe 2.009 adulți fără deficit cognitiv, diferența de volum e mică și dispare când se ține cont de antidepresive, ceea ce nu permite concluzii despre cauză.",
+   "text": "Un studiu din Translational Psychiatry, condus de Danielle Luu de la Universitatea Southern California, a folosit datele din Health and Aging Brain Study–Health Disparities (HABS-HD), care a recrutat vârstnici hispanici, afro-americani și albi în Fort Worth, Texas. Au fost analizați 2.009 de adulți de 50–90 de ani (vârsta medie în jur de 65), fără deficit cognitiv, la care s-a făcut RMN de înaltă rezoluție. Dintre ei, 630 au fost încadrați ca depresivi (scor GDS de cel puțin 10 sau diagnostic raportat) și 1.379 ca nedepresivi.\n\nDepresia s-a asociat cu un volum mai mic al subcâmpului combinat CA2-CA3-girus dințat (CA23DG), nu și al CA1 sau al subiculului. Asocierea a fost mică și s-a menținut după ajustarea pentru indicele de masă corporală, activitatea fizică, proteina tau și statutul APOE4. Introducerea amiloidului în model a făcut-o nesemnificativă, deși mărimea rămânea similară; autorii o pun pe seama numărului mai mic de participanți cu PET pentru amiloid (684).\n\nSeveritatea actuală a simptomelor și vârsta debutului depresiei nu au fost legate de volumele subcâmpurilor. Printre persoanele depresive, cei care luau antidepresive aveau volume mai mici în CA1 și CA23DG, iar când depresia și tratamentul au fost modelate împreună, legătura depresiei cu CA23DG a dispărut, rămânând cea a antidepresivelor.\n\nLimitele: design transversal, depresie și medicație autoraportate, tipurile și dozele de antidepresive necomparate și posibilă confuzie prin indicație, adică depresia mai severă poate duce la prescriere. Autorii spun că sunt necesare studii randomizate pentru a testa un eventual efect al medicamentelor asupra structurii hipocampului.",
+   "de_ce_conteaza": "Rezultatul este o corelație modestă; nu arată nici că depresia micșorează hipocampul, nici că antidepresivele o fac.",
+   "loc": "Texas, Statele Unite",
+   "sursa_nume": "PsyPost",
+   "sursa_url": "https://www.psypost.org/older-adults-with-depression-tend-to-have-smaller-volumes-of-a-specific-part-of-the-hippocampus-brain-region/",
+   "sursa_data": "2026-10-22",
+   "alte_surse": [],
+   "trimiteri": [
+    {
+     "titlu": "Studiul original, Translational Psychiatry (DOI)",
+     "url": "https://doi.org/10.1038/s41398-026-04223-y"
+    },
+    {
+     "titlu": "Hipocampul (Wikipedia)",
+     "url": "https://ro.wikipedia.org/wiki/Hipocamp"
+    }
+   ]
+  },
+  {
+   "sectiune": "psihoterapie",
+   "titlu": "Vibrații pe stern asociate cu meditația cresc densitatea unui tract nervos la adulți cu traumă și disociere",
+   "rezumat": "Într-o analiză interimară pe 116 participanți, grupul cu dispozitiv de vibrație a avut modificări în substanța albă și o conștientizare corporală mai bună, dar disocierea a scăzut la fel în ambele grupuri.",
+   "text": "Un studiu publicat în Neuropsychopharmacology de echipa Negar Fani, de la Emory University School of Medicine, analizează o intervenție de tip corp-minte pentru adulți care au trăit traume și raportează disociere crescută. Este vorba de o analiză interimară a unui studiu clinic în desfășurare, cu 116 participanți.\n\nToți au făcut opt sesiuni scurte de meditație mindfulness, pe parcursul mai multor săptămâni. Aproximativ jumătate au meditat folosind un dispozitiv care produce vibrații pe stern, cealaltă jumătate a făcut aceeași meditație fără dispozitiv. Creierul a fost scanat înainte și după sesiuni.\n\nGrupul cu vibrații a arătat o creștere a densității fibrelor nervoase în tractul corticospinal, absentă în grupul doar cu meditație; o reconstrucție 3D a confirmat constatarea. Același grup a raportat o îmbunătățire mult mai mare a conștientizării corpului. Reducerea disocierii a fost similară în ambele brațe, dar numai în grupul cu vibrații creșterea densității a fost legată de o scădere mai mare a disocierii.\n\nRelatarea nu dă mărimi de efect sau valori p. Mecanismele biologice sunt, spun autorii, încă speculative, scanările arată schimbări structurale macroscopice, nu procese microscopice, iar rezultatele psihologice se bazează pe chestionare autoraportate. Nu se știe cât durează modificările după terminarea sesiunilor.",
+   "de_ce_conteaza": "Intervenția se adaugă unei practici de mindfulness deja folosite; deocamdată, singura diferență clară între brațe privește conștientizarea corpului, nu simptomul principal, disocierea.",
+   "loc": "Emory University, Statele Unite",
+   "sursa_nume": "PsyPost",
+   "sursa_url": "https://www.psypost.org/chest-vibrations-paired-with-meditation-alter-brain-wiring-in-trauma-survivors/",
+   "sursa_data": "2026-10-23",
+   "alte_surse": [],
+   "trimiteri": [
+    {
+     "titlu": "Studiul original, Neuropsychopharmacology (DOI)",
+     "url": "https://doi.org/10.1038/s41386-026-02430-1"
+    },
+    {
+     "titlu": "Meditația (Wikipedia)",
+     "url": "https://ro.wikipedia.org/wiki/Medita%C8%9Bie"
+    },
+    {
+     "titlu": "Tulburarea de stres posttraumatic (Wikipedia)",
+     "url": "https://ro.wikipedia.org/wiki/Tulburare_de_stres_posttraumatic"
+    }
+   ]
+  },
+  {
+   "sectiune": "psihologie",
+   "titlu": "Cine crede în conspirații crede și că mulți alții o fac: șase studii preînregistrate, pe 2.906 de participanți",
+   "rezumat": "Într-un set de studii online din SUA și Marea Britanie, credința în teorii ale conspirației a mers împreună cu supraestimarea acordului celorlalți; afișarea datelor reale a scăzut adeziunea într-un experiment.",
+   "text": "Jan-Willem van Prooijen (Vrije Universiteit Amsterdam), Paul Bergmann, Vladimira Čavojová și Jakub Šrol au publicat în European Journal of Social Psychology șase studii online, toate preînregistrate, pe 2.906 de participanți din Statele Unite și Marea Britanie. Ipoteza: oamenii care cred într-o conspirație socotesc că și ceilalți o împărtășesc.\n\nÎn studiile corelaționale (300 de americani și 299 de britanici), participanții au evaluat zece afirmații conspiraționiste și au estimat media grupului. Media reală a fost 33,09 (SUA) și 34,16 (Marea Britanie), iar media estimată 39,85 și, respectiv, 42,30; corelațiile dintre credința personală și cea atribuită grupului au fost 0,65 și 0,71.\n\nÎn două experimente randomizate (505 americani și 501 britanici), citirea unui articol conspiraționist despre industria farmaceutică a crescut atât credința proprie (61,78 față de 49,46 în SUA; 59,78 față de 41,99 în Marea Britanie), cât și estimarea credinței celorlalți. Un experiment cu formulări diferite despre cât de răspândită e o opinie („foarte mulți” față de „doar câțiva”) nu a dat o diferență semnificativă.\n\nÎntr-un ultim experiment, 800 de americani au văzut grafice cu distribuția reală a credinței: și-au redus estimarea mediei anterioare a grupului (20,95 față de 38,34 la control), iar adeziunea personală a fost mai mică (24,06 față de 33,70). Autorii avertizează că participanții au fost alți respondenți online, nu populația generală, că analizele de mediere nu stabilesc direcția cauzală, și că informarea despre norme ar putea avea efect invers pentru teorii cu adevărat larg răspândite.",
+   "de_ce_conteaza": "Rezultatele sugerează că o parte din forța convingerilor conspiraționiste vine din ideea falsă că „toată lumea știe”, un punct pe care datele concrete îl pot corecta, deși într-un cadru experimental restrâns.",
+   "loc": "Țările de Jos, Statele Unite și Marea Britanie",
+   "sursa_nume": "PsyPost",
+   "sursa_url": "https://www.psypost.org/people-who-believe-conspiracy-theories-overestimate-how-many-others-agree-new-research-finds/",
+   "sursa_data": "2026-10-23",
+   "alte_surse": [],
+   "trimiteri": [
+    {
+     "titlu": "Studiul original, European Journal of Social Psychology (DOI)",
+     "url": "https://doi.org/10.1002/ejsp.70111"
+    },
+    {
+     "titlu": "Teoria conspirației (Wikipedia)",
+     "url": "https://ro.wikipedia.org/wiki/Teoria_conspira%C8%9Biei"
+    },
+    {
+     "titlu": "Psihologia socială (Wikipedia)",
+     "url": "https://ro.wikipedia.org/wiki/Psihologie_social%C4%83"
+    }
+   ]
+  },
+  {
+   "sectiune": "siguranta",
+   "titlu": "MHRA retrage autorizația de comercializare în Regatul Unit pentru vaccinul antichikungunya IXCHIQ",
+   "rezumat": "După o evaluare de siguranță și avizul Commission on Human Medicines, agenția britanică consideră că balanța beneficiu-risc nu mai este favorabilă.",
+   "text": "Pe 20 octombrie, Drug Safety Update al MHRA anunță că autorizația de comercializare a vaccinului IXCHIQ, împotriva chikungunyei, a fost retrasă în Regatul Unit și că produsul este scos de pe piață. Decizia a urmat avizului Commission on Human Medicines, iar agenția a concluzionat că balanța beneficiu-risc „nu mai este considerată favorabilă”.\n\nMotivul invocat sunt reacțiile adverse grave raportate după autorizare, între care simptome asemănătoare chikungunyei și evenimente neurologice rare, precum encefalita. Cele mai multe cazuri au apărut la vârstnici și la persoane cu afecțiuni preexistente, dar unele au apărut la persoane fără boli cunoscute; unele cazuri au dus la spitalizare sau deces.\n\nRecomandările pentru profesioniștii din sănătate, în formularea comunicării: să nu prescrie, să nu furnizeze și să nu administreze vaccinul IXCHIQ și să elimine stocurile rămase conform politicii locale; să scoată vaccinul din materialele și sistemele care enumeră opțiunile de vaccinare; să informeze călătorii despre alte măsuri de prevenție, între care alte vaccinuri antichikungunya, evitarea înțepăturilor de țânțari și respectarea sfaturilor de călătorie. Persoanele vaccinate anterior nu trebuie să ia nicio măsură specifică; cele cu o suspiciune de reacție adversă trebuie să ceară sfat medical, iar raportările continuă prin schema Yellow Card.\n\nTextul de mai sus rezumă comunicarea MHRA; cititorul găsește formularea completă, inclusiv căile de raportare, în documentul original.",
+   "de_ce_conteaza": "Comunicarea privește Regatul Unit; în această ediție nu a fost verificat dacă ANMDM sau EMA au publicat o măsură similară pentru România sau pentru Uniunea Europeană.",
+   "loc": "Regatul Unit",
+   "sursa_nume": "MHRA (Drug Safety Update)",
+   "sursa_url": "https://www.gov.uk/drug-safety-update/ixchiq-chikungunya-vaccine-uk-marketing-authorisation-withdrawn-following-safety-review",
+   "sursa_data": "2026-10-20",
+   "alte_surse": [],
+   "trimiteri": [
+    {
+     "titlu": "MHRA, Drug Safety Update: lista comunicărilor",
+     "url": "https://www.gov.uk/drug-safety-update"
+    },
+    {
+     "titlu": "Chikungunya (Wikipedia)",
+     "url": "https://ro.wikipedia.org/wiki/Chikungunya"
+    },
+    {
+     "titlu": "Encefalita (Wikipedia)",
+     "url": "https://ro.wikipedia.org/wiki/Encefalit%C4%83"
+    }
+   ]
+  },
+  {
+   "sectiune": "medicina",
+   "titlu": "DHA 2.000 mg pe zi a ajuns în lichidul cefalorahidian, dar nu a îmbunătățit cogniția în doi ani",
+   "rezumat": "Un studiu randomizat pe 365 de adulți cu risc de demență, publicat în eBioMedicine, nu a găsit beneficii cognitive și nici o încetinire a atrofiei hipocampului.",
+   "text": "Echipa condusă de Hussein Yassine, de la Universitatea Southern California, a testat într-un studiu randomizat, dublu-orb, controlat cu placebo și desfășurat pe doi ani, dacă un supliment de acid docosahexaenoic (DHA, un acid gras omega-3) ajunge în creier și protejează cogniția. Au participat 365 de adulți de 55–80 de ani, cu risc crescut de boală Alzheimer, care mâncau rar pește; 47% purtau alela APOE4.\n\nDoza a fost de 2.000 mg de DHA pe zi, față de placebo. După șase luni, DHA din lichidul cefalorahidian crescuse în medie cu 17%, deci suplimentul a ajuns în sistemul nervos central. Totuși, după doi ani, performanța la testele cognitive nu a fost mai bună decât sub placebo, iar imagistica nu a arătat o prevenire a micșorării hipocampului.\n\nStudiul a fost finanțat de National Institutes of Health și de Alzheimer's Drug Discovery Foundation. Relatarea ScienceDaily nu enumeră limite formale; rezultatul se referă la persoane cu aport scăzut de pește și la un singur supliment, nu la dieta în ansamblu sau la consumul de pește.",
+   "de_ce_conteaza": "Studiul arată că a crește nivelul unei substanțe în creier nu garantează un beneficiu clinic și pune sub semnul întrebării suplimentele de DHA pentru prevenirea declinului cognitiv.",
+   "loc": "California, Statele Unite",
+   "sursa_nume": "ScienceDaily",
+   "sursa_url": "https://www.sciencedaily.com/releases/2026/10/261020085427.htm",
+   "sursa_data": "2026-10-22",
+   "alte_surse": [],
+   "trimiteri": [
+    {
+     "titlu": "Studiul original, eBioMedicine (DOI)",
+     "url": "https://doi.org/10.1016/j.ebiom.2026.106316"
+    },
+    {
+     "titlu": "Acidul docosahexaenoic (Wikipedia)",
+     "url": "https://ro.wikipedia.org/wiki/Acid_docosahexaenoic"
+    },
+    {
+     "titlu": "Omega-3 (Wikipedia)",
+     "url": "https://ro.wikipedia.org/wiki/Omega-3"
+    }
+   ]
+  },
+  {
+   "sectiune": "medicina",
+   "titlu": "Particulele de titan de la implanturi ar slăbi macrofagele, arată un studiu pe celule și șoareci",
+   "rezumat": "Cercetători de la Rutgers descriu un mecanism, prin canalul TRPC1, care ar explica de ce infecțiile din jurul implanturilor răspund slab la antibiotice; nu există încă un tratament testat.",
+   "text": "Un studiu din PNAS Nexus, semnat de Juliana Girón Bastidas, Georgios Kotsakis și colegii de la Rutgers School of Dental Medicine, urmărește de ce infecțiile din jurul implanturilor dentare sunt greu de tratat. Titlul lucrării vorbește despre particule de titan derivate din implant care afectează eliminarea bacteriilor de către macrofage prin canalul TRPC1 și prin disfuncție lizozomală.\n\nDesignul are trei componente: probe de țesut uman, celule imune umane studiate în laborator și șoareci modificați genetic, fără canalul de calciu TRPC1. Macrofagele expuse la titan au înglobat substanțial mai puține bacterii decât cele neexpuse. Șoarecii fără TRPC1 au dezvoltat abcese mult mai mici, au produs mai puține molecule inflamatorii și au eliminat mai bine bacteriile.\n\nAutorii descriu TRPC1 drept țintă posibilă pentru medicamente, iar Kotsakis spune că studiul arată „pentru prima dată” de ce antibioticele eficiente în jurul dinților nu funcționează în jurul implanturilor. Relatarea nu dă mărimea eșantioanelor și nu enumeră limite; echipa încă evaluează candidați medicamentoși pe celule umane, deci niciun tratament nu a fost testat.",
+   "de_ce_conteaza": "Este un rezultat de cercetare fundamentală, pe celule și animale; nu schimbă practica cu implanturile și nu justifică îndepărtarea lor.",
+   "loc": "New Jersey, Statele Unite",
+   "sursa_nume": "ScienceDaily",
+   "sursa_url": "https://www.sciencedaily.com/releases/2026/10/261022081314.htm",
+   "sursa_data": "2026-10-23",
+   "alte_surse": [],
+   "trimiteri": [
+    {
+     "titlu": "Studiul original, PNAS Nexus (DOI)",
+     "url": "https://doi.org/10.1093/pnasnexus/pgag081"
+    },
+    {
+     "titlu": "Implantul dentar (Wikipedia)",
+     "url": "https://ro.wikipedia.org/wiki/Implant_dentar"
+    },
+    {
+     "titlu": "Macrofagul (Wikipedia)",
+     "url": "https://ro.wikipedia.org/wiki/Macrofag"
+    }
+   ]
+  },
+  {
+   "sectiune": "stiinta",
+   "titlu": "Heliul primordial, măsurat cu incertitudine de 0,5%, de trei ori mai precis decât înainte",
+   "rezumat": "O echipă internațională a observat 15 galaxii aproape neatinse chimic, timp de 130 de ore, cu Large Binocular Telescope.",
+   "text": "Cinci articole publicate în The Astrophysical Journal, conduse de Evan Skillman de la Universitatea din Minnesota, raportează cea mai precisă determinare a cantității de heliu formate în primele cinci minute ale Universului. Incertitudinea este de 0,5%, de trei ori mai mică decât în estimările anterioare, potrivit relatării instituției.\n\nMetoda obișnuită observă multe galaxii și extrapolează înapoi, pentru a scădea heliul adăugat ulterior de stele. Echipa a ales în schimb 15 galaxii mici, îndepărtate și neobișnuit de „pure”, care au evoluat chimic puțin și păstrează compoziția Universului timpuriu. Observațiile au însumat 130 de ore la Large Binocular Telescope, cu spectrografele MODS dezvoltate la Ohio State University.\n\nSpectrografele au permis analiza simultană a peste zece linii spectrale ale heliului și 15 ale hidrogenului, ceea ce a ajutat la identificarea și corectarea unor surse subtile de eroare, importante când incertitudinea coboară sub 1%. Cu valoarea obținută, cercetătorii au calculat și numărul familiilor de neutrini din Universul timpuriu; relatarea nu menționează rezultatul numeric.\n\nHeliul primordial este una dintre cele trei probe clasice ale modelului Big Bang, alături de expansiunea Universului și de radiația cosmică de fond, dar a primit mai puțină atenție decât celelalte. Skillman a descris rezultatul drept un experiment de fizică „la scară mare” și una dintre cele mai importante realizări din cei 40 de ani ai săi de carieră.",
+   "de_ce_conteaza": "O valoare mai precisă a heliului primordial oferă un test mai strict pentru modelul standard al fizicii particulelor și pentru condițiile din primele minute ale Universului.",
+   "loc": "Universitatea din Minnesota și instituții partenere",
+   "sursa_nume": "ScienceDaily",
+   "sursa_url": "https://www.sciencedaily.com/releases/2026/10/261019093442.htm",
+   "sursa_data": "2026-10-20",
+   "alte_surse": [],
+   "trimiteri": [
+    {
+     "titlu": "Lucrarea principală, The Astrophysical Journal (DOI)",
+     "url": "https://doi.org/10.3847/1538-4357/ae879f"
+    },
+    {
+     "titlu": "Big Bang (Wikipedia)",
+     "url": "https://ro.wikipedia.org/wiki/Big_Bang"
+    },
+    {
+     "titlu": "Heliu (Wikipedia)",
+     "url": "https://ro.wikipedia.org/wiki/Heliu"
+    }
+   ]
+  },
+  {
+   "sectiune": "stiinta",
+   "titlu": "De ce se răcesc repede bolovanii asteroidului Bennu: crăpăturile din interior, nu doar porozitatea",
+   "rezumat": "Analiza eșantioanelor aduse de OSIRIS-REx explică o neconcordanță veche, între aspectul stâncos al asteroidului și răcirea lui rapidă.",
+   "text": "Când nava OSIRIS-REx a ajuns la Bennu, în 2018, suprafața se dovedise a fi neașteptat de accidentată, acoperită de bolovani mari. Un studiu din 2007 cu telescopul Spitzer arătase însă că suprafața se încălzește și se răcește repede, adică are inerție termică mică, comportament specific nisipului, nu stâncilor masive.\n\nO echipă condusă de Andrew Ryan, de la Universitatea din Arizona, a analizat în laborator fragmente din eșantioanele aduse pe Pământ. Rocile sunt foarte poroase, dar porozitatea singură nu explica pierderea rapidă de căldură; multe particule aveau și rețele extinse de crăpături interne. La Universitatea Nagoya, cercetătorii au măsurat inerția termică prin termografie lock-in, încălzind un punct minuscul cu laserul, și au găsit valori mult mai mari decât cele înregistrate de instrumentele navei.\n\nLa Johnson Space Center, particule sigilate individual într-un mediu cu azot au fost scanate prin tomografie cu raze X, fără a fi deschise; scanările au devenit înregistrări 3D permanente, într-o bază de date publică. Datele au fost introduse în simulări ale transferului de căldură, iar extinderea calculelor de la particule la bolovani întregi a reprodus inerția termică mică observată de navă.\n\nRezultatele sunt publicate în Nature Communications. Ron Ballouz, de la Johns Hopkins Applied Physics Laboratory, al doilea autor, spune că lucrarea leagă observațiile de la distanță de structura internă a materialului din același asteroid. Ryan numește crăpăturile „piesa lipsă” a puzzle-ului.",
+   "de_ce_conteaza": "Astronomii deduc proprietățile suprafeței unui asteroid din modul în care acesta absoarbe și cedează căldura; eșantioanele returnate oferă prima verificare directă a acestor interpretări.",
+   "loc": "Arizona, Statele Unite, și Japonia",
+   "sursa_nume": "ScienceDaily",
+   "sursa_url": "https://www.sciencedaily.com/releases/2026/10/261018205101.htm",
+   "sursa_data": "2026-10-19",
+   "alte_surse": [],
+   "trimiteri": [
+    {
+     "titlu": "Studiul original, Nature Communications (DOI)",
+     "url": "https://doi.org/10.1038/s41467-026-68505-1"
+    },
+    {
+     "titlu": "OSIRIS-REx (Wikipedia)",
+     "url": "https://ro.wikipedia.org/wiki/OSIRIS-REx"
+    },
+    {
+     "titlu": "Asteroizi (Wikipedia)",
+     "url": "https://ro.wikipedia.org/wiki/Asteroid"
+    }
+   ]
+  },
+  {
+   "sectiune": "stiinta",
+   "titlu": "Două găuri negre supermasive ar orbita una în jurul alteia în galaxia Mrk 501",
+   "rezumat": "Un studiu acceptat în MNRAS descrie un al doilea jet și o perioadă orbitală de circa 121 de zile; estimarea de 100 de ani pentru fuziune depinde de mase incerte.",
+   "text": "O echipă condusă de Silke Britzen, de la Institutul Max Planck pentru Radioastronomie din Bonn, raportează indicii pentru o pereche de găuri negre supermasive în centrul galaxiei Mrk 501. Analizând observații radio la mai multe frecvențe, făcute în zeci de zile pe parcursul a circa 23 de ani, cercetătorii au găsit un al doilea jet, a cărui mișcare poate fi urmărită. Lucrarea a fost acceptată în Monthly Notices of the Royal Astronomical Society.\n\nJetul cunoscut e îndreptat spre Pământ și foarte strălucitor, ceea ce a ascuns celălalt. În câteva săptămâni, al doilea jet pare să iasă din spatele găurii negre mai mari și să se rotească în sens antiorar, mișcarea repetându-se. Din ea, autorii estimează o perioadă orbitală de aproximativ 121 de zile, o distanță de 250–540 de ori distanța Pământ–Soare și mase de 100 de milioane până la un miliard de mase solare. Fuziunea ar putea avea loc în doar 100 de ani, în funcție de masele reale.\n\nÎn iunie 2022, radiația sistemului a apărut sub formă de inel, ceea ce autorii leagă de o aliniere în care gravitația găurii negre din prim-plan a acționat ca lentilă gravitațională. Mrk 501 este însă prea departe pentru ca instrumentele actuale, inclusiv Event Horizon Telescope, să rezolve cele două obiecte; astfel, apropierea nu poate fi urmărită direct.\n\nPerechea ar emite unde gravitaționale de frecvență foarte joasă, care ar putea fi căutate cu rețele de timing de pulsari. Héctor Olivares, coautor, spune că, dacă undele sunt detectate, frecvența lor ar putea fi văzută crescând treptat pe măsură ce cele două obiecte se apropie.",
+   "de_ce_conteaza": "Dacă va fi confirmat prin unde gravitaționale, ar fi un caz rar de pereche de găuri negre supermasive aflate aproape de fuziune; până atunci, rămâne o interpretare a unor observații radio.",
+   "loc": "Bonn, Germania",
+   "sursa_nume": "ScienceDaily",
+   "sursa_url": "https://www.sciencedaily.com/releases/2026/10/261016070650.htm",
+   "sursa_data": "2026-10-18",
+   "alte_surse": [],
+   "trimiteri": [
+    {
+     "titlu": "Studiul original, MNRAS (DOI)",
+     "url": "https://dx.doi.org/10.1093/mnras/stag291"
+    },
+    {
+     "titlu": "Markarian 501 (Wikipedia, engleză)",
+     "url": "https://en.wikipedia.org/wiki/Markarian_501"
+    },
+    {
+     "titlu": "Neutrinul (Wikipedia)",
+     "url": "https://ro.wikipedia.org/wiki/Neutrino"
+    }
+   ]
+  },
+  {
+   "sectiune": "arta",
+   "titlu": "Monet, „Iris” (1924–1925), vândut cu 50 de milioane de euro la Sotheby's Paris",
+   "rezumat": "Prețul, comisioane incluse, a depășit estimarea de 22–30 de milioane și e cel mai mare plătit în Franța pentru o lucrare de Monet.",
+   "text": "Pe 22 octombrie, Sotheby's Paris a vândut „Iris” (1924–1925) de Claude Monet pentru 50 de milioane de euro cu tot cu comisioane, în jur de 56 de milioane de dolari, potrivit The Art Newspaper. Estimarea fusese de 22–30 de milioane de euro.\n\nLucrarea provenea din colecția Jeannei Schlumberger, moștenitoare a companiei petroliere Schlumberger. Publicația scrie că este cea mai scumpă lucrare a pictorului impresionist vândută vreodată în Franța și cel mai mare preț plătit pentru o operă de artă în Franța, fără ajustarea pentru inflație.\n\nCu inflația luată în calcul, „Les Noces de Pierrette” de Picasso rămâne pe primul loc. Recordul absolut pentru Monet este de 110,7 milioane de dolari, cu comisioane, pentru „Meules” (1890), vândut în 2019 la Sotheby's New York.",
+   "de_ce_conteaza": "Vânzarea arată cât de mult poate depăși o lucrare de mare format din ultimii ani ai artistului estimările, într-o piață care a mai avut însă mai multe recorduri.",
+   "loc": "Paris, Franța",
+   "sursa_nume": "The Art Newspaper",
+   "sursa_url": "https://www.theartnewspaper.com/2026/10/23/monets-monumental-iris-makes-56m-in-paris",
+   "sursa_data": "2026-10-23",
+   "alte_surse": [],
+   "trimiteri": [
+    {
+     "titlu": "Claude Monet (Wikipedia)",
+     "url": "https://ro.wikipedia.org/wiki/Claude_Monet"
+    },
+    {
+     "titlu": "Sotheby's (Wikipedia)",
+     "url": "https://ro.wikipedia.org/wiki/Sotheby%27s"
+    },
+    {
+     "titlu": "Impresionismul (Wikipedia)",
+     "url": "https://ro.wikipedia.org/wiki/Impresionism"
+    }
+   ]
+  },
+  {
+   "sectiune": "arta",
+   "titlu": "Centre Pompidou Francilien, la Massy: 150.000 de lucrări vor fi conservate într-o clădire de 30.000 m²",
+   "rezumat": "Noul loc, proiectat de PCA-STREAM, găzduiește depozite, ateliere de restaurare și spații de expunere, cu deschidere în primăvara lui 2027.",
+   "text": "The Art Newspaper descrie Centre Pompidou Francilien – fabrique de l'art, la Massy, în sudul Parisului, proiectat de Philippe Chiambaretta și agenția PCA-STREAM. Clădirea are trei niveluri și circa 30.000 m² și costă 105 milioane de euro. Inaugurarea este prevăzută în martie, înaintea deschiderii din primăvara lui 2027; în octombrie 2026 au avut loc weekenduri de previzualizare.\n\nRolul său este conservarea, restaurarea și depozitarea lucrărilor din colecția Centre Pompidou, care numără circa 150.000 de piese de artă modernă și contemporană, plus expoziții și rezidențe. Locul va fi și un nod pentru cele aproximativ 6.000 de lucrări împrumutate anual de muzeu. Despre 13.000 m² sunt depozite și 4.000 m² ateliere de conservare, ambele închise publicului; circa 3.000 m² sunt deschiși vizitatorilor, dintre care 2.200 m² de expoziție.\n\nMutarea colecției va necesita 645 de camioane pe parcursul a doi ani, iar depozitele sunt împărțite în 20 de zone. Lucrările aparțin statului francez și sunt administrate de Musée national d'art moderne; finanțarea vine de la autorități locale, stat și Centre Pompidou, cu un acord de împrumut cu Vinci Construction. Directoarea Alexia Fabre îl numește „o revoluție pentru expertiza Centre Pompidou”.",
+   "de_ce_conteaza": "Proiectul face vizibile funcțiile obișnuit ascunse ale unui muzeu, conservarea și logistica.",
+   "loc": "Massy, Franța",
+   "sursa_nume": "The Art Newspaper",
+   "sursa_url": "https://www.theartnewspaper.com/2026/10/23/what-to-expect-from-centre-pompidous-vast-new-conservation-focused-site-in-the-parisian-suburbs",
+   "sursa_data": "2026-10-23",
+   "alte_surse": [],
+   "trimiteri": [
+    {
+     "titlu": "Centre Pompidou Francilien (Wikipedia, franceză)",
+     "url": "https://fr.wikipedia.org/wiki/Centre_Pompidou_Francilien"
+    },
+    {
+     "titlu": "Paris (Wikipedia)",
+     "url": "https://ro.wikipedia.org/wiki/Paris"
+    }
+   ]
+  },
+  {
+   "sectiune": "arhitectura",
+   "titlu": "Două proiecte din Paris câștigă Premiul european pentru locuințe colective",
+   "rezumat": "Ediția a doua, organizată de Basque Architecture Institute și arc en rêve, a primit 192 de proiecte din 36 de țări.",
+   "text": "Premiul european pentru locuințe colective (European Collective Housing Award), ediția a doua, a fost acordat pe 8 octombrie la San Sebastián. Organizatorii sunt Basque Architecture Institute și arc en rêve centre d'architecture; au fost depuse 192 de proiecte din 36 de țări europene, iar juriul a fost prezidat de Carme Pinós.\n\nLa categoria construcții noi a câștigat „La Métropolitaine”, de Ignacio Prego Architectures și Thibaud Babled Architectures, ansamblu aflat la limita dintre Paris și comunele vecine, față în față cu noul Palais de Justice. Juriul a apreciat ambiția de a reuni mai multe funcții deasupra infrastructurii existente.\n\nLa renovare a câștigat reconversia unui garaj din arondismentul 11 al Parisului, semnată de Atelier Téqui Architectes. Juriul a evidențiat compartimentarea apartamentelor și folosirea eficientă a spațiului disponibil.\n\nDin juriu au mai făcut parte Jing Liu, Catherine Sabbah, David Madden și Lucia Tozzi. Imaginile publicate de ArchDaily sunt semnate Maxime Delvaux, Schnepp Renou și Florent Michel.",
+   "de_ce_conteaza": "Premiul pune alături locuința nouă și reconversia, într-un oraș unde extinderea se face mai ales pe infrastructura sau pe clădiri existente.",
+   "loc": "Paris, Franța",
+   "sursa_nume": "ArchDaily",
+   "sursa_url": "https://www.archdaily.com/1186870/two-projects-in-paris-win-the-european-collective-housing-award",
+   "sursa_data": "2026-10-23",
+   "alte_surse": [],
+   "trimiteri": [
+    {
+     "titlu": "Locuința (Wikipedia)",
+     "url": "https://ro.wikipedia.org/wiki/Locuin%C8%9B%C4%83"
+    },
+    {
+     "titlu": "Paris (Wikipedia)",
+     "url": "https://ro.wikipedia.org/wiki/Paris"
+    }
+   ]
+  },
+  {
+   "sectiune": "arhitectura",
+   "titlu": "Mecanoo publică imagini noi cu renovarea Muzeului Boijmans Van Beuningen din Rotterdam",
+   "rezumat": "Muzeul, închis din 2019, primește o aripă nouă, clădiri restaurate și un peisaj reproiectat.",
+   "text": "Biroul Mecanoo din Delft a lansat pe 23 octombrie imagini noi ale renovării Muzeului Boijmans Van Beuningen din Rotterdam, al cărui proiect fusese prezentat prima dată în 2020. Complexul este monument național și este închis din 2019 din cauza riscului de incendiu, a infiltrațiilor, a întreținerii amânate și a azbestului.\n\nProiectul cuprinde o aripă nouă, restaurarea și redesenarea interioară a clădirilor existente și un nou peisaj. Clădirea Van der Steur (1935), destinată colecției permanente, își păstrează intrarea prin poarta originală, iar a patra fațadă devine un „Connector” transparent; curtea Binnenhof primește un acoperiș din sticlă cu model. Clădirea Bodon (1972), pentru expoziții temporare, își recapătă ferestrele mari.\n\nPavilionul Van Beuningen-De Vriese, al lui Hubert-Jan Henket (1991), devine restaurant, gândit ca pavilion de grădină. Extensia din 2003 a biroului Robbrecht & Daem va fi în mare parte demolată pentru un nou traseu al transportului de lucrări. Va exista și un spațiu nou, fără climatizare, pentru artiști emergenți, cu zidărie asortată clădirilor originale.",
+   "de_ce_conteaza": "Este un caz de reconversie a unui monument modern, unde obiectivul principal este să se rezolve problemele tehnice și să se regândească fluxul muzeului.",
+   "loc": "Rotterdam, Țările de Jos",
+   "sursa_nume": "ArchDaily",
+   "sursa_url": "https://www.archdaily.com/1187399/mecanoo-releases-new-images-of-the-museum-boijmans-van-beuningen-renovation-in-rotterdam",
+   "sursa_data": "2026-10-23",
+   "alte_surse": [],
+   "trimiteri": [
+    {
+     "titlu": "Muzeul Boijmans Van Beuningen (Wikipedia, engleză)",
+     "url": "https://en.wikipedia.org/wiki/Museum_Boijmans_Van_Beuningen"
+    },
+    {
+     "titlu": "Rotterdam (Wikipedia)",
+     "url": "https://ro.wikipedia.org/wiki/Rotterdam"
+    }
+   ]
+  },
+  {
+   "sectiune": "arhitectura",
+   "titlu": "Shenzhen Bay MixC, faza a doua: un centru comercial gândit ca parte a rețelei urbane",
+   "rezumat": "Proiectul de 151.264 m² din Shenzhen, finalizat în 2025, reunește infrastructură, agrement, cultură și natură.",
+   "text": "ArchDaily publică pe 23 octombrie proiectul Shenzhen Bay MixC Phase II, în Shenzhen, China, finalizat în 2025 și cu o suprafață de 151.264 m². Pagina îl atribuie biroului Ippolito Fleitz Group, iar proiectarea arhitecturală este creditată The Oval Partnership, KPF (Kohn Pedersen Fox) și AG.\n\nArhitecții descriu centrul comercial ca pe un element al unei rețele urbane mai largi. Proiectul pune accent pe experiență, conectivitate și integrare în oraș, mai degrabă decât pe planificarea comercială convențională, și combină infrastructura, agrementul, cultura și natura într-o singură experiență spațială.\n\nPeisajul este creditat iPD, Grant Associates, JCFO și ZDG, iar iluminatul LB și LPA. Pagina nu detaliază materialele sau soluțiile structurale; textul de mai sus rezumă descrierea semnată de arhitecți.",
+   "de_ce_conteaza": "Proiectul arată cum centrele comerciale mari încearcă să se integreze în spațiul urban, în loc să rămână clădiri închise.",
+   "loc": "Shenzhen, China",
+   "sursa_nume": "ArchDaily",
+   "sursa_url": "https://www.archdaily.com/1184408/shenzhen-bay-mixc-phase-ii-ippolito-fleitz-group",
+   "sursa_data": "2026-10-23",
+   "alte_surse": [],
+   "trimiteri": [
+    {
+     "titlu": "Shenzhen (Wikipedia)",
+     "url": "https://ro.wikipedia.org/wiki/Shenzhen"
+    },
+    {
+     "titlu": "Shenzhen Bay (Wikipedia, engleză)",
+     "url": "https://en.wikipedia.org/wiki/Shenzhen_Bay"
+    }
+   ]
+  }
+ ]
+}
