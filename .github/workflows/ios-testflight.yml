@@ -38,7 +38,7 @@ jobs:
       - name: Days until the latest TestFlight build expires
         id: expiry
         env:
-          APP_ID: 'MEDRO_APP_ID'
+          APP_ID: '6827886599'
           ASC_KEY_ID: ${{ secrets.IOS_ASC_KEY_ID }}
           ASC_ISSUER_ID: ${{ secrets.IOS_ASC_ISSUER_ID }}
           ASC_API_KEY_BASE64: ${{ secrets.IOS_ASC_API_KEY_BASE64 }}
