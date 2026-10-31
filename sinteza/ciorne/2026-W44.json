@@ -1,0 +1,479 @@
+{
+ "data": "2026-10-31",
+ "titlu": "Sabirnetug eșuează în Alzheimer și o evaluare EMA pentru Deanxit; apoi, un candidat la planetă pitică dincolo de Neptun și grădina Hirshhorn",
+ "introducere": "Psihiatria deschide ediția cu eșecul sabirnetug în faza 2 din boala Alzheimer incipientă, ADHD nediagnosticat la femei cu depresie sau anxietate, modificări epigenetice după ketamină și MDMA și o asociere între rețele sociale și depresie. Urmează un studiu cu fMRI despre o terapie bazată pe mindfulness în dependența de opioide, două studii de psihologie, două comunicări ale PRAC, studii medicale despre remisiunea diabetului și un vaccin pancreatic, trei subiecte științifice, trei de artă și patru proiecte de arhitectură din patru țări.",
+ "articole": [
+  {
+   "sectiune": "psihiatrie",
+   "titlu": "Sabirnetug a eșuat în faza 2 din boala Alzheimer incipientă: 542 de pacienți, fără efect pe scorul iADRS",
+   "rezumat": "Acumen anunță că anticorpul anti-oligomeri de beta-amiloid nu a atins criteriul principal la 18 luni și oprește dezvoltarea, inclusiv extensia deschisă.",
+   "text": "Sabirnetug (ACU193) este un anticorp monoclonal umanizat îndreptat împotriva oligomerilor solubili toxici de beta-amiloid (AβO). Acumen Pharmaceuticals a anunțat pe 30 octombrie rezultatele principale (topline) ale studiului de fază 2 ALTITUDE-AD, început în 2024, multicentric, randomizat, dublu-orb și controlat cu placebo.\n\nStudiul a inclus 542 de persoane cu boală Alzheimer incipientă (tulburare cognitivă ușoară sau demență Alzheimer ușoară), din Statele Unite, Canada, Uniunea Europeană și Regatul Unit. Participanții au primit perfuzii intravenoase la patru săptămâni, cu 35 mg/kg, cu 50 mg/kg sau cu placebo.\n\nCriteriul principal, schimbarea scorului iADRS (scală compusă, pentru cogniție și funcționare zilnică) față de valoarea inițială la 18 luni, nu a fost atins la niciuna dintre doze. Nici criteriul secundar cheie, CDR-SB, nu a atins semnificația statistică și nu a arătat o diferență semnificativă față de placebo. Relatarea nu dă valori p sau mărimi de efect.\n\nPe PET amiloid (SUVr), ambele doze au redus semnificativ încărcătura de amiloid la săptămânile 36 și 76. ARIA-E (edem cerebral asociat anticorpilor anti-amiloid) a apărut la aproximativ 10% dintre cei tratați, iar compania descrie produsul ca fiind în general bine tolerat.\n\nAcumen oprește dezvoltarea, inclusiv extensia deschisă. Date suplimentare din biomarkeri fluizi și imagistică sunt așteptate în săptămânile următoare, dar compania nu se așteaptă ca ele să schimbe concluziile privind eficacitatea.",
+   "de_ce_conteaza": "Rezultatul arată că o reducere semnificativă a amiloidului pe PET nu s-a tradus într-un beneficiu clinic la 18 luni. Cifrele vin din comunicatul sponsorului, redat de Psychiatric Times; studiul complet nu a fost încă publicat.",
+   "loc": "Statele Unite, Canada, Europa",
+   "sursa_nume": "Psychiatric Times",
+   "sursa_url": "https://www.psychiatrictimes.com/view/sabirnetug-misses-primary-endpoint-in-phase-2-alzheimer-disease-trial",
+   "sursa_data": "2026-10-30",
+   "alte_surse": [],
+   "trimiteri": [
+    {
+     "titlu": "Comunicatul Acumen cu rezultatele ALTITUDE-AD",
+     "url": "https://investors.acumenpharm.com/news-releases/news-release-details/acumen-pharmaceuticals-announces-topline-results-phase-2"
+    },
+    {
+     "titlu": "INTERCEPT-AD, studiul de fază 1 al sabirnetug (PubMed)",
+     "url": "https://pubmed.ncbi.nlm.nih.gov/39800458/"
+    }
+   ]
+  },
+  {
+   "sectiune": "psihiatrie",
+   "titlu": "ADHD nediagnosticat la aproape una din cinci femei cu depresie sau anxietate, pe 170 de paciente",
+   "rezumat": "Într-un eșantion de paciente ambulatorii, 33 din 170 au îndeplinit criteriile pentru ADHD, iar 15 dintre ele nu aveau un diagnostic anterior.",
+   "text": "Un studiu publicat în International Journal of Psychiatry in Medicine a căutat ADHD la femei care solicitau tratament pentru depresie sau anxietate. Autorii sunt Hazal Yavuzlar Civan și Tonguc Demir Berkol.\n\nEșantionul a cuprins 170 de paciente din clinici psihiatrice ambulatorii, evaluate inițial cu inventarele Beck pentru depresie și pentru anxietate. Cele care depășeau pragul clinic au completat apoi chestionare suplimentare și un interviu clinic structurat. Designul este transversal: toate evaluările s-au făcut la un singur moment.\n\nDin cele 170 de femei, 33 (aproximativ 19%) au întrunit criteriile pentru ADHD, iar 15 dintre ele, aproape jumătate, nu primiseră niciodată acest diagnostic. ADHD a fost mai frecvent la femeile cu tulburare de anxietate socială și cu depresie dublă.\n\nFemeile cu ADHD au raportat mai multe probleme disciplinare la școală, schimbări mai dese ale locului de muncă și mai multe rude cu ADHD. Tentativele de suicid din trecut nu au diferit semnificativ între grupuri, dar gândurile suicidare actuale și sentimentul de eșec au fost mai frecvente în grupul cu ADHD. Scorurile de hiperfocalizare au fost mult mai mari în acest grup și, spre deosebire de grupul fără ADHD, nu au urmărit severitatea depresiei sau a anxietății.\n\nLimitele sunt cele ale unui studiu transversal: nu se poate stabili ce a apărut primul, ADHD sau simptomele afective. Eșantionul include doar femei aflate în îngrijire ambulatorie, iar grupul cu ADHD este mult mai mic decât cel de comparație, ceea ce limitează puterea statistică.",
+   "de_ce_conteaza": "Rezultatul susține ideea că ADHD poate trece neobservat la femei care ajung în îngrijire pentru depresie sau anxietate, dar eșantionul mic și designul transversal nu permit estimări de prevalență generalizabile.",
+   "loc": "Clinici psihiatrice ambulatorii",
+   "sursa_nume": "PsyPost",
+   "sursa_url": "https://www.psypost.org/hidden-adhd-common-in-women-seeking-treatment-for-depression-and-anxiety/",
+   "sursa_data": "2026-10-29",
+   "alte_surse": [],
+   "trimiteri": [
+    {
+     "titlu": "Articolul original: ADHD Comorbidity in Women With Depression and Anxiety",
+     "url": "https://doi.org/10.1177/00912174251376111"
+    },
+    {
+     "titlu": "Relatarea PsyPost",
+     "url": "https://www.psypost.org/hidden-adhd-common-in-women-seeking-treatment-for-depression-and-anxiety/"
+    }
+   ]
+  },
+  {
+   "sectiune": "psihiatrie",
+   "titlu": "Ketamina și MDMA, asociate cu modificări epigenetice în gene ale plasticității, în două studii mici",
+   "rezumat": "Metilarea ADN-ului s-a modificat în sute de gene după tratament, dar niciun situs individual nu a rămas semnificativ după corecția pentru comparații multiple.",
+   "text": "Un articol din Translational Psychiatry, condus de Moira G. Semple (Arizona State University), a analizat metilarea ADN-ului după tratament cu ketamină și cu MDMA. Sunt de fapt două studii separate, niciunul cu un grup comparator care să nu fi primit medicamentul.\n\nPentru ketamină, 20 de persoane (vârsta medie în jur de 40 de ani, 15 femei) cu depresie moderată–severă, PTSD sau ambele au primit șase perfuzii în două–trei săptămâni; sângele a fost recoltat înainte de tratament și la zece zile după. Pentru MDMA, 16 persoane (vârsta medie în jur de 43 de ani, 7 femei) cu PTSD sever, dintr-un studiu de fază 3, au primit trei doze la aproximativ patru săptămâni distanță, împreună cu psihoterapie; salivă a fost recoltată înainte și la 6–8 săptămâni după ultima ședință. Analiza a vizat circa 2.900 de gene active în creier sau implicate în semnalizarea neuronală.\n\nNiciun situs de metilare luat separat nu a rămas semnificativ după corecția pentru comparații multiple. La nivel de genă, s-au modificat 405 gene după ketamină și 346 după MDMA; doar 47 s-au modificat în ambele grupuri, iar aproximativ un sfert dintre ele în aceeași direcție. Ambele tratamente au fost asociate cu creșterea metilării genei EFNA5, legată de PTSD în studii genetice mari.\n\nAutorii nu au testat dacă modificările se leagă de ameliorarea simptomelor sau de activitatea genelor. Grupurile diferă prin diagnostic, context terapeutic, tipul de probă (sânge față de salivă) și momentul recoltării. Doi autori lucrează pentru TruDiagnostic, o companie de teste epigenetice, iar organizații nonprofit conduse de alți doi autori au sprijinit analizele pentru MDMA.",
+   "de_ce_conteaza": "Autorii înșiși descriu rezultatele ca schimbări moleculare asociate tratamentului, nu ca dovadă că ele explică efectul terapeutic; sunt ipoteze pentru studii mai mari și controlate.",
+   "loc": "Statele Unite",
+   "sursa_nume": "PsyPost",
+   "sursa_url": "https://www.psypost.org/ketamine-and-mdma-treatments-are-linked-to-epigenetic-changes-in-genes-tied-to-brain-plasticity/",
+   "sursa_data": "2026-10-29",
+   "alte_surse": [],
+   "trimiteri": [
+    {
+     "titlu": "Articolul original din Translational Psychiatry",
+     "url": "https://doi.org/10.1038/s41398-026-04191-3"
+    },
+    {
+     "titlu": "Relatarea PsyPost",
+     "url": "https://www.psypost.org/ketamine-and-mdma-treatments-are-linked-to-epigenetic-changes-in-genes-tied-to-brain-plasticity/"
+    }
+   ]
+  },
+  {
+   "sectiune": "psihiatrie",
+   "titlu": "Rețelele sociale, printre primii predictori ai depresiei, într-un studiu pe 183.000 de adulți americani",
+   "rezumat": "Datele transversale din 2014–2024 leagă fiecare oră zilnică de aproximativ 17% șanse mai mari de depresie raportată, dar nu stabilesc cauzalitatea.",
+   "text": "Un studiu din npj Mental Health Research a folosit 11 sondaje anuale (2014–2024) din Media Behavior and Influence Study, cu aproximativ 183.300 de adulți americani cu vârste între 18 și 70 de ani, între 15.410 și 17.869 de respondenți pe an. Designul este transversal repetat: în fiecare an a fost un eșantion nou, nu aceleași persoane urmărite în timp. Autorii sunt Martin Block, Vikram Suresh, Johnathan Avant, Sumra Bari, Nicole Vike, Felix Zhan și Hans Breiter.\n\nDepresia a fost măsurată printr-o singură întrebare da/nu, dintr-o listă de 31 de afecțiuni. Proporția celor care o raportau a crescut de la 15,1% în 2014 la 22,0% în 2024. Fiecare minut zilnic adăugat pe rețelele sociale a fost asociat cu o creștere de 0,26% a șansei (odds) de depresie, adică aproximativ 17% pe oră.\n\nModelele de tip random forest au avut scoruri de discriminare între 0,66 și 0,74 și au identificat corect 40–53% dintre adulții cu depresie. Rețelele sociale s-au aflat pe locul 9 ca predictor în 2014 și printre primii patru în 2019–2024; venitul personal a fost cel mai puternic predictor. Riscul prezis a crescut vizibil dincolo de circa 2,5 ore pe zi; autorii propun 150 de minute ca ipoteză de testat, nu ca limită sigură.\n\nLimitele sunt importante: datele transversale nu permit stabilirea cauzalității, iar cauzalitatea inversă este plauzibilă. Depresia nu a fost evaluată cu interviu clinic sau scală validată, timpul pe ecran a fost estimat prin autoraportare doar în ianuarie–februarie, iar eșantionul provine dintr-un panel comercial, echilibrat doar după vârstă și gen.",
+   "de_ce_conteaza": "Studiul confirmă o asociere, nu un efect: o singură întrebare despre depresie și date transversale nu pot spune dacă rețelele sociale provoacă depresia sau dacă oamenii deprimați le folosesc mai mult.",
+   "loc": "Statele Unite",
+   "sursa_nume": "PsyPost",
+   "sursa_url": "https://www.psypost.org/social-media-use-ranks-among-the-top-predictors-of-depression-in-a-study-of-183000-adults/",
+   "sursa_data": "2026-10-29",
+   "alte_surse": [],
+   "trimiteri": [
+    {
+     "titlu": "Articolul original: Social media use and depression across 11 years of U.S. adult data",
+     "url": "https://doi.org/10.1038/s44184-026-00237-y"
+    },
+    {
+     "titlu": "Relatarea PsyPost",
+     "url": "https://www.psypost.org/social-media-use-ranks-among-the-top-predictors-of-depression-in-a-study-of-183000-adults/"
+    }
+   ]
+  },
+  {
+   "sectiune": "psihoterapie",
+   "titlu": "MORE, terapie bazată pe mindfulness, a schimbat activitatea prefrontală în dependența de opioide",
+   "rezumat": "Un studiu randomizat cu fMRI din JAMA Psychiatry, pe 59 de participanți, compară terapia în grup cu un control activ; analizele de abstinență sunt pe 38 de persoane.",
+   "text": "Mindfulness-Oriented Recovery Enhancement (MORE) combină antrenamentul mindfulness, reevaluarea cognitivă a stimulilor legați de drog și savurarea experiențelor pozitive. Un studiu randomizat publicat pe 28 octombrie în JAMA Psychiatry a urmărit ce se schimbă în creier la persoane cu tulburare de consum de opioide care au urmat programul.\n\nStudiul s-a desfășurat între noiembrie 2020 și septembrie 2024 într-un centru de recuperare cu internare din New York. MORE, în opt ședințe de grup săptămânale de două ore, a fost comparat cu terapia suportivă psihoeducațională (PST), un control activ. Criteriul principal a fost schimbarea semnalului BOLD la fMRI; cele secundare, durata abstinenței și pofta indusă de stimuli. Analiza reactivității la stimuli a cuprins 59 de participanți (24 în MORE, 35 în PST), iar cea de abstinență 38 (13 și 25).\n\nFață de PST, MORE a redus activitatea orientată spre drog în girusul frontal mijlociu și în precuneus când participanții reduceau răspunsul la stimulii legați de drog față de cel la recompense naturale (z > 3,1; P < 0,05). Numai în grupul MORE, deplasarea răspunsului dinspre drog spre recompensele naturale în cortexul prefrontal lateral și ventromedial s-a asociat cu poftă mai mică. În analiza cu film, sincronizarea cortexului prefrontal medial la scenele legate de droguri a scăzut (q = 0,019). La aproximativ patru luni după tratament, abstinența a fost mai lungă în MORE (χ² = 6,7; P = 0,04; w Cohen = 0,19).",
+   "de_ce_conteaza": "Autorii văd în MORE un adjuvant cu bază biologică pentru farmacoterapia tulburării de consum de opioide. Grupurile sunt mici, mai ales la urmărire, iar efectul asupra abstinenței este mic (w Cohen = 0,19).",
+   "loc": "New York, Statele Unite",
+   "sursa_nume": "JAMA Psychiatry",
+   "sursa_url": "https://jamanetwork.com/journals/jamapsychiatry/fullarticle/2855673",
+   "sursa_data": "2026-10-28",
+   "alte_surse": [],
+   "trimiteri": [
+    {
+     "titlu": "Identificatorul articolului (DOI)",
+     "url": "https://doi.org/10.1001/jamapsychiatry.2026.3388"
+    },
+    {
+     "titlu": "Înregistrarea studiului: NCT04112186",
+     "url": "https://clinicaltrials.gov/study/NCT04112186"
+    }
+   ]
+  },
+  {
+   "sectiune": "psihologie",
+   "titlu": "Nevroticismul scade somnul raportat, dar nu pe cel măsurat prin actigrafie, pe 134 de studenți",
+   "rezumat": "Fiecare punct în plus la nevroticism s-a asociat cu 15–20 de minute mai puțin de somn raportat, fără legătură cu somnul măsurat de brățara de la încheietură.",
+   "text": "Un studiu din Personality and Individual Differences, al lui Derick M. DeCamp și Elizabeth J. Pantesco de la Villanova University, a comparat somnul raportat de oameni cu cel măsurat prin actigrafie (un senzor purtat la încheietura mâinii).\n\nAu participat 134 de studenți, în medie de 19 ani (95 de femei), fără tulburări de somn diagnosticate. La întrebarea directă, au raportat în medie 6,74 ore de somn; actigraful a înregistrat 6,70 ore. Calculat din ora obișnuită de culcare, de trezire și timpul de adormire, somnul a ieșit la 7,40 ore.\n\nPe o scală de nevroticism cu cinci trepte, fiecare punct în plus s-a asociat cu aproximativ 15–20 de minute mai puțin de somn raportat. Nevroticismul nu a fost legat de somnul estimat prin actigrafie. Asocierea cu somnul raportat s-a menținut după controlul pentru actigrafie, date demografice, IMC, simptome de depresie și anxietate, regularitatea somnului și alte trăsături de personalitate.\n\nLimitele sunt cele raportate: somnul autoraportat acoperea ultima lună, dar actigrafia doar cinci nopți; participanții și-ar fi putut schimba somnul știind că sunt monitorizați; eșantionul este de studenți, în mare parte femei, de la o singură universitate privată. Actigrafia poate confunda timpul petrecut treaz în pat cu somnul, iar autorii nu au măsurat direct erorile de memorie sau tendința de raportare, deci explicațiile rămân speculative. Relatarea PsyPost nu menționează preînregistrarea.",
+   "de_ce_conteaza": "Pentru clinicieni, rezultatul sugerează că plângerile de somn insuficient la persoane cu nevroticism ridicat pot reflecta percepția, nu neapărat durata reală a somnului; eșantionul mic și tânăr cere prudență.",
+   "loc": "Villanova University, Statele Unite",
+   "sursa_nume": "PsyPost",
+   "sursa_url": "https://www.psypost.org/people-high-in-neuroticism-report-sleeping-less-but-wrist-monitors-tell-a-different-story/",
+   "sursa_data": "2026-10-30",
+   "alte_surse": [],
+   "trimiteri": [
+    {
+     "titlu": "Articolul original: Neuroticism is associated with self-reported, but not actigraphy-assessed, sleep duration",
+     "url": "https://doi.org/10.1016/j.paid.2026.113954"
+    },
+    {
+     "titlu": "Relatarea PsyPost",
+     "url": "https://www.psypost.org/people-high-in-neuroticism-report-sleeping-less-but-wrist-monitors-tell-a-different-story/"
+    }
+   ]
+  },
+  {
+   "sectiune": "psihologie",
+   "titlu": "Adulții cu prieten imaginar în copilărie simt mai des o prezență în apropiere, pe 185 de persoane",
+   "rezumat": "Scorul de prezență resimțită a fost 25,51 la cei cu prieten imaginar în copilărie, față de 20,07 la ceilalți; designul nu permite concluzii cauzale.",
+   "text": "Un studiu din Consciousness and Cognition a căutat o legătură între prietenii imaginari din copilărie și senzația de „prezență” a cuiva în apropiere la vârsta adultă. Au participat 185 de adulți recrutați prin İzmir University of Economics, din Turcia, fără diagnostic psihiatric sau neurologic; 45 dintre ei își aminteau un companion imaginar.\n\nPe un chestionar de prezență resimțită (scor între 15 și 75), adulții cu amintiri despre un companion imaginar au avut în medie 25,51, față de 20,07 în celălalt grup. Participanții au indicat și unde apărea companionul: din 114 estimări de distanță, 76, adică aproximativ două treimi, s-au aflat la mai puțin de 70 cm de corp, în așa-numitul spațiu peripersonal (zona din jurul corpului în care se pot atinge obiecte).\n\nStudiul se bazează pe amintirile adulților, iar copiii nu au fost urmăriți în timp, deci nu se poate stabili cauzalitatea. Majoritatea participanților au fost femei și toți au fost recrutați dintr-o singură universitate. Rezultatul privind spațiul depinde de alegeri analitice. Participanții știau că studiul privește companionii imaginari, ceea ce poate fi amplificat asocierea, iar chestionarele nu au testat direct explicațiile propuse de autori. Relatarea nu menționează preînregistrarea.",
+   "de_ce_conteaza": "Este o corelație pe amintiri retrospective, într-un eșantion mic și omogen; ea arată o direcție de cercetare, nu o explicație a experiențelor de prezență.",
+   "loc": "İzmir, Turcia",
+   "sursa_nume": "ScienceAlert",
+   "sursa_url": "https://www.sciencealert.com/theres-a-curious-link-between-your-childhood-imaginary-friend-and-an-uncanny-feeling-later-in-life",
+   "sursa_data": "2026-10-30",
+   "alte_surse": [],
+   "trimiteri": [
+    {
+     "titlu": "Articolul original din Consciousness and Cognition",
+     "url": "https://doi.org/10.1016/j.concog.2026.104146"
+    },
+    {
+     "titlu": "Relatarea ScienceAlert",
+     "url": "https://www.sciencealert.com/theres-a-curious-link-between-your-childhood-imaginary-friend-and-an-uncanny-feeling-later-in-life"
+    }
+   ]
+  },
+  {
+   "sectiune": "siguranta",
+   "titlu": "PRAC începe evaluarea Deanxit (flupentixol/melitracen) după reacții neurologice și psihiatrice grave",
+   "rezumat": "Comitetul de farmacovigilență al EMA a deschis o procedură de trimitere (referral) pentru medicamentele cu flupentixol/melitracen; comunicarea nu dă încă recomandări pentru medici.",
+   "text": "Comitetul pentru evaluarea riscurilor în farmacovigilență (PRAC) al Agenției Europene a Medicamentului a anunțat, în rezumatul ședinței din 26–29 octombrie 2026, începerea unei evaluări a medicamentelor care conțin flupentixol și melitracen, inclusiv Deanxit. Deanxit este descris de EMA ca o combinație în doză fixă pentru tratamentul depresiei și anxietății.\n\nMotivul sunt raportările de reacții adverse neurologice și psihiatrice grave. Comunicarea menționează tulburări de mișcare (tremor, rigiditate, neliniște, mișcări involuntare) și probleme de memorie și gândire. În unele cazuri, simptomele au persistat după oprirea tratamentului.\n\nProcedura este o trimitere (referral) pentru produsele medicamentoase care conțin flupentixol/melitracen. Pagina rezumatului nu precizează sfera exactă a evaluării și nu spune ce țări sunt implicate. Ea nu conține nici recomandări specifice pentru profesioniștii din sănătate și trimite, pentru detalii, la comunicarea EMA privind începerea procedurii.\n\nMedicii care prescriu aceste produse sunt așadar trimiși la pagina procedurii de pe site-ul EMA și la documentele PRAC pentru textul complet al comunicării. Redactorii nu au putut citi comunicarea de începere a procedurii, doar rezumatul ședinței.\n\nEvaluarea abia a început, iar comunicarea EMA nu indică un termen pentru concluzii.",
+   "de_ce_conteaza": "Este o evaluare care abia începe: nu există încă concluzii sau măsuri de restricționare. Pentru textul oficial, cititorul este trimis la pagina procedurii de pe site-ul EMA.",
+   "loc": "Amsterdam, Uniunea Europeană",
+   "sursa_nume": "EMA",
+   "sursa_url": "https://www.ema.europa.eu/en/news/meeting-highlights-pharmacovigilance-risk-assessment-committee-prac-26-29-october-2026",
+   "sursa_data": "2026-10-30",
+   "alte_surse": [],
+   "trimiteri": [
+    {
+     "titlu": "Procedura EMA: flupentixol/melitracen",
+     "url": "https://www.ema.europa.eu/en/medicines/human/referrals/flupentixol-melitracen-containing-medicinal-products"
+    },
+    {
+     "titlu": "Pharmacovigilance Risk Assessment Committee (PRAC)",
+     "url": "https://www.ema.europa.eu/en/committees/pharmacovigilance-risk-assessment-committee-prac"
+    }
+   ]
+  },
+  {
+   "sectiune": "siguranta",
+   "titlu": "PRAC examinează reacții alergice la loturi de imunoglobuline umane; trei produse, retrase în unele state UE",
+   "rezumat": "Cazurile merg de la erupții cutanate la anafilaxie; cauza nu este stabilită, iar EMA reamintește medicilor să respecte avertismentele existente și să monitorizeze pacienții.",
+   "text": "În același rezumat al ședinței din 26–29 octombrie 2026, PRAC anunță că examinează o creștere a raportărilor de reacții de hipersensibilitate (alergice) asociate cu anumite loturi de imunoglobuline umane normale. Reacțiile raportate variază de la erupții și mâncărimi până la anafilaxie și angioedem.\n\nEvaluarea privește toate medicamentele cu imunoglobulină umană normală, indiferent de calea de administrare: intravenoasă, subcutanată sau intramusculară. Loturi din Flebogamma DIF, Yimmugo și Gamunex au fost retrase ca măsură de precauție în unele state membre ale UE.\n\nCauza nu a fost stabilită, iar comunicarea spune că nu este clar dacă sunt afectate și alte medicamente cu imunoglobulină.\n\nPentru profesioniștii din sănătate, EMA formulează două lucruri: să respecte avertismentele și precauțiile existente și să monitorizeze pacienții în timpul tratamentului. Pacienților li se cere să ceară de îndată ajutor medical dacă apar semne de hipersensibilitate, de exemplu erupție, amețeală, palpitații, respirație șuierătoare sau dificultăți de respirație, chiar dacă nu au mai avut astfel de reacții.\n\nPRAC va cere date de la companiile care dețin autorizațiile de punere pe piață, iar EMA va comunica rezultatul evaluării. Pagina rezumatului nu are o legătură dedicată acestui semnal.",
+   "de_ce_conteaza": "Pentru cine prescrie sau administrează imunoglobuline, singura recomandare oficială de acum este respectarea avertismentelor existente și monitorizarea pacienților; concluziile PRAC nu sunt încă publicate.",
+   "loc": "Amsterdam, Uniunea Europeană",
+   "sursa_nume": "EMA",
+   "sursa_url": "https://www.ema.europa.eu/en/news/meeting-highlights-pharmacovigilance-risk-assessment-committee-prac-26-29-october-2026",
+   "sursa_data": "2026-10-30",
+   "alte_surse": [],
+   "trimiteri": [
+    {
+     "titlu": "Gestionarea semnalelor de farmacovigilență (EMA)",
+     "url": "https://www.ema.europa.eu/en/human-regulatory-overview/post-authorisation/pharmacovigilance-post-authorisation/signal-management"
+    },
+    {
+     "titlu": "Agenda ședinței PRAC din 26–29 octombrie 2026 (PDF)",
+     "url": "https://www.ema.europa.eu/en/documents/agenda/agenda-prac-meeting-26-29-october-2026_en.pdf"
+    }
+   ]
+  },
+  {
+   "sectiune": "medicina",
+   "titlu": "Dietă hipocalorică și exerciții supravegheate: remisiune a diabetului de tip 2 la 54%, pe 96 de tineri",
+   "rezumat": "Studiul RESET for Remission a comparat 12 săptămâni de intervenție intensivă cu îngrijirea obișnuită; remisiunea a fost de 27/50 față de 2/46 la 24 de săptămâni.",
+   "text": "Studiul RESET for Remission, publicat în The Lancet Regional Health – Americas, este randomizat, cu etichetă deschisă și evaluare mascată a criteriului principal, desfășurat în trei centre din Anglia și Canada. A inclus adulți de 18–45 de ani cu diabet de tip 2 cu debut precoce și obezitate, fără insulină: 96 de randomizați (50 în intervenție, 46 în control).\n\nBrațul de intervenție a urmat 12 săptămâni o dietă de 800–900 kcal pe zi plus exerciții aerobice și de forță supravegheate, apoi o dietă de menținere și exerciții independente până la săptămâna 24. Controlul a primit îngrijire obișnuită. Au terminat evaluările finale 86 de participanți (90%).\n\nRemisiunea a fost atinsă de 27 din 50 (54%) în intervenție față de 2 din 46 (aproximativ 4%) în control; în analiza ajustată, șansele au fost de 21 de ori mai mari. Pierderea în greutate a fost de 8,4 kg față de 1,2 kg; diferența ajustată a fost de 7,5 kg, din care 6,6 kg grăsime.\n\nCel puțin un eveniment advers a apărut la 43 din 50 de participanți în intervenție și la 6 din 46 în control; nu au fost raportate evenimente adverse severe. Cele mai multe au fost timpurii (constipație, dureri de cap, amețeli, oboseală).\n\nLimitele: studiu mic, cu etichetă deschisă, de doar 24 de săptămâni; menținerea pe termen lung a greutății și a remisiunii nu se cunoaște, iar remisiunea nu înseamnă vindecare definitivă.",
+   "de_ce_conteaza": "Rezultatul susține intervențiile intensive de stil de viață la tinerii cu diabet de tip 2, dar nu spune ce se întâmplă după 24 de săptămâni. Nu este un sfat de tratament.",
+   "loc": "Anglia și Canada",
+   "sursa_nume": "ScienceDaily",
+   "sursa_url": "https://www.sciencedaily.com/releases/2026/10/261029072129.htm",
+   "sursa_data": "2026-10-30",
+   "alte_surse": [],
+   "trimiteri": [
+    {
+     "titlu": "Articolul original din The Lancet Regional Health – Americas",
+     "url": "http://dx.doi.org/10.1016/j.lana.2026.101664"
+    },
+    {
+     "titlu": "Relatarea ScienceDaily",
+     "url": "https://www.sciencedaily.com/releases/2026/10/261029072129.htm"
+    }
+   ]
+  },
+  {
+   "sectiune": "medicina",
+   "titlu": "Două explozii de raze gamma de tipuri diferite, la patru minute distanță, în Nature Astronomy",
+   "rezumat": "Studiul de fază 2 din Nature Medicine, pe 144 de pacienți, arată răspuns al limfocitelor T, nu beneficiu clinic demonstrat; urmează un studiu de fază 3.",
+   "text": "Camupepimut este un vaccin îndreptat împotriva mutațiilor KRAS din cancerul pancreatic. Un studiu randomizat de fază 2, publicat în Nature Medicine și condus de Ben George de la Mayo Clinic, a inclus 144 de pacienți cu cancer pancreatic cu mutație KRAS, operați și tratați anterior cu chimioterapie. Dintre ei, 96 au primit vaccinul și 48 au fost în grupul de control.\n\nDintre cei vaccinați, 90 au putut fi evaluați, iar 98,9% au avut un răspuns crescut al limfocitelor T împotriva KRAS mutant. La peste 80% dintre pacienți, răspunsul a fost de peste nouă ori mai mare decât înainte de vaccinare.\n\nSupraviețuirea fără boală nu a diferit semnificativ între grupul vaccinat și control. Legătura dintre un răspuns imun mai puternic și o supraviețuire fără boală mai lungă provine dintr-o analiză exploratorie. Studiul nu arată deci un beneficiu clinic al vaccinului în acest stadiu. Autorii descriu studiul ca dovadă de concept; beneficiul clinic al vaccinului rămâne neclar, iar un studiu de fază 3 este planificat.\n\nRelatarea ScienceAlert este sursa pentru cifrele de mai sus; ea trimite la lucrarea din Nature Medicine, pe care o recomandăm pentru analiza completă a criteriilor și a siguranței.",
+   "de_ce_conteaza": "Un răspuns imun măsurabil nu este același lucru cu un beneficiu pentru pacient; pentru acesta din urmă, trebuie să aștepte rezultatele fazei 3. Cifrele de mai sus provin dintr-o relatare de presă, nu din textul integral al lucrării.",
+   "loc": "Mayo Clinic, Statele Unite",
+   "sursa_nume": "ScienceAlert",
+   "sursa_url": "https://www.sciencealert.com/new-pancreatic-cancer-vaccine-sparked-immune-responses-in-99-of-patients",
+   "sursa_data": "2026-10-30",
+   "alte_surse": [],
+   "trimiteri": [
+    {
+     "titlu": "Articolul original din Nature Medicine",
+     "url": "https://doi.org/10.1038/s41591-026-04734-7"
+    },
+    {
+     "titlu": "Relatarea ScienceAlert",
+     "url": "https://www.sciencealert.com/new-pancreatic-cancer-vaccine-sparked-immune-responses-in-99-of-patients"
+    }
+   ]
+  },
+  {
+   "sectiune": "stiinta",
+   "titlu": "Două explozii de raze gamma de tipuri diferite, la patru minute distanță, în Nature Astronomy",
+   "rezumat": "Evenimentul GRB 160425A, detectat în 2016, a combinat un impuls scurt de 1,7 secunde cu unul lung de 51,2 secunde, ceea ce nu fusese observat până acum.",
+   "text": "Echipa lui Bing Zhang, de la University of Hong Kong, a publicat în Nature Astronomy analiza evenimentului GRB 160425A, detectat la 25 aprilie 2016 de observatorul spațial Neil Gehrels Swift; telescoape de pe sol au urmărit apoi strălucirea reziduală. Spațiul este necesar pentru că atmosfera blochează razele gamma.\n\nEvenimentul a constat în două explozii: G1, de 1,7 secunde, de tip scurt, asociat cu fuziunea unor obiecte compacte, și G2, de 51,2 secunde, de tip lung, asociat cu colapsul unei stele. Între ele a trecut un interval de aproximativ patru minute. Lumina a călătorit circa 5,5 miliarde de ani, așadar evenimentul s-a petrecut cu aproape un miliard de ani înainte de formarea Sistemului Solar.\n\nG1 a eliberat energia pe care Soarele o produce în miliarde de ani, iar G2 de circa trei ori mai mult; Zhang notează că o emisie sub formă de fascicul schimbă calculele. Probabilitatea unei coincidențe este de aproximativ 2 la un trilion pentru fiecare moment și petic de cer, sau între 1 la 100.000 și 1 la 10 milioane pe toți anii de observații Swift.\n\nCercetătorii enumeră cinci explicații, iar fiecare are dificultăți serioase. A cincea, un singur sistem care produce ambele explozii printr-un mecanism încă neidentificat, este cea mai neobișnuită.",
+   "de_ce_conteaza": "Nu există încă o explicație acceptată; lucrarea documentează un caz care pune la încercare clasificarea clasică a exploziilor de raze gamma în scurte și lungi.",
+   "loc": "Spațiu; autori la University of Hong Kong",
+   "sursa_nume": "ScienceAlert",
+   "sursa_url": "https://www.sciencealert.com/two-different-kinds-of-gamma-ray-bursts-erupted-4-minutes-apart-astronomers-have-never-seen-this-before",
+   "sursa_data": "2026-10-30",
+   "alte_surse": [],
+   "trimiteri": [
+    {
+     "titlu": "Articolul original din Nature Astronomy",
+     "url": "https://doi.org/10.1038/s41550-026-03007-0"
+    },
+    {
+     "titlu": "Relatarea ScienceAlert",
+     "url": "https://www.sciencealert.com/two-different-kinds-of-gamma-ray-bursts-erupted-4-minutes-apart-astronomers-have-never-seen-this-before"
+    }
+   ]
+  },
+  {
+   "sectiune": "stiinta",
+   "titlu": "Rubin a găsit 2026 ED138, un posibil candidat la statutul de planetă pitică, de 600–1.500 km dincolo de Neptun",
+   "rezumat": "Candidatul a fost identificat pe 13 octombrie în date Rubin și confirmat în imagini de arhivă din 2016; dimensiunea trebuie încă măsurată în infraroșu.",
+   "text": "Observatorul Vera C. Rubin a anunțat pe 27 octombrie descoperirea obiectului 2026 ED138, un candidat la statutul de planetă pitică. Descoperirea a fost făcută în seara zilei de 13 octombrie, în date colectate de Rubin mai devreme în 2026.\n\nMatthew Holman, de la Center for Astrophysics | Harvard & Smithsonian, a rulat un cod de căutare, dezvoltat împreună cu Kevin Napier, care potrivește detecții de obiecte în mișcare în miliarde de puncte de date. Mario Jurić a găsit apoi încă 20 de observații în cataloagele Rubin, începând cu 4 martie 2026, iar imagini de arhivă ale camerei DECam, localizate prin serviciul ADAM Precovery al Asteroid Institute, au extins înregistrarea până în 2016. Obiectul se află lângă planul Căii Lactee, printre multe stele de fundal, ceea ce probabil l-a ascuns telescoapelor anterioare.\n\nDimensiunea este estimată la 600–1.500 km, pe baza distanței, a luminozității și a reflectivității presupuse. Orbita este înclinată cu aproape 25 de grade față de planul Sistemului Solar, ceea ce îl încadrează ca obiect transneptunian de tip „hot classical”; Rubin sugerează că gravitația lui Neptun i-a perturbat orbita inițială.\n\nEste doar un candidat: observații în infraroșu sunt necesare pentru a constrânge dimensiunea și pentru a confirma că obiectul este suficient de masiv ca să fie rotund. Dacă va fi confirmat, s-ar alătura celor cinci planete pitice recunoscute de IAU: Pluto, Ceres, Eris, Haumea și Makemake.",
+   "de_ce_conteaza": "Estimarea dimensiunii depinde de reflectivitatea necunoscută; fără observații în infraroșu, statutul de planetă pitică rămâne nedovedit.",
+   "loc": "Observatorul Vera C. Rubin, Chile",
+   "sursa_nume": "Rubin Observatory",
+   "sursa_url": "https://rubinobservatory.org/news/rubin-first-dwarf-planet-candidate",
+   "sursa_data": "2026-10-27",
+   "alte_surse": [
+    {
+     "nume": "ScienceAlert",
+     "url": "https://www.sciencealert.com/astronomers-discover-giant-new-dwarf-planet-candidate-hiding-beyond-pluto"
+    }
+   ],
+   "trimiteri": [
+    {
+     "titlu": "Circulara MPEC K26/U85 a Minor Planet Center",
+     "url": "https://www.minorplanetcenter.net/mpec/K26/K26U85.html"
+    },
+    {
+     "titlu": "Pagina obiectului 2026 ED138 la Minor Planet Center",
+     "url": "https://www.minorplanetcenter.net/db_search/show_object?object_id=2026+ED138"
+    }
+   ]
+  },
+  {
+   "sectiune": "stiinta",
+   "titlu": "Crocodilienii au supraviețuit impactului Chicxulub datorită refugiilor calde ecuatoriale, arată o modelare",
+   "rezumat": "Un studiu din Science Advances, pe peste 7.000 de fosile și înregistrări, leagă 250 de milioane de ani de evoluție a crocodilienilor de climatele calde.",
+   "text": "Un studiu din Science Advances, condus de Alfio Alessandro Chiarenza (UCL), a reconstruit clima și geografia pe 245 de milioane de ani și a folosit peste 7.000 de fosile și înregistrări de la peste 400 de specii vii și dispărute de arhosaurieni din linia crocodilienilor.\n\nConcluzia este că aceste grupuri au urmat, timp de aproximativ 250 de milioane de ani, climatele calde, în loc să se adapteze la schimbările de temperatură: s-au extins spre poli în perioadele fierbinți și s-au retras spre tropice când clima s-a răcit. După impactul Chicxulub, de acum 66 de milioane de ani, regiunile ecuatoriale simulate au rămas suficient de calde pentru a funcționa ca refugii. Habitatele dinozaurilor neaviari se restrânseseră mai mult în modelările anterioare ale aceleiași echipe.\n\nRefugiile au rezistat la reduceri ale luminii solare de 5% și 10%; o reducere de 15% le-ar fi eliminat, dar cercetătorii o consideră puțin probabilă. Un nivel mai ridicat de CO₂ nu a schimbat potrivirea habitatelor. Au existat două excepții de la preferința pentru căldură: o ramură tolerantă la căldură, de acum circa 94 de milioane de ani, și un grup adaptat la aridizare din Australia, de acum circa 34 de milioane de ani.\n\nAutorii citează și alți factori probabili: talia mică, stilul de viață parțial acvatic, dieta flexibilă și nevoile energetice reduse ale animalelor ectoterme. Astăzi, drumurile, fermele și orașele limitează deplasările prin care crocodilienii se adaptau la schimbările climatice.",
+   "de_ce_conteaza": "Este un rezultat de modelare, nu o observație directă a refugiilor; arată că preferința pentru clima caldă explică parțial supraviețuirea.",
+   "loc": "University College London, Regatul Unit",
+   "sursa_nume": "ScienceDaily",
+   "sursa_url": "https://www.sciencedaily.com/releases/2026/10/261030002922.htm",
+   "sursa_data": "2026-10-30",
+   "alte_surse": [],
+   "trimiteri": [
+    {
+     "titlu": "Articolul original din Science Advances",
+     "url": "http://dx.doi.org/10.1126/sciadv.aeg2217"
+    },
+    {
+     "titlu": "Relatarea ScienceDaily",
+     "url": "https://www.sciencedaily.com/releases/2026/10/261030002922.htm"
+    }
+   ]
+  },
+  {
+   "sectiune": "arta",
+   "titlu": "Grădina de sculptură Hirshhorn se redeschide după șapte ani, cu un proiect Sugimoto de 68 de milioane $",
+   "rezumat": "Spațiul de 1,3 acri, cu 60 de lucrări, se deschide pe 31 octombrie la Washington, pe baza proiectului lui Gordon Bunshaft din 1974.",
+   "text": "Grădina de sculptură a Muzeului Hirshhorn din Washington urma să se deschidă pe 31 octombrie 2026, potrivit unui articol din 30 octombrie. Proiectul de renovare a fost realizat de artistul japonez Hiroshi Sugimoto, care redesenase și holul muzeului în 2018. Costul este de 68 de milioane de dolari, iar suprafața, de 1,3 acri.\n\nNoul proiect pornește de la desenul arhitectului Gordon Bunshaft din 1974. Grădina are cinci intrări, belvedere la est și la vest și un pasaj subteran din oțel inoxidabil cu finisaj oglindit, despre care Sugimoto spune că reflectă „grădina și oamenii care se mișcă prin ea”. Pereții de piatră suprapusă au fost selectați și așezați de artist. Au fost plantate circa 30.000 de plante și arbori noi.\n\nSunt expuse 60 de lucrări, dintre care 21 din instalarea din 1974, aranjate cronologic. Grădina estică include „Burghezii din Calais” de Rodin (1884–1889) și „King and Queen” de Henry Moore (1952–1953), una dintre cele cinci lucrări Moore expuse. În grădina vestică sunt comenzi noi, între care „Sentinels of Stillness” de Yoshitomo Nara (2025) și „SHELTER” de KAWS (2026), un bronz înalt de 14 picioare (circa 4,3 m).\n\nMuzeul s-a deschis în 1974. Proiectul inițial al lui Sugimoto a fost ajustat acum cinci ani, în urma consultărilor publice, iar ceremonia de punere a pietrei de temelie a avut loc în 2022, cu Jill Biden.",
+   "de_ce_conteaza": "Articolul nu dă detalii despre accesul vizitatorilor sau programul de vizitare.",
+   "loc": "Washington, Statele Unite",
+   "sursa_nume": "The Art Newspaper",
+   "sursa_url": "https://www.theartnewspaper.com/2026/10/30/after-seven-years-hirshhorn-museum-opens-hiroshi-sugimoto-designed-sculpture-garden",
+   "sursa_data": "2026-10-30",
+   "alte_surse": [],
+   "trimiteri": [
+    {
+     "titlu": "Hirshhorn Museum and Sculpture Garden (Wikipedia)",
+     "url": "https://en.wikipedia.org/wiki/Hirshhorn_Museum_and_Sculpture_Garden"
+    },
+    {
+     "titlu": "Hiroshi Sugimoto (Wikipedia)",
+     "url": "https://en.wikipedia.org/wiki/Hiroshi_Sugimoto"
+    }
+   ]
+  },
+  {
+   "sectiune": "arta",
+   "titlu": "Chris Ofili o pune pe Laure, modelul din „Olympia” al lui Manet, în centrul unei expoziții la Torino",
+   "rezumat": "„Laure. Chris Ofili & Édouard Manet”, la Pinacoteca Agnelli, redenumește tabloul „La Négresse” din colecția muzeului ca „Portrait of Laure”.",
+   "text": "Pinacoteca Agnelli din Torino a deschis pe 30 octombrie expoziția „Laure. Chris Ofili & Édouard Manet”, parte din inițiativa „Beyond the Collection”. Va fi deschisă până la 4 aprilie 2027. Curator este Pietro Rigolo, curator șef și responsabil de colecție al muzeului; directoarea muzeului este Sarah Cosulich. La noile lucrări a contribuit cercetarea lui Denise Murrell, curatoare asociată la Metropolitan Museum of Art, care semnează și broșura expoziției.\n\nOfili prezintă lucrări noi inspirate de Laure, femeia neagră din „Olympia” (1863) a lui Manet: o pictură mare, „Saint Laure” (2026), un acuarel și o serie de desene. „Saint Laure” are aceeași dimensiune ca „Olympia”, iar corpul din tabloul lui Manet devine un peisaj de deșert de-a lungul bazei lucrării.\n\nOfili se inspiră din arta religioasă italiană, inclusiv din Giotto și Fra Angelico, și din filmul „Io Capitano” (2023); portretul lui Laure se bazează pe personajul fără nume al „femeii din deșert” din film. Din colecția Pinacotecii este expus „Portrait of Laure (La Négresse)”, cca 1862, de Manet, cu un titlu nou; titlul inițial a fost „La Négresse”.\n\nExpoziția urmărește să-i redea lui Laure numele și identitatea și să o mute de la margine în centrul poveștii. Rigolo spune că nimeni nu s-a opus redenumirii lucrării lui Manet. Cea mai mare expoziție personală a lui Ofili la Londra de la Tate Britain din 2010 se deschide la Hayward Gallery pe 7 septembrie 2027.",
+   "de_ce_conteaza": "Redenumirea unui tablou din colecție este o decizie muzeală care reflectă un curent mai larg de recuperare a numelor modelelor marginalizate.",
+   "loc": "Torino, Italia",
+   "sursa_nume": "The Art Newspaper",
+   "sursa_url": "https://www.theartnewspaper.com/2026/10/30/chris-ofili-brings-laure-black-model-painted-manet-margins-turin-exhibition",
+   "sursa_data": "2026-10-30",
+   "alte_surse": [],
+   "trimiteri": [
+    {
+     "titlu": "„Olympia” de Manet (Wikipedia)",
+     "url": "https://en.wikipedia.org/wiki/Olympia_(Manet)"
+    },
+    {
+     "titlu": "Chris Ofili (Wikipedia)",
+     "url": "https://en.wikipedia.org/wiki/Chris_Ofili"
+    }
+   ]
+  },
+  {
+   "sectiune": "arta",
+   "titlu": "MoMA, Centre Pompidou și M+ lansează o alianță de colecții cu împrumuturi și expoziții comune",
+   "rezumat": "Anunțul a venit în ajunul aniversării a cinci ani a muzeului M+ din Hong Kong; termenii exacți nu sunt încă publici.",
+   "text": "Muzeul de Artă Modernă din New York (MoMA), Centre Pompidou din Paris și M+ din Hong Kong au anunțat o alianță de colecții, în ajunul celei de-a cincea aniversări a lui M+ la West Kowloon Cultural District. Acordul oferă fiecărui muzeu un acces fără precedent la fondurile celorlalte; scopurile declarate sunt un public mai larg, curatoriat colaborativ și mai multă cercetare. Parteneriatul va include împrumuturi între muzee și expoziții comune.\n\nAlianța vine la aproximativ un an de la numirea lui Christophe Cherix la conducerea MoMA și după o creștere a achizițiilor în comun și a punerii în comun a resurselor între muzee de la pandemia de COVID-19, în încercarea de a reduce cheltuielile pe fondul deficitelor. M+ avea deja un memorandum cu MoMA, semnat la începutul lui 2025 (obiective comune de curatoriat, conservare și cercetare), și un parteneriat strategic cu Centre Pompidou, încheiat în această primăvară (expoziții comune, partajarea colecțiilor, o bursă finanțată).\n\nDirectoarea M+, Suhanya Raffel, a spus: „Muzeele trebuie să evolueze pentru a reflecta complexitatea lumii noastre.” Într-un podcast al The Art Newspaper, ea descrie alianța drept reunirea a „trei instituții de colecție de frunte”, iar președintele consiliului, Paulo Pong, spune că M+ a avut peste 2,5 milioane de vizitatori pe an în ultimii trei ani.\n\nSursele nu dau termenii alianței, calendarul sau valoarea angajamentelor, așa că deocamdată e vorba de o declarație de intenție mai degrabă decât de un program detaliat.",
+   "de_ce_conteaza": "Alianța arată cum muzeele mari își împart colecțiile și costurile; detaliile contează însă, iar ele lipsesc încă din sursele citite.",
+   "loc": "Hong Kong, New York, Paris",
+   "sursa_nume": "Hyperallergic",
+   "sursa_url": "https://hyperallergic.com/moma-centre-pompidou-and-m-announce-novel-collection-alliance/",
+   "sursa_data": "2026-10-30",
+   "alte_surse": [
+    {
+     "nume": "The Art Newspaper (podcast)",
+     "url": "https://www.theartnewspaper.com/2026/10/30/hong-kong-m-plus-museum-fifth-anniversary-partnership-moma-pompidou-paulo-pong-interview"
+    }
+   ],
+   "trimiteri": [
+    {
+     "titlu": "M+ (Wikipedia)",
+     "url": "https://en.wikipedia.org/wiki/M%2B"
+    },
+    {
+     "titlu": "Centre Pompidou (Wikipedia)",
+     "url": "https://en.wikipedia.org/wiki/Centre_Pompidou"
+    }
+   ]
+  },
+  {
+   "sectiune": "arhitectura",
+   "titlu": "Oxford Street din Londra a deschis prima fază fără trafic: aproape un kilometru de pietonal",
+   "rezumat": "Faza de tranziție, în vigoare din 26 octombrie, folosește mobilier cu senzori pentru a decide designul permanent, așteptat în 2028.",
+   "text": "Prima fază a pietonalizării Oxford Street a intrat în vigoare luni, 26 octombrie 2026. Ea acoperă aproape un kilometru, de la Orchard Street la Great Portland Street, închis vehiculelor private, autobuzelor, taxiurilor, vehiculelor private de închiriat, bicicletelor, trotinetelor și pedicabs.\n\nIdeea a fost anunțată în 2016 de primarul Londrei, Sadiq Khan, cu țintă inițială în 2020. Proiectul a fost blocat în 2018, după două consultări publice, și reluat în 2024, cu alte două consultări care au arătat sprijin majoritar. Aprobarea finală a venit în februarie 2026. Primarul a creat Oxford Street Development Corporation (OSDC), o corporație de dezvoltare care poate prelua competențe de urbanism de la consiliul orașului Westminster.\n\nFaza de tranziție este condusă de East, birou de peisagistică și design urban din estul Londrei, cu Gehl, Publica, J&L Gibbons, Etude și NRP. Lucrările constau în îndepărtarea marcajelor rutiere și adăugarea de mobilier, plantații și semnalizare; pavaj de piatră texturat ghidează circulația, iar pavele mai mari marchează trecerile nord–sud. Copacii cresc deocamdată în ghivece mari. Senzori în mobilier vor urmări fluxul și durata staționării, iar datele vor informa designul permanent.\n\nUlterioarele faze prevăd două piațete noi, lângă Holles Street și Duke Street. Construcția schemei permanente pentru tronsonul Orchard Street – Great Portland Street ar începe în a doua parte a lui 2027, cu finalizare în 2028. Hawkins\\Brown dezvoltă o viziune pentru tot traseul, de la Marble Arch la Tottenham Court Road. Articolul nu dă costul proiectului.",
+   "de_ce_conteaza": "Faza actuală este provizorie și testată cu date, nu un design final.",
+   "loc": "Londra, Regatul Unit",
+   "sursa_nume": "ArchDaily",
+   "sursa_url": "https://www.archdaily.com/1187796/londons-oxford-street-opens-its-first-traffic-free-phase",
+   "sursa_data": "2026-10-30",
+   "alte_surse": [],
+   "trimiteri": [
+    {
+     "titlu": "Oxford Street (Wikipedia)",
+     "url": "https://en.wikipedia.org/wiki/Oxford_Street"
+    },
+    {
+     "titlu": "Articolul ArchDaily",
+     "url": "https://www.archdaily.com/1187796/londons-oxford-street-opens-its-first-traffic-free-phase"
+    }
+   ]
+  },
+  {
+   "sectiune": "arhitectura",
+   "titlu": "Stefano Boeri transformă fosta fabrică de locomotive din Tbilisi într-un cartier verde de 120.000 m²",
+   "rezumat": "Masterplanul Loco Park, ales prin concurs pe 18 octombrie, prevede nouă clădiri cu fațade din cărămidă și acoperișuri inspirate de atelierele istorice.",
+   "text": "Stefano Boeri Architetti a fost selectat, pe 18 octombrie, pentru masterplanul Loco Park din Tbilisi, Georgia, în urma unui concurs organizat de LOCO Alliance. Imaginile au fost prezentate pe 23 octombrie. Amplasamentul este un teren industrial dezafectat de 73.600 m², fosta uzină sovietică de locomotive electrice din cartierul Temka.\n\nPlanul prevede 120.000 m² de suprafață construită în nouă clădiri. La etajele superioare vor fi locuințe de tipuri diferite; la parter, magazine locale, cafenele și ateliere. Spațiile deschise includ o pădure sportivă, parcuri, grădini comune și un bulevard liniar. Terenul găzduiește deja evenimente culturale de amploare, în paralel cu concursul.\n\nFațadele vor fi din cărămidă, într-o paletă de cinci familii de culori extrase dintr-o cartografiere fotografică a orașului: albastru-gri, teracotă, verde, taupe și alb mineral. Acoperișurile preiau siluetele fabricilor și atelierelor istorice și pot găzdui sere, terase, panouri fotovoltaice, mansarde și spații comune pentru locatari.\n\nEchipa de proiectare este formată din Stefano Boeri, Pietro Chiodi (partener responsabil), Mohamed Hassan Elgendy (șef de proiect) și Riccardo Gilioli. Sursa nu menționează un calendar de construcție sau un buget.\n\nArticolul ArchDaily amintește și alte proiecte ale biroului: locuințe accesibile la Ibiza (circa 190 de apartamente de închiriat în patru volume din lemn), reconversia depoului ATAC Depositi delle Vittorie din Roma și o mănăstire ambroziană la Milano.",
+   "de_ce_conteaza": "Fiind un masterplan ales prin concurs, fazele concrete și calendarul nu sunt încă cunoscute.",
+   "loc": "Tbilisi, Georgia",
+   "sursa_nume": "ArchDaily",
+   "sursa_url": "https://www.archdaily.com/1187468/stefano-boeri-architetti-selected-to-transform-former-locomotive-factory-into-green-neighbourhood-in-tbilisi",
+   "sursa_data": "2026-10-26",
+   "alte_surse": [],
+   "trimiteri": [
+    {
+     "titlu": "Loco Park, pagina proiectului la Stefano Boeri Architetti",
+     "url": "https://www.stefanoboeriarchitetti.net/en/project/loco-park-tblisi/"
+    },
+    {
+     "titlu": "Tbilisi (Wikipedia)",
+     "url": "https://en.wikipedia.org/wiki/Tbilisi"
+    }
+   ]
+  },
+  {
+   "sectiune": "arhitectura",
+   "titlu": "Foster + Partners prezintă World Trade Center Yerevan: două turnuri și jumătate din teren pentru public",
+   "rezumat": "Proiectul din capitala Armeniei combină birouri, hotel, locuințe, comerț și spații culturale și vizează certificările LEED și WELL Gold.",
+   "text": "Foster + Partners a prezentat designul World Trade Center Yerevan, un proiect mixt pentru capitala Armeniei, care cuprinde birouri, un hotel, locuințe, comerț și spații culturale. Informația provine din recenzia săptămânală ArchDaily din 29 octombrie; sursa nu dă data deschiderii, suprafața totală sau înălțimea.\n\nProiectul prevede două turnuri legate între ele la trei niveluri, cu spații comune și terase amenajate, ridicate deasupra unui soclu cu înălțime redusă. Soclul eliberează aproximativ 50% din teren pentru spațiu public.\n\nMasterplanul prelungește axa verde a parcului Diana Abgar din apropiere, adaugă piețe, trasee pietonale și spații pentru evenimente și păstrează istorica stradă Frik. Amplasamentul se află în zona modelată de planul lui Alexander Tamanian din 1924 pentru Erevan.\n\nProiectul ține seama de activitatea seismică din Erevan, vizează certificările LEED și WELL Gold și este planificat să fie pregătit pentru neutralitate de carbon (net-zero-ready). Redactorii nu au găsit o pagină dedicată proiectului la birou; sursa este singura relatare citită.\n\nDesenele nu sunt însoțite, în relatarea citită, de cifre privind suprafața construită, costul sau calendarul.",
+   "de_ce_conteaza": "Sunt imagini și intenții de proiect, nu o clădire executată; ele arată însă cum un birou global abordează densitatea și spațiul public într-o zonă seismică.",
+   "loc": "Erevan, Armenia",
+   "sursa_nume": "ArchDaily",
+   "sursa_url": "https://www.archdaily.com/1187684/antalya-prepares-to-host-cop31-and-foster-plus-partners-unveils-world-trade-center-yerevan-this-weeks-review",
+   "sursa_data": "2026-10-29",
+   "alte_surse": [],
+   "trimiteri": [
+    {
+     "titlu": "Erevan (Wikipedia)",
+     "url": "https://en.wikipedia.org/wiki/Yerevan"
+    },
+    {
+     "titlu": "Foster + Partners",
+     "url": "https://www.fosterandpartners.com/"
+    }
+   ]
+  },
+  {
+   "sectiune": "arhitectura",
+   "titlu": "AD—WO va renova Heinz Architectural Center de la Carnegie Museum of Art din Pittsburgh",
+   "rezumat": "Echipa condusă de Emanuel Admassu și Jen Wood va crea galerii noi și un centru de studiu al colecției de circa 6.000 de obiecte.",
+   "text": "Biroul AD—WO, condus de Emanuel Admassu și Jen Wood, a fost ales pentru renovarea Heinz Architectural Center din cadrul Carnegie Museum of Art din Pittsburgh. Din echipă fac parte R3A (arhitect de execuție), Buro Happold (inginerie și sustenabilitate), Tillotson Design Associates (iluminat) și VizzAcoustics (acustică).\n\nCentrul ocupă clădirea principală a muzeului, din 1907, proiectată de Longfellow, Alden & Harlow, între sălile istorice și Scaife Galleries din 1974, de Edward Larrabee Barnes. Heinz Architectural Center s-a deschis în 1993. Colecția cuprinde circa 6.000 de obiecte legate de arhitectură, plus Hall of Architecture (1907), cu peste 140 de mulaje în ghips.\n\nProiectul prevede galerii noi și un centru de studiu al colecției reimaginat, infrastructură prin care cercetarea curatorială să devină mai vizibilă, mai multă lumină naturală și o paletă de materiale care include cărămidă refractară și aluminiu. Galeriile vor fi flexibile, pentru expoziții, educație, cercetare și programe publice.\n\nArticolul nu dă date de execuție, suprafața sau bugetul; spune doar că AD—WO va lucra cu personalul muzeului „în anii următori”.",
+   "de_ce_conteaza": "Sursa nu dă termene, suprafață sau buget, așa că este deocamdată un anunț de intenție.",
+   "loc": "Pittsburgh, Statele Unite",
+   "sursa_nume": "ArchDaily",
+   "sursa_url": "https://www.archdaily.com/1187645/ad-wo-to-renovate-the-heinz-architectural-center-at-pittsburghs-carnegie-museum-of-art",
+   "sursa_data": "2026-10-28",
+   "alte_surse": [],
+   "trimiteri": [
+    {
+     "titlu": "Carnegie Museum of Art (Wikipedia)",
+     "url": "https://en.wikipedia.org/wiki/Carnegie_Museum_of_Art"
+    },
+    {
+     "titlu": "Articolul ArchDaily",
+     "url": "https://www.archdaily.com/1187645/ad-wo-to-renovate-the-heinz-architectural-center-at-pittsburghs-carnegie-museum-of-art"
+    }
+   ]
+  }
+ ]
+}
