@@ -23,6 +23,11 @@ jobs:
           channel: 'stable'
           cache: true
 
+      # lib/config/asistent_server.dart e în .gitignore (conține tokenul
+      # serverului); analiza și testele merg cu exemplul, fără secrete.
+      - name: Config from the example
+        run: cp lib/config/asistent_server.example.dart lib/config/asistent_server.dart
+
       - name: Install dependencies
         run: flutter pub get
 
