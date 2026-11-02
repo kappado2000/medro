@@ -86,6 +86,13 @@ jobs:
         with:
           flutter-version: '3.47.0'
           channel: 'stable'
+          cache: true
+
+      - uses: actions/cache@v4
+        with:
+          path: ~/Library/Caches/CocoaPods
+          key: cocoapods-${{ runner.os }}-${{ hashFiles('pubspec.lock', 'ios/Podfile') }}
+          restore-keys: cocoapods-${{ runner.os }}-
 
       # lib/config/asistent_server.dart is gitignored (it holds the assistant
       # server's access token), so it is recreated here from repo secrets.
