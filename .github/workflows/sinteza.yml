@@ -70,5 +70,8 @@ jobs:
           fi
           echo "$CONT" > "$RUNNER_TEMP/cont.json"
           export GOOGLE_APPLICATION_CREDENTIALS="$RUNNER_TEMP/cont.json"
-          npx --yes firebase-tools@latest deploy --only hosting --project medro-asistent-2026 --non-interactive
+          # 15.34.0 fixat: din 15.34.1 deploy-ul cere serviceusage.services.get, pe care
+          # contul de serviciu din CI nu-l are (403 din 2026-10-26). Revii la @latest după ce
+          # contul primește rolul „Service Usage Consumer” în Google Cloud IAM.
+          npx --yes firebase-tools@15.34.0 deploy --only hosting --project medro-asistent-2026 --non-interactive
           rm -f "$RUNNER_TEMP/cont.json"
