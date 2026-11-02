@@ -1,11 +1,6 @@
-name: iOS signed build (TestFlight)
+name: iOS TestFlight build
 
-# Signed with the Apple Developer account and uploaded to App Store Connect,
-# where it shows up in TestFlight. Needs these repo secrets:
-#   IOS_DIST_CERTIFICATE_BASE64, IOS_DIST_CERTIFICATE_PASSWORD  (distribution .p12)
-#   IOS_APP_PROVISION_PROFILE_BASE64  (App Store profile named "MedRO App Store")
-#   IOS_TEAM_ID
-#   IOS_ASC_KEY_ID, IOS_ASC_ISSUER_ID, IOS_ASC_API_KEY_BASE64  (App Store Connect API key)
+# Pașii sunt în kappado2000/ci-flutter/.github/workflows/ios-testflight.yml (comun tuturor aplicațiilor).
 on:
   workflow_dispatch: {}
   # Verificare săptămânală (luni, 06:00 UTC): build nou doar dacă ultimul
@@ -14,241 +9,21 @@ on:
   schedule:
     - cron: '0 6 * * 1'
 
-# Identificatorul aplicației deja instalate pe telefon (creat de AltStore):
-# același ID face ca TestFlight s-o actualizeze pe loc, păstrând datele.
-env:
-  BUNDLE_ID: ro.kappado.medro.FUR5C9CYR8
-
 jobs:
-  check:
-    runs-on: ubuntu-latest
+  testflight:
     permissions:
       actions: write
-    outputs:
-      build: ${{ steps.expiry.outputs.build }}
-      name: ${{ steps.expiry.outputs.name }}
-    steps:
-      # GitHub oprește workflow-urile programate după 60 de zile fără
-      # activitate în repo; reactivarea le ține pornite.
-      - name: Keep the schedule alive
-        if: github.event_name == 'schedule'
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: gh api -X PUT "repos/${{ github.repository }}/actions/workflows/ios-testflight.yml/enable"
-
-      - uses: actions/checkout@v4
-
-      - name: Days until the latest TestFlight build expires
-        id: expiry
-        env:
-          APP_ID: '6827886599'
-          EVENT: ${{ github.event_name }}
-          ASC_KEY_ID: ${{ secrets.IOS_ASC_KEY_ID }}
-          ASC_ISSUER_ID: ${{ secrets.IOS_ASC_ISSUER_ID }}
-          ASC_API_KEY_BASE64: ${{ secrets.IOS_ASC_API_KEY_BASE64 }}
-        run: |
-          pip install --quiet pyjwt cryptography
-          python3 - << 'PY'
-          import base64, json, os, re, time, urllib.request
-          from datetime import datetime, timezone
-          import jwt
-
-          # Stări în care trenul versiunii e închis: Apple refuză upload-ul
-          # cu „Pre-Release Train closed” dacă versiunea nu e mai mare.
-          APPROVED = {
-              'ACCEPTED', 'PENDING_DEVELOPER_RELEASE', 'PROCESSING_FOR_DISTRIBUTION',
-              'READY_FOR_DISTRIBUTION', 'REPLACED_WITH_NEW_VERSION', 'READY_FOR_SALE',
-              'PROCESSING_FOR_APP_STORE', 'PENDING_APPLE_RELEASE', 'REMOVED_FROM_SALE',
-              'DEVELOPER_REMOVED_FROM_SALE',
-          }
-
-          def key(v):
-              parts = [int(x) for x in v.split('.')]
-              return tuple(parts + [0] * (3 - len(parts)))
-
-          now = int(time.time())
-          token = jwt.encode(
-              {'iss': os.environ['ASC_ISSUER_ID'], 'iat': now, 'exp': now + 600,
-               'aud': 'appstoreconnect-v1'},
-              base64.b64decode(os.environ['ASC_API_KEY_BASE64']),
-              algorithm='ES256', headers={'kid': os.environ['ASC_KEY_ID']})
-
-          def get(path):
-              req = urllib.request.Request('https://api.appstoreconnect.apple.com' + path,
-                                           headers={'Authorization': f'Bearer {token}'})
-              return json.load(urllib.request.urlopen(req))['data']
-
-          scheduled = os.environ['EVENT'] == 'schedule'
-          version = re.search(r'^version:\s*([0-9.]+)', open('pubspec.yaml').read(), re.M).group(1)
-          try:
-              builds = get(f"/v1/builds?filter[app]={os.environ['APP_ID']}&sort=-uploadedDate&limit=10"
-                           '&fields[builds]=version,processingState,expirationDate,expired')
-              valid = [b['attributes'] for b in builds
-                       if b['attributes']['processingState'] == 'VALID'
-                       and not b['attributes']['expired']]
-              if not valid:
-                  days = -1
-              else:
-                  exp = datetime.fromisoformat(valid[0]['expirationDate'])
-                  days = (exp - datetime.now(timezone.utc)).days
-              print(f'Ultimul build valid expiră în {days} zile.')
-
-              # Reînnoirile automate nu modifică pubspec-ul, deci după prima
-              # aprobare App Store ar fi refuzate. Build-ul primește atunci
-              # versiunea aprobată + 1 la patch (doar în CI, fără commit).
-              versions = [v['attributes'] for v in get(
-                  f"/v1/apps/{os.environ['APP_ID']}/appStoreVersions?filter[platform]=IOS&limit=200"
-                  '&fields[appStoreVersions]=versionString,appStoreState,appVersionState')]
-              approved = [v['versionString'] for v in versions
-                          if v.get('appVersionState') in APPROVED or v.get('appStoreState') in APPROVED]
-              latest = max(approved, key=key) if approved else None
-              name = version
-              if latest and key(version) <= key(latest):
-                  major, minor, patch = key(latest)[:3]
-                  name = f'{major}.{minor}.{patch + 1}'
-                  print(f'::warning::Versiunea {version} din pubspec e închisă la Apple (ultima aprobată: '
-                        f'{latest}); build-ul folosește {name}. Crește versiunea în pubspec.yaml.')
-          except Exception as e:
-              # Pornit manual: o eroare trecătoare Apple nu blochează build-ul.
-              if scheduled:
-                  raise
-              print(f'::warning::App Store Connect indisponibil ({e}); build cu versiunea din pubspec.')
-              days, latest, name = -1, None, version
-          print(f'pubspec: {version} | ultima aprobată: {latest} | build: {name}')
-
-          with open(os.environ['GITHUB_OUTPUT'], 'a') as f:
-              f.write(f"build={'true' if not scheduled or days < 21 else 'false'}\n")
-              f.write(f'name={name}\n')
-          PY
-
-  build:
-    needs: check
-    if: needs.check.outputs.build == 'true'
-    runs-on: macos-latest
-    steps:
-      - uses: actions/checkout@v4
-
-      - uses: subosito/flutter-action@v2
-        with:
-          flutter-version: '3.47.0'
-          channel: 'stable'
-          cache: true
-
-      - uses: actions/cache@v4
-        with:
-          path: ~/Library/Caches/CocoaPods
-          key: cocoapods-${{ runner.os }}-${{ hashFiles('pubspec.lock', 'ios/Podfile') }}
-          restore-keys: cocoapods-${{ runner.os }}-
-
-      # lib/config/asistent_server.dart is gitignored (it holds the assistant
-      # server's access token), so it is recreated here from repo secrets.
-      - name: Write the assistant server config
-        env:
-          MEDRO_ASISTENT_URL: ${{ secrets.MEDRO_ASISTENT_URL }}
-          MEDRO_ASISTENT_TOKEN: ${{ secrets.MEDRO_ASISTENT_TOKEN }}
-          MEDRO_FIREBASE_API_KEY: ${{ secrets.MEDRO_FIREBASE_API_KEY }}
-        run: |
-          test -n "$MEDRO_ASISTENT_URL" && test -n "$MEDRO_ASISTENT_TOKEN"
-          cat > lib/config/asistent_server.dart <<EOF
-          const asistentServerUrl = '$MEDRO_ASISTENT_URL';
-          const asistentServerToken = '$MEDRO_ASISTENT_TOKEN';
-          const firebaseApiKey = '$MEDRO_FIREBASE_API_KEY';
-          EOF
-
-      - name: Install dependencies
-        run: flutter pub get
-
-      # Standard recipe for Mac-less iOS signing: the distribution cert goes
-      # into a throwaway keychain that only lives for this run, and the
-      # provisioning profile goes where Xcode looks for it.
-      - name: Import signing certificate and provisioning profile
-        env:
-          CERTIFICATE_BASE64: ${{ secrets.IOS_DIST_CERTIFICATE_BASE64 }}
-          CERTIFICATE_PASSWORD: ${{ secrets.IOS_DIST_CERTIFICATE_PASSWORD }}
-          APP_PROFILE_BASE64: ${{ secrets.IOS_APP_PROVISION_PROFILE_BASE64 }}
-          KEYCHAIN_PASSWORD: ${{ secrets.IOS_DIST_CERTIFICATE_PASSWORD }}
-        run: |
-          test -n "$CERTIFICATE_BASE64" && test -n "$APP_PROFILE_BASE64"
-          CERT_PATH="$RUNNER_TEMP/distribution.p12"
-          KEYCHAIN_PATH="$RUNNER_TEMP/signing.keychain-db"
-          PROFILE_DIR="$HOME/Library/MobileDevice/Provisioning Profiles"
-
-          echo -n "$CERTIFICATE_BASE64" | base64 --decode -o "$CERT_PATH"
-
-          security create-keychain -p "$KEYCHAIN_PASSWORD" "$KEYCHAIN_PATH"
-          security set-keychain-settings -lut 21600 "$KEYCHAIN_PATH"
-          security unlock-keychain -p "$KEYCHAIN_PASSWORD" "$KEYCHAIN_PATH"
-          security import "$CERT_PATH" -P "$CERTIFICATE_PASSWORD" -A -t cert -f pkcs12 -k "$KEYCHAIN_PATH"
-          security list-keychain -d user -s "$KEYCHAIN_PATH" login.keychain
-          security set-key-partition-list -S apple-tool:,apple:,codesign: -s -k "$KEYCHAIN_PASSWORD" "$KEYCHAIN_PATH"
-
-          mkdir -p "$PROFILE_DIR"
-          echo -n "$APP_PROFILE_BASE64" | base64 --decode -o "$PROFILE_DIR/app.mobileprovision"
-
-      # The Xcode project is committed with automatic signing and no team, so
-      # the unsigned Sideloadly workflow keeps working. For this build the
-      # Runner target is switched to manual signing with the App Store profile.
-      - name: Switch the Runner target to manual signing
-        env:
-          TEAM_ID: ${{ secrets.IOS_TEAM_ID }}
-        run: |
-          test -n "$TEAM_ID"
-          perl -0pi -e 's/PRODUCT_BUNDLE_IDENTIFIER = ro\.kappado\.medro;/PRODUCT_BUNDLE_IDENTIFIER = $ENV{BUNDLE_ID};\n\t\t\t\tCODE_SIGN_STYLE = Manual;\n\t\t\t\tDEVELOPMENT_TEAM = $ENV{TEAM_ID};\n\t\t\t\t"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Apple Distribution";\n\t\t\t\tPROVISIONING_PROFILE_SPECIFIER = "MedRO App Store";/g' \
-            ios/Runner.xcodeproj/project.pbxproj
-          grep -c 'PROVISIONING_PROFILE_SPECIFIER = "MedRO App Store";' ios/Runner.xcodeproj/project.pbxproj
-
-      - name: Write export options plist
-        env:
-          TEAM_ID: ${{ secrets.IOS_TEAM_ID }}
-        run: |
-          cat > "$RUNNER_TEMP/ExportOptions.plist" << PLIST
-          <?xml version="1.0" encoding="UTF-8"?>
-          <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-          <plist version="1.0">
-          <dict>
-            <key>method</key>
-            <string>app-store-connect</string>
-            <key>teamID</key>
-            <string>$TEAM_ID</string>
-            <key>signingStyle</key>
-            <string>manual</string>
-            <key>provisioningProfiles</key>
-            <dict>
-              <key>$BUNDLE_ID</key>
-              <string>MedRO App Store</string>
-            </dict>
-          </dict>
-          </plist>
-          PLIST
-
-      # The run number makes every dispatch a distinct build number, which
-      # App Store Connect requires. It is offset so signed builds never reuse
-      # a number already taken by an unsigned one.
-      - name: Build signed IPA
-        run: |
-          flutter build ipa --release \
-            --build-name=${{ needs.check.outputs.name }} \
-            --build-number=$((1000 + ${{ github.run_number }})) \
-            --export-options-plist="$RUNNER_TEMP/ExportOptions.plist"
-
-      # API-key auth (no login or 2FA prompt), so this works headless; altool
-      # looks for the key under a few fixed paths and this is one of them.
-      # The IPA is not published as a release: it embeds the assistant
-      # server's access token.
-      - name: Upload to TestFlight
-        env:
-          ASC_KEY_ID: ${{ secrets.IOS_ASC_KEY_ID }}
-          ASC_ISSUER_ID: ${{ secrets.IOS_ASC_ISSUER_ID }}
-          ASC_API_KEY_BASE64: ${{ secrets.IOS_ASC_API_KEY_BASE64 }}
-        run: |
-          KEY_DIR="$HOME/.appstoreconnect/private_keys"
-          mkdir -p "$KEY_DIR"
-          echo -n "$ASC_API_KEY_BASE64" | base64 --decode -o "$KEY_DIR/AuthKey_${ASC_KEY_ID}.p8"
-
-          IPA_PATH=$(ls build/ios/ipa/*.ipa | head -n1)
-          xcrun altool --upload-app -f "$IPA_PATH" -t ios \
-            --apiKey "$ASC_KEY_ID" --apiIssuer "$ASC_ISSUER_ID"
-
-      - name: Clean up keychain
-        if: always()
-        run: security delete-keychain "$RUNNER_TEMP/signing.keychain-db" || true
+      contents: write
+    uses: kappado2000/ci-flutter/.github/workflows/ios-testflight.yml@main
+    with:
+      app_id: '6827886599'
+      # ID-ul aplicației deja instalate (creat de AltStore): TestFlight o
+      # actualizează pe loc, păstrând datele.
+      bundle_id: ro.kappado.medro.FUR5C9CYR8
+      project_bundle_id: ro.kappado.medro
+      profile_name: MedRO App Store
+      # Proiectul e comis cu semnare automată (pentru build-ul nesemnat).
+      switch_to_manual_signing: true
+      # Separat de numerele build-urilor nesemnate.
+      build_number_offset: 1000
+    secrets: inherit
