@@ -1,7 +1,7 @@
 {
- "versiune": "2026-11-02 10:13",
+ "versiune": "2026-11-09 10:32",
  "surse": {
-  "Nomenclator ANMDM": "29.10.26",
+  "Nomenclator ANMDM": "06.11.26",
   "Lista CNAS": "01.06.2025",
   "Protocoale CNAS": "iulie 2026",
   "Interacțiuni": "DDInter 2.0",
@@ -25,8 +25,8 @@
    "marime": 87406
   },
   "medicamente.json.gz": {
-   "sha256": "379051e7c78680c75c73019027e8605bd499696c69e407ceacfc5e27f74b6bb9",
-   "marime": 759241
+   "sha256": "a9385c601c21f8306cbddf108371d9c12b270a8cee1725e209e312e347ed79e9",
+   "marime": 760246
   },
   "protocoale.json.gz": {
    "sha256": "bf6ced9b2a8fd3cf676dfccf0da7cf39c2485c50385b57d09edc508ce0644ba2",
