@@ -1,0 +1,532 @@
+{
+ "id": "2026-W47",
+ "data": "2026-11-21",
+ "de_la": "2026-11-14",
+ "pana_la": "2026-11-21",
+ "interval": "14–21 noiembrie 2026",
+ "titlu": "Psilocină deuterată cu MADRS cu 7,6 puncte sub placebo și un inhibitor de PDE-5 în Alzheimer; apoi, retatrutida în artroza de genunchi, instrumentul MIXS pe drumul spre Mercur și premiul Ambasz–MoMA",
+ "introducere": "Ediția acoperă 14–21 noiembrie 2026. La psihiatrie: HLP003, o psilocină deuterată, în depresia majoră, aprobarea FDA pentru Igalmi la domiciliu, rezultatele mixte pentru AR1001 în Alzheimer și un studiu despre adaptările școlare în ADHD. Urmează două studii despre terapii bazate pe acceptare și mindfulness, trei studii de psihologie, retatrutida în artroza de genunchi, telescopul MIXS al misiunii BepiColombo, restituirea unor obiecte etiopiene și patru proiecte de arhitectură. Secțiunea de siguranță a medicamentelor lipsește: în interval nu a apărut o comunicare relevantă pentru psihotrope sau medicamente neurologice.",
+ "articole": [
+  {
+   "sectiune": "psihiatrie",
+   "titlu": "FDA aprobă Igalmi la domiciliu pentru agitația din schizofrenie și tulburarea bipolară, pe baza unui studiu de siguranță",
+   "rezumat": "Teva anunță că dexmedetomidina sublinguală este primul tratament aprobat de FDA pentru agitația acută care poate fi folosit acasă; autorizarea se bazează pe un studiu de fază 3 centrat pe siguranță.",
+   "text": "FDA a aprobat filmul sublingual de dexmedetomidină (Igalmi), produs de Teva Pharmaceuticals, pentru uz la domiciliu în agitația acută asociată cu schizofrenia, tulburarea schizoafectivă sau tulburarea bipolară I ori II, la adulți. Potrivit Psychiatric Times, este primul tratament aprobat de FDA pentru această situație care poate fi folosit acasă. Cererea suplimentară (sNDA) a fost depusă pe 14 ianuarie 2026; autorizarea inițială acoperea folosirea sub supravegherea unui profesionist din sănătate.\n\nAprobarea se sprijină pe studiul de fază 3 SERENITY At-Home, a cărui țintă principală a fost siguranța și tolerabilitatea în mediul de acasă. Relatarea menționează că investigatorii au vizat 1.160 de episoade de agitație la 102 participanți, pe 12 săptămâni, și că tolerabilitatea a rămas constantă la dozarea repetată. Textul nu raportează rezultate de eficacitate asupra agitației pentru acest studiu și nu dă doza sau schema de administrare.\n\nReacțiile adverse raportate la cel puțin 5% dintre participanți și mai frecvent decât sub placebo au fost somnolența, uscăciunea gurii, amețeala și parestezia sau hipoestezia orală. Nicio întrerupere nu a fost atribuită tolerabilității.\n\nTeva a anunțat pe 27 octombrie preluarea drepturilor mondiale asupra BXCL501, molecula din spatele produsului, iar compania nu a făcut încă publice planurile de lansare comercială pentru uzul la domiciliu.",
+   "de_ce_conteaza": "Schimbă locul în care poate fi tratată agitația acută, dar dovada publicată în relatare privește siguranța, nu eficacitatea la domiciliu; studiul este mic ca număr de participanți.",
+   "loc": "Statele Unite",
+   "sursa": {
+    "nume": "Psychiatric Times",
+    "url": "https://www.psychiatrictimes.com/view/fda-approves-igalmi-for-agitation-associated-with-schizophrenia-schizoaffective-disorder-or-bipolar-i-or-ii-disorder",
+    "data": "2026-11-16"
+   },
+   "alte_surse": [],
+   "trimiteri": [
+    {
+     "titlu": "Comunicatul Teva despre aprobarea Igalmi la domiciliu",
+     "url": "https://www.tevapharm.com/news-and-media/latest-news/u.s.-fda-approves-igalmi-as-first-at-home-acute-treatment-for-agitation-associated-with-schizophrenia-s"
+    },
+    {
+     "titlu": "Comunicatul Teva despre preluarea drepturilor asupra BXCL501",
+     "url": "https://www.tevapharm.com/news-and-media/latest-news/teva-acquires-worldwide-rights-to-bxcl501-further-expanding-innovative-neuroscience-pipeline/"
+    },
+    {
+     "titlu": "Cronologia Igalmi la Psychiatric Times",
+     "url": "https://www.psychiatrictimes.com/view/ahead-of-the-fda-action-date-a-timeline-of-igalmi-for-agitation-in-bipolar-disorder-and-schizophrenia"
+    }
+   ],
+   "imagine": {
+    "url": "https://cdn.sanity.io/images/0vv8moc6/psychtimes/e8dfbca10f73722c5eaf67aca79e1c089eee7199-4620x2641.jpg?w=1200&fit=max&q=75&fm=jpg",
+    "credit": "Psychiatric Times"
+   },
+   "id": "a1"
+  },
+  {
+   "sectiune": "psihiatrie",
+   "titlu": "HLP003, o psilocină deuterată, bate placebo în depresia majoră în studiul APPROACH de fază 3: MADRS cu 7,6 puncte mai mic",
+   "rezumat": "Helus Pharma raportează, într-un studiu pe 222 de adulți aflați sub antidepresive, o diferență de 7,6 puncte la MADRS față de placebo după șase săptămâni.",
+   "text": "Helus Pharma a anunțat pe 16 noiembrie rezultatele preliminare ale studiului APPROACH, primul din cele trei ale programului PARADIGM pentru HLP003, descrisă drept psilocină deuterată, folosită ca tratament adjuvant în depresia majoră. Studiul este multicentric, randomizat, dublu-orb și controlat cu placebo, cu 222 de adulți (analiză pe intenția de tratament) cu depresie majoră moderată-severă după DSM-5 și MADRS de cel puțin 24. Mărimea grupurilor nu este dată, iar participanții au rămas pe antidepresive stabile.\n\nLa criteriul principal, săptămâna 6, scăderea medie ajustată a MADRS a fost de −19,5 cu HLP003 față de −11,9 sub placebo, o diferență de −7,6 puncte (P < 0,0001; mărime de efect 0,653). Separarea de placebo a apărut deja în ziua 2 (−16,1 față de −11,0; diferență −5,0; P = 0,0013), iar la săptămâna 12, criteriu secundar-cheie, diferența a fost de −7,0 (−16,9 față de −9,9; P < 0,0001).\n\nCompania descrie produsul drept în general bine tolerat: majoritatea evenimentelor adverse au fost ușoare sau moderate, trecătoare și limitate la ziua dozării. Trei evenimente adverse grave au fost considerate legate de tratament, fără semnale noi de siguranță. Relatarea nu menționează doza, schema de administrare și numărul de înrolare în registru.\n\nAl doilea studiu pivot, EMBRACE, este în desfășurare, cu rezultate așteptate în al patrulea trimestru din 2027, iar o extensie pe termen lung (EXTEND) este deschisă participanților din ambele studii.",
+   "de_ce_conteaza": "Sunt date preliminare comunicate de sponsor, neevaluate încă de experți. Un singur studiu pivot nu este suficient pentru autorizare, iar tratamentul se bazează pe o substanță psihedelică, cu întrebări deschise despre orbire și durata efectului.",
+   "loc": "Sponsor: Helus Pharma",
+   "sursa": {
+    "nume": "Psychiatric Times",
+    "url": "https://www.psychiatrictimes.com/view/positive-phase-3-results-hlp003-as-adjunctive-treatment-for-major-depressive-disorder",
+    "data": "2026-11-16"
+   },
+   "alte_surse": [],
+   "trimiteri": [
+    {
+     "titlu": "Comunicatul Helus Pharma despre rezultatele APPROACH",
+     "url": "https://ir.helus.com/news-releases/news-release-details/helus-pharma-announces-positive-topline-results-phase-3-approach"
+    },
+    {
+     "titlu": "Psychiatric Times: portofoliul de medicamente în psihiatrie",
+     "url": "https://www.psychiatrictimes.com/view/psychiatrys-medication-pipeline-in-motion"
+    }
+   ],
+   "imagine": {
+    "url": "https://cdn.sanity.io/images/0vv8moc6/psychtimes/12afb68a2e23bf6626f2cacaeeae2c9e9f69c13a-5376x3584.jpg?w=1200&fit=max&q=75&fm=jpg",
+    "credit": "Psychiatric Times"
+   },
+   "id": "a2"
+  },
+  {
+   "sectiune": "psihiatrie",
+   "titlu": "AR1001, un inhibitor de PDE-5, nu a depășit placebo în Alzheimer la 1.535 de pacienți, dar a reușit într-un subgrup fără alte tratamente",
+   "rezumat": "Studiul POLARIS-AD a atins criteriul principal doar în populația prespecificată fără inhibitori de colinesterază sau memantină: 0,44 puncte la CDR-SB.",
+   "text": "AriBio a prezentat la congresul CTAD 2026, la Boston, rezultatele studiului de fază 3 POLARIS-AD cu AR1001, un inhibitor oral de fosfodiesterază 5 care traversează bariera hemato-encefalică, administrat o dată pe zi (30 mg), timp de 52 de săptămâni. Au fost înrolați 1.535 de participanți cu boală Alzheimer incipientă, în 13 țări; criteriul principal a fost schimbarea scorului CDR-SB.\n\nÎn populația generală, diferența a fost de 0,11 puncte (P = 0,4015), nesemnificativă. În populația monoterapie, 604 pacienți fără inhibitor de acetilcolinesterază sau memantină la început, AR1001 a redus declinul cu 0,44 puncte față de placebo (P = 0,0266), ceea ce compania prezintă ca o încetinire de 31%. La MMSE, diferența în monoterapie a fost de 0,7 puncte (P = 0,0232), iar la ADAS-Cog13 de 1,16 puncte (P = 0,0798, nesemnificativ). Nivelul de GMPc în LCR a fost mai mare cu AR1001 în ambele populații, ceea ce arată angajarea țintei; p-tau217 din LCR a fost mai mic cu 5,34 pg/mL în monoterapie (P = 0,0402), fără diferență pentru raportul amiloid-β 42/40.\n\nEvenimentele adverse apărute sub tratament au fost 69,0% față de 66,4% sub placebo, cele grave 10,0% față de 9,8%, iar decesele 4 (0,5%) față de 2 (0,3%). Diareea, căzăturile, amețeala și întreruperile din cauza evenimentelor adverse (5,2% față de 1,7%) au fost mai frecvente cu AR1001. Extensia deschisă se încheie, după estimarea companiei, în al treilea trimestru din 2027.",
+   "de_ce_conteaza": "Un subgrup prespecificat nu compensează lipsa efectului în populația generală; rezultatul cere confirmare într-un studiu separat înainte de a fi luat drept dovadă a eficacității.",
+   "loc": "Statele Unite (prezentat la Boston); studiu în 13 țări",
+   "sursa": {
+    "nume": "Psychiatric Times",
+    "url": "https://www.psychiatrictimes.com/view/mixed-results-from-phase-3-data-for-ar1001-in-alzheimer-disease",
+    "data": "2026-11-17"
+   },
+   "alte_surse": [],
+   "trimiteri": [
+    {
+     "titlu": "Comunicatul AriBio despre POLARIS-AD",
+     "url": "https://www.globenewswire.com/news-release/2026/11/17/3404242/0/en/aribio-s-oral-ar1001-meets-primary-efficacy-objective-in-prespecified-monotherapy-population-in-phase-3-polaris-ad-trial.html"
+    },
+    {
+     "titlu": "Emestedastat în Alzheimer, rezultate la Psychiatric Times",
+     "url": "https://www.psychiatrictimes.com/view/emestedastat-for-alzheimer-disease-falls-short-overall-signals-subgroup-benefit"
+    },
+    {
+     "titlu": "Lecanemab după trei ani, date din practică",
+     "url": "https://www.psychiatrictimes.com/view/real-world-lecanemab-outcomes-in-alzheimer-disease-reported-at-3-years"
+    }
+   ],
+   "imagine": {
+    "url": "https://cdn.sanity.io/images/0vv8moc6/psychtimes/6e5f1fa601def7dcd1a90b7ddcd10baa6ca62491-6000x2195.jpg?w=1200&fit=max&q=75&fm=jpg",
+    "credit": "Psychiatric Times"
+   },
+   "id": "a3"
+  },
+  {
+   "sectiune": "psihiatrie",
+   "titlu": "Adaptările școlare uzuale pentru ADHD nu au redus abaterile de la reguli la 235 de copii; medicația și sprijinul comportamental au făcut-o",
+   "rezumat": "Un studiu randomizat încrucișat în JAMA Pediatrics a găsit că timpul suplimentar și mediul fără distractori au scăzut chiar ritmul de lucru, în timp ce metilfenidatul a redus abaterile cu 61%.",
+   "text": "Un studiu randomizat încrucișat publicat în JAMA Pediatrics a testat, într-un program de vară de 7–8 săptămâni, trei tipuri de intervenții la copii cu ADHD din clasele de la grădiniță până la a șasea: adaptări academice, management comportamental în clasă și metilfenidat cu eliberare prelungită. Au fost înrolați 280 de copii, dintre care 255 au început și 235 au terminat; fiecare a trecut prin toate condițiile, în ordine contrabalansată. Studiul s-a desfășurat în patru veri, 2022–2025, și este înregistrat în ClinicalTrials.gov.\n\nAdaptările, rotate zilnic, au fost timp suplimentar (50% în plus), pauze frecvente, scaune adaptate și un cadru cu puțini distractori. Niciuna nu a redus semnificativ încălcările regulilor sau nu a crescut scorurile la teste. Timpul suplimentar a scăzut cu 11% numărul de probleme rezolvate pe minut, iar cadrul cu puțini distractori cu 4%, rezultate care s-au menținut după corecția pentru comparații multiple.\n\nClasa cu management comportamental (panouri cu puncte, raport de 3 laude la o comandă, fișe zilnice) a redus abaterile în timpul lucrului individual cu 37%. Metilfenidatul, la aproximativ 0,3 mg/kg, a redus abaterile cu 61% față de placebo, a crescut ritmul de lucru cu 22% și scorurile la teste cu aproximativ 3,9 puncte procentuale. Nu au apărut interacțiuni semnificative: adaptările nu au întărit nici medicația, nici sprijinul comportamental.\n\nCercetătorii notează limite: program de vară cu personal numeros, nu un an școlar obișnuit; medicație testată în blocuri de o săptămână și la o doză moderată. Autorul principal, Gregory Fabiano, primește drepturi de autor de la Guilford Press, editorul manualului pentru fișele zilnice de comportament.",
+   "de_ce_conteaza": "Rezultatul nu spune că adaptările sunt inutile pentru orice copil, ci că folosite singure, în această formă, nu au ajutat în medie; replicarea în școli obișnuite lipsește.",
+   "loc": "Statele Unite (Florida International University)",
+   "sursa": {
+    "nume": "PsyPost",
+    "url": "https://www.psypost.org/common-classroom-accommodations-for-adhd-fail-to-improve-student-behavior-or-schoolwork-in-clinical-trial/",
+    "data": "2026-11-19"
+   },
+   "alte_surse": [],
+   "trimiteri": [
+    {
+     "titlu": "Articolul original din JAMA Pediatrics (DOI)",
+     "url": "https://doi.org/10.1001/jamapediatrics.2026.5973"
+    }
+   ],
+   "imagine": {
+    "url": "https://www.psypost.org/wp-content/uploads/2024/10/high-school-students.jpg",
+    "credit": "PsyPost"
+   },
+   "id": "a4"
+  },
+  {
+   "sectiune": "psihoterapie",
+   "titlu": "Terapia prin acceptare și angajament a crescut activitatea în cortexul prefrontal medial la 42 de adulți cu depresie, față de lista de așteptare",
+   "rezumat": "Un studiu randomizat mic din Coreea de Sud a asociat opt săptămâni de ACT în grup cu scăderea simptomelor și cu schimbări în regiuni cerebrale implicate în reglarea emoțiilor.",
+   "text": "Cercetători de la Universitatea Națională Kyungpook din Coreea de Sud au randomizat 42 de adulți cu tulburare depresivă majoră la opt săptămâni de terapie prin acceptare și angajament (ACT) în grup sau la listă de așteptare, câte 21 în fiecare grup. La început și la sfârșit, participanții au făcut evaluări clinice și RMN funcțional în timpul unei sarcini care provoca „fuziune cognitivă”, adică lipirea de gânduri negative: citeau afirmații negative despre persoane apropiate și despre cunoscuți neutri. Majoritatea au continuat antidepresivele prescrise. Studiul a apărut în Brain Imaging and Behavior.\n\nGrupul ACT a raportat mai puține simptome depresive, mai puțină fuziune cognitivă și mai puțină evitare experiențială decât la început; PsyPost nu dă scoruri, mărimi de efect sau valori P. La sarcina din scaner, aceste persoane au evaluat emoția drept mai puțin intensă și au reacționat mai repede la enunțurile negative, în timp ce lista de așteptare a rămas relativ neschimbată.\n\nÎn imagistică, grupul ACT a arătat activare crescută în cortexul prefrontal medial și în cortexul cingulat anterior, regiuni adesea subactive în depresie în timpul sarcinilor emoționale. Activitatea mai mare era asociată cu mai puține simptome depresive și gânduri obsesive. A crescut și conectivitatea dintre cortexul prefrontal medial și cortexul cingulat posterior, parte din rețeaua modului implicit, iar conectivitatea mai puternică s-a corelat cu mai puțină ruminație.",
+   "de_ce_conteaza": "Eșantionul este mic, comparatorul este lista de așteptare, deci nu se poate spune dacă schimbările sunt specifice ACT; medicația a continuat, iar efectele au fost măsurate doar imediat după program.",
+   "loc": "Coreea de Sud",
+   "sursa": {
+    "nume": "PsyPost",
+    "url": "https://www.psypost.org/how-acceptance-and-commitment-therapy-alters-brain-activity-to-reduce-depression/",
+    "data": "2026-11-19"
+   },
+   "alte_surse": [],
+   "trimiteri": [
+    {
+     "titlu": "Articolul original din Brain Imaging and Behavior (DOI)",
+     "url": "https://doi.org/10.1007/s11682-026-01166-2"
+    }
+   ],
+   "imagine": {
+    "url": "https://www.psypost.org/wp-content/uploads/2024/03/brain-scans.jpg",
+    "credit": "PsyPost"
+   },
+   "id": "a5"
+  },
+  {
+   "sectiune": "psihoterapie",
+   "titlu": "MBCT adăugat la citalopram a modificat activitatea EEG la 66 de femei cu depresie; scorul BDI-II a scăzut de la 28 la 11,6",
+   "rezumat": "Un studiu randomizat din Iran a comparat citalopramul singur cu citalopram plus opt săptămâni de terapie cognitivă bazată pe mindfulness și a măsurat și undele cerebrale.",
+   "text": "În Mindfulness a apărut un studiu randomizat realizat la Universitatea Ferdowsi din Mashhad, Iran, pe 66 de femei cu tulburare depresivă majoră recrutate din clinici de psihiatrie. Toate au primit citalopram în doză standard. Un grup a avut doar monitorizare psihiatrică obișnuită; celălalt a urmat în plus opt săptămâni de terapie cognitivă bazată pe mindfulness (MBCT), cu ședințe de grup săptămânale de două ore conduse de psihoterapeuți autorizați și meditație zilnică acasă, cu înregistrări audio. Relatarea nu dă mărimea celor două grupuri.\n\nDepresia a fost măsurată cu Beck Depression Inventory-II. La început, ambele grupuri aveau în medie aproximativ 28 de puncte. După opt săptămâni, scorul a scăzut la aproximativ 13 în grupul cu medicație singură și la aproximativ 11,6 în grupul cu MBCT. Autorii descriu beneficiul adăugat drept robust, dar relatarea nu raportează teste statistice, valori P sau mărimi de efect.\n\nActivitatea electrică corticală a fost înregistrată cu ochii închiși și localizată cu tomografie electromagnetică de rezoluție joasă. În grupul MBCT a scăzut activitatea theta într-o zonă corespunzătoare probabil insulei stângi și a crescut activitatea alfa superioară în mai multe regiuni frontale și parietale drepte, interpretată de autori ca o posibilă calmare a răspunsurilor emoționale exagerate, precum și activitatea beta joasă într-o zonă asociată cu insula stângă.",
+   "de_ce_conteaza": "EEG cu doar 19 electrozi permite identificări doar probabile ale regiunilor; studiul nu a avut participanți orbiți, a inclus numai femei, s-a bazat pe autoevaluare și nu a avut urmărire pe termen lung.",
+   "loc": "Iran (Universitatea Ferdowsi din Mashhad)",
+   "sursa": {
+    "nume": "PsyPost",
+    "url": "https://www.psypost.org/mindfulness-therapy-alters-brain-waves-in-major-depressive-disorder/",
+    "data": "2026-11-19"
+   },
+   "alte_surse": [],
+   "trimiteri": [
+    {
+     "titlu": "Articolul original din Mindfulness (DOI)",
+     "url": "https://doi.org/10.1007/s12671-026-02895-7"
+    }
+   ],
+   "imagine": {
+    "url": "https://www.psypost.org/wp-content/uploads/2025/09/meditation-1.jpg",
+    "credit": "PsyPost"
+   },
+   "id": "a6"
+  },
+  {
+   "sectiune": "psihologie",
+   "titlu": "Elevii italieni care s-au înscris pe rețele sociale în clasa a șasea au rămas în urmă la italiană și matematică, pe 5.227 de elevi",
+   "rezumat": "Un studiu din Nature Human Behaviour, cu potrivire pe origine socială și rezultate anterioare, a găsit diferențe de 0,18–0,27 abateri standard, dar nu poate dovedi cauzalitatea.",
+   "text": "În Nature Human Behaviour, Marco Gui (Universitatea Milano-Bicocca) și colegii au analizat date din Lombardia despre 5.227 de elevi născuți în 2007 sau 2008. Vârsta primului cont pe o rețea socială a fost raportată retrospectiv de 6.609 elevi din clasele 10–11 și a fost corelată cu rezultatele la testele standardizate INVALSI. Cei care și-au deschis un cont în clasele 6–8 au fost potriviți cu elevi care au așteptat până în clasa a noua sau mai târziu, după mediul familial, folosirea anterioară a tehnologiei și rezultatele din clasa a cincea; evoluția a fost analizată prin diferență-în-diferențe. Preînregistrarea nu este menționată.\n\nElevii cu cont din clasa a șasea aveau, până în clasa a opta, rezultate cu aproximativ 0,22 abateri standard mai mici la italiană și 0,18 la matematică. Până în clasa a zecea, decalajul la italiană a rămas 0,22, iar cel la matematică a crescut la 0,27. Efectele au fost mai mici pentru cei care s-au înscris în clasele a șaptea și a opta, iar la engleză nu a apărut nicio legătură. Elevii cu cont timpuriu au avut și șanse mai mari să repete anul și au raportat o autoeficacitate școlară mai scăzută.\n\nO analiză exploratorie de mediere, descrisă ca asociativă, a atribuit 15–47% din legătură, după materie, gradului în care elevii își folosesc telefonul înainte de culcare, la trezire sau în timpul temelor.",
+   "de_ce_conteaza": "Studiul nu este un experiment: datele privind vârsta sunt retrospective, factorii neobservați pot explica o parte din diferențe, iar PsyPost notează că, după criteriile obișnuite din psihologie, mărimile sunt mici.",
+   "loc": "Italia (Lombardia)",
+   "sursa": {
+    "nume": "PsyPost",
+    "url": "https://www.psypost.org/the-earlier-kids-join-social-media-the-lower-their-test-scores-tend-to-be-study-finds/",
+    "data": "2026-11-20"
+   },
+   "alte_surse": [],
+   "trimiteri": [
+    {
+     "titlu": "Articolul original din Nature Human Behaviour (DOI)",
+     "url": "https://doi.org/10.1038/s41562-026-02522-4"
+    }
+   ],
+   "imagine": {
+    "url": "https://www.psypost.org/wp-content/uploads/2025/01/teen-with-smartphone.jpg",
+    "credit": "PsyPost"
+   },
+   "id": "a7"
+  },
+  {
+   "sectiune": "psihologie",
+   "titlu": "Reanaliza experimentelor cu LSD ale lui Janiger: picturile devin mai abstracte, dar nu mai creative, la 20 de artiști",
+   "rezumat": "Judecători orbiți au evaluat 140 de lucrări și au găsit o creștere a abstracției cu 0,80 puncte standardizate, dar nicio diferență sigură la creativitate.",
+   "text": "Mathilde Firmin, Baptiste Barbot (UCLouvain) și colegii au reanalizat, în Psychology of Aesthetics, Creativity, and the Arts, studiile psihiatrului Oscar Janiger, care a dat LSD la peste 900 de adulți în Los Angeles între 1954 și 1962. Raportul din 1989 concluzionase că lucrările făcute sub LSD au fost mai abstracte, mai plăcute și mai creative, dar folosise tablouri alese de cercetători și un singur evaluator care cunoștea scopul studiului.\n\nEchipa a păstrat 140 de lucrări ale 20 de artiști profesioniști (din 250 inițiale; 110 au fost excluse pentru că artistul, data sau momentul față de doză nu puteau fi verificate): 33 de lucrări de bază și 107 realizate sub LSD, la 2,5 µg/kg. Șase judecători din SUA, Marea Britanie și Belgia, orbiți față de condiție, au evaluat imaginile pe creativitate, atractivitate estetică, calitate tehnică și abstracție, în total 3.360 de evaluări. Datele și codul sunt deschise pe Open Science Framework.\n\nSingura dimensiune cu schimbare fiabilă a fost abstracția, în creștere cu 0,80 puncte standardizate; fiabilitatea între evaluatori a fost 0,92. Creativitatea, atractivitatea estetică și calitatea tehnică nu au diferit semnificativ, cu efecte neglijabile sau foarte mici, în direcția așteptată. Autorii spun că LSD este asociat cu mai multă abstracție, nu că a dovedit un efect cauzal.",
+   "de_ce_conteaza": "Nu a existat grup placebo, iar lucrările de bază au fost făcute mereu înainte de LSD; eșantionul este mic. Autorii cer studii moderne, controlate cu placebo.",
+   "loc": "Belgia (UCLouvain) și Statele Unite (arhive Janiger)",
+   "sursa": {
+    "nume": "PsyPost",
+    "url": "https://www.psypost.org/reanalysis-of-1950s-lsd-experiments-challenges-the-idea-that-psychedelics-make-art-more-creative/",
+    "data": "2026-11-19"
+   },
+   "alte_surse": [],
+   "trimiteri": [
+    {
+     "titlu": "Articolul original (DOI)",
+     "url": "https://doi.org/10.1037/aca0000892"
+    }
+   ],
+   "imagine": {
+    "url": "https://www.psypost.org/wp-content/uploads/2025/07/psychedelic-heads.jpg",
+    "credit": "PsyPost"
+   },
+   "id": "a8"
+  },
+  {
+   "sectiune": "psihologie",
+   "titlu": "Somnul redus la 5,5 ore scade cu aproximativ 4% cât de frumoase și plăcute sunt picturile abstracte, la 68 de studenți",
+   "rezumat": "Un studiu de laborator încrucișat, în Journal of Sleep Research, a asociat două nopți scurte cu apreciere estetică mai mică, mediată de somnolență și dispoziție.",
+   "text": "Un studiu publicat în Journal of Sleep Research, condus de echipa lui Michael Scullin de la Universitatea Baylor, a testat dacă lipsa de somn schimbă modul în care oamenii percep arta. Au fost 68 de studenți (18–22 de ani) care au completat protocolul, în două sejururi de trei nopți în laborator, în ordine randomizată: nouă ore în pat sau 5,5 ore. Somnul măsurat a fost în medie 8,04 ore în condiția odihnită și 5,19 ore în cea restrânsă. Studiul nu a fost preînregistrat; datele și materialele sunt publice.\n\nDupă a doua noapte, la 7:00, participanții au evaluat emoțiile și somnolența, apoi au privit 12 picturi abstracte câte 15 secunde. Sub restricție de somn, aprecierea a fost 4,33 față de 4,53 (pe scala de la 1 la 7), iar frumusețea 4,33 față de 4,51, diferențe semnificative. Culoarea, creativitatea, priceperea percepută și încadrarea lucrării între amatori și profesioniști nu au diferit semnificativ.\n\nPicturile erau însoțite de nume fictive de artiști care sugerau rasa și genul; ratingurile nu au variat după acestea, iar analizele bayesiene au susținut lipsa unui efect. Analizele de mediere, exploratorii, au indicat că atât alerta, cât și emoțiile pozitive au mediat în întregime efectul asupra aprecierii, iar alerta a mediat efectul asupra frumuseții.",
+   "de_ce_conteaza": "Eșantionul e format din studenți sănătoși, într-un laborator, cu un singur stil de artă văzut pe ecran; nu s-a aplicat corecție formală pentru comparații multiple pe scale, deci replicarea contează.",
+   "loc": "Statele Unite (Baylor University)",
+   "sursa": {
+    "nume": "PsyPost",
+    "url": "https://www.psypost.org/mild-sleep-loss-can-dull-how-much-people-enjoy-art-and-perceive-beauty/",
+    "data": "2026-11-20"
+   },
+   "alte_surse": [],
+   "trimiteri": [
+    {
+     "titlu": "Articolul original din Journal of Sleep Research (DOI)",
+     "url": "https://doi.org/10.1111/jsr.70451"
+    },
+    {
+     "titlu": "Meta-analiză din 2023 a 154 de studii experimentale despre somn",
+     "url": "https://doi.org/10.1037/bul0000410"
+    }
+   ],
+   "imagine": {
+    "url": "https://www.psypost.org/wp-content/uploads/2026/11/tired-young-woman.jpg",
+    "credit": "PsyPost"
+   },
+   "id": "a9"
+  },
+  {
+   "sectiune": "medicina",
+   "titlu": "Retatrutida a redus durerea de genunchi cu cel puțin 50% la aproximativ două treimi dintre pacienți, în două studii de fază 3",
+   "rezumat": "Rezultatele TRIUMPH-4 și TRIUMPH-1-OA, publicate în NEJM pe 8 noiembrie, vizează adulți cu artroză de genunchi dureroasă și obezitate.",
+   "text": "Retatrutida, un medicament experimental injectabil săptămânal produs de Eli Lilly, activează receptorii a trei hormoni naturali, spre deosebire de semaglutidă și tirzepatidă. Într-un articol din New England Journal of Medicine, publicat pe 8 noiembrie, și în prezentări la congresul Colegiului American de Reumatologie din Orlando, au fost raportate două studii de fază 3, TRIUMPH-4 și TRIUMPH-1-OA, pe adulți cu durere de genunchi din artroză și obezitate. Participanții au fost peste 1.000 în total; relatarea nu dă numere separate sau datele de desfășurare. Cercetătorii de la Northwestern University, printre care Thomas Schnitzer, sunt autorii corespondenți, iar oameni de știință de la Lilly sunt coautori.\n\nLa doza cea mai mare, participanții au pierdut în medie aproximativ 25% din greutate; intervalul pentru toate dozele a fost 20–25%. Durerea a fost măsurată cu indicele WOMAC Pain, de la 0 la 10, atât la vizite, cât și zilnic într-o aplicație. În analiza reunită, aproximativ două treimi dintre pacienții cu retatrutidă au avut o reducere a durerii de cel puțin 50%, față de 38% sub placebo. Au scăzut și tensiunea arterială, lipidele din sânge și inflamația generalizată.\n\nRelatarea nu dă reacții adverse specifice acestor studii. Medicamentul nu este aprobat.",
+   "de_ce_conteaza": "Nu se știe dacă retatrutida încetinește progresia artrozei sau reduce nevoia de proteză, ce parte a efectului vine din pierderea în greutate și nici dacă ajută pacienți fără obezitate, care nu au fost studiați.",
+   "loc": "Statele Unite (Northwestern University; congres la Orlando)",
+   "sursa": {
+    "nume": "ScienceDaily",
+    "url": "https://www.sciencedaily.com/releases/2026/11/261118065534.htm",
+    "data": "2026-11-19"
+   },
+   "alte_surse": [],
+   "trimiteri": [
+    {
+     "titlu": "Comunicatul Northwestern despre studii",
+     "url": "https://news.northwestern.edu/stories/2026/11/experimental-weight-loss-drug-eases-painful-knee-osteoarthritis-in-two-clinical-trials"
+    }
+   ],
+   "imagine": {
+    "url": "https://www.sciencedaily.com/images/1920/knee-joint-cartilage-injury-arthritis-damage.webp",
+    "credit": "ScienceDaily"
+   },
+   "id": "a10"
+  },
+  {
+   "sectiune": "medicina",
+   "titlu": "Frecvența exercițiului prezice mai bine anxietatea și depresia peste un an decât intensitatea, într-un studiu pe 10.460 de studenți din Norvegia",
+   "rezumat": "Datele SHoT arată că riscul de tulburări mentale uzuale scade pe măsură ce crește exercițiul săptămânal, până la aproximativ 10 ore; studiul este observațional.",
+   "text": "În PLOS One, Michael Grasdalsmoen, Børge Sivertsen și colegii au analizat studiul național SHoT, un studiu prospectiv pe 10.460 de studenți cu normă întreagă din Norvegia, cu vârste de 18–35 de ani. La început, studenții au completat chestionare despre frecvența, intensitatea, durata și orele active săptămânale; după un an au făcut o evaluare diagnostică autoadministrată pentru tulburări mentale uzuale.\n\nActivitatea fizică mai scăzută la început a fost asociată cu o probabilitate mai mare de a îndeplini criteriile pentru anxietate sau depresie un an mai târziu. Frecvența exercițiului a fost factorul cel mai constant, mai fiabil legat de sănătatea mintală ulterioară decât intensitatea sau durata. La femei, intensitatea mai mică a fost asociată cu mai multă anxietate și depresie; la bărbați, mai puține ore active pe săptămână au arătat o asociere mai puternică. Riscul a scăzut pe măsură ce creștea numărul de ore de exercițiu, până la aproximativ 10 ore pe săptămână. Autorii notează că rezultatele sunt compatibile cu recomandarea OMS de cel puțin 150 de minute pe săptămână de activitate moderată-viguroasă.\n\nRelatarea ScienceDaily nu raportează procente, rapoarte de șanse sau intervale de încredere. Studiul a fost finanțat de ministerele norvegiene ale Educației și ale Sănătății.",
+   "de_ce_conteaza": "Studiul este observațional și nu dovedește că exercițiul a prevenit depresia sau anxietatea; exercițiul a fost raportat prin chestionar, iar rezultatul prin autoevaluare, nu prin interviu clinic.",
+   "loc": "Norvegia",
+   "sursa": {
+    "nume": "ScienceDaily",
+    "url": "https://www.sciencedaily.com/releases/2026/11/261119194601.htm",
+    "data": "2026-11-20"
+   },
+   "alte_surse": [],
+   "trimiteri": [
+    {
+     "titlu": "Articolul original din PLOS One (DOI)",
+     "url": "https://doi.org/10.1371/journal.pone.0353787"
+    }
+   ],
+   "imagine": {
+    "url": "https://www.sciencedaily.com/images/1920/happy-young-woman-sports-fitness-on-beach.webp",
+    "credit": "ScienceDaily"
+   },
+   "id": "a11"
+  },
+  {
+   "sectiune": "stiinta",
+   "titlu": "Telescopul MIXS al misiunii BepiColombo a observat Nebuloasa Crabului după opt ani de zbor, înainte de intrarea pe orbită în jurul lui Mercur",
+   "rezumat": "Instrumentul britanic, primul telescop cu imagistică în raze X pe o misiune planetară, a fost calibrat pe 11–12 septembrie; sonda este programată să intre pe orbita lui Mercur pe 21 noiembrie.",
+   "text": "Mercury Imaging X-ray Spectrometer (MIXS), construit în Marea Britanie, este descris drept primul telescop cu imagistică în raze X dintr-o misiune de științe planetare. Se află la bordul orbiterului MPO al misiunii BepiColombo, comune ESA și JAXA, care a călătorit aproximativ opt ani și 10 miliarde de km spre Mercur. MIXS nu a putut privi spațiul până în septembrie, când modulul de transfer a fost separat de orbiterele științifice.\n\nPe 11–12 septembrie, echipa a observat Nebuloasa Crabului, la aproximativ 6.500 de ani-lumină, timp de 39 de ore, cu 55 de schimbări controlate de orientare a navei. Crabul este o rămășiță de supernovă bine studiată, cu semnal X puternic și previzibil, deci servește drept referință de calibrare. Rezoluția unghiulară a ieșit puțin mai bună decât în testele de laborator din 2015. Echipa nu a găsit lumină parazită, a putut filtra efectele razelor cosmice galactice și nu a detectat deteriorări prin radiații ale detectorului; a observat o oarecare autofluorescență provocată de lumina Soarelui pe optică, despre care spune că nu ar trebui să afecteze observațiile pe partea luminată.\n\nPe Mercur, MIXS va detecta razele X fluorescente de la suprafață, pentru a cartografia compoziția elementară fără probe fizice, iar spectrometrul SIXS va măsura aportul solar care provoacă fluorescența. Intrarea pe orbită este programată pe 21 noiembrie, separarea MPO de Mio pe 9–10 decembrie, iar faza principală de știință în aprilie 2027. Printre cei menționați sunt Emma Bunce și Adrian Martindale, de la Universitatea din Leicester.",
+   "de_ce_conteaza": "Observația pe Nebuloasa Crabului este o verificare a instrumentului, nu un rezultat științific despre Mercur; datele despre compoziția planetei vor veni abia după începerea fazei principale.",
+   "loc": "Marea Britanie (Universitatea din Leicester); Mercur",
+   "sursa": {
+    "nume": "ScienceDaily",
+    "url": "https://www.sciencedaily.com/releases/2026/11/261120075547.htm",
+    "data": "2026-11-20"
+   },
+   "alte_surse": [],
+   "trimiteri": [
+    {
+     "titlu": "ScienceDaily: știri de astronomie",
+     "url": "https://www.sciencedaily.com/news/space_time/astronomy"
+    }
+   ],
+   "imagine": {
+    "url": "https://www.sciencedaily.com/images/1920/bepicolombo-spacecraft-approaching-mercury.webp",
+    "credit": "ScienceDaily"
+   },
+   "id": "a12"
+  },
+  {
+   "sectiune": "stiinta",
+   "titlu": "Copilul din Taung, vechi de aproximativ 3 milioane de ani, sugerează că fosilele grupate în Australopithecus africanus aparțin mai multor specii",
+   "rezumat": "Un studiu al tipului de dezvoltare dentară și cerebrală, condus de Gabriele Macho, pune sub semnul întrebării încadrarea fosilelor din regiunea Sterkfontein.",
+   "text": "Copilul din Taung, descoperit în Africa de Sud în 1924, este exemplarul-tip al speciei Australopithecus africanus și are 2,96–3,03 milioane de ani. Un studiu publicat în 2026 în npj Palaeoecosystems, condus de Gabriele A. Macho de la Vrije Universiteit Brussel, a comparat structura dinților și tiparele de dezvoltare dentară și cerebrală ale copilului cu alte fosile atribuite aceleiași specii.\n\nAutorii susțin că mai multe fosile adulte încadrate de obicei la A. africanus au tipare de dezvoltare diferite de cele ale copilului din Taung. Potrivit relatării, copilul din Taung este singura fosilă care poate fi identificată cu certitudine drept A. africanus; alte fosile au fost grupate în specie fără criterii clare. Diferențele de dezvoltare cerebrală ar putea indica mai multe specii de hominini în regiunea Sterkfontein, coexistente sau trăind în perioade diferite.\n\nEchipa leagă diversitatea de schimbările climatice: fazele repetate mai umede și mai uscate din sudul Africii au izolat și reconectat populații, iar unele grupuri ar fi putut încrucișa. Polenul fosil arată că regiunea era mai umedă și mai împădurită decât azi, cu specii de arbori întâlnite acum la sute de kilometri spre nord-est. Relatarea nu dă mărimi de eșantion sau alte statistici.\n\nRelatarea ScienceDaily numește în corp revista Nature, dar referința din pagină indică npj Palaeoecosystems; aici se urmează referința.",
+   "de_ce_conteaza": "Concluzia este o interpretare a unor serii de fosile puține, nu o redefinire acceptată a taxonomiei; clasificarea speciilor va depinde de verificări independente.",
+   "loc": "Africa de Sud (Taung, Sterkfontein); Belgia (Vrije Universiteit Brussel)",
+   "sursa": {
+    "nume": "ScienceDaily",
+    "url": "https://www.sciencedaily.com/releases/2026/11/261118065531.htm",
+    "data": "2026-11-19"
+   },
+   "alte_surse": [],
+   "trimiteri": [
+    {
+     "titlu": "Studiul original (DOI)",
+     "url": "https://doi.org/10.1038/s44513-026-00008-2"
+    }
+   ],
+   "imagine": {
+    "url": "https://www.sciencedaily.com/images/1920/taung-child.webp",
+    "credit": "ScienceDaily"
+   },
+   "id": "a13"
+  },
+  {
+   "sectiune": "arta",
+   "titlu": "Conservarea „Capelei Sixtine a Anzilor”, biserica din Curahuara de Carangas, Bolivia, se apropie de final",
+   "rezumat": "Lucrările la acoperișuri, contraforturi și picturile murale din 1777, finanțate de Departamentul de Stat al SUA, au fost amânate cu o lună din cauza blocajelor rutiere.",
+   "text": "Biserica Santiago de Curahuara de Carangas, la aproape 4.000 m altitudine și aproximativ 170 km vest de Oruro, în Bolivia, este numită „Capela Sixtină a Anzilor”. Declarată monument național în 1960, a fost construită de augustini la sfârșitul secolului al XVI-lea și începutul celui de-al XVII-lea; frescele, executate cu coloranți naturali, au fost terminate în 1777. Ele înfățișează Nașterea, Cina cea de Taină, Răstignirea și Judecata de Apoi, într-un amestec de sincretism religios cu stiluri de la manierism la barocul secolului al XVIII-lea.\n\nProiectul de conservare, început în mai 2026, cuprinde acoperișurile, contraforturile de piatră, pereții de chirpici și picturile murale. Acoperișurile, de 800 m², fuseseră refăcute la o restaurare anterioară cu tablă ondulată; acum secțiunile deteriorate sunt înlocuite printr-o metodă locală, cu paie așezate pe rogojini de trestie goală, adusă tocmai din Tarija, fiindcă în înalțimile Anzilor este rară. Finanțarea vine de la Fondul Ambasadorilor pentru Conservare Culturală (AFCP) al Departamentului de Stat al SUA, care a finanțat peste 30 de proiecte în Bolivia din 2001. Arhitecta responsabilă este Josefina Matas.\n\nProtestele care au blocat drumurile în mai și iunie au întârziat livrarea materialelor și au mutat finalul de la sfârșitul lui octombrie la sfârșitul lui noiembrie. O slujbă de celebrare cu episcopul de Oruro și nunțiul apostolic este programată pe 15 decembrie. Costul proiectului nu este precizat.",
+   "de_ce_conteaza": "Un exemplu de patrimoniu rural din Anzi salvat cu tehnici locale; calendarul arată cât de fragilă este logistica într-o zonă izolată.",
+   "loc": "Bolivia (Anzi, departamentul Oruro)",
+   "sursa": {
+    "nume": "The Art Newspaper",
+    "url": "https://www.theartnewspaper.com/2026/11/20/bolivia-church-sistine-chapel-andes-conservation-nearly-complete",
+    "data": "2026-11-20"
+   },
+   "alte_surse": [],
+   "trimiteri": [
+    {
+     "titlu": "Fotografia bisericii (US Embassy in Bolivia, prin The Art Newspaper)",
+     "url": "https://cdn.sanity.io/images/cxgd3urn/production/68c7a0c06c2861d5b6a3dab2f7705445cd98fd14-1400x933.jpg"
+    },
+    {
+     "titlu": "The Art Newspaper: Ethiopian artefacts restituted",
+     "url": "https://www.theartnewspaper.com/2026/11/20/five-ethiopian-artefacts-restituted-in-london-ceremony"
+    }
+   ],
+   "imagine": {
+    "url": "https://cdn.sanity.io/images/cxgd3urn/production/68c7a0c06c2861d5b6a3dab2f7705445cd98fd14-1400x933.jpg?rect=0,47,1400,840&w=1200&h=720&q=85&fit=crop&auto=format",
+    "credit": "The Art Newspaper"
+   },
+   "id": "a14"
+  },
+  {
+   "sectiune": "arta",
+   "titlu": "Cinci obiecte etiopiene, două manuscrise din secolul al XV-lea și trei cruci procesionale, au fost restituite la Londra",
+   "rezumat": "Colecționarul Robert McCarthy le-a returnat Autorității Etiopiene a Patrimoniului; muzeul din Toledo va primi și va restitui treptat restul colecției sale de 375 de obiecte.",
+   "text": "Pe 18 noiembrie, la ambasada Etiopiei din Londra, colecționarul american Robert McCarthy a returnat Autorității Etiopiene a Patrimoniului cinci obiecte despre care se crede că au fost scoase necorespunzător din biserici: două manuscrise iluminate din secolul al XV-lea și trei cruci procesionale din alamă. Un manuscris, Cartea Apocalipsei cu Horologium (circa 1400), are șapte ilustrații pe pagină întreagă; celălalt, un Evangheliar din mijlocul secolului al XV-lea, are imaginea celor patru evangheliști.\n\nObiectele au fost trimise direct de McCarthy, deoarece Toledo Museum of Art din Ohio a refuzat să le înregistreze: documentele sugerau că au părăsit Etiopia după convenția UNESCO din 1970. Ele merg la Muzeul Național din Addis Abeba, pentru o expoziție de restituire programată în decembrie.\n\nÎn acordul mai larg, Toledo va prelua cele 375 de obiecte etiopiene ale lui McCarthy, două treimi donate și restul cumpărate, iar o parte vor fi expuse când muzeul își redeschide galeriile în toamna lui 2027. Muzeul plănuiește să returneze mare parte din colecție în tranșe, pe 20 de ani: obiectele ieșite ilegal sau necorespunzător vor fi restituite, cele exportate corect rămân, iar cele cu statut neclar vor fi decise de comun acord cu oficialii etiopieni. Aproximativ jumătate din cele 375 ar putea fi returnate.\n\nAlula Pankhurst, de la Autoritatea Etiopiană a Patrimoniului, a numit aranjamentul „un nou model de parteneriat”. Rămâne deschisă întrebarea dacă obiectele religioase legate de locuri precise vor rămâne în muzeul național sau vor merge la Biserica Ortodoxă Etiopiană.",
+   "de_ce_conteaza": "Acordul este un model posibil pentru colecții private cu provenință neclară, dar partea cea mai mare a restituirii rămâne un plan pe 20 de ani.",
+   "loc": "Londra, Regatul Unit; Etiopia",
+   "sursa": {
+    "nume": "The Art Newspaper",
+    "url": "https://www.theartnewspaper.com/2026/11/20/five-ethiopian-artefacts-restituted-in-london-ceremony",
+    "data": "2026-11-20"
+   },
+   "alte_surse": [],
+   "trimiteri": [
+    {
+     "titlu": "The Art Newspaper: Sistine Chapel of the Andes",
+     "url": "https://www.theartnewspaper.com/2026/11/20/bolivia-church-sistine-chapel-andes-conservation-nearly-complete"
+    },
+    {
+     "titlu": "The Art Newspaper, prima pagină",
+     "url": "https://www.theartnewspaper.com/homepage"
+    }
+   ],
+   "imagine": {
+    "url": "https://cdn.sanity.io/images/cxgd3urn/production/3c229a240cc697252f673f00e5c5f26c3fd2297a-4500x3000.jpg?rect=0,150,4500,2700&w=1200&h=720&q=85&fit=crop&auto=format",
+    "credit": "The Art Newspaper"
+   },
+   "id": "a15"
+  },
+  {
+   "sectiune": "arhitectura",
+   "titlu": "Primul premiu Ambasz–MoMA pentru arhitectura reconciliată cu natura merge la Friendship Centre din Gaibandha, Bangladesh",
+   "rezumat": "Premiul de 200.000 $ este împărțit între biroul Kashef Chowdhury/URBANA și Fundación Gran Chaco, care va planta copaci în numele clientului.",
+   "text": "Muzeul de Artă Modernă din New York (MoMA) a acordat primul Premiu anual Ambasz–MoMA pentru arhitectura reconciliată cu natura, de 200.000 $, biroului din Dhaka Kashef Chowdhury/URBANA pentru Friendship Centre din Gaibandha, Bangladesh. Suma este împărțită cu Fundación Gran Chaco, organizație nonprofit din Formosa, Argentina, care va planta copaci în pădurea Gran Chaco, în numele organizației Friendship, clientul proiectului. Ceremonia are loc pe 12 decembrie la MoMA.\n\nPremiul vizează proiecte finalizate oriunde în lume în ultimii 30 de ani; au fost luate în calcul aproape 140, identificate de Institutul Ambasz și de 30 de nominalizatori. Juriul a inclus Martino Stierli și Evangelos Kotsioris de la MoMA, Shelley McNamara de la Grafton Architects și Wang Shu.\n\nFriendship Centre, construit în 2008–2011, este un centru rural de formare cu birouri, săli de curs, bibliotecă, spații de meditație, dormitoare și sală de mese, în două corpuri, în delta inundabilă a râului Jamuna. Clădirea stă pe un dig de pământ compactat, ridicat pentru protecție la inundații, are ziduri făcute mai ales din cărămidă locală, acoperișuri verzi, curți deschise și bazine de colectare a apei de ploaie legate între ele, care reglează temperatura și ventilația naturală. Planul și imaginea evocă orașul Mahasthangarh, din secolul al III-lea î.Hr., din apropiere.",
+   "de_ce_conteaza": "Un premiu nou, cu miză mare, care pune accentul pe construcții adaptate climatului și materialelor locale, nu pe clădiri spectaculoase.",
+   "loc": "Gaibandha, Bangladesh; New York, Statele Unite",
+   "sursa": {
+    "nume": "ArchDaily",
+    "url": "https://www.archdaily.com/1188667/kashef-chowdhury-urbana-receives-the-first-ambasz-moma-annual-prize-for-nature-reconciled-architecture",
+    "data": "2026-11-16"
+   },
+   "alte_surse": [],
+   "trimiteri": [
+    {
+     "titlu": "ArchDaily: This Week’s Review, 19 noiembrie",
+     "url": "https://www.archdaily.com/1188874/a-guide-to-urban-resilience-against-el-nino-and-bigs-refugee-city-masterplan-this-weeks-review"
+    },
+    {
+     "titlu": "ArchDaily: Microlibrary Taman Puring, Jakarta",
+     "url": "https://www.archdaily.com/1188561/shaus-microlibraries-initiative-expands-with-a-new-project-in-jakarta"
+    }
+   ],
+   "imagine": null,
+   "id": "a16"
+  },
+  {
+   "sectiune": "arhitectura",
+   "titlu": "Clădirea Northwestern National Life, proiectată de Minoru Yamasaki în Minneapolis, devine hotel cu 165 de camere",
+   "rezumat": "ESG Architecture & Design și Kelly Wearstler Studio lucrează pentru Proper Hospitality; construcția ar începe în toamna lui 2027, cu aprobări istorice încă necesare.",
+   "text": "Clădirea Northwestern National Life din Minneapolis, de la 20 Washington Avenue South, a fost terminată în 1965 ca sediu al companiei de asigurări cu același nume, după proiectul lui Minoru Yamasaki, autorul World Trade Center din New York. A fost folosită sub mai multe denumiri, apoi a rămas goală din 2023.\n\nProiectul, Minneapolis Proper, este un hotel cu 165 de camere operat de Proper Hospitality, cu dezvoltator CDT Realty Corp, arhitect ESG Architecture & Design și direcție creativă Kelly Wearstler Studio. Programul ocupă peste 200.000 de picioare pătrate (aproximativ 18.600 m²) pe nouă niveluri: camere, restaurante, baruri, spații de wellness și de evenimente, un restaurant și lounge pe acoperiș, o sală de bal cu terasă, un spa subteran de 15.000 de picioare pătrate cu piscină, fitness la parter și un bar subteran cu intrare separată legată de rețeaua de pasaje Skyway. Spațiile comerciale vor vinde produse făcute în Minnesota.\n\nEchipa spune că structura și compartimentarea existente se potrivesc conversiei și că o mare parte din țesătura originală poate fi păstrată; detaliile intervențiilor nu au fost publicate. Proiectul a fost prezentat prima dată în aprilie 2026. Construcția este așteptată să înceapă în toamna lui 2027, cu condiția aprobărilor istorice, iar finalizarea este vizată pentru vara lui 2029.",
+   "de_ce_conteaza": "Este un exemplu de reconversie a unui sediu corporatist modernist; planurile detaliate nu au fost publicate, iar aprobările de patrimoniu nu sunt obținute.",
+   "loc": "Minneapolis, Statele Unite",
+   "sursa": {
+    "nume": "ArchDaily",
+    "url": "https://www.archdaily.com/1188836/kelly-wearstler-studio-and-esg-architecture-lead-transformation-of-minoru-yamasakis-minneapolis-building",
+    "data": "2026-11-18"
+   },
+   "alte_surse": [],
+   "trimiteri": [
+    {
+     "titlu": "ArchDaily: This Week’s Review, 19 noiembrie",
+     "url": "https://www.archdaily.com/1188874/a-guide-to-urban-resilience-against-el-nino-and-bigs-refugee-city-masterplan-this-weeks-review"
+    },
+    {
+     "titlu": "ArchDaily: RIYMAR Towers, Riyadh",
+     "url": "https://www.archdaily.com/1188504/jswd-wins-competition-to-design-mixed-use-riymar-towers-in-riyadh-saudi-arabia"
+    }
+   ],
+   "imagine": {
+    "url": "https://images.adsttc.com/media/images/6afd/7d00/8074/f464/a9f9/3bb5/large_jpg/kelly-wearstler-studio-and-esg-architecture-lead-transformation-of-minoru-yamasakis-minneapolis-building_9.jpg?1794997513",
+    "credit": "ArchDaily"
+   },
+   "id": "a17"
+  },
+  {
+   "sectiune": "arhitectura",
+   "titlu": "CHYBÍK + KRIŠTOF va proiecta o arenă cu 5.558 de locuri și un parc public sub castelul din Nitra, Slovacia",
+   "rezumat": "Trei pavilioane ușoare păstrează vederile spre castel; lucrările sunt împărțite în cinci faze, pentru a menține hocheiul de top în oraș.",
+   "text": "Biroul CHYBÍK + KRIŠTOF din Brno a fost ales pentru a proiecta o nouă arenă multifuncțională și un parc public sub castelul din Nitra, Slovacia, monument cultural național. Clientul este orașul Nitra, iar biroul a fost unul din cinci finaliști anunțați în iunie 2026. Terenul este o bază sportivă existentă între un parc municipal renovat la Sihoť și râul Nitra.\n\nPropunerea extinde parcul vecin până la râu și închide un inel de spațiu verde în jurul centrului istoric. O piață publică orientată spre castel va găzdui adunări de fani, sport în aer liber, piețe sezoniere, expoziții, târguri, concerte și patinaj iarna. Programul stă în trei pavilioane ușoare: arena, în cel mai mare pavilion cu parter vitrat, de 5.558 de locuri; o sală de antrenament cu patinoar; și o clădire mixtă cu restaurant, hotel și sală de sport. Spațiile tehnice subterane le leagă. Scara pavilioanelor păstrează vederile spre castel.\n\nConstrucția este împărțită în cinci faze, ca hocheiul de top să rămână în oraș pe parcursul lucrărilor. Primarul a subliniat potențialul de a lega arena, râul, parcul orașului și malul opus, vizat de planurile de dezvoltare ale Nitrei. Articolul nu precizează suprafața totală, bugetul, calendarul de construcție sau numele concursului.",
+   "de_ce_conteaza": "Proiectul pune o arenă mare lângă un monument, deci contează cum rămân vederile și cum funcționează spațiul public în afara meciurilor; bugetul și calendarul nu sunt publicate.",
+   "loc": "Nitra, Slovacia",
+   "sursa": {
+    "nume": "ArchDaily",
+    "url": "https://www.archdaily.com/1188798/chybik-plus-kristof-selected-to-design-a-new-arena-and-public-park-below-nitra-castle-in-slovakia",
+    "data": "2026-11-18"
+   },
+   "alte_surse": [],
+   "trimiteri": [
+    {
+     "titlu": "ArchDaily: This Week’s Review, 19 noiembrie",
+     "url": "https://www.archdaily.com/1188874/a-guide-to-urban-resilience-against-el-nino-and-bigs-refugee-city-masterplan-this-weeks-review"
+    },
+    {
+     "titlu": "ArchDaily: pavilionul nordic la Bienala de Arhitectură Veneția 2027",
+     "url": "https://www.archdaily.com/1188736/the-nordic-pavilion-explores-traditional-craft-through-painted-matter-at-the-2027-venice-architecture-biennale"
+    }
+   ],
+   "imagine": {
+    "url": "https://images.adsttc.com/media/images/6afc/a42b/c23f/1f52/896d/78c7/large_jpg/chybik-plus-kristof-wins-international-architecture-competition-for-arena-in-nitra-slovakia_9.jpg?1794942021",
+    "credit": "ArchDaily"
+   },
+   "id": "a18"
+  },
+  {
+   "sectiune": "arhitectura",
+   "titlu": "BIG propune un plan pentru „orașe viitoare ale refugiaților” la Bidi Bidi, Uganda, pentru aproximativ 385.000 de locuitori",
+   "rezumat": "Planul ar lega zonele 1 și 2 ale așezării existente; proiectul este controversat, iar BIG spune că va construi un prototip la Bidi Bidi Performing Arts Center.",
+   "text": "Biroul Bjarke Ingels Group (BIG) a prezentat, pentru organizația to.org, un plan director numit „Refugee Future Cities” pentru Bidi Bidi, în Uganda. Potrivit rubricii ArchDaily „On the Radar”, planul ar lega Zonele 1 și 2 ale așezării existente și ar găzdui aproximativ 385.000 de oameni, adică circa 230.000 de refugiați actuali plus 155.000 de noi locuitori.\n\nProiectul pornește de la o parcelă familială de 250 m² și o extinde în complexuri și grupuri, cu cărămidă de pământ, piatră de laterit și bambus. Planul include peisaje productive, școli, servicii de sănătate, piețe, ateliere și infrastructură solară.\n\nArchDaily notează că ideea unui „oraș pentru refugiați” este controversată și că a existat critică locală la adresa implicării BIG. BIG afirmă că va construi un prototip al unității de bază la Bidi Bidi Performing Arts Center. Rubrica trimite la declarația BIG și la Bidi Bidi Performing Arts Centre, un proiect anterior din aceeași așezare, semnat de To.org cu Hassell, Localworks și Arup. Informațiile provin din rubrica ArchDaily, nu dintr-un articol dedicat: detaliile de calendar, finanțare și aprobări nu apar acolo.",
+   "de_ce_conteaza": "Este o propunere, nu o construcție; discuția despre cine decide forma unui oraș pentru refugiați este la fel de importantă ca desenele.",
+   "loc": "Bidi Bidi, Uganda",
+   "sursa": {
+    "nume": "ArchDaily",
+    "url": "https://www.archdaily.com/1188874/a-guide-to-urban-resilience-against-el-nino-and-bigs-refugee-city-masterplan-this-weeks-review",
+    "data": "2026-11-19"
+   },
+   "alte_surse": [],
+   "trimiteri": [
+    {
+     "titlu": "ArchDaily: Bidi Bidi Performing Arts Centre",
+     "url": "https://www.archdaily.com/1183881/bidi-bidi-performing-arts-centre-torg-plus-hassell-plus-localworks-plus-arup"
+    },
+    {
+     "titlu": "ArchDaily: UN-Habitat și ICPAC, ghid pentru El Niño",
+     "url": "https://www.archdaily.com/1188712/un-habitat-and-icpac-launch-a-practical-guide-to-help-cities-prepare-for-el-nino"
+    }
+   ],
+   "imagine": {
+    "url": "https://images.adsttc.com/media/images/6afe/3ccb/c23f/1f6a/4351/65bf/large_jpg/a-new-urban-resilience-guide-for-el-nino-and-bigs-refugee-city-masterplan-this-weeks-review_5.jpg?1795046616",
+    "credit": "ArchDaily"
+   },
+   "id": "a19"
+  }
+ ],
+ "versiune": "50837d41a5f5"
+}
